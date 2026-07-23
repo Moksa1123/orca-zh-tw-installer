@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   "app": {
     "recoverableError": {
       "rootTitle": "Orca 遇到渲染器錯誤。",
