@@ -17,6 +17,10 @@
     "patch"
   ],
   "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Moksa1123/orca-zh-tw-installer.git"
+  },
   "license": "MIT",
   "dependencies": {
     "@electron/asar": "^3.2.0"
