@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   "app": {
     "recoverableError": {
       "rootTitle": "Orca 遇到渲染器錯誤。",
@@ -5339,7 +5339,7 @@ export default {
           "5dae812f50": "重新整理",
           "52e640f3a0": "重新整理 CLI 狀態",
           "38edbb5721": "Shell 命令",
-          "6930feda9e": "從終端機使用 Orca 開啟應用程式、管理Worktree並與 Orca 終端機互動。",
+          "6930feda9e": "從終端機使用 Orca 開啟應用程式、管理Worktree並與 Orca CLI 互動。",
           "c5c0f2641d": "Orca CLI",
           "d77352f2df": "無法從 PATH 移除 `{{value0}}`。",
           "af5540930c": "已從 PATH 移除 `{{value0}}`。",
@@ -5360,7 +5360,7 @@ export default {
           "8a9b784c60": "過時",
           "d363e5929b": "正在檢查 CLI 註冊…",
           "cliSkillTerminalTitle": "CLI 技能設定",
-          "cliSkillTerminalAria": "CLI 技能安裝終端機"
+          "cliSkillTerminalAria": "CLI 技能安裝CLI"
         },
         "CliSkillRuntimeSetup": {
           "04325573f8": "WSL",
@@ -8988,8 +8988,8 @@ export default {
           "projectWsl": "此專案透過 WSL 執行在 {{value0}} 中。",
           "inheritedWindows": "無專案覆蓋。通用設定選擇 Windows。",
           "projectWindows": "此專案執行在 Windows 上。",
-          "liveTerminalSingular": "{{count}} 個正在執行的CLI",
-          "liveTerminalPlural": "{{count}} 個正在執行的CLI",
+          "liveTerminalSingular": "{{count}} 個正在執行的終端機",
+          "liveTerminalPlural": "{{count}} 個正在執行的終端機",
           "activeTaskSingular": "{{count}} 個活動任務",
           "activeTaskPlural": "{{count}} 個活動任務",
           "runtimeSessionJoin": "{{value0}}和{{value1}}",
@@ -9217,7 +9217,7 @@ export default {
           "usagePercentageDisplayRemaining": "剩餘"
         },
         "TerminalInteractionSection": {
-          "567633ff50": "右鍵點選將剪貼簿內容貼上到CLI。按住 Control 鍵點選以開啟上下文選單。",
+          "567633ff50": "右鍵點選將剪貼簿內容貼上到終端機。按住 Control 鍵點選以開啟上下文選單。",
           "c64497148a": "右鍵點選貼上剪貼簿內容。按住 Control 鍵點選開啟上下文選單。"
         },
         "MobileRelayStatusSection": {
@@ -10717,15 +10717,15 @@ export default {
           "35bbaf5ae0": "通知",
           "984338477a": "主題",
           "c47e1bd149": "Agent",
-          "windowsTerminalTitle": "設定 Windows CLI預設值",
-          "windowsTerminalSubtitle": "為新面板選擇預設 Shell，以及CLI中右鍵單擊的行為。"
+          "windowsTerminalTitle": "設定 Windows 終端機預設值",
+          "windowsTerminalSubtitle": "為新面板選擇預設 Shell，以及終端機中右鍵單擊的行為。"
         },
         "OnboardingFooter": {
           "ba58547306": "返回",
           "111d3f8d92": "跳至專案設定"
         },
         "OnboardingInlineCommandTerminal": {
-          "4123609efd": "啟動CLI..."
+          "4123609efd": "啟動終端機..."
         },
         "OnboardingSkipConfirmationDialog": {
           "9f47f345a4": "不會花很長時間的！",
@@ -10803,20 +10803,20 @@ export default {
           "powerShellPwsh": "在可用時使用 PowerShell 7+，否則回退到 Windows PowerShell。",
           "powerShellInbox": "使用每個受支援的 Windows 安裝中都提供的 Windows PowerShell。",
           "commandPrompt": "命令提示符",
-          "commandPromptDescription": "以經典 cmd.exe 行為開啟新的CLI面板。",
+          "commandPromptDescription": "以經典 cmd.exe 行為開啟新的終端機面板。",
           "gitBash": "Git Bash",
           "gitBashDescription": "使用 Git for Windows 的 bash.exe 進行 Unix 風格的 shell 工作流。",
           "gitBashUnavailable": "已選擇，但此電腦未檢測到 Git Bash。",
           "wsl": "WSL",
-          "wslDescription": "在 Windows Subsystem for Linux 的預設環境中啟動新的CLI面板。",
+          "wslDescription": "在 Windows Subsystem for Linux 的預設環境中啟動新的終端機面板。",
           "wslUnavailable": "已選擇，但此電腦未檢測到 WSL。",
           "rightClickPaste": "右鍵單擊時貼上",
           "rightClickPasteDescription": "右鍵單擊會貼上剪貼簿內容。Ctrl+右鍵單擊會開啟上下文選單。",
           "rightClickMenu": "開啟上下文選單",
           "rightClickMenuDescription": "右鍵單擊會開啟CLI選單。可從選單或鍵盤貼上。",
-          "loading": "正在載入CLI設定...",
+          "loading": "正在載入終端機設定...",
           "defaultShell": "預設 Shell",
-          "defaultShellDescription": "選擇 Orca 在新的 Windows CLI面板中開啟的 shell。",
+          "defaultShellDescription": "選擇 Orca 在新的 Windows 終端機面板中開啟的 shell。",
           "wslDistribution": "WSL 發行版",
           "wslDistributionDescription": "使用 Windows 預設發行版，或選擇一個已安裝的特定發行版。",
           "loadingDistros": "正在載入發行版",
@@ -11023,7 +11023,7 @@ export default {
             "fa22927f13": "貼上",
             "985373052e": "切換到手機模式",
             "58a9ee6003": "工具呼叫格式化。接下來要我新增差異嗎？",
-            "aa64b519c6": "CLI螢幕。Tokyonight 配色，Menlo，真實 Claude",
+            "aa64b519c6": "終端機螢幕。Tokyonight 配色，Menlo，真實 Claude",
             "e75112c834": "我已經用高保真幻燈片取代了配對掃描幻燈片",
             "3ce3e8c892": "14 次透過，1 次跳過（1.8 秒）",
             "4b3666f9a9": "src/cache/worktree-cache.test.ts",
@@ -11031,7 +11031,7 @@ export default {
             "d39445686a": "src/transport/host-store.test.ts",
             "a6e7cdc688": "pnpm 測試 -- 搜尋手機裝置",
             "21b67dfc92": "Bash",
-            "d6d1041a1c": "⎿ 用CLI工作階段取代配對掃描幻燈片",
+            "d6d1041a1c": "⎿ 用終端機工作階段取代配對掃描幻燈片",
             "336c0e070e": "手機/orca-mobile-sidebar-mock-v3.html",
             "6d4ebd5833": "編輯",
             "fc83e0d5ef": "⎿ 閱讀2103行",
@@ -11043,7 +11043,7 @@ export default {
             "e4befee569": "Shell",
             "606aa93192": "檔案",
             "94febb0976": "源頭控制",
-            "8d6516312d": "2 個CLI · Claude 活躍",
+            "8d6516312d": "2 個終端機 · Claude 活躍",
             "8432787c4e": "壯舉/手機頁面",
             "8fd998acd3": "返回"
           },
@@ -11129,7 +11129,7 @@ export default {
             "8b07759314": "新瀏覽器",
             "88ffb502e5": "開啟 Markdown 筆記",
             "629528690b": "新的 Markdown 筆記",
-            "3215fc73e9": "新CLI",
+            "3215fc73e9": "新終端機",
             "da508bd7f5": "儲存",
             "918c2139f3": "不儲存",
             "e7bf09d4d4": "取消",
@@ -11142,7 +11142,7 @@ export default {
             "8b14ba6c17": "新瀏覽器選項卡",
             "b085fb58b5": "該檔案有未儲存的更改。",
             "5ddc688c52": "“{{value0}}”有未儲存的更改。您想在關閉前儲存嗎？",
-            "25d7817f79": "CLI"
+            "25d7817f79": "終端機"
           },
           "FloatingTerminalToggleButton": {
             "3b04b065b5": "顯示浮動工作區",
@@ -12507,8 +12507,8 @@ export default {
                 "newMark": "新標記",
                 "newFile": "新檔案",
                 "markdownFile": "Markdown",
-                "newTerminal": "新CLI",
-                "newTerminalTab": "新的CLI選項卡",
+                "newTerminal": "新終端機",
+                "newTerminalTab": "新的終端機選項卡",
                 "newShell": "新shell",
                 "terminalTab": "CLI選項卡",
                 "createWorktree": "建立Worktree",
@@ -13551,7 +13551,7 @@ export default {
       },
       "jumpToLatest": "跳到最新訊息",
       "toggle": {
-        "showTerminal": "顯示CLI",
+        "showTerminal": "顯示終端機",
         "showChat": "顯示聊天檢視"
       },
       "state": {
@@ -13601,7 +13601,7 @@ export default {
     "tab": {
       "bar": {
         "SortableTabContextMenu": {
-          "switchToTerminalView": "切換到CLI檢視",
+          "switchToTerminalView": "切換到終端機檢視",
           "switchToChatView": "切換到聊天檢視"
         }
       }
