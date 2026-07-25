@@ -15,7 +15,10 @@
     "dry-run": "node index.js --dry-run",
     "ref:es": "node scripts/extract-reference-locale.js es",
     "audit:ref": "node scripts/extract-reference-locale.js es > .ref-es.json && node scripts/audit-vs-reference.js .ref-es.json",
-    "audit:identifiers": "node scripts/extract-reference-locale.js es > .ref-es.json && node scripts/extract-reference-locale.js ja > .ref-ja.json && node scripts/extract-reference-locale.js ko > .ref-ko.json && node scripts/audit-identifiers.js ."
+    "audit:identifiers": "node scripts/extract-reference-locale.js es > .ref-es.json && node scripts/extract-reference-locale.js ja > .ref-ja.json && node scripts/extract-reference-locale.js ko > .ref-ko.json && node scripts/audit-identifiers.js .",
+    "ref:all": "node scripts/extract-reference-locale.js es > .ref-es.json && node scripts/extract-reference-locale.js ja > .ref-ja.json && node scripts/extract-reference-locale.js ko > .ref-ko.json",
+    "audit:plural": "npm run ref:all && node scripts/audit-plural-placeholder.js --dir .",
+    "show": "node scripts/show-multilang.js"
   },
   "keywords": [
     "orca",

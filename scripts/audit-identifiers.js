@@ -6,7 +6,7 @@ const T = process.argv[2] || '.';
 const P = require('path').join(__dirname,'..','orca_zh_TW_translation.json');
 
 const L = {};
-for (const l of ['es', 'ja', 'ko']) L[l] = JSON.parse(fs.readFileSync(`${T}/ref-${l}.json`, 'utf8'));
+for (const l of ['es', 'ja', 'ko']) L[l] = JSON.parse(fs.readFileSync(`${T}/.ref-${l}.json`, 'utf8'));
 const raw = fs.readFileSync(P, 'utf8');
 const EOL = raw.includes('\r\n') ? '\r\n' : '\n';
 const j = JSON.parse(raw);
@@ -25,12 +25,18 @@ const isIdentifier = s => {
       || /^[A-Za-z0-9_.\/-]+$/.test(t) && /[\/._-]/.test(t);  // feat/mobile-page, PLAN.md, sk-...
 };
 
+// 只差大小寫的不算誤譯。對照語言把搜尋關鍵字全寫小寫（orca、gitlab、agent），
+// 中文用的是品牌的正式寫法（Orca、GitLab、Agent）——搜尋不分大小寫，中文是對的。
+// 若不排除，--write 會把整份字典的品牌名全部改成小寫。
+const caseOnly = (a, b) => a.toLowerCase() === b.toLowerCase();
+
 const keys = Object.keys(j).filter(k =>
   typeof j[k] === 'string' && k in L.es && k in L.ja && k in L.ko
   && L.es[k] === L.ja[k] && L.ja[k] === L.ko[k]
-  && j[k] !== L.es[k] && isIdentifier(L.es[k]));
+  && j[k] !== L.es[k] && !caseOnly(j[k], L.es[k]) && isIdentifier(L.es[k]));
 
-console.log(`三語一致且判定為識別碼、中文卻不同：${keys.length} 處\n`);
+console.log(`三語一致且判定為識別碼、中文卻不同：${keys.length} 處`);
+console.log('（已排除僅大小寫不同者；中文若確實較佳，如「空閒」← idle，請勿套用）\n');
 let n = 0;
 for (const k of keys) {
   const want = L.es[k];
