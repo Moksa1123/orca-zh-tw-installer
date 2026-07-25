@@ -14,9 +14,10 @@
 
 | 階段 | 狀態 | 說明 |
 |---|---|---|
-| **Tier 0a** 術語統一 | ✅ 完成 | 26 條規則 / 761 處，見 `scripts/sweep-terms.js` |
-| **Tier 0b** 中英空格 | ✅ 完成 | 654 句 / 949 個空格，見 `scripts/sweep-spacing.js` |
-| **Tier 1** 高曝光介面 | ⬜ 未開始 | 批次 #1–#12（3,502 句）|
+| **Tier 0a** 術語統一 | ✅ 完成 | 26 條規則 / 761 處 |
+| **Tier 0b** 格式（空格／標點）| ✅ 完成 | 654 句 / 949 個空格 |
+| **Tier 0c** 第二輪術語＋損壞修復 | ✅ 完成 | 328 處。由批次 #1 審查暴露 |
+| **Tier 1** 高曝光介面 | 🔶 #1 完成 | 批次 #1–#12（3,502 句）|
 | **Tier 2** 長文案 | ⬜ 未開始 | 批次 #13–#18（317 句但 30,898 字）|
 | **Tier 3** 設定頁 | ⬜ 未開始 | 批次 #19–#29（3,873 句）|
 | **Tier 4** 外部整合 | ⬜ 未開始 | 批次 #30–#36（1,960 句）|
@@ -28,13 +29,17 @@
 
 ## 術語鎖定表
 
-單一真實來源：`~/.claude/skills/tw-translate/data/domains/lock.csv`（195 條）
+單一真實來源：`~/.claude/skills/tw-translate/data/domains/lock.csv`（233 條）
 
 欄位 `tier` 的意義：
 
 - **A**：確定性替換，可機械 sweep
 - **B**：需上下文判斷，**不可**機械替換（例：`應用` 可能是 apply→套用，也可能是 application→應用程式）
 - **C**：已裁決的產品風格決定
+
+`forbidden` 欄支援 `re:` 前綴的正則，用於損壞修復與需要前後文條件的規則
+（例如 `re:(?<!來)源分支`）。**注意 CSV 以逗號分隔，正則量詞不能寫 `{2,}`**，
+要改寫成 `別+` 這種等價形式。
 
 `glossary.csv` 是**建議**，`lock.csv` 是**強制**。目前的用詞不一致就是因為過去只有建議、沒有強制。
 
@@ -76,29 +81,70 @@
 
 ## 每批的作業流程
 
+**每批做完要複查兩輪**，兩輪的目的不同，不能合成一輪。批次 #1 的經驗是：
+第一輪找到 9 處、第二輪又找到 41 處，而且第二輪找到的是第一輪的規則抓不到的類型。
+
 ```bash
+# ── 主要處理 ──
 # 1. 取出這批的實際內容（key + 現有譯文）
 node scripts/plan-batches.js --batch 7
 
 # 2. 對照 lock.csv 逐句檢查；在 Orca 裡打開對應畫面比對
 # 3. 直接編輯 orca_zh_TW_translation.json
 
-# 4. 確認沒有引入新的術語違規或空格問題（兩者都是 dry-run）
-npm run lint:terms
-npm run lint:spacing
+# ── 複查第一輪：機械 ──
+node scripts/audit-batch.js auto.components.right.sidebar   # 命名空間前綴
+npm run lint:terms      # 術語違規（dry-run）
+npm run lint:spacing    # 空格與標點（dry-run）
 
-# 5. 重新產生字典並套用
+# ── 複查第二輪：語意 ──
+# 重新讀一次這批（見下方「第二輪要找什麼」）
+
+# ── 收尾 ──
 npm run build
 npm start && npm run verify
 ```
 
-檢查重點，依重要性排序：
+### 第一輪複查：機械（`audit-batch.js`）
 
-1. **術語違規**：對照 `lock.csv` 的 tier A
-2. **語意錯誤**：機器翻譯常見的「字面對但意思錯」，例如把 UI 標籤當句子翻
-3. **佔位符**：`{{value0}}`、`{{count}}` 必須與原文數量一致
-4. **語氣一致**：同一畫面內不要混用「你」與「您」
-5. **長度**：按鈕、分頁標籤等寬度受限的元件，譯文別過長
+偵測未翻譯、標點半形化、疑似截斷、同命名空間重複譯文、過長標籤、
+全形英數字、人稱混用。這輪的產出多半是**規則不夠廣**：
+
+> 批次 #1 第一輪找到 `函式程式庫` 3 處——那是 `庫→程式庫` 損壞的另一種形式。
+> 上一輪的規則只寫了 `儲存函式程式庫`，漏了 `資料函式程式庫`（應為資料庫）。
+> **同一個壞規則會有多個受害詞，修一個不等於修完。**
+
+### 第二輪複查：語意（人讀）
+
+機械檢查抓不到的，依重要性排序：
+
+1. **正確的詞用錯地方** ← 最難抓，也最容易漏
+   > 批次 #1：`執行緒` 4 處全部誤譯。它本身是完全正確的台灣用語，
+   > 但這 4 處講的是 UI 討論串與 comment thread，不是 concurrency thread。
+   > 任何模式比對都抓不到，只能讀。
+
+2. **同一概念多種錯譯**：機器翻譯會把同一個原文在不同地方譯成不同的錯法
+   > 批次 #1：comment thread 被譯成 `執行緒` 和 `評論主題`；
+   > hosted review 被譯成 `託管評審`、`託管評論`、`託管審查` 三種。
+   > 修了其中一種，另外兩種還在——規則要涵蓋所有變體。
+
+3. **動詞被當形容詞（或反之）**
+   > `Clear notes` → `清晰的筆記`（應為「清除筆記」）
+
+4. **一詞多義選錯**
+   > `refs` → `參考文獻`（學術文獻）、`Publishing` → `出版`（出版書籍）、
+   > `Process` → `過程`、`Ahead` → `前面`、`Forward` → `向前`
+   > （port forwarding 與瀏覽器上下頁的 forward 是兩回事）
+
+5. **佔位符**：`{{value0}}`、`{{count}}` 數量必須與原文一致
+6. **長度**：按鈕、分頁標籤等寬度受限的元件，譯文別過長
+
+### 兩條硬規則
+
+- **改完一定要跑 `npm run lint:terms`。** 批次 #1 時我把 `過程` 改成 `程序`，
+  lint 立刻報違規——`程序` 是 program 的中國用語且已被鎖，process 在本表是 `行程`。
+- **加規則後看 dry-run 的疊字檢查。** `許可權→權限` 曾在詞界造出 `隱私權權限`
+  （`隱私權`+`許可權` 相接）。只看那條規則的 diff 看不出來。
 
 ---
 ## 分批清單
@@ -247,8 +293,9 @@ Object.entries(j).filter(([,v])=>typeof v==='string'&&v.trim()&&!/[一-鿿]/.tes
 |---|---|
 | `orca_zh_TW_translation.json` | **唯一翻譯來源**，只改這個 |
 | `scripts/plan-batches.js` | 產生本文件的分批清單；`--batch N` 取出某批內容 |
-| `scripts/sweep-terms.js` | 依 lock.csv 統一術語，預設 dry-run |
-| `scripts/sweep-spacing.js` | 中英之間補半形空格，預設 dry-run |
+| `scripts/audit-batch.js` | 複查第一輪：對某命名空間做機械檢查 |
+| `scripts/sweep-terms.js` | 依 lock.csv 統一術語，預設 dry-run，含事後疊字偵測 |
+| `scripts/sweep-spacing.js` | 空格與標點正規化，預設 dry-run |
 | `scripts/build-nested.js` | 產生 ESM + CJS 兩份字典 |
 | `scripts/verify-install.js` | 驗證已安裝的 app.asar |
 | `~/.claude/skills/tw-translate/data/domains/lock.csv` | 術語鎖定表 |
