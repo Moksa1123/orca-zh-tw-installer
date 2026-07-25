@@ -51,6 +51,12 @@ npx orca-zh-tw-installer
 > 注意：套件名稱是 `orca-zh-tw-installer`。指令名稱雖然是 `orca-zh-tw`，
 > 但 `npx orca-zh-tw` 會被當成套件名去 registry 查詢而得到 404。
 
+**請先完全關閉 Orca**（系統匣圖示右鍵 → Quit，不是只關閉視窗）。
+安裝腳本會偵測 Orca 是否仍在執行並直接中止——因為在執行中替換
+`app.asar` 之後，那個 Orca 實例的 renderer 還握著舊的檔名，
+去載入時會拋出 `Unexpected token` 並讓側邊欄等面板顯示錯誤。
+那是一次性的、重啟即消失，但很容易被誤認為語系包壞了。
+
 腳本將自動執行以下流程：
 1. 自動定位作業系統對應的 Orca 安裝路徑並解包。
 2. 備份官方 `app.asar`（已含補丁時會保留原本的乾淨備份）。

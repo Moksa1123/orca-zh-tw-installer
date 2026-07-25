@@ -27,10 +27,40 @@ const asar = require('@electron/asar');
 // --dry-run：解包、修補、驗證，但不備份也不重新打包。
 // 可在 Orca 執行中安全使用，用來確認 Orca 更新後錨點是否仍然有效。
 const DRY_RUN = process.argv.includes('--dry-run');
+// --force：略過「Orca 是否執行中」的檢查。不建議使用，見 countRunningOrca 的說明。
+const FORCE = process.argv.includes('--force');
 const workDir = path.join(os.tmpdir(), DRY_RUN ? 'orca-zh-tw-patcher-dry' : 'orca-zh-tw-patcher');
 const unpackedDir = path.join(workDir, 'app.asar.unpacked');
 
 const MARK = 'UI_LANGUAGE_TRADITIONAL_CHINESE = "zh-TW"';
+
+/**
+ * 偵測 Orca 是否還在執行。
+ *
+ * 為什麼要擋：重新打包 app.asar 之後，仍在執行的 Orca 其 renderer 還握著
+ * 舊的 lazy chunk 檔名，去載入時檔案已被換掉，會拋出
+ * 「Unexpected token」並讓側邊欄等面板的 error boundary 接住。
+ * 那是一次性的、重啟即消失的錯誤，但很容易被誤認為語系包壞了。
+ *
+ * 回傳 process 數量；無法判斷時回傳 -1（不阻擋）。
+ */
+function countRunningOrca() {
+  const { execFileSync } = require('child_process');
+  const run = (cmd, args) => {
+    try {
+      return execFileSync(cmd, args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+    } catch { return null; }
+  };
+  if (platform === 'win32') {
+    const out = run('tasklist', ['/FI', 'IMAGENAME eq Orca.exe', '/NH']);
+    if (out === null) return -1;
+    return out.split(/\r?\n/).filter(l => /Orca\.exe/i.test(l)).length;
+  }
+  // macOS / Linux：-x 只比對完全相符的程序名，避免抓到自己的 npx/node
+  const out = run('pgrep', ['-x', platform === 'darwin' ? 'Orca' : 'orca']);
+  if (out === null) return 0;   // pgrep 找不到時回傳非 0 退出碼，會落到 catch
+  return out.split('\n').filter(Boolean).length;
+}
 
 /**
  * 修補器：每個修補都要宣告「如何判斷已完成」。
@@ -84,6 +114,25 @@ function patchLocaleGate(p) {
 
 async function patch() {
   try {
+    // dry-run 不寫檔，Orca 執行中也能安全跑，故不檢查
+    if (!DRY_RUN && !FORCE) {
+      const n = countRunningOrca();
+      if (n > 0) {
+        console.error(`❌ Orca 仍在執行中（偵測到 ${n} 個程序），已中止。\n`);
+        console.error('   請先完全關閉 Orca：系統匣圖示右鍵 → Quit（不是只關閉視窗）。');
+        console.error('   若在修補後才關閉，重新啟動的 Orca 可能出現「Unexpected token」');
+        console.error('   造成側邊欄等面板顯示錯誤——那是舊 chunk 與新檔案不符所致。\n');
+        if (platform === 'win32') {
+          console.error('   確認是否關乾淨：');
+          console.error('     Get-Process Orca,orca-terminal-daemon -ErrorAction SilentlyContinue\n');
+        }
+        console.error('   想在 Orca 執行中檢查相容性，請改用：npm run dry-run');
+        console.error('   確定要強制繼續（不建議）：加上 --force');
+        process.exitCode = 1;
+        return;
+      }
+    }
+
     console.log('📦 1/6 正在解包 app.asar (這可能需要數十秒)...');
     if (fs.existsSync(workDir)) fs.rmSync(workDir, { recursive: true, force: true });
     fs.mkdirSync(workDir, { recursive: true });
