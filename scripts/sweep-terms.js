@@ -87,6 +87,11 @@ for (const [ch, n] of after) {
   if (n > was) introduced.push(`${ch}（${was} → ${n}）`);
 }
 
+// 循環衝突偵測：有規則命中卻沒有任何字串改變，代表兩條規則互相抵銷
+// （例：連線埠→連接埠 之後又被 連接→連線 改回去）
+const totalHits = [...stats.values()].reduce((a, b) => a + b, 0);
+const circular = totalHits > 0 && changedKeys === 0;
+
 console.log(`規則 ${rules.length} 條（安全閘門擋下 ${skipped.length} 條）`);
 if (skipped.length) console.log('  擋下：' + skipped.join('、'));
 console.log(`\n受影響字串：${changedKeys} 句 / 共 ${[...stats.values()].reduce((a, b) => a + b, 0)} 處\n`);
@@ -102,6 +107,13 @@ for (const [bad, n] of rows) {
   console.log(`        + ${s.before.replace(re, r.good).slice(0, 62)}`);
 }
 
+if (circular) {
+  console.error('\n❌ 事後檢查：有規則命中卻沒有任何字串實際改變');
+  console.error('   這代表兩條規則互相抵銷（A→B 之後又被 B→A 改回去）。');
+  console.error('   例：連線埠→連接埠 被 連接→連線 改回去，需為後者加負向前瞻。');
+  console.error('   請找出衝突的兩條規則後修正。未寫檔。');
+  process.exit(1);
+}
 if (introduced.length) {
   console.error('\n❌ 事後檢查：替換在詞界造出了新的疊字，這通常代表規則寫錯了');
   for (const s of introduced) console.error('   ' + s);

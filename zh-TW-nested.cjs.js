@@ -54,7 +54,7 @@ const zhTW = {
         "minimaxToggleDescription": "顯示使用中工作區的 MiniMax 訂閱用量。",
         "sshToggleDescription": "當有可用的 SSH 與遠端 Orca 主機時顯示它們。",
         "resourceUsageToggleDescription": "顯示資源系統管理員。點選即可檢視 CPU、記憶體、工作階段、常駐程式控制項與工作區磁碟掃描。",
-        "portsToggleDescription": "顯示即時的工作區連線埠。點選即可檢視工作區範圍的連線埠與外部監聽程式。",
+        "portsToggleDescription": "顯示即時的工作區連接埠。點選即可檢視工作區範圍的連接埠與外部監聽程式。",
         "antigravityToggleDescription": "顯示使用中工作區的 Antigravity 訂閱用量。",
         "grokToggleDescription": "透過 Grok CLI 登入後，顯示 Grok 訂閱額度用量。"
       },
@@ -106,7 +106,7 @@ const zhTW = {
       "comment": "留言",
       "issue": "Issue",
       "mr": "MR",
-      "port": "連線埠",
+      "port": "連接埠",
       "pr": "PR"
     }
   },
@@ -564,7 +564,7 @@ const zhTW = {
           "search": {
             "9ccec2316b": "Issue",
             "ca40ffcbec": "PR",
-            "0b01ff98d2": "連線埠",
+            "0b01ff98d2": "連接埠",
             "7d732521ec": "留言"
           }
         }
@@ -620,9 +620,9 @@ const zhTW = {
       "linear": {
         "usage": {
           "examples": {
-            "readTicket": "讀取連結的工單",
+            "readTicket": "讀取連結的 Issue",
             "postUpdate": "發行進度更新",
-            "moveState": "推進工單進度",
+            "moveState": "推進 Issue 進度",
             "attachPr": "附上 PR 連結",
             "triageFollowups": "分類並建立後續事項",
             "readTicketSummary": "在開始工作前，先取得連結的 Linear Issue 的完整上下文。",
@@ -633,8 +633,8 @@ const zhTW = {
             "moveStatePrompt": "變更已就緒，使用 {{value0}} 將連結的 Linear Issue 移至 In Review。",
             "attachPrSummary": "在你開啟 pull request 時，將它連結到 Linear Issue。",
             "attachPrPrompt": "使用 {{value0}} 以 PR 連結，將此 PR 附加到連結的 Linear Issue。",
-            "triageFollowupsSummary": "設定負責人、優先順序或預估，並建立帶父項的後續工單。",
-            "triageFollowupsPrompt": "使用 {{value0}} 分類連結的 Linear Issue（設定優先順序與預估），並為延後的清理工作建立一個帶父項的後續工單。"
+            "triageFollowupsSummary": "設定負責人、優先順序或預估，並建立帶父項的後續 Issue。",
+            "triageFollowupsPrompt": "使用 {{value0}} 分類連結的 Linear Issue（設定優先順序與預估），並為延後的清理工作建立一個帶父項的後續 Issue。"
           }
         }
       }
@@ -759,7 +759,7 @@ const zhTW = {
         "devSearchKeywordNotification": "notification",
         "projectHostsSummary": "{{value0}} 個主機",
         "linearTitle": "Linear",
-        "linearDescription": "讓 Agent 具備讀取與更新你已連結的 Linear 工單的能力。"
+        "linearDescription": "讓 Agent 具備讀取與更新你已連結的 Linear Issue 的能力。"
       },
       "useAppMenuPaste": {
         "pasteTooLarge": "貼上的內容過大。"
@@ -1904,7 +1904,7 @@ const zhTW = {
         "1628fd7dfa": "沒有使用中的 Worktree、設定、動作或已開啟的分頁",
         "b781ae05e3": "輸入以搜尋 Worktree、設定、分頁和動作。",
         "f60f8730be": "沒有其他 Worktree 可切換",
-        "c4afa68159": "試試 Worktree、設定、動作、分頁標題、Agent 提示、URL、PR 或連線埠。",
+        "c4afa68159": "試試 Worktree、設定、動作、分頁標題、Agent 提示、URL、PR 或連接埠。",
         "dbd9d87eec": "沒有符合搜尋的結果",
         "2c38630a01": "Worktree 已不存在",
         "7726ce9970": "行動裝置模擬器分頁已不存在",
@@ -2987,19 +2987,19 @@ const zhTW = {
             "1fbc51cc77": "隱藏寵物"
           },
           "PortsStatusSegment": {
-            "4ebf90c12e": "未偵測到外部連線埠",
-            "7dac3ecc9d": "外部連線埠",
-            "95495019ed": "{{value0}} 上無法進行連線埠掃描：{{value1}}",
+            "4ebf90c12e": "未偵測到外部連接埠",
+            "7dac3ecc9d": "外部連接埠",
+            "95495019ed": "{{value0}} 上無法進行連接埠掃描：{{value1}}",
             "a8e4bdb412": " · {{value0}} 個外部",
             "9aa11005bf": "工作區 ·",
-            "c22ea609fd": "連線埠",
+            "c22ea609fd": "連接埠",
             "a11ed266ce": "工作區",
-            "ca41be2802": "連線埠 — {{value0}} 個工作區 {{value1}}{{value2}}",
-            "b8bc3e420a": "連線埠，{{value0}} 個工作區 {{value1}}",
-            "3a87d54dfb": "未偵測到工作區連線埠",
-            "c174bbbfed": "正在掃描工作區連線埠…",
-            "8caaa86e9a": "連線埠",
-            "45834a9ace": "連線埠",
+            "ca41be2802": "連接埠 — {{value0}} 個工作區 {{value1}}{{value2}}",
+            "b8bc3e420a": "連接埠，{{value0}} 個工作區 {{value1}}",
+            "3a87d54dfb": "未偵測到工作區連接埠",
+            "c174bbbfed": "正在掃描工作區連接埠…",
+            "8caaa86e9a": "連接埠",
+            "45834a9ace": "連接埠",
             "4ae65d871a": "外部",
             "2b84c4d11f": "{{value0}} 個工作區 · {{value1}} 個外部"
           },
@@ -3078,7 +3078,7 @@ const zhTW = {
             "runtime_reconnect_attempt": "第 {{value0}} 次嘗試"
           },
           "StatusBar": {
-            "9659e38343": "連線埠",
+            "9659e38343": "連接埠",
             "d1e1a7a6bf": "資源監視器",
             "24ac89df1a": "遠端主機",
             "5e59007df4": "Kimi 使用量",
@@ -3213,7 +3213,7 @@ const zhTW = {
             "c432278ec7": "編輯器緩衝區",
             "0bc756efaf": "Git 變更",
             "e9528a89b3": "終端機",
-            "a8d9e0de79": "Agents",
+            "a8d9e0de79": "Agent",
             "d384a4ce9f": "刪除決策",
             "7d7745bb8f": "可刪除",
             "720870a18e": "保留：已連結",
@@ -3257,7 +3257,7 @@ const zhTW = {
                   "0e72c8d9fb": "停止處理程式",
                   "536d48a5dc": "複製 {{value0}}",
                   "085f4f0334": "在瀏覽器中開啟",
-                  "e4a709548c": "重新整理連線埠失敗",
+                  "e4a709548c": "重新整理連接埠失敗",
                   "acdb6df590": "已停止 {{value0}} 上的處理程式",
                   "480d8f2347": "已複製 {{value0}}",
                   "b854ec9ff5": "無法開啟瀏覽器"
@@ -4129,7 +4129,7 @@ const zhTW = {
           "eb9884e55b": "Discord",
           "5687ab246a": "GitHub",
           "5f83d86d92": "變更記錄",
-          "cdc87f897e": "檔案",
+          "cdc87f897e": "文件",
           "e565171a7c": "鍵盤快速鍵",
           "4cf5b868d7": "傳送意見回饋",
           "a428c25998": "設定",
@@ -4170,7 +4170,7 @@ const zhTW = {
           "activeRuntimeHost": "作用中的伺服器",
           "projectRuntimeHost": "專案伺服器",
           "95c9754653": "Agent 活動版面設定",
-          "3d4b9c4997": "停留",
+          "3d4b9c4997": "固定",
           "ba87080fb7": "顯示屬性",
           "320b675c9a": "卡片版面設定",
           "newCardDisplay": {
@@ -4195,11 +4195,11 @@ const zhTW = {
           "25105b28cb": "精簡",
           "d7084e8bc8": "Agent 活動",
           "automation": "自動化",
-          "b64d8bcca0": "連線埠",
+          "b64d8bcca0": "連接埠",
           "26c71e536c": "備註",
           "b8dcc6f321": "PR/MR 連結",
           "ca4d3c522e": "Linear Issue",
-          "91dfc653e8": "GitHub 工單",
+          "91dfc653e8": "GitHub Issue",
           "bdd23b4e07": "GitHub Issue",
           "44713a5d04": "Linear Issue",
           "cc17bd443b": "詳細",
@@ -4212,7 +4212,7 @@ const zhTW = {
           "1a0eec0d35": "狀態",
           "b5536d5a88": "任務",
           "8d62c68b35": "備註",
-          "2d74665a56": "連線埠",
+          "2d74665a56": "連接埠",
           "65a9820bd1": "Agent 狀態",
           "219ebf1961": "分支名稱",
           "folderPathIdentity": "分支 / 資料夾路徑"
@@ -4297,7 +4297,7 @@ const zhTW = {
           "ef18787206": "已排入刪除佇列"
         },
         "WorktreeCardAgents": {
-          "1b0a156717": "Agents"
+          "1b0a156717": "Agent"
         },
         "WorktreeCardReviewDetailSection": {
           "copyLink": "複製連結",
@@ -4346,12 +4346,12 @@ const zhTW = {
         },
         "WorktreeCardPorts": {
           "34f733dda2": "前往 Worktree",
-          "3240f320d7": "即時連線埠",
+          "3240f320d7": "即時連接埠",
           "3e5f66564e": "Worktree 無法使用",
           "2f854442ff": "停止程式",
           "c8067a829a": "複製 {{value0}}",
           "33bc7d7495": "在瀏覽器中開啟",
-          "9950fe2d20": "重新整理連線埠失敗",
+          "9950fe2d20": "重新整理連接埠失敗",
           "5d1a5d51bb": "已停止 {{value0}} 上的程式",
           "c89f290e25": "已複製 {{value0}}",
           "d1113f4660": "無法開啟瀏覽器",
@@ -4787,7 +4787,7 @@ const zhTW = {
         },
         "AddRemoteHostDialog": {
           "sshHostRequired": "必須填寫主機或 SSH 設定別名。",
-          "sshPortInvalid": "連線埠必須介於 1 到 65535 之間。",
+          "sshPortInvalid": "連接埠必須介於 1 到 65535 之間。",
           "sshRelayGraceInvalid": "終端機逾時時間必須介於 60 到 {{value0}} 秒之間。",
           "sshSaved": "已新增 SSH 主機。",
           "sshSaveFailed": "新增 SSH 主機失敗。",
@@ -4807,7 +4807,7 @@ const zhTW = {
           "sshHostPlaceholder": "deploy@server:22",
           "username": "使用者名稱",
           "usernamePlaceholder": "deploy",
-          "port": "連線埠",
+          "port": "連接埠",
           "identityFile": "身份檔案",
           "identityFilePlaceholder": "~/.ssh/id_ed25519（選填）",
           "sshPersistenceDefault": "此主機上的遠端終端機會保持運作，直到你結束它們或重設中繼。",
@@ -5198,7 +5198,7 @@ const zhTW = {
         },
         "AutoRenameBranchPromptEditor": {
           "63121132c0": "捨棄",
-          "4416b25d29": "優先使用任務中的領域名詞，避免使用工單 ID，並保持名稱便於審查者理解。",
+          "4416b25d29": "優先使用任務中的領域名詞，避免使用 Issue ID，並保持名稱便於審查者理解。",
           "39278f4411": "；你的分支字首設定仍然適用。",
           "ebb942a2ec": "fix-login-flow",
           "af2d9a2cc6": "。Orca 只會產生最後一段，例如",
@@ -5477,8 +5477,8 @@ const zhTW = {
           "a20d5ea365": "在終端機響鈴或 Agent 完成事件後，讓窗格層級的醒目提示持續顯示，直到你與該窗格互動為止。此功能在我們調整訊號期間仍為實驗性。",
           "ec897e8d89": "終端機提醒",
           "88b7613afb": "終端機響鈴與 Agent 完成事件的持續窗格醒目提示。",
-          "0277901cf7": "在左側邊欄新增 Agents 專案，提供已完成 Agent、待回答的阻塞問題、未讀狀態與 Worktree 建立事件的串接 Worktree 動態。實驗性——事件模型與 UI 可能會變動。",
-          "a05bcdaf57": "Agents 檢視",
+          "0277901cf7": "在左側邊欄新增 Agent 項目，提供已完成 Agent、待回答的阻塞問題、未讀狀態與 Worktree 建立事件的串接 Worktree 動態。實驗性——事件模型與 UI 可能會變動。",
+          "a05bcdaf57": "Agent 檢視",
           "f63ea281e3": "用於 Agent 完成與阻塞狀態的串接左側邊欄動態。",
           "agentHibernation": {
             "copy": "在設定的閒置時間後停止閒置的背景 Agent 終端機，並在你再次開啟時還原支援的工作階段。Agent 睡眠會保留由 Orca 啟動的 Agent 的啟動選項。手動啟動的 Agent 可能會以你目前的 Orca 預設值還原。此功能在我們調整安全模型期間仍為實驗性。",
@@ -6589,7 +6589,7 @@ const zhTW = {
           "dev": "開發工具",
           "devDescription": "僅供開發使用、用於測試 UI 狀態的工具。",
           "linearTitle": "Linear",
-          "linearDescription": "讓 Agent 具備讀取並更新你已連結的 Linear 工單的能力。",
+          "linearDescription": "讓 Agent 具備讀取並更新你已連結的 Linear Issue 的能力。",
           "f75daf1002": "關閉"
         },
         "SettingsFormControls": {
@@ -6737,7 +6737,7 @@ const zhTW = {
           "f602009125": "目標已新增",
           "b4ba0ce33d": "目標已更新",
           "3879cbaa52": "終端機逾時必須介於 60 到 {{value0}} 秒之間，或讓終端機保持運作直到重設。",
-          "4db9afce1c": "連線埠必須介於 1 到 65535 之間",
+          "4db9afce1c": "連接埠必須介於 1 到 65535 之間",
           "0e5aa04161": "必須提供主機或 SSH 設定別名",
           "f1fc50dad2": "無法載入 SSH 目標",
           "0cda732f43": "連線測試失敗"
@@ -6778,7 +6778,7 @@ const zhTW = {
         "SshTargetDestructiveActions": {
           "7e66942808": "這會停止此 SSH 目標上作用中的終端機工作階段。重新連線並不會繼續這些工作階段。",
           "accf177a03": "要結束遠端終端機嗎？",
-          "26be00392d": "這會強制停止此 SSH 目標的遠端中繼。此目標作用中的遠端終端機與連線埠轉發都會結束。",
+          "26be00392d": "這會強制停止此 SSH 目標的遠端中繼。此目標作用中的遠端終端機與連接埠轉發都會結束。",
           "570a7a0574": "要重設遠端中繼嗎？",
           "3bb0cf0ee4": "這會移除目標，並結束任何作用中的遠端終端機。",
           "4808966c41": "移除 SSH 目標"
@@ -6801,7 +6801,7 @@ const zhTW = {
           "cb91f6375c": "選填。預設使用 SSH agent。",
           "d6a5f2ee5c": "~/.ssh/id_ed25519（留空則使用 SSH agent）",
           "63c0c145c1": "身分檔案",
-          "c94cfa634c": "連線埠",
+          "c94cfa634c": "連接埠",
           "47e082bc17": "deploy",
           "dc1dc52aaa": "使用者名稱",
           "2ee9bcd2e8": "server, deploy@server:2222, ssh://server",
@@ -7247,7 +7247,7 @@ const zhTW = {
             "cbdd7f3b9e": "選擇已安裝的 Agent 要在此裝置上還是在 WSL 中偵測。",
             "ef804b7337": "Agent 位置",
             "01926b9d8c": "設定 AI 編碼 Agent、預設 Agent 與命令覆寫。",
-            "bb9ad95777": "Agents",
+            "bb9ad95777": "Agent",
             "d8f3a8b8a0": "預設",
             "167daeb5e9": "命令",
             "be59907510": "覆寫",
@@ -7357,10 +7357,10 @@ const zhTW = {
             "dc02c8759d": "工作區",
             "43cfba3b95": "伺服器",
             "46d21eef62": "localhost",
-            "006e67b279": "連線埠",
+            "006e67b279": "連接埠",
             "896eb53fd4": "狀態列",
-            "0ececfa190": "在狀態列顯示即時的工作區連線埠。",
-            "cf409b6c4d": "連線埠",
+            "0ececfa190": "在狀態列顯示即時的工作區連接埠。",
+            "cf409b6c4d": "連接埠",
             "cb1cc62cf8": "空間",
             "90bdc043ea": "磁碟",
             "96b4fb0064": "終端機",
@@ -7517,7 +7517,7 @@ const zhTW = {
             "a942905148": "建立新瀏覽器分頁時開啟的 URL。留空則開啟空白分頁。",
             "c3903322d2": "預設首頁",
             "19ea5607cf": "Localhost Worktree 標籤",
-            "4e0fdf0a3f": "將工作區連線埠以 Worktree 專屬的 Orca localhost URL 開啟，讓瀏覽器分頁更容易區分。"
+            "4e0fdf0a3f": "將工作區連接埠以 Worktree 專屬的 Orca localhost URL 開啟，讓瀏覽器分頁更容易區分。"
           },
           "use": {
             "search": {
@@ -13661,7 +13661,7 @@ const zhTW = {
       "idle": "Idle",
       "empty": "None"
     },
-    "title": "Agents",
+    "title": "Agent",
     "total": "{{count}} total",
     "card": {
       "you": "You",
