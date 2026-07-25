@@ -7,7 +7,10 @@
     "orca-zh-tw": "./index.js"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "node scripts/build-nested.js",
+    "lint:terms": "node scripts/sweep-terms.js",
+    "lint:spacing": "node scripts/sweep-spacing.js"
   },
   "keywords": [
     "orca",
