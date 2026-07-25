@@ -5283,14 +5283,14 @@ const zhTW = {
           "333984cf90": "使用現有的瀏覽器工作階段"
         },
         "BrowserUseEnableSwitch": {
-          "aea3f45349": "啟用 Agent 瀏覽器使用"
+          "aea3f45349": "啟用 Agent Browser Use"
         },
         "BrowserUseExamples": {
           "1199258ace": "複製",
           "1188e56af4": "複製範例提示",
           "b84807f228": "\"",
           "59722f31b4": "\"",
-          "c5325e91f6": "將以下任一項貼到 Claude Code、Codex，或已安裝該技能之專案中的其他 agent。",
+          "c5325e91f6": "將以下任一項貼到 Claude Code、Codex，或已安裝該技能之專案中的其他 Agent。",
           "2a180694f7": "試試看 — 範例提示",
           "5ec620ccc4": "複製失敗。",
           "a602d43069": "已複製 {{value0}}。"
@@ -5300,18 +5300,18 @@ const zhTW = {
           "e44c5d681e": "從",
           "67d9a53f47": "為個別登入管理設定檔",
           "112f70adc4": "上次從 {{value0}} 匯入",
-          "72d4815523": "將你現有的登入資訊帶入 Orca，讓 agent 能存取需驗證的頁面。匯入至預設設定檔。",
+          "72d4815523": "將你現有的登入資訊帶入 Orca，讓 Agent 能存取需驗證的頁面。匯入至預設設定檔。",
           "2eb906706c": "匯入瀏覽器 Cookie",
-          "af8c83ed61": "從 Chrome、Edge 或其他瀏覽器匯入 cookie，讓 agent 能重複使用你的登入資訊。",
-          "68ea76eb71": "安裝 Browser Use 技能，讓 agent 能操作 Orca 的瀏覽器。",
+          "af8c83ed61": "從 Chrome、Edge 或其他瀏覽器匯入 cookie，讓 Agent 能重複使用你的登入資訊。",
+          "68ea76eb71": "安裝 Browser Use 技能，讓 Agent 能操作 Orca 的瀏覽器。",
           "2d6ead9ab2": "安裝 Browser Use 技能",
           "e9f3f3b488": "已安裝於",
-          "9fca1f7f5d": "註冊 Orca CLI 命令，讓 agent 能從其 shell 編排瀏覽器。",
+          "9fca1f7f5d": "註冊 Orca CLI 命令，讓 Agent 能從其 shell 編排瀏覽器。",
           "c6065d205d": "啟用 Orca CLI",
-          "c79eff0213": "註冊 Orca CLI，讓 agent 能操控瀏覽器。",
-          "702488a5f7": "讓編碼 agent 以你的登入操控此瀏覽器。完成下方三個步驟。",
-          "b8a1f2d84d": "Agent 瀏覽器使用",
-          "96b91c6349": "讓編碼 agent 以你的登入操控此瀏覽器。",
+          "c79eff0213": "註冊 Orca CLI，讓 Agent 能操控瀏覽器。",
+          "702488a5f7": "讓編碼 Agent 以你的登入操控此瀏覽器。完成下方三個步驟。",
+          "b8a1f2d84d": "Agent Browser Use",
+          "96b91c6349": "讓編碼 Agent 以你的登入操控此瀏覽器。",
           "2ea4617e3a": "已從 {{value1}}{{value2}} 匯入 {{value0}} 個 cookie。",
           "721aee31b4": "已在 PATH 中註冊 Orca CLI。",
           "180a9abf3a": "無法載入 CLI 狀態。",
@@ -5325,13 +5325,13 @@ const zhTW = {
           "5301857d88": "從 {{value0}}"
         },
         "BrowserUseSkillStep": {
-          "0871b6998d": "讓 agent 能在 Orca 的瀏覽器中瀏覽並驗證頁面。",
+          "0871b6998d": "讓 Agent 能在 Orca 的瀏覽器中瀏覽並驗證頁面。",
           "459e24eebc": "Browser Use 技能"
         },
         "CliSection": {
           "8671e406f0": "取消",
           "a4aafe46e3": "目標路徑：",
-          "e8012c03a1": "讓 agent 能使用 Orca 工作區、終端機與進度命令。",
+          "e8012c03a1": "讓 Agent 能使用 Orca 工作區、終端機與進度命令。",
           "6053cf736c": "CLI 技能",
           "36a6f919ba": "為 Agent 提供具 Orca 感知的工作區、終端機與進度工作流程。",
           "04873eea3e": "Agent 技能",
@@ -5510,10 +5510,10 @@ const zhTW = {
             "defaultViewNative": "原生聊天"
           },
           "agentDashboard": {
-            "title": "Agent 控制檯",
+            "title": "Agent 儀表板",
             "description": "用於跨 Worktree 監視 Agent 的彈出式看板。",
-            "copy": "在左側邊欄新增 Agent 控制檯專案。開啟後可在獨立視窗中監視需要注意、執行中與閒置的 Agent，並跳至它們的即時終端機。",
-            "toggleLabel": "切換 Agent 控制檯"
+            "copy": "在左側邊欄新增 Agent 儀表板專案。開啟後可在獨立視窗中監視需要注意、執行中與閒置的 Agent，並跳至它們的即時終端機。",
+            "toggleLabel": "切換 Agent 儀表板"
           }
         },
         "FloatingWorkspacePane": {
@@ -6838,16 +6838,16 @@ const zhTW = {
           "a6fdd6a3b1": "非使用中窗格不透明度",
           "1b79379d4f": "控制非使用中窗格的變暗與分割分隔線粗細。",
           "e1a5c25555": "終端機窗格",
-          "04cdf85dec": "終端機遊標的不透明度。",
-          "b9f1804422": "遊標不透明度",
-          "2de6b5a699": "使用所選遊標形狀的閃爍變體。",
-          "74736cc9b1": "閃爍遊標",
+          "04cdf85dec": "終端機游標的不透明度。",
+          "b9f1804422": "游標不透明度",
+          "2de6b5a699": "使用所選游標形狀的閃爍變體。",
+          "74736cc9b1": "閃爍游標",
           "2e5aec3cf6": "底線",
           "52854a5608": "方塊",
           "e070e8aeba": "直線",
-          "db270cc9a9": "遊標形狀",
-          "d455f2ef4f": "Orca 終端機窗格的預設遊標外觀。",
-          "abcb4dd019": "終端機遊標",
+          "db270cc9a9": "游標形狀",
+          "d455f2ef4f": "Orca 終端機窗格的預設游標外觀。",
+          "abcb4dd019": "終端機游標",
           "70beb1bbc7": "預覽",
           "31f6e61085": "連字目前為",
           "870377082f": "關閉",
@@ -7014,7 +7014,7 @@ const zhTW = {
           "03c855d15f": "重設所有顏色覆寫",
           "63f8d9336e": "顏色覆寫",
           "e86e09b5c7": "覆寫個別終端機顏色。",
-          "1d1920dc8a": "在終端機中輸入時隱藏滑鼠遊標。",
+          "1d1920dc8a": "在終端機中輸入時隱藏滑鼠游標。",
           "3530908ef9": "輸入時隱藏滑鼠",
           "1846f6ee6a": "終端機網格周圍的垂直內距（以畫素為單位）。",
           "1afcc1d973": "垂直內距",
@@ -7067,10 +7067,10 @@ const zhTW = {
           "8b450b5305": "選取範圍前景色",
           "74d8555f85": "所選文字的背景顏色",
           "40c3cfd30a": "選取範圍背景色",
-          "7f4063076c": "遊標下方文字的顏色（方塊遊標）",
-          "a2d9f095a7": "遊標文字",
-          "cd0700762b": "遊標顏色",
-          "c9e1fdf42f": "遊標",
+          "7f4063076c": "游標下方文字的顏色（方塊游標）",
+          "a2d9f095a7": "游標文字",
+          "cd0700762b": "游標顏色",
+          "c9e1fdf42f": "游標",
           "da64e8f4c1": "終端機背景顏色",
           "cc1b2ffeb2": "背景",
           "026a0b8013": "主要文字顏色",
@@ -7199,7 +7199,7 @@ const zhTW = {
             "9f70aa706c": "提供者",
             "488a7e9206": "linux",
             "0b4d948eb5": "wsl",
-            "bdbd1e668e": "windows",
+            "bdbd1e668e": "Windows",
             "593720c17f": "位置",
             "b84a5b0c8a": "選擇要在此裝置上還是在 WSL 中檢查並新增提供者帳號。",
             "d09fb5ca92": "帳號位置",
@@ -7546,8 +7546,8 @@ const zhTW = {
               "e5a784bc54": "安裝",
               "9d97446873": "Agent",
               "a2d489263e": "技能",
-              "a7e82445fa": "安裝瀏覽器使用技能，讓 Agent 可以操作 Orca 的瀏覽器。",
-              "a1414dcefb": "安裝瀏覽器使用技能",
+              "a7e82445fa": "安裝 Browser Use 技能，讓 Agent 可以操作 Orca 的瀏覽器。",
+              "a1414dcefb": "安裝 Browser Use 技能",
               "e56c7b55c9": "設定",
               "034c5e8d7f": "啟用",
               "7e0dcb257a": "Shell",
@@ -7726,7 +7726,7 @@ const zhTW = {
               "grok": "grok"
             },
             "agentDashboard": {
-              "title": "Agent 控制檯",
+              "title": "Agent 儀表板",
               "description": "用於跨 Worktree 監視 Agent 的彈出式看板。"
             }
           }
@@ -7862,7 +7862,7 @@ const zhTW = {
             "c9d9636f24": "Finder",
             "68d03d9980": "VS Code",
             "ebf8f056b5": "Zed",
-            "0cb3d94f00": "Cursor",
+            "0cb3d94f00": "游標",
             "8fb00fcd05": "啟動器",
             "e1ee631696": "編輯器",
             "5a9df5566f": "開啟選單",
@@ -8190,7 +8190,7 @@ const zhTW = {
             "dd9d3e5f0f": "idle",
             "5f7472d3fb": "完全的",
             "7fa07e9600": "Agent",
-            "10d83ef8dc": "當編碼 Agent 從工作狀態轉換為空閒狀態時發出通知。",
+            "10d83ef8dc": "當編碼 Agent 從工作狀態轉換為閒置狀態時發出通知。",
             "bdc1edaeb4": "Agent 任務完成",
             "adbc3a0fcf": "原生",
             "72539aede4": "系統",
@@ -8322,7 +8322,7 @@ const zhTW = {
             "343f0a508c": "MCP",
             "3c31801626": "檢查專案級 MCP 伺服器設定檔。",
             "31bd0a2420": "MCP 設定",
-            "84da7fa2d7": "節點模組",
+            "84da7fa2d7": "node_modules",
             "0a3a582794": "環境",
             "3c180a251c": "關聯",
             "f1c53f2820": "Worktree",
@@ -8331,7 +8331,7 @@ const zhTW = {
             "copy": "copy",
             "clone": "clone",
             "apfs": "apfs",
-            "ed885e589f": "從主簽出目錄放入新建 Worktree 的路徑。",
+            "ed885e589f": "從主要 checkout 放入新建 Worktree 的路徑。",
             "01b3377ebc": "Worktree 共用路徑",
             "fff8834983": "提示詞",
             "fa3131f223": "模型",
@@ -8363,7 +8363,7 @@ const zhTW = {
             "aa42616e3d": "檢視",
             "4f3c0230c2": "稀疏",
             "90a331fd68": "儲存用於稀疏 Worktree 建立的目錄集。",
-            "1f0f20bbb6": "稀疏結賬預設",
+            "1f0f20bbb6": "稀疏 checkout 預設",
             "4733ec2395": "../worktrees",
             "58d8bca414": "相對的",
             "a325a89dff": "工作區路徑",
@@ -8518,11 +8518,11 @@ const zhTW = {
             "674b7c8436": "顏色",
             "3023e01415": "覆蓋各個 CLI 顏色。",
             "aed2a4b4eb": "顏色覆蓋",
-            "6eaf7ee0e4": "遊標",
+            "6eaf7ee0e4": "游標",
             "34fe1af39d": "輸入",
             "ee611ae238": "隱藏",
             "ea364ce6e4": "滑鼠",
-            "77201c0bb2": "在 CLI 中輸入時隱藏滑鼠遊標。",
+            "77201c0bb2": "在 CLI 中輸入時隱藏滑鼠游標。",
             "d1fe5f99ff": "打字時隱藏滑鼠",
             "f25d948664": "邊界",
             "b2f52cb96c": "間距",
@@ -8563,7 +8563,7 @@ const zhTW = {
             "fd752b3cac": "匯入",
             "82b63d07fe": "Ghostty",
             "73e9422f19": "一次性匯入受支援的 Ghostty CLI 設定。",
-            "a979df0083": "從幽靈匯入",
+            "a979df0083": "從 Ghostty 匯入",
             "warp_import": {
               "title": "從 Warp 匯入",
               "description": "將 Warp 主題匯入為 Orca CLI 主題。",
@@ -8597,7 +8597,7 @@ const zhTW = {
             "c4427dc5ff": "替代",
             "b37edfc65a": "選項",
             "1f8b00f5ce": "控制 macOS Option 鍵是傳送 Alt/Esc 序列還是組合字元。反映 Ghostty 的 macos-option-as-alt。",
-            "9bd7229927": "選項作為 Alt",
+            "9bd7229927": "Option 作為 Alt",
             "affb14efd4": "選擇",
             "d2a366c7f9": "按兩下",
             "4ed3e239a8": "邊界",
@@ -8638,16 +8638,16 @@ const zhTW = {
             "6c4c85ba43": "調光",
             "18dd5026c6": "不透明度套用於目前不活動的窗格。",
             "72bbcbd1dd": "非使用中窗格不透明度",
-            "d4f7d1ce5c": "CLI 遊標的不透明度。",
-            "7f1e356a54": "Cursor 不透明度",
+            "d4f7d1ce5c": "CLI 游標的不透明度。",
+            "7f1e356a54": "游標不透明度",
             "25f606d9e5": "閃爍",
-            "a27f6edf52": "使用所選遊標形狀的閃爍變體。",
+            "a27f6edf52": "使用所選游標形狀的閃爍變體。",
             "b03d01fd49": "閃爍 Cursor",
-            "eefd1d8332": "下劃線遊標",
-            "015c82349f": "塊狀遊標",
-            "a6e9dcc829": "豎線遊標",
-            "275a9d6395": "Orca CLI 視窗的預設遊標外觀。",
-            "97bcfff662": "Cursor 形狀",
+            "eefd1d8332": "下劃線游標",
+            "015c82349f": "塊狀游標",
+            "a6e9dcc829": "豎線游標",
+            "275a9d6395": "Orca CLI 視窗的預設游標外觀。",
+            "97bcfff662": "游標形狀",
             "1abcf4d7de": "作業系統",
             "7d924d870d": "圖形",
             "bc7ae1f7c0": "渲染",
@@ -8697,7 +8697,7 @@ const zhTW = {
               "4d09141a42": "快顯選單",
               "fcfa53920b": "貼上",
               "e55186fe2b": "右鍵按一下",
-              "28ff08ed35": "視窗",
+              "28ff08ed35": "Windows",
               "e7d2793b03": "CLI",
               "8ba875c132": "右鍵按一下將剪貼簿貼上到 CLI 中。使用 Ctrl+右鍵按一下開啟快顯選單。",
               "f0b8448570": "右鍵按一下貼上",
@@ -9452,7 +9452,7 @@ const zhTW = {
             "d836037d02": "提交",
             "8232c8b2f2": "開啟 commit {{value0}}: {{value1}}",
             "9a8b85882d": "載入中",
-            "62e685d5ec": "空閒",
+            "62e685d5ec": "閒置",
             "111e1d0db4": "錯誤",
             "e5e81e59a6": "調整提交記錄高度",
             "6d1e0a7c3b": "無法載入提交檔案"
@@ -9478,7 +9478,7 @@ const zhTW = {
             "3ea4a02a8f": "取消",
             "4eb801ce93": "開發伺服器",
             "8dfed0a15c": "標籤（選填）",
-            "17bea6e391": "本機主機",
+            "17bea6e391": "localhost",
             "a3721a50b0": "遠端主機",
             "d57545ff92": "與遠端相同",
             "b950b1948b": "本機埠",
@@ -9821,7 +9821,7 @@ const zhTW = {
             "b99c33cec5": "設定",
             "15c5d85706": "Agent",
             "3e8f21954f": "錯誤",
-            "74168d7ada": "空閒",
+            "74168d7ada": "閒置",
             "1d47db9bf0": "沒有啟用 Agent",
             "c7ff8cef11": "偵測中…",
             "b0da3a4d3e": "啟動預設已儲存",
@@ -10779,7 +10779,7 @@ const zhTW = {
           "78b6386140": "已從 Ghostty 匯入。",
           "2c3aa538f8": "正在查詢 Ghostty 設定…",
           "94b9dc561d": "設定 → CLI",
-          "dd5c16ad1b": "更多 CLI 選項（字型、遊標、配色等）見",
+          "dd5c16ad1b": "更多 CLI 選項（字型、游標、配色等）見",
           "ad192706e6": "淺色",
           "fa7b673ea9": "深色",
           "827ea7b4a2": "系統",
@@ -10945,7 +10945,7 @@ const zhTW = {
             "preview": "預覽版",
             "stable": "穩定版"
           },
-          "relayDegradedNotice": "Relay couldn’t be reached — this code only works on your local network."
+          "relayDegradedNotice": "無法連線到 Relay — 此配對碼僅在你的本機網路內有效。"
         },
         "MobilePage": {
           "e17393c6a3": "手機預覽",
@@ -11169,7 +11169,7 @@ const zhTW = {
         "wall": {
           "AgentCapabilitiesSetupAction": {
             "b8dc9dd8a2": "已安裝",
-            "1b51644c2d": "讓 Agent 控制桌面、手機遊標、按一下並在任何應用程式中鍵入。",
+            "1b51644c2d": "讓 Agent 控制桌面、手機游標、按一下並在任何應用程式中鍵入。",
             "362a07517d": "電腦控制",
             "5e8fe5a72d": "讓 Agent 直接存取 Orca 的瀏覽器，以便測試頁面、擷取螢幕截圖並根據所見內容執行操作。",
             "e638da007a": "Agent 瀏覽器使用",
@@ -11217,7 +11217,7 @@ const zhTW = {
           },
           "BrowserUseSkillSetupCard": {
             "cbc45022d4": "使 Agent 能夠在 Orca 瀏覽器中瀏覽和驗證頁面。",
-            "d5bb1cd4ba": "瀏覽器使用技能"
+            "d5bb1cd4ba": "Browser Use 技能"
           },
           "ComputerUseAnimatedVisual": {
             "d8401975b1": "已核准",
@@ -12363,7 +12363,7 @@ const zhTW = {
           "save": {
             "failure": {
               "notice": {
-                "8c59ce5075": "Failed to save the file. Please try again."
+                "8c59ce5075": "儲存檔案失敗。請再試一次。"
               }
             }
           }
@@ -12506,7 +12506,7 @@ const zhTW = {
                 "browserTab": "瀏覽器頁面",
                 "newMarkdown": "新 markdown",
                 "newMarkdownFile": "新的 Markdown",
-                "newMark": "新標記",
+                "newMark": "新增 Markdown",
                 "newFile": "新檔案",
                 "markdownFile": "Markdown",
                 "newTerminal": "新終端機",
@@ -12625,7 +12625,7 @@ const zhTW = {
             "b733a91bd9": "為所選元素新增反饋。",
             "4328a0a062": "擷取失敗：{{value0}}",
             "26615e116b": "錯誤",
-            "8aec5bc044": "空閒",
+            "8aec5bc044": "閒置",
             "759f32af29": "正在下載",
             "c8bc7f1f9e": "要求的",
             "4300f38145": "從 {{value0}}{{value1}} 下載",
@@ -13083,8 +13083,8 @@ const zhTW = {
             "bc7a831773": "Self-hosted",
             "3489e186d6": "Jira site URL",
             "cbc27fa599": "https://jira.example.com",
-            "730d973bae": "Personal access Token",
-            "8b9c7b9e7b": "Jira personal access Token",
+            "730d973bae": "個人存取權杖",
+            "8b9c7b9e7b": "Jira 個人存取權杖",
             "ccfb086d3e": "在 Jira 個人資料中的 Personal Access Tokens 下建立一個個人存取權杖。",
             "1d947a07ab": "使用自託管 Jira 的基礎 URL、使用者名稱和密碼來瀏覽 Issue。",
             "f49708c369": "Jira authentication method",
@@ -13480,7 +13480,7 @@ const zhTW = {
     },
     "runtime": {
       "webRuntimeSession": {
-        "remoteHostDisconnected": "The workspace is not connected to a remote Orca host."
+        "remoteHostDisconnected": "此工作區未連線到遠端 Orca 主機。"
       }
     }
   },
@@ -13648,23 +13648,23 @@ const zhTW = {
   },
   "dashboardPopout": {
     "placeholder": {
-      "title": "Agent dashboard",
-      "description": "This is where all your agents will show up at a glance. The board is coming soon."
+      "title": "Agent 儀表板",
+      "description": "你的所有 Agent 都會集中顯示在這裡。看板功能即將推出"
     },
     "recoverableError": {
-      "title": "Orca dashboard hit an error.",
-      "description": "The dashboard could not finish rendering. Retry to remount it, or reopen it."
+      "title": "Orca 儀表板發生錯誤。",
+      "description": "儀表板無法完成繪製。重試以重新掛載，或重新開啟。"
     },
     "bucket": {
-      "attention": "Needs You",
-      "working": "Working",
-      "idle": "Idle",
-      "empty": "None"
+      "attention": "需要你處理",
+      "working": "執行中",
+      "idle": "閒置",
+      "empty": "無"
     },
     "title": "Agent",
-    "total": "{{count}} total",
+    "total": "共 {{count}} 個",
     "card": {
-      "you": "You",
+      "you": "你",
       "time": {
         "justNow": "剛剛",
         "minutes": "{{count}} 分鐘",
@@ -13673,9 +13673,9 @@ const zhTW = {
       }
     },
     "terminal": {
-      "closed": "No live terminal — this agent's pane has closed.",
-      "focusWorktree": "Focus worktree",
-      "close": "Close"
+      "closed": "沒有使用中的終端機 — 此 Agent 的窗格已關閉。",
+      "focusWorktree": "聚焦 Worktree",
+      "close": "關閉"
     }
   },
   "dashboard": {
