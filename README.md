@@ -45,8 +45,11 @@
 請確認系統已安裝 Node.js。開啟終端機並輸入以下指令：
 
 ```bash
-npx orca-zh-tw
+npx orca-zh-tw-installer
 ```
+
+> 注意：套件名稱是 `orca-zh-tw-installer`。指令名稱雖然是 `orca-zh-tw`，
+> 但 `npx orca-zh-tw` 會被當成套件名去 registry 查詢而得到 404。
 
 腳本將自動執行以下流程：
 1. 自動定位作業系統對應的 Orca 安裝路徑並解包。
