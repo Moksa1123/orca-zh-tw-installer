@@ -258,18 +258,18 @@ export default {
           "fa9299a66f": "你的新 Worktree 是最新的，但本機 {{value0}} 落後 {{value1}} {{value2}}。AI diff 可能會遺漏近期的 commits。",
           "14bc053a47": "本機 {{value0}} 未重新整理",
           "4a18052018": "本機 {{value0}} 落後於 {{value1}}",
-          "903b51c2ed": "已從 {{value0}} 建立工作區，但 Orca 無法快轉本機 {{value1}}，因為 {{value2}}",
+          "903b51c2ed": "已從 {{value0}} 建立 Worktree，但 Orca 無法快轉本機 {{value1}}，因為 {{value2}}",
           "0216895fb5": "刪除分支失敗",
           "19db0085fb": "已刪除本機分支",
           "2b0afc7f14": "無法讓本機 {{value0}} 保持最新狀態",
           "670864ab52": "正在讓本機 {{value0}} 保持最新狀態",
-          "5366d13eec": "已刪除工作區，保留分支",
+          "5366d13eec": "已刪除 Worktree，保留分支",
           "2e17f825d4": "已刪除 Worktree，保留分支",
           "78e08cd877": "Git 無法安全刪除分支「{{value0}}」，因此 Orca 保留了它以避免遺失本機 commits。",
-          "3b57982bf6": "刪除工作區「{{value1}}」後，Git 無法安全刪除分支「{{value0}}」，因此 Orca 保留了它以避免遺失本機 commits。",
+          "3b57982bf6": "刪除 Worktree「{{value1}}」後，Git 無法安全刪除分支「{{value0}}」，因此 Orca 保留了它以避免遺失本機 commits。",
           "81f13f48d2": "刪除 Worktree「{{value1}}」後，Git 無法安全刪除分支「{{value0}}」，因此 Orca 保留了它以避免遺失本機 commits。",
           "runtimeScopeForbiddenTitle": "此連線具有受限（行動裝置）存取權限",
-          "runtimeScopeForbiddenDescription": "行動裝置範圍的配對無法使用工作區。請使用設定 → 執行環境 → 分享此 Orca 伺服器中的瀏覽器存取連結重新連線。"
+          "runtimeScopeForbiddenDescription": "行動裝置範圍的配對無法使用 Worktree。請使用設定 → 執行環境 → 分享此 Orca 伺服器中的瀏覽器存取連結重新連線。"
         },
         "repos": {
           "2975400634": "請更新 Orca 伺服器，以便在此執行環境開啟非 Git 資料夾。",
@@ -603,7 +603,7 @@ export default {
         "wslDefault": "WSL 預設"
       },
       "sidebarWorktreeActivation": {
-        "wakeEphemeralVmFailed": "無法喚醒暫時性 VM 工作區"
+        "wakeEphemeralVmFailed": "無法喚醒暫時性 VM Worktree"
       },
       "ephemeralVmWorkspaceTarget": {
         "projectRootRegistrationFailed": "無法在執行環境上註冊由環境範本建立的專案根目錄。"
@@ -1904,7 +1904,7 @@ export default {
         "f60f8730be": "沒有其他 Worktree 可切換",
         "c4afa68159": "試試 Worktree、設定、動作、分頁標題、Agent 提示、URL、PR 或連線埠。",
         "dbd9d87eec": "沒有符合搜尋的結果",
-        "2c38630a01": "工作區已不存在",
+        "2c38630a01": "Worktree 已不存在",
         "7726ce9970": "行動裝置模擬器分頁已不存在",
         "d7d496a451": "瀏覽器頁面已不存在",
         "50a1d11d5b": "已開啟的分頁",
@@ -2111,7 +2111,7 @@ export default {
           "e3bd59143c": "插入",
           "f24783f470": "https://...",
           "ec6310b731": "請使用 http:// 或 https:// 的圖片 URL。",
-          "b7e4a1c902": "貼上、拖放或點按以新增檔案",
+          "b7e4a1c902": "貼上、拖放或按一下以新增檔案",
           "8f1c2d4e6a": "沒有可預覽的內容",
           "c91f0a2b14": "撰寫",
           "d82b1e3f05": "預覽",
@@ -3761,8 +3761,8 @@ export default {
                   "3d260e1a5d": "設定 › {{value0}}",
                   "34a03a6565": "讓 {{value0}} 保持最新",
                   "4a18052018": "本機 {{value0}} 落後於 {{value1}}",
-                  "commit": "commit",
-                  "commits": "commit"
+                  "commit": "個提交",
+                  "commits": "個提交"
                 }
               }
             }
@@ -3826,7 +3826,7 @@ export default {
           "8401a7a0d0": "1 個存放庫",
           "d4f1df62ef": "{{value0}} 個存放庫",
           "b4263a2ac4": "在 {{value1}} 中找到 {{value0}}。",
-          "24eda6c8b2": "正在掃描... {{value0}}",
+          "24eda6c8b2": "正在掃描… {{value0}}",
           "6149d5203f": "未選擇任何存放庫。改為開啟父資料夾，即可在沒有 Git 功能的情況下使用編輯器、終端機與搜尋。",
           "e52454b7f6": "以資料夾開啟"
         },
@@ -3866,13 +3866,13 @@ export default {
           "0adf083af7": "瀏覽主機",
           "8efa930eb5": "從所選主機新增另一個專案。",
           "39bd249b3a": "新增專案",
-          "0f8aba944c": "瀏覽到某個目錄，然後點按「選擇」來選定它。"
+          "0f8aba944c": "瀏覽到某個目錄，然後按一下「選擇」來選定它。"
         },
         "AddRepoStartSteps": {
           "87596c1446": "其他新增方式",
           "acf895cb42": "新增一個專案以開始使用 Orca。",
           "d13757911c": "新增專案",
-          "d301db1c9a": "正在掃描存放庫。點按即可停止。",
+          "d301db1c9a": "正在掃描存放庫。按一下即可停止。",
           "69ea7f8dc4": "停止掃描",
           "9906cae183": "停止掃描"
         },
@@ -3888,7 +3888,7 @@ export default {
           "3d4acbe693": "Git URL",
           "5b2ea674b1": "輸入 Git URL 並選擇要 clone 到的位置。",
           "c05f88a31f": "從 URL clone",
-          "fe8e629fe3": "瀏覽到某個目錄，然後點按「選擇」來選定它。",
+          "fe8e629fe3": "瀏覽到某個目錄，然後按一下「選擇」來選定它。",
           "df8b0e6c22": "已在 SSH 主機上新增專案",
           "3e64e8a70d": "連線失敗",
           "32a7256d85": "Clone",
@@ -3912,27 +3912,27 @@ export default {
           "f520f83a97": "瀏覽主機檔案系統",
           "2a20a603a3": "/home/user/projects",
           "134e37f711": "位置",
-          "b589b77997": "瀏覽到某個目錄，然後點按「選擇」來選定它。"
+          "b589b77997": "瀏覽到某個目錄，然後按一下「選擇」來選定它。"
         },
         "DeleteWorktreeDialog": {
           "ff2a74ac0e": "和",
           "91492c9ad6": "移除",
-          "4f6750ca7b": "刪除工作區失敗",
+          "4f6750ca7b": "刪除 Worktree 失敗",
           "42e610d6cf": "強制刪除失敗",
           "5cc1a6701c": "開啟設定",
           "2b56b35f53": "你可以在「設定」中變更此項。",
           "dd3a45bbbd": "下次我們會略過此確認。",
-          "fc23c4cbdf": "刪除工作區",
-          "86f0ae1257": "刪除工作區"
+          "fc23c4cbdf": "刪除 Worktree",
+          "86f0ae1257": "刪除 Worktree"
         },
         "DeleteWorktreeDirtyChangeHint": {
-          "8e2994ce28": "刪除此工作區會從磁碟永久移除這些變更。"
+          "8e2994ce28": "刪除此 Worktree 會從磁碟永久移除這些變更。"
         },
         "DeleteWorktreeLineageNotice": {
           "ad407c2d55": "更多",
-          "a940f3c96e": "子工作區將被刪除",
-          "29b98bf9cd": "刪除此工作區也會刪除 {{value0}} 個子工作區。",
-          "66798cc6a2": "刪除此工作區也會刪除 1 個子工作區。"
+          "a940f3c96e": "子 Worktree 將被刪除",
+          "29b98bf9cd": "刪除此 Worktree 也會刪除 {{value0}} 個子 Worktree。",
+          "66798cc6a2": "刪除此 Worktree 也會刪除 1 個子 Worktree。"
         },
         "DeleteWorktreeSkipConfirmOption": {
           "29aefb7e52": "不要再詢問"
@@ -4257,7 +4257,7 @@ export default {
           "4c2eaa78cc": "移動已連結的工作區時，若存在相符的工作流程狀態，會更新其 Linear Issue 狀態。"
         },
         "WorkspaceKanbanStatusLane": {
-          "8ad104642b": "空的",
+          "8ad104642b": "空",
           "3611d1ae7f": "調整工作區看板欄寬"
         },
         "WorkspaceStatusAppearancePopover": {
@@ -4269,19 +4269,19 @@ export default {
         },
         "WorktreeCard": {
           "a88c92d0e3": "{{value0}}/{{value1}} 已存在。",
-          "6f09f58541": "刪除工作區",
+          "6f09f58541": "刪除 Worktree",
           "0777de5970": "主要 Worktree（原始 clone 目錄）",
           "0f33af979b": "部分 checkout。這些路徑之外的檔案不在磁碟上。",
           "4f964d5e8c": "稀疏",
           "7d517f82e2": "主要",
-          "4eba2ea99e": "自動命名失敗。點按以檢視詳細資訊。",
+          "4eba2ea99e": "自動命名失敗。按一下以檢視詳細資訊。",
           "74522ee457": "重新命名失敗",
           "02e19349f4": "自動重新命名失敗：檢視錯誤",
           "691ccfd622": "正在刪除…",
           "35ccfe2475": "專案 {{value0}}",
           "1d66d84f0b": "字串",
-          "57eaa61b55": "隱藏子工作區",
-          "8cb634cda6": "顯示子工作區",
+          "57eaa61b55": "隱藏子 Worktree",
+          "8cb634cda6": "顯示子 Worktree",
           "01f45d3d8a": "側邊欄",
           "93aebe4529": "資料夾",
           "0d224eff10": "主要 Worktree",
@@ -4302,7 +4302,7 @@ export default {
           "reviewHeader": "{{value0}} #{{value1}}"
         },
         "WorktreeCardMeta": {
-          "3e65e11cc6": "工作區中繼資料",
+          "3e65e11cc6": "Worktree 中繼資料",
           "c7fa72ead0": "編輯備註",
           "93cbea12c2": "備註",
           "eace1d2cf6": "中性",
@@ -4324,7 +4324,7 @@ export default {
           "3ea2702e62": "已連結 {{value0}} #{{value1}}",
           "b105fd3057": "已連結 Linear {{value0}}",
           "3f2649eeb8": "已連結 Issue #{{value0}}",
-          "fe075cb851": "工作區備註",
+          "fe075cb851": "Worktree 備註",
           "automationHeader": "自動化",
           "openAutomation": "開啟自動化",
           "openAutomationRun": "開啟執行",
@@ -4345,7 +4345,7 @@ export default {
         "WorktreeCardPorts": {
           "34f733dda2": "前往 Worktree",
           "3240f320d7": "即時連線埠",
-          "3e5f66564e": "工作區無法使用",
+          "3e5f66564e": "Worktree 無法使用",
           "2f854442ff": "停止程式",
           "c8067a829a": "複製 {{value0}}",
           "33bc7d7495": "在瀏覽器中開啟",
@@ -4369,15 +4369,15 @@ export default {
           "f4475537d8": "刪除",
           "f5ac91531d": "從 Orca 移除專案",
           "b42391d8bf": "正在刪除…",
-          "0918b35e4f": "關閉此工作區中所有作用中的面板以釋放記憶體和 CPU。",
-          "7d190f7d2b": "關閉所選工作區中所有作用中的面板以釋放記憶體和 CPU。",
+          "0918b35e4f": "關閉此 Worktree 中所有作用中的面板以釋放記憶體和 CPU。",
+          "7d190f7d2b": "關閉所選 Worktree 中所有作用中的面板以釋放記憶體和 CPU。",
           "84cdbb7e30": "移至狀態",
           "56cde9e8e6": "將狀態移至",
           "f50603c6b2": "標記為未讀",
           "8dacff1fe0": "標記為已讀",
           "3baa7d6507": "釘選",
           "697d0f6e1b": "取消釘選",
-          "250de158fd": "移除工作區",
+          "250de158fd": "移除 Worktree",
           "changeParentWorkspace": "變更上層 Worktree…",
           "setParentWorkspace": "設定上層 Worktree…",
           "workspaceSection": "工作區",
@@ -4393,7 +4393,7 @@ export default {
           "13757c053c": "新增專案群組",
           "f9dc6cc5d3": "重新命名專案群組",
           "370c6a55dd": "清除篩選條件",
-          "b7acbf038b": "找不到工作區",
+          "b7acbf038b": "找不到 Worktree",
           "0c6ee14f23": "子項",
           "5fc9d1891b": "正在刪除…",
           "c83968f87f": "移除專案",
@@ -4409,17 +4409,17 @@ export default {
           "79465e9034": "{{value0}} 的群組操作",
           "bfbedc547b": "Worktree",
           "45fbfe0335": "重新命名",
-          "ebc5c7dcef": "隱藏子工作區",
-          "84a2238242": "顯示子工作區",
+          "ebc5c7dcef": "隱藏子 Worktree",
+          "84a2238242": "顯示子 Worktree",
           "045a8aed48": "子項",
           "2ca6e29a3c": "存放庫",
-          "bb85cd86ba": "為 {{value0}} 建立工作區",
+          "bb85cd86ba": "為 {{value0}} 建立 Worktree",
           "ebadb7eadb": "{{value0}} {{value1}} 子項 {{value2}}",
-          "20bebf9c7f": "顯示 {{value0}} 個子工作區",
-          "c1f4a31623": "顯示 {{value0}} 個子工作區",
-          "e97297cb75": "隱藏 {{value0}} 個子工作區",
-          "0cd15956d4": "隱藏 {{value0}} 個子工作區",
-          "bd37a57ac8": "為 {{value0}} 建立工作區",
+          "20bebf9c7f": "顯示 {{value0}} 個子 Worktree",
+          "c1f4a31623": "顯示 {{value0}} 個子 Worktree",
+          "e97297cb75": "隱藏 {{value0}} 個子 Worktree",
+          "0cd15956d4": "隱藏 {{value0}} 個子 Worktree",
+          "bd37a57ac8": "為 {{value0}} 建立 Worktree",
           "b667b59632": "部分專案無法從 Orca 移除",
           "f94466bc39": "刪除群組後，{{value1}} 個所含專案 {{value2}} 中仍剩 {{value0}} 個。",
           "groupDeleteFailed": "刪除群組失敗",
@@ -4444,7 +4444,7 @@ export default {
           "459ad7f650": "僅變更側邊欄中顯示的名稱 — 磁碟上的資料夾維持不變。留空以使用分支或資料夾名稱。",
           "7f21e0464f": "自訂顯示名稱…",
           "ad5e4e514f": "顯示名稱",
-          "65770ad0f0": "編輯此工作區的 GitHub 連結和備註。",
+          "65770ad0f0": "編輯此 Worktree 的 GitHub 連結和備註。",
           "382fd11a3e": "編輯 Worktree 詳細資料",
           "2174f17011": "儲存",
           "61d6f612cf": "儲存中…"
@@ -4453,16 +4453,16 @@ export default {
           "1417fd8380": "自訂應用程式…",
           "8009ab69a6": "開啟於",
           "bd0e8159f8": "請檢查此機器上的編輯器指令或檔案系統管理員設定。",
-          "9a5381eb09": "無法開啟工作區資料夾。",
-          "0bed8727db": "它可能已被移動或刪除。請重新整理工作區，或將其從 Orca 中移除。",
-          "3921d3d9a5": "找不到工作區資料夾。",
-          "f387af445b": "工作區路徑不是有效的本機路徑。",
+          "9a5381eb09": "無法開啟 Worktree 資料夾。",
+          "0bed8727db": "它可能已被移動或刪除。請重新整理 Worktree，或將其從 Orca 中移除。",
+          "3921d3d9a5": "找不到 Worktree 資料夾。",
+          "f387af445b": "Worktree 路徑不是有效的本機路徑。",
           "3ec372b664": "檔案系統管理員"
         },
         "WorktreeTitleInlineRename": {
           "2f42ae024f": "未讀：",
-          "bff3bdd00c": "重新命名工作區",
-          "8df295a78d": "無法重新命名工作區。"
+          "bff3bdd00c": "重新命名 Worktree",
+          "8df295a78d": "無法重新命名 Worktree。"
         },
         "WorktreeVisibilityDialog": {
           "83a5ba8dd1": "非 Orca Worktree",
@@ -4498,20 +4498,20 @@ export default {
         "delete": {
           "worktree": {
             "flow": {
-              "b81b4e40ca": "如果工作區清單看起來過時，請重新整理 Space 並再試一次。",
-              "7243145cd6": "未選取可刪除的工作區",
-              "ae57cbf6e4": "無法刪除工作區",
+              "b81b4e40ca": "如果 Worktree 清單看起來過時，請重新整理 Space 並再試一次。",
+              "7243145cd6": "未選取可刪除的 Worktree",
+              "ae57cbf6e4": "無法刪除 Worktree",
               "7488ed8711": "檢視",
               "2b20ce87b3": "強制刪除",
               "4f3876c0f5": "強制刪除失敗"
             },
             "toast": {
-              "1d0fa5c0a5": "無法刪除工作區 {{value0}}",
+              "1d0fa5c0a5": "無法刪除 Worktree {{value0}}",
               "ead7b8ee15": "它有變更的檔案。請使用「強制刪除」仍將其刪除。",
-              "905fc8efac": "Git 已移除此工作區。請使用「強制刪除」將其從 Orca 中清除。",
-              "0899ebdb28": "Git 已忘記此工作區，但其目錄仍在磁碟上。請使用「強制刪除」移除孤立的目錄。",
-              "locked": "此工作區已被 Git 鎖定。請在其存放庫中執行 git worktree unlock <worktree-path>，然後重試刪除。",
-              "lockedReason": "此工作區已被 Git 鎖定。Git 回報：{{value0}}。請在其存放庫中執行 git worktree unlock <worktree-path>，然後重試刪除。"
+              "905fc8efac": "Git 已移除此 Worktree。請使用「強制刪除」將其從 Orca 中清除。",
+              "0899ebdb28": "Git 已忘記此 Worktree，但其目錄仍在磁碟上。請使用「強制刪除」移除孤立的目錄。",
+              "locked": "此 Worktree 已被 Git 鎖定。請在其存放庫中執行 git worktree unlock <worktree-path>，然後重試刪除。",
+              "lockedReason": "此 Worktree 已被 Git 鎖定。Git 回報：{{value0}}。請在其存放庫中執行 git worktree unlock <worktree-path>，然後重試刪除。"
             }
           }
         },
@@ -4552,8 +4552,8 @@ export default {
         "sleep": {
           "worktree": {
             "flow": {
-              "c460fecc4a": "無法讓部分工作區進入睡眠",
-              "8bc3fc0671": "無法讓工作區進入睡眠"
+              "c460fecc4a": "無法讓部分 Worktree 進入睡眠",
+              "8bc3fc0671": "無法讓 Worktree 進入睡眠"
             }
           }
         },
@@ -5007,7 +5007,7 @@ export default {
           "bee4e63e1c": "重新載入頁面。",
           "87f814af6f": "以 remains 篩選，並選擇 coding_plan/remains 請求。",
           "435df0ee51": "在 Request Headers 下，複製 Cookie 的值。",
-          "7492fb3bba": "在此貼上並點按「儲存」。",
+          "7492fb3bba": "在此貼上並按一下「儲存」。",
           "9fec52de4b": "如何複製 Cookie",
           "4e32e030b2": "儲存於本機。Orca 僅會將其傳送至 platform.minimax.io 以重新整理使用量。",
           "remoteServerFallback": "遠端伺服器",
@@ -9036,8 +9036,8 @@ export default {
           "2a9588b1c2": "移除此繫結"
         },
         "BrowserLocalhostWorktreeLabelsSetting": {
-          "8ac8c3ad19": "本機主機工作區標籤",
-          "1db3c8b983": "將工作區埠開啟為特定於工作區的 Orca localhost URL，便於區分瀏覽器分頁。"
+          "8ac8c3ad19": "本機主機 Worktree 標籤",
+          "1db3c8b983": "將 Worktree 埠開啟為特定於 Worktree 的 Orca localhost URL，便於區分瀏覽器分頁。"
         },
         "AgentRuntimeSetting": {
           "label": "Agent 執行時",
@@ -10694,7 +10694,7 @@ export default {
           "fd84d3e9b8": "通知已啟用",
           "4f7bce5644": "當 Agent 完成或終端機需要處理時，macOS 會提醒你。",
           "95d99b52fa": "允許 Orca 傳送通知",
-          "94562ba367": "macOS 正在請求權限。在對話方塊中點按允許，此步驟會自動更新。",
+          "94562ba367": "macOS 正在請求權限。在對話方塊中按一下允許，此步驟會自動更新。",
           "4f6a1da718": "開啟系統設定",
           "90b5d2e363": "macOS 未送達 Orca 的通知",
           "2c47f5465f": "在系統設定中啟用 Orca 的允許通知。啟用後此步驟會自動更新。"
@@ -10828,7 +10828,7 @@ export default {
           "notification": {
             "permission": {
               "card": {
-                "f696515944": "在 macOS 對話方塊中點按允許。",
+                "f696515944": "在 macOS 對話方塊中按一下允許。",
                 "3d18cf71f9": "將自動更新。",
                 "721d2bedb6": "在系統設定中為 Orca 開啟允許通知。"
               }
@@ -13097,8 +13097,8 @@ export default {
       },
       "rightSidebar": {
         "FolderWorkspaceWorktreesPanel": {
-          "unavailable": "僅顯示資料夾工作區的工作區。",
-          "label": "工作區",
+          "unavailable": "僅資料夾工作區會顯示 Worktree。",
+          "label": "Worktree",
           "description": "顯示附加到此資料夾工作區的 Worktree。",
           "countOne": "1 個附加的 Worktree",
           "countMany": "{{value0}} 個附加的 Worktree",
