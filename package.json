@@ -12,7 +12,9 @@
     "lint:terms": "node scripts/sweep-terms.js",
     "lint:spacing": "node scripts/sweep-spacing.js",
     "verify": "node scripts/verify-install.js",
-    "dry-run": "node index.js --dry-run"
+    "dry-run": "node index.js --dry-run",
+    "ref:es": "node scripts/extract-reference-locale.js es",
+    "audit:ref": "node scripts/extract-reference-locale.js es > .ref-es.json && node scripts/audit-vs-reference.js .ref-es.json"
   },
   "keywords": [
     "orca",
