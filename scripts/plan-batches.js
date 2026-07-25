@@ -35,9 +35,16 @@ function classify(key) {
   return { tier: 5, ns: p.slice(1, 3).join('.') };
 }
 
+// CSS / 選擇器 / keyframes 不是翻譯內容，計入字數會嚴重扭曲批次大小。
+// components.feature 的 30,909 字裡有 28,179 字（91%）是 7 個 CSS 區塊，
+// 曾讓這個命名空間被誤判為需要切 6 批的長文案，實際文案只有 2,730 字。
+const isCode = s => /\{\s*[a-z-]+\s*:|@keyframes|^\.[a-z-]|\[data-|nth-of-type/i.test(s);
+
 const groups = new Map();
+let codeSkipped = 0, codeChars = 0;
 for (const [k, v] of Object.entries(flat)) {
   if (typeof v !== 'string') continue;
+  if (isCode(v)) { codeSkipped++; codeChars += v.length; continue; }
   const { tier, ns } = classify(k);
   const id = tier + '|' + ns;
   if (!groups.has(id)) groups.set(id, { tier, ns, keys: 0, chars: 0, items: [] });
