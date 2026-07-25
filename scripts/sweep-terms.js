@@ -23,8 +23,17 @@ function loadRules() {
     const r = {}; hdr.forEach((h, i) => r[h] = (c[i] || '').trim());
     if (r.tier !== 'A' || !r.forbidden) continue;
     for (const bad of r.forbidden.split('|').filter(Boolean)) {
-      // 安全閘門：單字元一律不機械替換；目標含來源會無限自我匹配
-      if ([...bad].length < 2) { skipped.push(`${bad} → ${r.zh_tw}（單字元）`); continue; }
+      // re: 前綴 = 自訂正則。用於損壞修復與需要前後文條件的規則
+      // （例如 (?<!來)源分支），作者自行負責正確性，不套用下列閘門。
+      if (bad.startsWith('re:')) {
+        rules.push({ en: r.en, bad, good: r.zh_tw, re: new RegExp(bad.slice(3), 'g') });
+        continue;
+      }
+      // 安全閘門一：單字元擴寫成多字元最危險（包→套件 會打壞「包含」，
+      // 庫→程式庫 會打壞「資料庫」）。等長的單字元替換（您→你）則安全。
+      if ([...bad].length < 2 && [...r.zh_tw].length > 1) {
+        skipped.push(`${bad} → ${r.zh_tw}（單字元擴寫）`); continue;
+      }
       // 目標含來源會無限自我匹配，除非有負向前瞻把已正確的形式排除掉
       if (r.zh_tw.includes(bad) && !LOOKAHEAD[bad]) {
         skipped.push(`${bad} → ${r.zh_tw}（目標含來源）`); continue;
@@ -32,8 +41,8 @@ function loadRules() {
       rules.push({ en: r.en, bad, good: r.zh_tw });
     }
   }
-  // 長詞優先，避免「配置文件」被「配置」搶先切走
-  rules.sort((a, b) => b.bad.length - a.bad.length);
+  // 損壞修復（re:）優先跑，再依長詞優先，避免「配置文件」被「配置」搶先切走
+  rules.sort((a, b) => (b.re ? 1000 : b.bad.length) - (a.re ? 1000 : a.bad.length));
   return { rules, skipped };
 }
 
@@ -46,18 +55,36 @@ const stats = new Map();
 const samples = new Map();
 let changedKeys = 0;
 
+// 事後檢查用：統計「同一漢字連續重複」的出現次數。
+// 替換有可能在詞界造出重複（許可權→權限 把「隱私權許可權」變成「隱私權權限」），
+// 這種錯誤只看單條規則的 diff 看不出來，必須比對全檔前後。
+const repeats = s => {
+  const m = new Map();
+  for (const x of s.matchAll(/([一-鿿])\1/g)) m.set(x[0], (m.get(x[0]) || 0) + 1);
+  return m;
+};
+const before = repeats(Object.values(data).filter(v => typeof v === 'string').join('\n'));
+
 for (const [key, val] of Object.entries(data)) {
   if (typeof val !== 'string') continue;
   let out = val;
   for (const r of rules) {
-    const re = new RegExp(r.bad + (LOOKAHEAD[r.bad] || ''), 'g');
+    const re = r.re || new RegExp(r.bad + (LOOKAHEAD[r.bad] || ''), 'g');
+    re.lastIndex = 0;
     const n = (out.match(re) || []).length;
     if (!n) continue;
     stats.set(r.bad, (stats.get(r.bad) || 0) + n);
     if (!samples.has(r.bad)) samples.set(r.bad, { key, before: val });
     out = out.replace(re, r.good);
   }
-  if (out !== val) { changedKeys++; if (WRITE) data[key] = out; }
+  if (out !== val) { changedKeys++; data[key] = out; }
+}
+
+const after = repeats(Object.values(data).filter(v => typeof v === 'string').join('\n'));
+const introduced = [];
+for (const [ch, n] of after) {
+  const was = before.get(ch) || 0;
+  if (n > was) introduced.push(`${ch}（${was} → ${n}）`);
 }
 
 console.log(`規則 ${rules.length} 條（安全閘門擋下 ${skipped.length} 條）`);
@@ -68,16 +95,26 @@ const rows = [...stats.entries()].sort((a, b) => b[1] - a[1]);
 for (const [bad, n] of rows) {
   const r = rules.find(x => x.bad === bad);
   const s = samples.get(bad);
-  const re = new RegExp(bad + (LOOKAHEAD[bad] || ''), 'g');
+  // regex 規則要用編譯好的 r.re，不能拿含 "re:" 前綴的原字串重建
+  const re = r.re ? new RegExp(r.re.source, 'g') : new RegExp(bad + (LOOKAHEAD[bad] || ''), 'g');
   console.log(`${String(n).padStart(4)}  ${bad} → ${r.good}   [${r.en}]`);
   console.log(`        - ${s.before.slice(0, 62)}`);
   console.log(`        + ${s.before.replace(re, r.good).slice(0, 62)}`);
 }
 
+if (introduced.length) {
+  console.error('\n❌ 事後檢查：替換在詞界造出了新的疊字，這通常代表規則寫錯了');
+  for (const s of introduced) console.error('   ' + s);
+  console.error('   （例：許可權→權限 會把「隱私權許可權」變成「隱私權權限」）');
+  console.error('   請先修正 lock.csv 規則，或補一條損壞修復規則。未寫檔。');
+  process.exit(1);
+}
+console.log('\n✅ 事後檢查：未造出新的疊字');
+
 if (WRITE) {
   const out = JSON.stringify(data, null, 2).replace(/\n/g, EOL);
   fs.writeFileSync(JSON_PATH, out, 'utf8');
-  console.log('\n✅ 已寫入 orca_zh_TW_translation.json');
+  console.log('✅ 已寫入 orca_zh_TW_translation.json');
 } else {
-  console.log('\n（dry-run，未寫檔。加 --write 才會實際修改）');
+  console.log('（dry-run，未寫檔。加 --write 才會實際修改）');
 }

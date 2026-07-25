@@ -15,8 +15,23 @@ const RE_BEFORE = new RegExp(`([${AN}])([${CJK}])`, 'g');
 
 function fix(s) {
   // 跑兩次：處理「中A中」這種左右都要補的情形
-  return s.replace(RE_AFTER, '$1 $2').replace(RE_BEFORE, '$1 $2')
-          .replace(RE_AFTER, '$1 $2').replace(RE_BEFORE, '$1 $2');
+  let o = s.replace(RE_AFTER, '$1 $2').replace(RE_BEFORE, '$1 $2')
+           .replace(RE_AFTER, '$1 $2').replace(RE_BEFORE, '$1 $2');
+
+  // 佔位符兩側補空格（{ 不是英數字，上面的規則抓不到）
+  o = o.replace(new RegExp(`([${CJK}])(\\{\\{)`, 'g'), '$1 $2')
+       .replace(new RegExp(`(\\}\\})([${CJK}])`, 'g'), '$1 $2');
+
+  // 彎引號 → 直角引號（台灣正體慣例）
+  o = o.replace(/[“]/g, '「').replace(/[”]/g, '」');
+
+  // 結尾的三點 → 單字元省略號。
+  // 只處理結尾，且排除 URL／查詢字串——「git diff main...HEAD」與
+  // 「orca://pair?code=...」的三點都必須保留原樣。
+  if (!/:\/\//.test(o) && !/[?&=\/]\.\.\.$/.test(o)) {
+    o = o.replace(/\.\.\.$/, '…');
+  }
+  return o;
 }
 
 const raw = fs.readFileSync(JSON_PATH, 'utf8');
@@ -39,7 +54,8 @@ for (const [key, val] of Object.entries(data)) {
   if (WRITE) data[key] = out;
 }
 
-console.log(`受影響字串：${changed} 句 / 補入空格 ${inserted} 個\n`);
+console.log(`受影響字串：${changed} 句 / 字元淨變化 ${inserted > 0 ? '+' : ''}${inserted}`);
+console.log('（補空格會增加字元，... → … 會減少，故淨值可為負）\n');
 console.log('樣本：');
 for (const s of samples) {
   console.log('  - ' + s.before.slice(0, 62));
