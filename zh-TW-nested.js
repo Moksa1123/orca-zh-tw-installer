@@ -254,7 +254,7 @@ export default {
           "e50495aae6": "強制刪除分支",
           "889487d8bb": "關閉",
           "f4503ca505": "開啟「設定」>「Git」後再試一次。",
-          "34a03a6565": "讓 {{value0}} 保持最新狀態",
+          "34a03a6565": "讓 {{value0}} 保持最新",
           "fa9299a66f": "你的新 Worktree 是最新的，但本機 {{value0}} 落後 {{value1}} {{value2}}。AI diff 可能會遺漏近期的 commits。",
           "14bc053a47": "本機 {{value0}} 未重新整理",
           "4a18052018": "本機 {{value0}} 落後於 {{value1}}",
@@ -262,7 +262,7 @@ export default {
           "0216895fb5": "刪除分支失敗",
           "19db0085fb": "已刪除本機分支",
           "2b0afc7f14": "無法讓本機 {{value0}} 保持最新狀態",
-          "670864ab52": "正在讓本機 {{value0}} 保持最新狀態",
+          "670864ab52": "讓本機 {{value0}} 保持最新",
           "5366d13eec": "已刪除 Worktree，保留分支",
           "2e17f825d4": "已刪除 Worktree，保留分支",
           "78e08cd877": "Git 無法安全刪除分支「{{value0}}」，因此 Orca 保留了它以避免遺失本機 commits。",
@@ -5239,7 +5239,7 @@ export default {
         "BrowserPane": {
           "81ff774667": "取消",
           "7d4c0a2aa4": "設定檔名稱",
-          "612f7f6861": "建立設定檔失敗。",
+          "612f7f6861": "建立設定檔失敗",
           "8f22b7580d": "已建立設定檔「{{value0}}」。",
           "8481ee0331": "新增瀏覽器設定檔",
           "c0f85056d9": "此 Orca 伺服器上的瀏覽器設定檔。",
@@ -5457,7 +5457,7 @@ export default {
           "4a73f5217a": "供控制其他本機應用程式的指令碼使用的 Apple Events。",
           "e119f0d66b": "自動化",
           "7ca17b62c8": "當專案、Worktree 或符號連結檔案會存取 macOS 受保護資料夾時建議啟用。",
-          "c566bca278": "完整磁碟存取權限",
+          "c566bca278": "完全磁碟存取權限",
           "9f35980756": "按鍵注入、視窗控制與 UI 自動化工具。",
           "5b2f22ca2d": "輔助使用",
           "0639db5496": "螢幕截圖、視覺自動化與 UI 檢查工具。",
@@ -7310,7 +7310,7 @@ export default {
             "5bff6a2ef0": "側邊欄",
             "5e5b8878bf": "手機",
             "74618577c7": "行動裝置",
-            "682293cadf": "在左側邊欄頂端顯示 Orca Mobile 按鈕。",
+            "682293cadf": "在左側邊欄頂部顯示 Orca Mobile 按鈕。",
             "1de96ec8a6": "顯示 Orca Mobile 按鈕",
             "4c920ab2d1": "排程",
             "58f4e22fa2": "自動化",
@@ -9790,7 +9790,7 @@ export default {
               "60bd988f0b": "AI 修復",
               "03d238218c": "詳細資訊",
               "a9bf7c171a": "推送失敗",
-              "834cb3f23d": "使用 AI 修復",
+              "834cb3f23d": "用 AI 修復",
               "783a808870": "關閉"
             },
             "97e7124eac": "無法重新整理原始碼控制。請重試。"
@@ -9886,7 +9886,7 @@ export default {
                 "49731703ea": "任務",
                 "f2fe8a4e8f": "註解",
                 "d098e5529a": "輸出",
-                "2dd5ddabc4": "工作流程#",
+                "2dd5ddabc4": "工作流程 #",
                 "aa8494ae3c": "檢查 #",
                 "00e1c1658a": "已完成",
                 "fd46a70f1a": "開始",
@@ -9918,7 +9918,7 @@ export default {
                 "365254cc1b": "未解決",
                 "7f793b571d": "拖曳以調整檢查面板大小",
                 "ee07b33924": "不明",
-                "cdbfda4dec": "批註",
+                "cdbfda4dec": "註解",
                 "066fedd446": "失敗的工作",
                 "ae8a04ef17": "衝突檔案詳細資訊不可用",
                 "73d0675356": "重新整理衝突詳細資訊…",
@@ -9943,7 +9943,7 @@ export default {
                 "b13f85d75c": "時間線",
                 "f5cf324efa": "留言顯示選項",
                 "5e6e5a13fa": "檢視",
-                "actionRequiredHint": "此檢查需要在 GitHub 上執行手動操作（例如批准工作流執行）後才能解除合併阻止。",
+                "actionRequiredHint": "此檢查需要在 GitHub 上執行手動操作（例如核准工作流程執行）後才能解除合併阻止。",
                 "b3195cba33": "取消將作者標記為機器人",
                 "f588b46a6c": "將作者標記為機器人"
               },
@@ -10167,10 +10167,10 @@ export default {
                     "launch": {
                       "a8b97d2318": "針對提交失敗啟動了 AI Agent。",
                       "5540ff50cc": "無法建置 Agent 啟動命令。",
-                      "9bbd9077a2": "沒有啟用的 AI Agent。在「設定」中設定 Agent。",
-                      "d481ab22f9": "已儲存的 AI Agent 不可用。使用自訂啟動來選擇另一個 Agent。",
+                      "9bbd9077a2": "沒有已啟用的 AI Agent。請在設定中設定 Agent。",
+                      "d481ab22f9": "已儲存的 AI Agent 不可用。請使用「自訂啟動」選擇其他 Agent。",
                       "f2b47026e8": "提交失敗的提示為空。請更新原始碼控制 AI 設定。",
-                      "4f4e0418a0": "無法建置 Agent 提示符。",
+                      "4f4e0418a0": "無法建置 Agent 提示詞。",
                       "216f762bd7": "無法解析工作區連線。"
                     }
                   }
@@ -10805,7 +10805,7 @@ export default {
           "commandPrompt": "命令提示符",
           "commandPromptDescription": "以經典 cmd.exe 行為開啟新的終端機面板。",
           "gitBash": "Git Bash",
-          "gitBashDescription": "使用 Git for Windows 的 bash.exe 進行 Unix 風格的 shell 工作流。",
+          "gitBashDescription": "使用 Git for Windows 的 bash.exe 進行 Unix 風格的 shell 工作流程。",
           "gitBashUnavailable": "已選擇，但此電腦未偵測到 Git Bash。",
           "wsl": "WSL",
           "wslDescription": "在 Windows Subsystem for Linux 的預設環境中啟動新的終端機面板。",
@@ -10855,7 +10855,7 @@ export default {
             "7199ff19c7": "清除所選的來源",
             "370a1faf67": "在瀏覽器中開啟",
             "2c69728c2a": "在瀏覽器中開啟連結",
-            "6f07a18604": "姓名",
+            "6f07a18604": "名稱",
             "2e4c7c95fe": "分支",
             "2cfc6be192": "GitLab",
             "7a47af0565": "Linear",
@@ -11214,23 +11214,23 @@ export default {
             "f39be6ca14": "/報名"
           },
           "BrowserUseSkillSetupCard": {
-            "cbc45022d4": "使 Agent 能夠在 Orca 瀏覽器中導航和驗證頁面。",
+            "cbc45022d4": "使 Agent 能夠在 Orca 瀏覽器中瀏覽和驗證頁面。",
             "d5bb1cd4ba": "瀏覽器使用技能"
           },
           "ComputerUseAnimatedVisual": {
-            "d8401975b1": "已批准",
+            "d8401975b1": "已核准",
             "f27676a92c": "狀態：",
             "6804cb356f": "點選傳送",
-            "1719b28a81": "找到「批准」",
-            "79445f7512": "批准我的應用程式中的註解",
+            "1719b28a81": "找到「核准」",
+            "79445f7512": "核准我的應用程式中的註解",
             "99a8624bcb": ">",
             "2adb561b44": "Claude Code 工作階段已開始",
             "94787f01f8": "Claude Code",
             "9cddfe96b2": "本機應用程式",
-            "9634d870d1": "批准",
+            "9634d870d1": "核准",
             "3cc2df3671": "完成",
             "bdd5312213": "待處理",
-            "c11dda000b": "已批准"
+            "c11dda000b": "已核准"
           },
           "EditorAnimatedVisual": {
             "7a763daf2f": "斜體",
@@ -11719,7 +11719,7 @@ export default {
             "5c59ea96ca": "行動裝置模擬器 Orca CLI 技能設定",
             "bff5341ac3": "行動裝置模擬器 Orca CLI 技能安裝 CLI",
             "3d34423e88": "正在註冊 Orca CLI",
-            "3be27641c9": "以便 Agent shell 可以執行模擬器命令。",
+            "3be27641c9": "讓 Agent 的 shell 可以執行模擬器指令。",
             "3941719a56": "開啟技能設定前正在檢查 Orca CLI。"
           },
           "MobileEmulatorTabIntroCallout": {
@@ -12016,13 +12016,13 @@ export default {
           "cd65b1d6b0": "關閉",
           "eeba2547a1": "下一個結果",
           "30de726ad0": "上一個結果",
-          "2fc3ba0ea8": "在頁面中查詢…",
+          "2fc3ba0ea8": "在頁面中搜尋…",
           "d080ab37d6": "沒有符合項",
           "db56fcd6d2": "{{value1}} 的 {{value0}}"
         },
         "PdfViewer": {
           "3e98d500d2": "PDF 預覽",
-          "069ff59932": "在 PDF 中查詢 ({{value0}})",
+          "069ff59932": "在 PDF 中搜尋 ({{value0}})",
           "2b6eb1ccd6": "放大",
           "c0119616d6": "適合寬度",
           "fa5d096b00": "縮小"
@@ -12048,7 +12048,7 @@ export default {
           "9e384d48dc": "Swift",
           "3009f722b9": "SQL",
           "d01f55be57": "shell",
-          "5af8251002": "社會保障體系",
+          "5af8251002": "SCSS",
           "e72e6b03f4": "Rust",
           "96182a2f64": "Ruby",
           "2391f9cda9": "Python",
@@ -12058,17 +12058,17 @@ export default {
           "78eba32de4": "JSON",
           "a209c57063": "JavaScript",
           "36536ad539": "Java",
-          "8c4a3fa02d": "超文字標記語言",
+          "8c4a3fa02d": "HTML",
           "706fd85738": "GraphQL",
           "edfcc64182": "Go",
-          "bf6ee5caaa": "差異",
+          "bf6ee5caaa": "Diff",
           "026653f21f": "CSS",
           "4daed43ae3": "C++",
           "4227cf50fe": "Bash",
           "13822cdfda": "純文字"
         },
         "RichMarkdownDocLinkMenu": {
-          "e17b987473": "↑↓ 導航↵ 選擇 esc 關閉",
+          "e17b987473": "↑↓ 移動　↵ 選擇　esc 關閉",
           "90c5f0e1e4": "的",
           "2aaf7d9678": "顯示中",
           "63ced7cb9b": "沒有找到檔案",
@@ -12090,21 +12090,21 @@ export default {
         "RichMarkdownReviewNoteLayer": {
           "f3ef92952b": "此備註",
           "9cde7ad994": "複製備註給 Agent",
-          "117432e2c6": "複製的註解",
+          "117432e2c6": "已複製註解",
           "3ababd949d": "審查筆記"
         },
         "RichMarkdownReviewRailActions": {
           "636394af72": "複製備註給 Agent",
           "a807596997": "複製筆記",
           "8aaf2c4c69": "顯示留言筆記",
-          "af02dc2456": "隱藏留言註解"
+          "af02dc2456": "隱藏留言筆記"
         },
         "RichMarkdownSearchBar": {
           "de68b75bde": "關閉搜尋",
           "f7bcecbe26": "下一個結果",
           "32ae8d7d57": "上一個結果",
-          "158c645829": "在 Markdown 編輯器中查詢",
-          "98b89276f3": "在編輯器中查詢",
+          "158c645829": "在 Markdown 編輯器中搜尋",
+          "98b89276f3": "在編輯器中搜尋",
           "a86958d508": "沒有結果",
           "e8c147435f": "隱藏取代",
           "9cdc38be33": "顯示取代",
@@ -12113,7 +12113,7 @@ export default {
           "fd97c7e585": "取代",
           "44682b4159": "在 Markdown 編輯器中取代",
           "c2884f5e95": "全部取代",
-          "preservedRichContentReadOnly": "保留的富文字內容在富文字模式下為只讀。"
+          "preservedRichContentReadOnly": "保留的豐富內容在豐富編輯器模式下為唯讀。"
         },
         "RichMarkdownSlashMenu": {
           "82c6816ff8": "找不到區塊",
@@ -12150,7 +12150,7 @@ export default {
           "30099dca46": "資料夾",
           "2d7d39dc63": ".md",
           "c8ac7868e6": "檔名",
-          "b6ed807cc6": "姓名",
+          "b6ed807cc6": "名稱",
           "e365f3c638": "為你的 Markdown 檔案命名並選擇一個資料夾。",
           "674b046582": "另存為"
         },
@@ -12275,11 +12275,11 @@ export default {
           "fd46a70f1a": "已開始",
           "00e1c1658a": "已完成",
           "aa8494ae3c": "檢查 #",
-          "2dd5ddabc4": "工作流 #",
+          "2dd5ddabc4": "工作流程 #",
           "1f2b980522": "正在載入檢查詳細資訊…",
           "d098e5529a": "輸出",
-          "f2fe8a4e8f": "批註",
-          "cdbfda4dec": "批註",
+          "f2fe8a4e8f": "註解",
+          "cdbfda4dec": "註解",
           "5e2a9c3f88": "在此行開啟檔案",
           "066fedd446": "失敗的任務",
           "49731703ea": "任務",
@@ -12539,7 +12539,7 @@ export default {
             "c9d5f63fdc": "關閉",
             "5c0c02ae76": "下一個結果",
             "ca7aebbd7f": "上一個結果",
-            "636a69cd66": "在頁面中查詢…",
+            "636a69cd66": "在頁面中搜尋…",
             "7baca7b1b8": "沒有符合項",
             "fc63f336aa": "{{value1}} 的 {{value0}}"
           },
@@ -12678,7 +12678,7 @@ export default {
             "26fd87f4df": "複製",
             "87d97bdd6d": "取消",
             "effd75e330": "附近的環境",
-            "7d1480fbf1": "超文字標記語言",
+            "7d1480fbf1": "HTML",
             "9098b118ab": "頁",
             "eb98a0971a": "」",
             "d053db279d": "角色=",
@@ -12878,7 +12878,7 @@ export default {
           "376631ef2b": "還原",
           "b457436d6a": "暫停",
           "0ae52dd760": "愛馬仕",
-          "e059042585": "只讀",
+          "e059042585": "唯讀",
           "aecdc3681f": "易於管理",
           "8500baacb4": "外部來源",
           "36f71740a7": "所選的工作區",
@@ -12921,7 +12921,7 @@ export default {
           "2b0adbce21": "已暫停",
           "b3feba84c7": "目前",
           "92405f1431": "不可用",
-          "dbdcec22bd": "只讀",
+          "dbdcec22bd": "唯讀",
           "0a2d4359a8": "易於管理",
           "330b3c32e8": "可用的",
           "e2532150ed": "自動化",
