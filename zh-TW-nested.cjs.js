@@ -1289,7 +1289,7 @@ const zhTW = {
         "filesUnavailable": "無法載入變更的檔案。",
         "filesRetry": "重試",
         "4d18310d55": "已變更的檔案",
-        "94d95cf1f7": "檢查項",
+        "94d95cf1f7": "檢查",
         "9e8d45700e": "對話",
         "e6996f4024": "· 已更新",
         "dd5d9a4f17": "{{value0}} 更新",
@@ -1618,7 +1618,7 @@ const zhTW = {
         "d1766fd62d": "專案載入失敗",
         "7762f4b03a": "／",
         "443f7dd928": "Merge",
-        "a7396b05c6": "檢查項",
+        "a7396b05c6": "檢查",
         "f6fa3c97d0": "審查者",
         "8aba10579d": "指派物件",
         "5eccb3c841": "標題／內容",
@@ -1755,7 +1755,7 @@ const zhTW = {
         "171b7739d8": "mrs",
         "a9f256ecea": "沒有符合此篩選條件的 GitLab Issue。",
         "2007e14d95": "GitLab",
-        "456b8512da": "合併請求",
+        "456b8512da": "Merge Request",
         "03da966159": "選擇一個專案，以便我們向 GitLab 進行身分驗證。",
         "d591aac6ae": "沒有待處理的待辦事項。你已全部完成！",
         "33a4bd7f5c": "待辦事項",
@@ -5409,7 +5409,7 @@ const zhTW = {
           "6c84ba6de3": "範本",
           "ebed4d2a29": "草稿",
           "02bab6542c": "PR",
-          "fdee745b87": "合併請求",
+          "fdee745b87": "Merge Request",
           "b388463881": "pull request",
           "19e10a12bb": "託管審查",
           "b8b6fd55b4": "{prompt}",
@@ -8007,7 +8007,7 @@ const zhTW = {
             "50d20817f7": "Bitbucket",
             "c97d58a0f3": "透過 API token 環境變數進行 Bitbucket Cloud 驗證。",
             "67a2a0e868": "Bitbucket 整合",
-            "371ee914d2": "合併請求",
+            "371ee914d2": "Merge Request",
             "581844769a": "MR",
             "b40cbe5de4": "glab",
             "b939695c69": "GitLab",
@@ -8423,7 +8423,7 @@ const zhTW = {
             "0ecfc47434": "衝突",
             "0f8cb15582": "Agent",
             "f1adebbe8c": "Shell",
-            "7f1b38f59a": "推",
+            "7f1b38f59a": "推送",
             "7e3fc707aa": "CLI",
             "0ecba9aa5f": "鍵盤",
             "ebd7d81e1d": "選擇當快速鍵重疊時 Orca 或焦點 CLI 是否獲勝。",
@@ -8655,7 +8655,7 @@ const zhTW = {
             "6cddc858ba": "網頁 GL",
             "4b4e80d850": "加速度",
             "db82cb13b0": "圖形處理器",
-            "8f9f953de7": "控制 CLI 是否使用 xterm.js WebGL 渲染。當渲染器受支援時，自動嘗試 WebGL，併為軟體或不明 GPU 渲染器提供保守的後備方案。",
+            "8f9f953de7": "控制 CLI 是否使用 xterm.js WebGL 渲染。當渲染器受支援時，自動嘗試 WebGL，並為軟體或不明 GPU 渲染器提供保守的後備方案。",
             "13a2502dfc": "GPU 加速",
             "d5e6c7fab1": "字型特性",
             "a16224d16a": "calt",
@@ -8810,7 +8810,7 @@ const zhTW = {
                   "707180d09c": "glab auth login",
                   "4be0616873": "GitLab CLI 已安裝但未透過驗證。請在 CLI 中執行此命令：",
                   "54a640af7a": "安裝 GitLab CLI",
-                  "b56fd5676a": "安裝 GitLab CLI 以啟用合併請求、Issue 和流水線。",
+                  "b56fd5676a": "安裝 GitLab CLI 以啟用 Merge Request、Issue 和流水線。",
                   "faddeb763d": "此執行時暫不支援 GitLab CLI 狀態。",
                   "a47f71e357": "CLI。",
                   "2a6b359e75": "glab",
@@ -8873,7 +8873,7 @@ const zhTW = {
                   "6d5c2a3005": "ORCA_GITEA_TOKEN",
                   "fcbe0469fd": "公開存放庫會從其 git remote 偵測。設定",
                   "0613928cb3": "此執行時暫不支援 Gitea 狀態。",
-                  "05863d2599": "透過 Gitea REST API 獲取 pull request 和 commit 狀態。",
+                  "05863d2599": "透過 Gitea REST API 取得 pull request 和 commit 狀態。",
                   "52f75876be": "已偵測存放庫的 pull request 和 commit 狀態",
                   "0b5242f8a2": "{{value0}} · Pull Request 和提交狀態",
                   "40f678df73": "Azure DevOps 認證已設定但無法透過驗證。請檢查 token、API 基礎 URL 和存放庫權限；如果環境變數已變更，請重新啟動 Orca。",
@@ -8885,7 +8885,7 @@ const zhTW = {
                   "48842720d2": "ORCA_AZURE_DEVOPS_TOKEN",
                   "7bbc9c64f0": "設定",
                   "f3f47dc7de": "此執行時暫不支援 Azure DevOps 狀態。",
-                  "0eb50d5593": "透過 Azure DevOps REST API token 獲取 pull request 和建置狀態。",
+                  "0eb50d5593": "透過 Azure DevOps REST API token 取得 pull request 和建置狀態。",
                   "54636c65d4": "已偵測 Azure Repos 的 pull request 和建置狀態",
                   "ea204f5e03": "{{value0}} · Pull Request 和建置狀態",
                   "6154b02093": "Bitbucket 認證已設定但無法透過驗證。請檢查 token 和存放庫權限；如果環境變數已變更，請重新啟動 Orca。",
@@ -8894,7 +8894,7 @@ const zhTW = {
                   "fc71a0e7aa": "和",
                   "63a7f47392": "ORCA_BITBUCKET_EMAIL",
                   "24ac1c69dc": "此執行時暫不支援 Bitbucket 狀態。",
-                  "a924e8dcd1": "透過 Bitbucket Cloud API token 獲取 pull request 和建置狀態。",
+                  "a924e8dcd1": "透過 Bitbucket Cloud API token 取得 pull request 和建置狀態。",
                   "0fa5629dad": "pull request 和建置狀態"
                 }
               }
@@ -8910,7 +8910,7 @@ const zhTW = {
         },
         "computerUseSummary": {
           "checkingTitle": "正在檢查電腦控制存取權限。",
-          "checkingDescription": "Orca 正在檢查電腦控制助手的 macOS 隱私權限。",
+          "checkingDescription": "Orca 正在檢查電腦控制助理的 macOS 隱私權限。",
           "unavailableTitle": "電腦控制不可用。",
           "unavailableDescription": "Computer Use 權限不可用，因為 {{value0}}。",
           "readyTitle": "電腦控制已就緒。",
@@ -8923,8 +8923,8 @@ const zhTW = {
           "remoteServerCredentials": "此供應商的認證和帳號檢查由該遠端伺服器擁有。使用「設定 > 遠端 Orca 伺服器 > 高階」編輯另一個預設執行時範圍。",
           "localMac": "本機 Mac",
           "localCredentials": "此供應商的認證和帳號檢查由該桌面使用者端擁有。使用「設定 > 遠端 Orca 伺服器 > 高階」編輯伺服器擁有的認證。",
-          "remoteServerRateLimit": "{{value0}} API 預算從此遠端伺服器上的 CLI 獲取。使用「設定 > 遠端 Orca 伺服器 > 高階」檢視另一個預設執行時預算。",
-          "localRateLimit": "{{value0}} API 預算從此桌面使用者端上的 CLI 獲取。使用「設定 > 遠端 Orca 伺服器 > 高階」檢視伺服器擁有的預算。"
+          "remoteServerRateLimit": "{{value0}} API 預算從此遠端伺服器上的 CLI 取得。使用「設定 > 遠端 Orca 伺服器 > 高階」檢視另一個預設執行時預算。",
+          "localRateLimit": "{{value0}} API 預算從此桌面使用者端上的 CLI 取得。使用「設定 > 遠端 Orca 伺服器 > 高階」檢視伺服器擁有的預算。"
         },
         "settingOwnership": {
           "clientDefault": "使用者端預設",
@@ -9201,7 +9201,7 @@ const zhTW = {
           "0d8e77bc40": "Grok CLI 檔案",
           "ad47a33f72": "正在載入…",
           "b2c3d4e5f6": "已登入",
-          "c3d4e5f6a7": "已登入。Orca 只讀取磁碟上的該檔案；如果使用量獲取失敗，請重新執行 grok login。",
+          "c3d4e5f6a7": "已登入。Orca 只讀取磁碟上的該檔案；如果使用量取得失敗，請重新執行 grok login。",
           "d4e5f6a7b8": "工作階段已過期，請在 CLI 執行 grok login 以重新整理。",
           "e5f6a7b8c9": "未登入 Grok CLI",
           "f6a7b8c9d0": "在 CLI 執行 grok login，然後點選此處的重新整理使用量。",
@@ -9900,9 +9900,9 @@ const zhTW = {
                 "df137989b3": "顯示前 20 個註解",
                 "1f2b980522": "正在載入檢查詳細資訊…",
                 "0c96cd25e5": "解決",
-                "3a71a6ed0b": "在檢查和合並完成之前解決衝突。",
+                "3a71a6ed0b": "在檢查和合併完成之前解決衝突。",
                 "60186d8498": "衝突阻礙了這一點",
-                "c16762ac8c": "下面的檢查和註解顯示目前獲取的上下文。",
+                "c16762ac8c": "下面的檢查和註解顯示目前取得的上下文。",
                 "9d0e7bcefc": "沒有阻塞 PR 操作",
                 "5856874b59": "當該面板保持開啟狀態時，Orca 將重新整理檢查。",
                 "5341023167": "檢視",
@@ -10048,7 +10048,7 @@ const zhTW = {
                   },
                   "not_git": {
                     "title": "不是 Git 存放庫",
-                    "body": "Orca 無法將此資料夾作為 Git 存放庫來獲取 {{reviewLabel}} 狀態。"
+                    "body": "Orca 無法將此資料夾作為 Git 存放庫來取得 {{reviewLabel}} 狀態。"
                   },
                   "remote": {
                     "title": "僅遠端上下文",
@@ -10113,11 +10113,11 @@ const zhTW = {
                   "49ac4fec10": "檢查失敗",
                   "22b7e50621": "GitLab 報告合併衝突",
                   "96b05e374c": "衝突",
-                  "d63bb6f76e": "此合併請求仍是草稿",
+                  "d63bb6f76e": "此 Merge Request 仍是草稿",
                   "b2715092c6": "草稿",
-                  "2388413f28": "此合併請求已關閉",
+                  "2388413f28": "此 Merge Request 已關閉",
                   "88d044c42f": "已關閉",
-                  "ee482a2bad": "該合併請求已被合併",
+                  "ee482a2bad": "該 Merge Request 已被合併",
                   "fae95ae20d": "合併"
                 }
               }
@@ -10129,7 +10129,7 @@ const zhTW = {
             "864111caa2": "活動欄位置",
             "e8e2e4ce74": "切換右側邊欄",
             "441733b630": "埠",
-            "83a10e3c44": "檢查項",
+            "83a10e3c44": "檢查",
             "0314901467": "原始碼控制",
             "06219e4cb1": "搜尋",
             "8bc2bbc3a0": "檔案總管",
@@ -10151,7 +10151,7 @@ const zhTW = {
                 "composer": {
                   "9bca633dee": "取消",
                   "cf5a7aba6f": "清單",
-                  "d6d9c3c947": "參照",
+                  "d6d9c3c947": "引用",
                   "f49e0a21e0": "程式碼",
                   "542bf6a7e2": "斜體",
                   "256300f8ea": "粗體",
@@ -10222,10 +10222,10 @@ const zhTW = {
                 "dialog": {
                   "3bc61dc989": "取消",
                   "15efa778e3": "捨棄",
-                  "6de99d162b": "入口",
+                  "6de99d162b": "項目",
                   "42f89dd030": "檔案",
                   "e7611dca35": "檔案",
-                  "48c5ef95d9": "區域",
+                  "48c5ef95d9": "區塊",
                   "0d2d88cba5": "此操作無法復原。",
                   "1551c14668": "捨棄變更？"
                 }
@@ -10234,10 +10234,10 @@ const zhTW = {
                 "items": {
                   "7aad2c0240": "託管審查操作進行中…",
                   "9e779995dd": "建立 {{value0}}",
-                  "226b85a3a7": "fetch",
-                  "323bb614aa": "提交併同步",
+                  "226b85a3a7": "擷取",
+                  "323bb614aa": "提交並同步",
                   "2b8e6595fd": "提交",
-                  "04d709801d": "從遠端獲取但不合並"
+                  "04d709801d": "從遠端取得但不合併"
                 }
               },
               "primary": {
@@ -10245,10 +10245,10 @@ const zhTW = {
                   "ed93b4f14f": "提交",
                   "946a8a05ea": "為此分支建立 {{value0}}",
                   "e7ffa46946": "建立 {{value0}}",
-                  "95550cff15": "推",
-                  "d64292a938": "拉",
+                  "95550cff15": "推送",
+                  "d64292a938": "提取",
                   "795f1509c5": "同步",
-                  "390abeab93": "強力推",
+                  "390abeab93": "強制推送",
                   "1884cf34af": "將此分支發布到 origin",
                   "7b4d02e6b8": "發布分支",
                   "3d5dccef0b": "沒有可提交的內容。PR 已合併。",
@@ -10266,7 +10266,7 @@ const zhTW = {
                   "7f8a9b0c1d": "遠端操作進行中——請等它完成後重試",
                   "74fc171e99": "強制推送正在進行中…",
                   "16aee3a5c1": "正在提交…",
-                  "e61b0d7a3c": "請先簽出分支再發行提交。",
+                  "e61b0d7a3c": "請先簽出分支再發布提交。",
                   "1d47e850cf": "將更新推送到已關聯的審查分支",
                   "c39d0c75c3": "已關聯的審查分支目標不可用。",
                   "8c6d15a07d": "建立 PR",
@@ -10277,7 +10277,7 @@ const zhTW = {
                   "d2a8c4e703": "此分支上沒有需要包含在 {{value0}} 中的變更。",
                   "e3b9d5f814": "無法從預設分支建立 {{value0}}。",
                   "f4c0e6a925": "在建立 {{value0}} 之前提交變更。",
-                  "a5d1f7b036": "在建立 {{value0}} 之前釋出提交。",
+                  "a5d1f7b036": "在建立 {{value0}} 之前發布提交。",
                   "b6e2a8c147": "在建立 {{value0}} 之前推送提交。",
                   "c7f3b9d258": "在建立 {{value0}} 之前同步此分支。",
                   "d8a4c0e369": "在建立 {{value0}} 之前進行驗證。",
@@ -10313,8 +10313,8 @@ const zhTW = {
             "8b8ee9d22f": "無法確定哪個主機擁有此檔案。請檢查工作區連線後重試。",
             "af1270b90d": "永久刪除 {{count}} 項？",
             "dd029aa5cd": "這會永久刪除遠端主機上所選的各項及任何目錄內容。此操作無法復原。",
-            "77fdc36183": "刪除 {{count}} 個專案？",
-            "fca915a67a": "遠端專案將永久刪除且無法復原。本機專案將移至 {{value0}}。"
+            "77fdc36183": "刪除 {{count}} 個項目？",
+            "fca915a67a": "遠端項目將永久刪除且無法復原。本機項目將移至 {{value0}}。"
           },
           "useFileExplorerHandlers": {
             "32cd9fd991": "無法開啟符號連結目標"
@@ -10366,7 +10366,7 @@ const zhTW = {
             "openSupportedWorkspace": "在還原工作階段之前，請先開啟一個工作區。",
             "sessionHostMismatchUnsupported": "此工作階段屬於其他主機。請開啟同一主機上的工作區以還原它。",
             "localSessionSshWorkspaceUnsupported": "此工作階段的歷史記錄儲存在本機上，因此無法在 SSH 工作區中還原。請改為開啟一個本機工作區。",
-            "prepareSessionResumeFailed": "Could not prepare this session for resume."
+            "prepareSessionResumeFailed": "無法準備此工作階段以供還原。"
           },
           "AiVaultPanelControls": {
             "scanningSessions": "正在掃描工作階段",
@@ -10438,7 +10438,7 @@ const zhTW = {
             "unknownTime": "不明時間",
             "unknown": "不明",
             "user": "使用者",
-            "assistant": "助手",
+            "assistant": "助理",
             "tool": "工具",
             "system": "系統",
             "log": "記錄檔",
@@ -10554,16 +10554,16 @@ const zhTW = {
             "refresh": {
               "error": {
                 "copy": {
-                  "580025e7b7": "GitHub is unavailable",
-                  "01c85b5770": "GitHub's API is temporarily unavailable. This panel reloads automatically once it recovers.",
-                  "d1a9f2b165": "Can't reach GitHub",
-                  "7d01d42a3a": "GitHub is unreachable right now. Check your connection, then try again shortly.",
-                  "e9d681894a": "GitHub rate limit reached",
-                  "8c77434d6f": "GitHub is rate-limiting requests. This panel refreshes once the limit resets.",
-                  "79aa06bb2c": "Couldn't refresh. GitHub's API is temporarily unavailable. Showing the last known status.",
-                  "6ec12cee0c": "Couldn't refresh. GitHub is unreachable right now. Showing the last known status.",
-                  "de088015e8": "Couldn't refresh. GitHub is rate-limiting requests. Showing the last known status.",
-                  "d9dd7c6687": "Couldn't refresh from GitHub. Showing the last known status."
+                  "580025e7b7": "GitHub 無法使用",
+                  "01c85b5770": "GitHub API 暫時無法使用。此面板會在服務可用後自動重新載入。",
+                  "d1a9f2b165": "無法連線到 GitHub",
+                  "7d01d42a3a": "目前無法連線到 GitHub。請檢查你的連線，稍後再試。",
+                  "e9d681894a": "已達 GitHub 速率限制",
+                  "8c77434d6f": "GitHub 正在限制請求速率。限制重設後此面板會自動重新整理。",
+                  "79aa06bb2c": "無法重新整理。GitHub API 暫時無法使用。顯示最後已知狀態。",
+                  "6ec12cee0c": "無法重新整理。目前無法連線到 GitHub。顯示最後已知狀態。",
+                  "de088015e8": "無法重新整理。GitHub 正在限制請求速率。顯示最後已知狀態。",
+                  "d9dd7c6687": "無法從 GitHub 重新整理。顯示最後已知狀態。"
                 }
               }
             }
@@ -10922,8 +10922,8 @@ const zhTW = {
           "aa97420ba4": "複製安裝連結",
           "ac1eb64952": "安卓",
           "711e6f4b47": "iOS 系統",
-          "e75647ace0": "使用手機掃描二維碼或開啟安裝連結以獲取 Orca 手機端。",
-          "0d9b33299e": "獲取應用程式。",
+          "e75647ace0": "使用手機掃描二維碼或開啟安裝連結以取得 Orca 手機端。",
+          "0d9b33299e": "取得應用程式。",
           "92ddfdfa1f": "第 1 步（共 2 步）",
           "ff48d9d520": "與另一臺裝置配對",
           "f9cbf4bb53": "復原裝置",
@@ -11352,11 +11352,11 @@ const zhTW = {
             "8ed213397c": "執行中",
             "d340c052fb": "核實",
             "9a097cae12": "1 待定",
-            "2f37142229": "壓縮合並",
+            "2f37142229": "壓縮合併",
             "0aab7ab84a": "新增本機診斷錯誤追蹤",
             "dfe313e0c9": "開啟",
             "6e3f5223c5": "檔案總管",
-            "ab2901bce6": "檢查項",
+            "ab2901bce6": "檢查",
             "d7f80060ca": "原始碼控制",
             "8e715588e4": "搜尋",
             "a6c8b9e32f": "檢查已透過",
@@ -13143,7 +13143,7 @@ const zhTW = {
             "detailsUnavailable": "審查詳細資訊不可用",
             "refreshFailed": "重新整理失敗",
             "checking": "正在檢查審查狀態…",
-            "notFetched": "尚未獲取狀態",
+            "notFetched": "尚未取得狀態",
             "unavailableWorktree": "此 Worktree 不可用"
           },
           "groups": {
@@ -13211,12 +13211,12 @@ const zhTW = {
       },
       "taskPageEmptyState": {
         "noProjectSourcesTitle": "未選擇專案來源",
-        "noProjectSourcesDescription": "請至少選擇一個專案來源，讓 Orca 知道要從哪個主機/帳號獲取任務。",
+        "noProjectSourcesDescription": "請至少選擇一個專案來源，讓 Orca 知道要從哪個主機/帳號取得任務。",
         "noMatchingGitHubWorkTitle": "沒有符合的 GitHub 工作",
         "changeQueryDescription": "變更查詢或清除它。",
         "noGitLabIssuesTitle": "沒有 GitLab Issue",
         "noGitLabIssuesDescription": "沒有 GitLab Issue 符合此篩選器。",
-        "noGitLabMrsTitle": "沒有 GitLab 合併請求",
+        "noGitLabMrsTitle": "沒有 GitLab Merge Request",
         "noGitLabMrsDescription": "沒有 GitLab MR 符合此篩選器。",
         "noGitLabWorkTitle": "沒有 GitLab 工作",
         "noGitLabWorkDescription": "沒有 GitLab 工作符合此篩選器。"
@@ -13472,8 +13472,8 @@ const zhTW = {
           "d8e2f6a0b9": "PR",
           "c7d1e5f9a8": "GitHub",
           "c4e8f1a2b9": "MR",
-          "b3d7e0f1a8": "合併請求",
-          "a2c6d9e0f7": "合併請求",
+          "b3d7e0f1a8": "Merge Request",
+          "a2c6d9e0f7": "Merge Request",
           "91b5c8d7e6": "GitLab"
         }
       }
