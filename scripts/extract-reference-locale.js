@@ -48,7 +48,8 @@ const vm = require('vm');
 const evalExpr = expr => vm.runInNewContext(expr, Object.create(null), { timeout: 5000 });
 
 let count = 0;
-for (const m of src.matchAll(/^const ([A-Za-z_$][\w$]*) = (?:\/\* @__PURE__ \*\/ )?(JSON\.parse\((?:'(?:[^'\\]|\\.)*')\)|\{[\s\S]*?\});$/gm)) {
+// 字串可能用單引號或反引號包住（es 用 '，ja/ko 用 `），兩種都要吃。
+for (const m of src.matchAll(/^const ([A-Za-z_$][\w$]*) = (?:\/\* @__PURE__ \*\/ )?(JSON\.parse\((?:'(?:[^'\\]|\\.)*'|`(?:[^`\\]|\\.)*`)\)|\{[\s\S]*?\});$/gm)) {
   const [, name, expr] = m;
   let obj;
   try {
