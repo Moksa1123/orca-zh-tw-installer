@@ -1219,7 +1219,7 @@ export default {
         "ba64270bdb": "設定 Agent",
         "ab63f25397": "開啟 Agent 設定",
         "01d1e8f601": "Agent",
-        "0c5d6a479c": "[選填]",
+        "0c5d6a479c": "（選填）",
         "b5a0796911": "連線",
         "dccd26d4e4": "選擇專案",
         "d6b0a96f32": "新增專案",
@@ -4906,7 +4906,7 @@ export default {
           "316ca4e610": "忘記 Cookie",
           "a122332371": "wrk_…（留空以自動查詢）",
           "dbdb0b0bd8": "工作區 ID 覆寫",
-          "d70a5287a4": "自動查詢失敗時可選用的工作區 ID 覆寫。",
+          "d70a5287a4": "自動查詢失敗時選填用的工作區 ID 覆寫。",
           "02cb127710": "OpenCode Go 工作區 ID",
           "7ce0e1907c": "）。可在瀏覽器的 DevTools → Network → 任一 opencode.ai 請求 → Cookie 標頭中找到。OpenCode Go 驗證為網頁式，可在 Windows 與 WSL 終端機之間共用。",
           "8951c5309f": "auth=Fe26.2**…",
@@ -7163,7 +7163,7 @@ export default {
             "421c6be25e": "ID",
             "be8b621bdc": "工作區",
             "8dcbef1856": "opencode",
-            "38d22ff8d6": "自動查詢失敗時，可選擇覆寫工作區 ID。",
+            "38d22ff8d6": "自動查詢失敗時，選填擇覆寫工作區 ID。",
             "4ee2029e9c": "OpenCode Go 工作區 ID",
             "9c4e40cf6b": "工作階段",
             "61f7d1fcbe": "cookie",
@@ -8281,7 +8281,7 @@ export default {
             "ec70364df2": "工作流程",
             "66b584bd6c": "issue 命令",
             "2011a6a4f2": "GitHub issue 命令",
-            "d42d1e49c0": "透過 orca.yaml 和可選本機覆蓋設定的基於檔案的關聯 Issue 命令。",
+            "d42d1e49c0": "透過 orca.yaml 和選填本機覆蓋設定的基於檔案的關聯 Issue 命令。",
             "d86ea12d16": "自訂 GitHub Issue 命令",
             "c5e8bdbcbb": "預設跳過",
             "a69c5cbe90": "預設執行",
@@ -9357,7 +9357,7 @@ export default {
             "27ef4b195c": "在建立 {{value0}} 之前，請選擇其他基礎分支。",
             "7ef56f3efe": "建立為草稿",
             "0c9f9a568c": "支援 Markdown 格式。使用 AI 產生來自動填入你的變更。",
-            "02b2ce911f": "描述（可選）",
+            "02b2ce911f": "描述（選填）",
             "1cd53359db": "描述",
             "68314b4369": "標題",
             "694550a610": "main",
@@ -9475,7 +9475,7 @@ export default {
           "PortsPanel": {
             "3ea4a02a8f": "取消",
             "4eb801ce93": "開發伺服器",
-            "8dfed0a15c": "標籤（可選）",
+            "8dfed0a15c": "標籤（選填）",
             "17bea6e391": "本機主機",
             "a3721a50b0": "遠端主機",
             "d57545ff92": "與遠端相同",
@@ -9624,7 +9624,7 @@ export default {
             "6055949c50": "{{value0}} 基礎分支",
             "1f7119f604": "根據",
             "9484270f45": "正在產生標題和描述…",
-            "a0dc20fc93": "描述（可選）",
+            "a0dc20fc93": "描述（選填）",
             "a8873e1d62": "{{value0}} 描述",
             "7d6a8f0082": "標題",
             "a6eda33521": "{{value0}} 標題",
@@ -10628,7 +10628,7 @@ export default {
           "d7b3ef168b": "在系統中已偵測",
           "9c163bb0e0": "安裝說明",
           "69af7e9c1c": "尚未加入 PATH。Orca 會將其設為預設，你可隨時安裝。",
-          "1eee1c7bd8": "PATH 中未偵測到 Agent。可選擇一個稍後安裝，或使用空白終端機繼續。",
+          "1eee1c7bd8": "PATH 中未偵測到 Agent。選填擇一個稍後安裝，或使用空白終端機繼續。",
           "hideAgents": "隱藏 Agent",
           "showMoreAgents": "顯示另外 {{value0}} 個 Agent→",
           "yoloPermissionsLabel": "Yolo / 危險地跳過權限檢查",
@@ -10864,7 +10864,7 @@ export default {
             "26824f60dd": "全部",
             "6fad211c66": "已關閉",
             "2319d87718": "合併",
-            "622864b52a": "開放",
+            "622864b52a": "開啟",
             "fda67f0b61": "目前專案",
             "3e8bb1176a": "在設定中連線 Linear 以搜尋 Issue。",
             "69ce292138": "Linear",
@@ -11063,7 +11063,7 @@ export default {
           "description": "指定當手機不在同一 Wi-Fi 時可以存取的位址，例如 Tailscale 主機名或靜態 IP。",
           "label": "位址",
           "placeholder": "my-mac.ts.net、home.example.com 或 192.168.1.50",
-          "hint": "請輸入 IP 位址或主機名（Tailscale MagicDNS 名稱、DDNS 域名或 LAN 主機名），可選擇附加 :埠。",
+          "hint": "請輸入 IP 位址或主機名（Tailscale MagicDNS 名稱、DDNS 域名或 LAN 主機名），選填擇附加 :埠。",
           "cancel": "取消",
           "use": "使用位址"
         },
@@ -11322,10 +11322,10 @@ export default {
             "522cce9e33": "新增專案"
           },
           "FeatureWallTourPanel": {
-            "af7d622f6f": "可選"
+            "af7d622f6f": "選填"
           },
           "KeepAwakeCard": {
-            "209713d3c7": "可選"
+            "209713d3c7": "選填"
           },
           "ReviewNotesAnimatedVisual": {
             "5dbd27c4c2": "Codex",
@@ -11703,7 +11703,7 @@ export default {
           "MobileEmulatorAgentSetupGuide": {
             "2fda9ff015": "設定 Agent 控制",
             "0ac0fef514": "Agent 控制已就緒。",
-            "2bdfff8763": "Agent 控制（可選）。",
+            "2bdfff8763": "Agent 控制（選填）。",
             "72736b051f": "當你希望 Agent 控制此模擬器時，設定 Orca CLI + 技能。",
             "d10ae98046": "完成",
             "3756cbeca7": "暫不",
@@ -13131,7 +13131,7 @@ export default {
             "checksFailing": "檢查失敗",
             "mergeConflicts": "合併衝突",
             "checksPending": "檢查等待中",
-            "checksPassing": "檢查透過",
+            "checksPassing": "檢查通過",
             "merged": "已合併",
             "closedWithoutMerge": "未合併已關閉",
             "draftReview": "草稿審查",

@@ -17,7 +17,7 @@
 | **Tier 0a** 術語統一 | ✅ 完成 | 26 條規則 / 761 處 |
 | **Tier 0b** 格式（空格／標點）| ✅ 完成 | 654 句 / 949 個空格 |
 | **Tier 0c** 第二輪術語＋損壞修復 | ✅ 完成 | 328 處。由批次 #1 審查暴露 |
-| **Tier 1** 高曝光介面 | 🔶 #1–#2 完成 | 批次 #1–#12（3,502 句）|
+| **Tier 1** 高曝光介面 | ✅ 完成 | 批次 #1–#12（3,502 句）|
 | **Tier 2** 長文案 | ⬜ 未開始 | 批次 #13–#18（317 句但 30,898 字）|
 | **Tier 3** 設定頁 | ⬜ 未開始 | 批次 #19–#29（3,873 句）|
 | **Tier 4** 外部整合 | ⬜ 未開始 | 批次 #30–#36（1,960 句）|
@@ -29,7 +29,7 @@
 
 ## 術語鎖定表
 
-單一真實來源：`~/.claude/skills/tw-translate/data/domains/lock.csv`（245 條）
+單一真實來源：`~/.claude/skills/tw-translate/data/domains/lock.csv`（303 條）
 
 欄位 `tier` 的意義：
 
@@ -350,6 +350,7 @@ Object.entries(j).filter(([,v])=>typeof v==='string'&&v.trim()&&!/[一-鿿]/.tes
 | `orca_zh_TW_translation.json` | **唯一翻譯來源**，只改這個 |
 | `scripts/plan-batches.js` | 產生本文件的分批清單；`--batch N` 取出某批內容 |
 | `scripts/audit-batch.js` | 複查第一輪：對某命名空間做機械檢查 |
+| `scripts/audit-hash-conflicts.js` | 找出同 hash 卻有不同譯文的字串（同原文被譯兩次）|
 | `scripts/sweep-terms.js` | 依 lock.csv 統一術語，預設 dry-run，含事後疊字偵測 |
 | `scripts/sweep-spacing.js` | 空格與標點正規化，預設 dry-run |
 | `scripts/build-nested.js` | 產生 ESM + CJS 兩份字典 |
