@@ -30,8 +30,11 @@
 |------|------|
 | **一鍵跨平臺安裝** | 透過 `npx` 自動偵測作業系統並完成替換 |
 | **自動破解白名單** | 突破官方限制，將 `zh-TW` 寫入前端與核心白名單 |
-| **專業工程術語** | 翻譯精修，針對台灣開發者習慣用語（如 Worktree、終端機） |
-| **無痛備份機制** | 安裝前自動備份原始檔案（`app.asar.bak`），確保環境安全 |
+| **解除繁中強制降級** | 官方新版會把 `zh-TW`／`zh-HK`／`zh-Hant` 明確打回英文，本包一併解除 |
+| **原生選單也中文化** | 除了介面，系統匣、原生選單、系統對話框（main process）同樣套用繁中 |
+| **專業工程術語** | 對照 VS Code 官方 zh-TW 語系包精修，術語一詞一譯（如 存放庫、終端機、Worktree）|
+| **安裝後自動驗證** | 重新封裝前檢查全部注入點，任一失敗即中止且不改動 `app.asar`，不會「安裝成功卻沒效果」|
+| **無痛備份機制** | 首次安裝自動備份 `app.asar.bak`；重複執行會偵測既有補丁，不會用已修補版覆蓋乾淨備份 |
 | **自動追蹤更新** | npm 發布機制確保未來套用更新時始終取得最新版本 |
 
 ---
@@ -45,11 +48,24 @@ npx orca-zh-tw
 ```
 
 腳本將自動執行以下流程：
-1. 自動定位作業系統對應的 Orca 安裝路徑。
-2. 備份官方 `app.asar`。
-3. 解包並破解主程式與渲染器（Renderer）語言限制。
-4. 注入 11,000 句繁體中文字典檔。
-5. 重新封裝。
+1. 自動定位作業系統對應的 Orca 安裝路徑並解包。
+2. 備份官方 `app.asar`（已含補丁時會保留原本的乾淨備份）。
+3. 破解主程式（Main）語言限制與 locale 解析。
+4. 破解渲染器（Renderer）語言限制、下拉選單與 locale 解析。
+5. 注入 11,000 句繁體中文字典（ESM 給 Renderer、CJS 給 Main）。
+6. 驗證全部注入點後重新封裝。
+
+若想在不改動 Orca 的前提下先確認相容性（**可在 Orca 執行中安全使用**）：
+
+```bash
+npm run dry-run
+```
+
+安裝後可驗證實際封裝結果：
+
+```bash
+npm run verify
+```
 
 ---
 
@@ -89,9 +105,27 @@ npm start
 
 ### 檔案結構
 
-- `index.js`: 核心安裝腳本，處理 asar 解包、修補與封裝。
-- `zh-TW-nested.js`: Orca 前端讀取的最終編譯檔。
-- `orca_zh_TW_translation.json`: 原始語系字典檔，若欲改善翻譯可直接編輯此檔案。
+- `index.js`：核心安裝腳本，處理 asar 解包、修補、驗證與封裝。支援 `--dry-run`。
+- `orca_zh_TW_translation.json`：**唯一的翻譯來源**（扁平點分鍵）。改翻譯只改這個檔。
+- `zh-TW-nested.js`：由來源檔產生的 ESM 字典，供 Renderer 載入。**請勿手動編輯。**
+- `zh-TW-nested.cjs.js`：由來源檔產生的 CJS 字典，供 Main process 載入。**請勿手動編輯。**
+- `scripts/build-nested.js`：由 JSON 產生上述兩個字典檔。
+- `scripts/sweep-terms.js`：依術語鎖定表統一用詞，預設 dry-run。
+- `scripts/sweep-spacing.js`：中英之間補半形空格，預設 dry-run。
+- `scripts/verify-install.js`：驗證已安裝的 `app.asar` 是否含全部補丁與字典。
+
+### 改翻譯的流程
+
+`zh-TW-nested.js` 與 `zh-TW-nested.cjs.js` 都是**產生物**，編輯 JSON 後必須重新建置，
+否則安裝時不會生效：
+
+```bash
+# 1. 編輯 orca_zh_TW_translation.json
+# 2. 重新產生字典檔（兩種格式）
+npm run build
+# 3. 套用
+npm start
+```
 
 ---
 
