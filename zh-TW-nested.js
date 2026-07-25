@@ -136,7 +136,7 @@ export default {
       "8b0b8eb54f": "應用程式選單",
       "caea5b51b9": "立即重新啟動",
       "0a9e810705": "重新啟動前變更不會儲存。你先前的分頁已安全儲存在磁碟上。",
-      "12e77cf12b": "工作階段還原失敗",
+      "12e77cf12b": "工作階段繼續失敗",
       "332dbfa497": "工作區已上傳",
       "e960d18540": "關閉",
       "c9d6f98459": "最大化",
@@ -503,7 +503,7 @@ export default {
         "sleeping": {
           "agent": {
             "session": {
-              "f235f604fd": "無法還原此 Agent 工作階段。"
+              "f235f604fd": "無法繼續此 Agent 工作階段。"
             }
           }
         }
@@ -2745,7 +2745,7 @@ export default {
           "TerminalRemoteRuntimeReconnectBanner": {
             "retryingTitle": "正在重新連線至遠端執行環境",
             "disconnectedTitle": "遠端執行環境已中斷連線",
-            "retryingBody": "Orca 將重試最多一分鐘。若連線還原，此終端機將會繼續。",
+            "retryingBody": "Orca 將重試最多一分鐘。若連線恢復，此終端機將會繼續。",
             "disconnectedBody": "自動重試已停止。請重新連線以繼續此終端機工作階段。",
             "reconnectButton": "重新連線"
           }
@@ -5878,7 +5878,7 @@ export default {
           "3282db098c": "終止所有工作階段",
           "b3b1cc5708": "重新整理",
           "a795a9552a": "工作階段",
-          "7c4889a724": "透過終止工作階段或重新啟動底層守護程式，從凍結或運作例外的終端機中還原。",
+          "7c4889a724": "透過終止工作階段或重新啟動底層守護程式，從凍結或運作例外的終端機中恢復。",
           "d1b80fd5cd": "管理工作階段",
           "9c940434af": "切換回本機執行環境以重新啟動或終止本機守護程式工作階段。",
           "ad467eaadc": "當遠端執行環境伺服器啟用時，工作階段管理無法使用。",
@@ -6774,7 +6774,7 @@ export default {
           "47e94bd6ba": "已連線"
         },
         "SshTargetDestructiveActions": {
-          "7e66942808": "這會停止此 SSH 目標上作用中的終端機工作階段。重新連線並不會還原這些工作階段。",
+          "7e66942808": "這會停止此 SSH 目標上作用中的終端機工作階段。重新連線並不會繼續這些工作階段。",
           "accf177a03": "要結束遠端終端機嗎？",
           "26be00392d": "這會強制停止此 SSH 目標的遠端中繼。此目標作用中的遠端終端機與連線埠轉發都會結束。",
           "570a7a0574": "要重設遠端中繼嗎？",
@@ -8554,7 +8554,7 @@ export default {
             "d802a578bf": "工作階段",
             "9f2dda133c": "普蒂",
             "f35400f7e8": "守護程式",
-            "f72abc493c": "透過終止工作階段、清除儲存的還原緩衝區或重新啟動守護程式，從凍結的 CLI 中還原。",
+            "f72abc493c": "透過終止工作階段、清除儲存的還原緩衝區或重新啟動守護程式，從凍結的 CLI 中恢復。",
             "6f5d486a68": "管理工作階段",
             "10f9fb6fea": "設定",
             "2ade3ea490": "設定",
@@ -9916,7 +9916,7 @@ export default {
                 "90206b6353": "留言",
                 "95ad090b01": "帖子串",
                 "365254cc1b": "未解決",
-                "7f793b571d": "拖動以調整檢查面板大小",
+                "7f793b571d": "拖曳以調整檢查面板大小",
                 "ee07b33924": "不明",
                 "cdbfda4dec": "批註",
                 "066fedd446": "失敗的工作",
@@ -10339,21 +10339,21 @@ export default {
             }
           },
           "AiVaultPanel": {
-            "resumeCommandCopied": "還原命令已複製",
+            "resumeCommandCopied": "繼續命令已複製",
             "valueCopied": "{{value0}} 已複製",
             "valueCopyFailed": "無法複製 {{value0}}",
-            "openWorkspaceBeforeResuming": "還原工作階段前請先開啟一個工作區。",
-            "localWorkspacesOnly": "從歷史記錄還原僅適用於本機工作區。",
+            "openWorkspaceBeforeResuming": "繼續工作階段前請先開啟一個工作區。",
+            "localWorkspacesOnly": "從歷史記錄繼續僅適用於本機工作區。",
             "agentSessionQueued": "{{value0}} 工作階段已排隊",
             "sessionHistory": "Agent 工作階段歷史",
             "agents": "Agent",
             "shownRecent": "已顯示 {{value0}} 項 · 最近 {{value1}} 項",
             "sessionsShownCompact": "已顯示 {{value0}} 個",
-            "resumePastSessions": "還原過往工作階段",
+            "resumePastSessions": "繼續過往工作階段",
             "refreshSessionHistory": "重新整理工作階段歷史",
             "searchSessions": "搜尋工作階段",
             "clearSearch": "清除搜尋",
-            "remoteBrowseLocalHistory": "遠端工作區可以瀏覽本機歷史。還原操作從本機工作區執行。",
+            "remoteBrowseLocalHistory": "遠端工作區可以瀏覽本機歷史。繼續操作從本機工作區執行。",
             "transcriptsSkipped": "跳過了 {{count}} 個記錄",
             "noAgentSessionsFound": "未找到 Agent 工作階段",
             "noSessionsMatchFilters": "沒有工作階段符合目前篩選條件",
@@ -10361,10 +10361,10 @@ export default {
             "logPath": "記錄檔路徑",
             "originalPaneUnavailable": "原始面板不再可用。",
             "worktreeUnavailable": "Worktree 不再可用。",
-            "openSupportedWorkspace": "在還原工作階段之前，請先開啟一個工作區。",
-            "sessionHostMismatchUnsupported": "此工作階段屬於其他主機。請開啟同一主機上的工作區以還原它。",
-            "localSessionSshWorkspaceUnsupported": "此工作階段的歷史記錄儲存在本機上，因此無法在 SSH 工作區中還原。請改為開啟一個本機工作區。",
-            "prepareSessionResumeFailed": "無法準備此工作階段以供還原。"
+            "openSupportedWorkspace": "在繼續工作階段之前，請先開啟一個工作區。",
+            "sessionHostMismatchUnsupported": "此工作階段屬於其他主機。請開啟同一主機上的工作區以繼續它。",
+            "localSessionSshWorkspaceUnsupported": "此工作階段的歷史記錄儲存在本機上，因此無法在 SSH 工作區中繼續。請改為開啟一個本機工作區。",
+            "prepareSessionResumeFailed": "無法準備此工作階段以供繼續。"
           },
           "AiVaultPanelControls": {
             "scanningSessions": "正在掃描工作階段",
@@ -10402,9 +10402,9 @@ export default {
             "latestTurns": "最近輪次",
             "noPreviewAvailable": "沒有可用的對話預覽",
             "conversationNotSaved": "對話未儲存",
-            "recoverableEmptyDetail": "此工作階段沒有已儲存的對話，但仍有 {{value0}} 個可還原項。",
+            "recoverableEmptyDetail": "此工作階段沒有已儲存的對話，但仍有 {{value0}} 個可繼續項。",
             "recoverableEmptyOpenLogHint": "開啟記錄檔以還原它們。",
-            "emptyConversationDetail": "此工作階段沒有已儲存的對話，無法還原。",
+            "emptyConversationDetail": "此工作階段沒有已儲存的對話，無法繼續。",
             "queuedMessages": "{{value0}} 條排隊訊息",
             "subagentTranscripts": "{{value0}} 個子 Agent 記錄",
             "messageCount": "{{value0}} 條訊息",
@@ -10422,12 +10422,12 @@ export default {
             "copyDetailValue": "複製 {{value0}}",
             "latestLog": "最新記錄檔",
             "noReadablePreview": "此記錄中沒有可讀的訊息預覽。",
-            "resumeCommand": "還原命令",
+            "resumeCommand": "繼續命令",
             "sessionActions": "{{value0}} 工作階段操作",
-            "resumeInNewTab": "在新分頁中還原",
-            "resumeInWorktree": "在 Worktree 中還原",
+            "resumeInNewTab": "在新分頁中繼續",
+            "resumeInWorktree": "在 Worktree 中繼續",
             "viewLog": "檢視記錄檔",
-            "copyResumeCommand": "複製還原命令",
+            "copyResumeCommand": "複製繼續命令",
             "openLog": "開啟記錄檔",
             "revealLog": "顯示記錄檔",
             "openWorkingDirectory": "開啟工作目錄",
@@ -10458,11 +10458,11 @@ export default {
           "AiVaultSessionRow": {
             "noPreviewAvailable": "沒有可用的對話預覽",
             "recoverableBadge": "未儲存",
-            "dragToResume": "拖動以在新分頁中還原",
-            "resumeAgentSession": "還原 {{value0}} 工作階段",
-            "resumeInNewTab": "在新分頁中還原",
+            "dragToResume": "拖曳以在新分頁中繼續",
+            "resumeAgentSession": "繼續 {{value0}} 工作階段",
+            "resumeInNewTab": "在新分頁中繼續",
             "toggleSessionDetails": "{{value0}} 工作階段詳細資訊",
-            "copyResumeCommand": "複製還原命令",
+            "copyResumeCommand": "複製繼續命令",
             "openLog": "開啟記錄檔",
             "revealLog": "顯示記錄檔",
             "openWorkingDirectory": "開啟工作目錄",
@@ -13025,7 +13025,7 @@ export default {
           "e3db9892f6": "還沒有活動。",
           "1b633f5c1e": "連線 CLI…",
           "8de7c5beaa": "CLI 不可用",
-          "866083500b": "拖動以調整大小",
+          "866083500b": "拖曳以調整大小",
           "443690186e": "調整活動討論串清單的大小",
           "7cd632006b": "沒有 Agent 活動與這些篩選條件符合。",
           "a2b4437bfb": "{{value0}} 活動",
