@@ -65,16 +65,32 @@ npx orca-zh-tw-installer
 5. 注入 11,000 句繁體中文字典（ESM 給 Renderer、CJS 給 Main）。
 6. 驗證全部注入點後重新封裝。
 
-若想在不改動 Orca 的前提下先確認相容性（**可在 Orca 執行中安全使用**）：
+### 其他指令
+
+全部都用同一個入口，不需要 clone 這個專案：
 
 ```bash
-npm run dry-run
+npx orca-zh-tw-installer --dry-run   # 只檢查相容性，不改動 Orca（執行中也能安全跑）
+npx orca-zh-tw-installer --verify    # 檢查已安裝的 app.asar 是否含全部補丁與字典
+npx orca-zh-tw-installer --force     # 即使 Orca 執行中也強制套用（不建議）
+npx orca-zh-tw-installer --help      # 顯示說明
 ```
 
-安裝後可驗證實際封裝結果：
+`--dry-run` 適合在 Orca 更新後先跑，確認語系包是否仍與新版相容。
+
+### 出問題時
+
+若安裝後 Orca 顯示異常，先還原官方版本：
+
+```powershell
+# Windows
+Copy-Item "$env:LOCALAPPDATA\Programs\orca\resources\app.asar.bak" `
+          "$env:LOCALAPPDATA\Programs\orca\resources\app.asar" -Force
+```
 
 ```bash
-npm run verify
+# macOS
+cp /Applications/Orca.app/Contents/Resources/app.asar{.bak,}
 ```
 
 ---
@@ -123,6 +139,25 @@ npm start
 - `scripts/sweep-terms.js`：依術語鎖定表統一用詞，預設 dry-run。
 - `scripts/sweep-spacing.js`：中英之間補半形空格，預設 dry-run。
 - `scripts/verify-install.js`：驗證已安裝的 `app.asar` 是否含全部補丁與字典。
+- `scripts/extract-reference-locale.js`：從 asar 抽出 es/ja/ko 語系當原文對照。
+- `scripts/audit-identifiers.js`：三語對照找被誤譯的識別碼（`npm` 曾被譯成「新專案管理」）。
+- `scripts/audit-batch.js`：機械式複查——未翻譯、半形標點、截斷、同義重複、過長標籤。
+
+### 為什麼需要對照語言
+
+Orca **沒有 en 語系檔**（英文是內嵌的 fallback），所以無法直接取得原文。
+但 es/ja/ko 的 key 與中文完全相同，可用來反推原意：
+
+```bash
+node scripts/extract-reference-locale.js es > ref-es.json
+npm run audit:identifiers
+```
+
+判準是「三語的值完全相同 → 那幾乎確定是識別碼」——三個獨立譯者都選擇不翻，
+中文卻翻了，就是誤譯。這抓到過 `npm`→新專案管理、`osc52`→作業系統 52、
+`feat/mobile-page`→壯舉/手機頁面。
+
+對照語言只是**參考而非標準**：有些字（`idle`→空閒）中文譯法比其他語言保留原文更好。
 
 ### 改翻譯的流程
 

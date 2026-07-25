@@ -29,6 +29,25 @@ const asar = require('@electron/asar');
 const DRY_RUN = process.argv.includes('--dry-run');
 // --force：略過「Orca 是否執行中」的檢查。不建議使用，見 countRunningOrca 的說明。
 const FORCE = process.argv.includes('--force');
+
+// --verify：檢查已安裝的 app.asar 是否含全部補丁與字典。
+// 透過 npx 安裝的人沒有專案目錄，無法用 npm run verify，故在此提供同一個入口。
+if (process.argv.includes('--verify')) {
+  require('./scripts/verify-install.js');   // 該腳本會自行輸出結果並設定結束碼
+  return;
+}
+
+if (process.argv.includes('--help') || process.argv.includes('-h')) {
+  console.log(`用法： npx orca-zh-tw-installer [選項]
+
+  （無選項）    套用繁體中文語系包。需先完全關閉 Orca。
+  --dry-run    只檢查相容性，不改動 Orca。可在 Orca 執行中安全使用。
+  --verify     檢查已安裝的 app.asar 是否含全部補丁與字典。
+  --force      即使 Orca 執行中也強制套用（不建議）。
+  --help       顯示這段說明。
+`);
+  return;
+}
 const workDir = path.join(os.tmpdir(), DRY_RUN ? 'orca-zh-tw-patcher-dry' : 'orca-zh-tw-patcher');
 const unpackedDir = path.join(workDir, 'app.asar.unpacked');
 
