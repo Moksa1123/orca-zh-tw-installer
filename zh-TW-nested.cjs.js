@@ -313,7 +313,7 @@ const zhTW = {
             "2f6c78a039": "重新整理設定檔身分驗證失敗",
             "a37b5e6d37": "已登出設定檔",
             "83600521e7": "登出失敗",
-            "76deec8f58": "切換群組織失敗",
+            "76deec8f58": "切換組織失敗",
             "7d4bc516ee": "切換設定檔失敗",
             "f518e89aa5": "該專案已存在於那個設定檔中",
             "f03ae7f27b": "轉移專案失敗"
@@ -1092,7 +1092,7 @@ const zhTW = {
         "520304a067": "Orca 標誌",
         "ce44fad849": "缺少相依套件",
         "c1cf168479": "隱藏",
-        "00cee697c1": "在終端機中執行 \"gh auth login\" 以連線你的 GitHub 帳號。",
+        "00cee697c1": "在終端機中執行「gh auth login」以連線你的 GitHub 帳號。",
         "9f96d018b7": "GitHub CLI 尚未透過身分驗證",
         "73e1ad4282": "Orca 使用 GitHub CLI (gh) 顯示 pull request、Issue 與檢查。",
         "5beaef5f9e": "尚未安裝 GitHub CLI",
@@ -1229,7 +1229,7 @@ const zhTW = {
         "23bb365554": "orca.yaml",
         "a239038146": "SSH 連線錯誤",
         "9a70e4859e": "選擇是否在建立此工作區前執行設定。",
-        "803b7fe72f": "正在檢查設定群組態…",
+        "803b7fe72f": "正在檢查設定組態…",
         "92e34f0311": "本機設定",
         "326a578923": "orca.yaml + 本機",
         "2132b670da": "兩者",
@@ -1266,7 +1266,7 @@ const zhTW = {
         "notConnected": "未連線",
         "notePasteTooLarge": "貼上內容過大，無法放入備註欄位。",
         "waitForSetupBeforeAgent": "等待設定完成後再啟動 Agent",
-        "waitForSetupBeforeAgentHelp": "若設定會安裝相依套件、MCP 伺服器，或 Agent 啟動時所需的群組態檔案，請開啟此選項。",
+        "waitForSetupBeforeAgentHelp": "若設定會安裝相依套件、MCP 伺服器，或 Agent 啟動時所需的組態檔案，請開啟此選項。",
         "destroyDisabled": "銷毀已停用",
         "destroyConfigured": "已設定銷毀",
         "noDestroyConfigured": "未設定銷毀",
@@ -1576,7 +1576,7 @@ const zhTW = {
         "b7bae28b6a": "顯示",
         "a26a48252e": "顯示屬性",
         "5d2d835467": "排序",
-        "5659da12fc": "分群組",
+        "5659da12fc": "分組",
         "9c57663908": "檢視",
         "af377b13b1": "{{value0}} 檢視",
         "d47248df4d": "Linear 檢視模式",
@@ -1703,7 +1703,7 @@ const zhTW = {
         "cc13109b5d": "正在載入狀態",
         "d45a910c4a": "從 {{value0}} 變更 Linear 狀態",
         "d8a517ad89": "識別碼",
-        "50387522d7": "不分群組",
+        "50387522d7": "不分組",
         "d747aed72f": "看板",
         "a6f7e93d7f": "清單",
         "e78ec261ed": "檢視",
@@ -3038,7 +3038,7 @@ const zhTW = {
             "41ae4fa725": "正在終止…",
             "138b99bd80": "此工作階段",
             "888dad8c55": "載入中…",
-            "6d9793d4bc": "資源管理器 - 終端機",
+            "6d9793d4bc": "資源監視器 - 終端機",
             "ca95d077db": "常駐程式無法連線",
             "a82253b458": "刪除工作區。",
             "946724a70a": "主工作區無法刪除。",
@@ -3079,7 +3079,7 @@ const zhTW = {
           },
           "StatusBar": {
             "9659e38343": "連線埠",
-            "d1e1a7a6bf": "資源管理器",
+            "d1e1a7a6bf": "資源監視器",
             "24ac89df1a": "遠端主機",
             "5e59007df4": "Kimi 使用量",
             "8c86cd77b0": "OpenCode Go 使用量",
@@ -3591,7 +3591,7 @@ const zhTW = {
               "c424eb3f8e": "最佳：",
               "f28ff1f852": "近期 Claude、Codex 與 OpenCode 的綜合 token 活動。",
               "69e2b50427": "每日強度",
-              "3a795542fa": "綜合 token 群組成",
+              "3a795542fa": "綜合 token 組成",
               "e65084cb4b": "推理",
               "3bc4a01b24": "合計已啟用供應商的輸入、輸出與快取 token。",
               "4ff104da47": "Token 分佈",
@@ -3820,8 +3820,8 @@ const zhTW = {
           "5b2e6fe3c8": "分別匯入",
           "cf9d382ca1": "匯入",
           "220dd32d83": "正在掃描…",
-          "fb33359f69": "要將這些存放庫分群組嗎？",
-          "d75170194e": "如果這些專案應歸在一起（monorepo，或只是一群組相關的存放庫），請選擇此項。Orca 會將它們分群組，讓你從父資料夾開始工作。",
+          "fb33359f69": "要將這些存放庫分組嗎？",
+          "d75170194e": "如果這些專案應歸在一起（monorepo，或只是一組相關的存放庫），請選擇此項。Orca 會將它們分組，讓你從父資料夾開始工作。",
           "39d51212cc": "群組名稱",
           "aa0247680d": "否，分別匯入",
           "a0bc4d1f8e": "是，作為群組匯入",
@@ -3985,7 +3985,7 @@ const zhTW = {
         },
         "ProjectGroupDeleteDialog": {
           "ca65b78f78": "取消",
-          "9be10d49ea": "並將其專案取消分群組。",
+          "9be10d49ea": "並將其專案取消分組。",
           "69f5cb97d0": "刪除",
           "591f330288": "刪除專案群組",
           "2c14ce677a": "刪除中…",
@@ -4178,7 +4178,7 @@ const zhTW = {
           },
           "09faabd875": "專案排序",
           "7bada3b1ab": "排序方式",
-          "dc0bb670bc": "分群組依據",
+          "dc0bb670bc": "分組依據",
           "631b97eea9": "主機範圍",
           "9919ae1082": "工作區選項",
           "bc96dbd041": "工作區選項 ({{value0}})",
@@ -5106,7 +5106,7 @@ const zhTW = {
         },
         "AppIconSelector": {
           "d5a112dc9b": "下一個圖示",
-          "415fa76f64": "選定的應用程式圖示",
+          "415fa76f64": "所選的應用程式圖示",
           "5f5142a62a": "上一個圖示"
         },
         "AppearancePane": {
@@ -5396,7 +5396,7 @@ const zhTW = {
           "4f722a5f53": "由選擇自訂命令的 commit 訊息、pull request 與分支名稱配方使用。使用",
           "47e45cbd5a": "自訂命令",
           "1ef29f8c29": "當文字配方使用自訂命令時，Orca 執行的命令列。",
-          "2339a89104": "新增 AI 按鈕，以該操作的命令範本執行選定的 Agent。",
+          "2339a89104": "新增 AI 按鈕，以該操作的命令範本執行所選的 Agent。",
           "d5b45a3628": "顯示原始碼控制 AI 操作",
           "7bcad2b200": "為原始碼控制的 commit、pull request、分支名稱與修復操作新增操作配方。",
           "d54c64163d": "已啟用",
@@ -5744,7 +5744,7 @@ const zhTW = {
           "3d172725cc": "無",
           "1f32ba27a6": "自訂",
           "a182c5125e": "Git 使用者名稱",
-          "sourceControlGroupOrderTitle": "原始碼控制分群組順序",
+          "sourceControlGroupOrderTitle": "原始碼控制分組順序",
           "sourceControlGroupOrderDescription": "選擇在原始碼控制中優先顯示「變更」、「已暫存的變更」還是「未追蹤的檔案」。",
           "changesFirst": "變更優先",
           "stagedFirst": "已暫存優先",
@@ -5765,7 +5765,7 @@ const zhTW = {
           "ad31c3c5fb": "按滑鼠中鍵從選取內容貼上"
         },
         "IntegrationsPane": {
-          "2122e15517": "每個已連線的 Linear 工作區都有一群組由使用中執行環境儲存的金鑰。完整存取金鑰可涵蓋金鑰擁有者能存取的所有團隊；受限金鑰可隨時更換。",
+          "2122e15517": "每個已連線的 Linear 工作區都有一組由使用中執行環境儲存的金鑰。完整存取金鑰可涵蓋金鑰擁有者能存取的所有團隊；受限金鑰可隨時更換。",
           "e7b2dd46f9": "測試中…",
           "fe4d378dc4": "已驗證",
           "f5c5246514": "新增 Linear 存取權",
@@ -5980,7 +5980,7 @@ const zhTW = {
           "254a6d09e4": "已配對",
           "d7ce676270": "已配對裝置",
           "e778ecb209": "或將此程式碼貼到行動裝置 App 中：",
-          "310924ad2c": "使用 Orca 行動裝置 App 掃描此程式碼。每群組程式碼都會建立一個唯一的裝置 token。",
+          "310924ad2c": "使用 Orca 行動裝置 App 掃描此程式碼。每組程式碼都會建立一個唯一的裝置 token。",
           "870e1b5ca5": "復原裝置失敗",
           "2e3dd0bc29": "裝置已復原",
           "711231348f": "複製配對碼失敗",
@@ -6890,11 +6890,11 @@ const zhTW = {
           "badb1219fc": "兩者",
           "43c2ff7b0e": "自動",
           "0a10420e1a": "Option 作為 Alt",
-          "ce3aadf0b2": "{{value0}} Option 鍵會送出 Alt/Esc；另一個則用於群組合特殊字元。",
+          "ce3aadf0b2": "{{value0}} Option 鍵會送出 Alt/Esc；另一個則用於組合特殊字元。",
           "b62373091a": "兩個 Option 鍵都會送出 Alt/Esc 序列。",
-          "d8998bb328": "Option 鍵會依你的鍵盤設定群組合特殊字元。",
+          "d8998bb328": "Option 鍵會依你的鍵盤設定組合特殊字元。",
           "d21c493808": "自動 — 偵測到：{{value0}}。",
-          "2561d3fc1b": "控制 macOS Option 鍵是送出 Alt/Esc 序列還是群組合字元。",
+          "2561d3fc1b": "控制 macOS Option 鍵是送出 Alt/Esc 序列還是組合字元。",
           "96be03b8eb": "PowerShell 7+",
           "d26174e1dd": "Windows PowerShell",
           "fe20f79dd1": "PowerShell 版本",
@@ -7272,7 +7272,7 @@ const zhTW = {
             "ea71995548": "移除",
             "c1317fe641": "還原",
             "5963143e00": "設定",
-            "042c551bc5": "群組態",
+            "042c551bc5": "組態",
             "f412abbba5": "claude",
             "5ded38b843": "codex",
             "be7ea3553b": "分頁",
@@ -8263,14 +8263,14 @@ const zhTW = {
               "1c5bdcd0f2": "存放庫",
               "89d2a9ad9f": "存放庫",
               "f58b92a48f": "專案",
-              "8bf43c2dad": "全域性的",
+              "8bf43c2dad": "全域的",
               "a26ecdb77b": "片段",
               "d07d130849": "捷徑",
               "0073cf8ce9": "CLI",
               "cfffa6cdb6": "命令",
               "fecb031823": "命令",
               "236d4cfac8": "快的",
-              "d691c4e8d8": "儲存的 CLI 命令可以從任何 CLI 啟動，範圍全域性或特定專案。",
+              "d691c4e8d8": "儲存的 CLI 命令可以從任何 CLI 啟動，範圍全域或特定專案。",
               "4c8945952b": "快捷命令"
             }
           }
@@ -8322,7 +8322,7 @@ const zhTW = {
             "343f0a508c": "MCP",
             "3c31801626": "檢查專案級 MCP 伺服器設定檔案。",
             "31bd0a2420": "MCP 設定",
-            "84da7fa2d7": "節點模群組",
+            "84da7fa2d7": "節點模組",
             "0a3a582794": "環境",
             "3c180a251c": "關聯",
             "f1c53f2820": "Worktree",
@@ -8382,11 +8382,11 @@ const zhTW = {
             "8d045419b1": "顏色",
             "b2546efab5": "存放庫圖示",
             "6438a94c63": "專案圖示",
-            "a1f3a2bd47": "側邊欄和選項卡中使用的專案圖示和顏色。",
+            "a1f3a2bd47": "側邊欄和分頁中使用的專案圖示和顏色。",
             "b24f00294a": "專案圖示",
             "cd73b976d7": "存放庫名稱",
             "92af66c7ce": "專案名稱",
-            "883aad2801": "側邊欄和選項卡的專案特定顯示詳細資訊。",
+            "883aad2801": "側邊欄和分頁的專案特定顯示詳細資訊。",
             "7e1e456a95": "顯示名稱",
             "keepForkUpToDate": "保持 Fork 最新",
             "keepForkUpToDateDescription": "從 upstream 安全地快轉此 Fork。",
@@ -8509,7 +8509,7 @@ const zhTW = {
             "7a48c7715b": "工作區",
             "6b659fff2a": "指令碼",
             "4529806908": "設定",
-            "2610ee3b56": "建立新工作區時執行存放庫設定指令碼的位置：垂直分割（預設）、水平分割或標題為「設定」的背景選項卡。",
+            "2610ee3b56": "建立新工作區時執行存放庫設定指令碼的位置：垂直分割（預設）、水平分割或標題為「設定」的背景分頁。",
             "5be2d67678": "安裝指令碼位置",
             "0ce176909a": "主題",
             "4ba8623632": "配色",
@@ -8596,7 +8596,7 @@ const zhTW = {
             "38f1b4f4cb": "按鍵",
             "c4427dc5ff": "替代",
             "b37edfc65a": "選項",
-            "1f8b00f5ce": "控制 macOS Option 鍵是傳送 Alt/Esc 序列還是群組合字元。反映 Ghostty 的 macos-option-as-alt。",
+            "1f8b00f5ce": "控制 macOS Option 鍵是傳送 Alt/Esc 序列還是組合字元。反映 Ghostty 的 macos-option-as-alt。",
             "9bd7229927": "選項作為 Alt",
             "affb14efd4": "選擇",
             "d2a366c7f9": "按兩下",
@@ -8814,14 +8814,14 @@ const zhTW = {
                   "faddeb763d": "此執行時暫不支援 GitLab CLI 狀態。",
                   "a47f71e357": "CLI。",
                   "2a6b359e75": "glab",
-                  "1f2b347bd3": "透過",
+                  "1f2b347bd3": "通過",
                   "8d90249d22": "gh auth login",
                   "2e44dda68a": "GitHub CLI 已安裝但未透過驗證。請在 CLI 中執行此命令：",
                   "7755c28af5": "安裝 GitHub CLI",
                   "23cb5a0dee": "安裝 GitHub CLI 以啟用 Pull Request、Issue 和檢查。",
                   "6f30fc4216": "此執行時暫不支援 GitHub CLI 狀態。",
                   "6b2cfb52b4": "gh",
-                  "b4d900e7f1": "透過",
+                  "b4d900e7f1": "通過",
                   "account_scope_prefix": "帳號範圍"
                 }
               }
@@ -8933,7 +8933,7 @@ const zhTW = {
           "repositorySourceControlAi": "這些覆蓋項應用於此專案設定，並繼承使用者端的原始碼控制 AI 預設值，直至自訂。",
           "agentLaunchDefaults": "預設 Agent、命令覆蓋、CLI 引數和啟動環境是使用者端偏好。SSH 和遠端伺服器啟動仍會在執行時驗證主機可用性。",
           "clientDefaultProjectScopes": "使用者端預設 + 專案範圍",
-          "terminalQuickCommands": "命令儲存在此使用者端，然後限定為全域性或某專案設定，以便從所選 CLI 上下文執行。",
+          "terminalQuickCommands": "命令儲存在此使用者端，然後限定為全域或某專案設定，以便從所選 CLI 上下文執行。",
           "hostOverride": "主機覆蓋",
           "workspaceDirectory": "在主機需要自己的 Worktree 目錄之前，繼承使用者端預設值。",
           "providerHost": "供應商主機",
@@ -9164,11 +9164,11 @@ const zhTW = {
           "agentArgs": "CLI 引數",
           "commandTemplate": "命令範本",
           "more": "+{{count}} 更多",
-          "plural": "全域性儲存不會變更 {{count}} 個擁有自己設定的存放庫。",
+          "plural": "全域儲存不會變更 {{count}} 個擁有自己設定的存放庫。",
           "recipe": "設定",
           "review": "審查",
           "reviewFirst": "先審查",
-          "singular": "全域性儲存不會變更 1 個擁有自己設定的存放庫。",
+          "singular": "全域儲存不會變更 1 個擁有自己設定的存放庫。",
           "tooltipTitle": "存放庫覆蓋"
         },
         "linear": {
@@ -9578,7 +9578,7 @@ const zhTW = {
           "SourceControl": {
             "1406954883": "清除所有筆記…",
             "conflictsSection": "衝突",
-            "cc05b2d088": "在檔案資源管理器中開啟",
+            "cc05b2d088": "在檔案總管中開啟",
             "03194cfff4": "本機工作階段狀態源自你在此處開啟的衝突。",
             "413a3ba113": "衝突",
             "27a50fe970": "審查衝突",
@@ -9587,7 +9587,7 @@ const zhTW = {
             "c321542ee2": "刪除第 {{value0}} 行的註解",
             "b656381c18": "刪除註解",
             "c085946bda": "複製行 {{value0}} 上的註解",
-            "1623bf4e19": "複製備註",
+            "1623bf4e19": "複製筆記",
             "655633c08a": "傳送",
             "3eb9b2805e": "開啟 {{value0}} 上的註解",
             "0d963bf982": "開啟 {{value0}}",
@@ -9682,7 +9682,7 @@ const zhTW = {
             "c105a61960": "合併",
             "d7a5942e41": "{{value0}}：{{value1}} 未解決",
             "c56ba7fa06": "差異",
-            "94c42b252e": "醫學博士",
+            "94c42b252e": "MD",
             "e59bca888a": "markdown",
             "b6922abb13": "無法載入分支比較。",
             "715d229c86": "分支比較不可用",
@@ -9697,7 +9697,7 @@ const zhTW = {
             "aaf1451654": "建立草稿 {{value0}}",
             "26511c22b4": "建立中…",
             "7a09d7f9d2": "根據",
-            "383cf92c73": "樹",
+            "383cf92c73": "樹狀",
             "d7ae61269b": "已提交的變更",
             "48a003c1b1": "已暫存的變更",
             "d4ef4bafc5": "變更",
@@ -9710,11 +9710,11 @@ const zhTW = {
             "ce41708855": "全部捨棄",
             "2f609a2e7c": "刪除所有未追蹤的",
             "9bb062a886": "未提交",
-            "9febd8ab5f": "建立_pr",
-            "f62ce91ade": "起源",
+            "9febd8ab5f": "create_pr",
+            "f62ce91ade": "origin",
             "3a231c845b": "不明",
             "3baf6c77b4": "將所有筆記複製到剪貼簿",
-            "72f2bea3f4": "展開註解",
+            "72f2bea3f4": "展開筆記",
             "d13edef890": "摺疊筆記",
             "0fad573938": "未提交",
             "77afaa8152": "全部",
@@ -9738,7 +9738,7 @@ const zhTW = {
             "hugeRepoIgnorePrompt": "此存放庫的活動變更過多。是否將 \"{{value0}}\" 新增到 .gitignore？",
             "hugeRepoIgnoreAction": "新增到 .gitignore",
             "tooManyChanges": "偵測到過多變更。僅顯示前 {{value0}} 項。",
-            "submoduleTruncated": "已省略更多子模群組變更",
+            "submoduleTruncated": "已省略更多子模組變更",
             "bf5082de46": "已複製 {{value0}}",
             "c06193ef57": "無法複製 {{value0}}",
             "d172a4f068": "提交雜湊",
@@ -9751,8 +9751,8 @@ const zhTW = {
             "fda060d6ce": "請先檢查提交資訊，然後重試建立 PR。",
             "b75cb1fd0c": "正在提交變更…",
             "995c5e67ec": "審查設定需要處理。",
-            "d7492cafce": "無法重新整理 Source Control。請重試建立 PR。",
-            "473f18758e": "Source Control AI 設定",
+            "d7492cafce": "無法重新整理原始碼控制。請重試建立 PR。",
+            "473f18758e": "原始碼控制 AI 設定",
             "createPrIntentConfigureAi": "請新增提交資訊或設定原始碼控制 AI 設定。",
             "createPrIntentGenerateFailed": "無法產生提交資訊。請新增一條資訊後重試。",
             "createPrIntentCommitFailed": "無法提交變更。請修復問題後重試建立 PR。",
@@ -9767,7 +9767,7 @@ const zhTW = {
             "createPrIntentBranchChangedDuringDetails": "產生審查詳細資訊時分支已變更。請重試建立 PR。",
             "createPrIntentCreatingReview": "正在建立審查…",
             "a91f8e2b01": "以清單檢視",
-            "b82e9f3c12": "以樹形檢視",
+            "b82e9f3c12": "以樹狀檢視",
             "f71c4a8d90": "更多原始碼控制操作",
             "c8e4a1f902": "篩選器：{{value0}}",
             "b3c8f1a902": "按檔名篩選",
@@ -9795,10 +9795,10 @@ const zhTW = {
               "834cb3f23d": "使用 AI 修復",
               "783a808870": "關閉"
             },
-            "97e7124eac": "無法重新整理 Source Control。請重試。"
+            "97e7124eac": "無法重新整理原始碼控制。請重試。"
           },
           "SourceControlAgentActionDialog": {
-            "8e856842d1": "無法啟動選定的 Agent。",
+            "8e856842d1": "無法啟動所選的 Agent。",
             "c075d00de1": "無法解析工作區連線。",
             "38b899cc02": "所有存放庫",
             "808cfe0a3b": "僅儲存到此存放庫",
@@ -9816,21 +9816,21 @@ const zhTW = {
             "7ec6abbf2a": "重設",
             "f4f3c9ca4a": "提示詞範本",
             "1bc0bdbb5e": "啟動：",
-            "fe119187bb": "——模範十四行詩",
+            "fe119187bb": "--model sonnet",
             "bc8dc39f4b": "CLI 引數",
             "b99c33cec5": "設定",
             "15c5d85706": "Agent",
             "3e8f21954f": "錯誤",
             "74168d7ada": "空閒",
             "1d47db9bf0": "沒有啟用 Agent",
-            "c7ff8cef11": "偵測劑…",
+            "c7ff8cef11": "偵測中…",
             "b0da3a4d3e": "啟動預設已儲存",
             "bff4795a6d": "變更 Agent、引數或提示詞範本以更新已儲存的預設。",
             "5c75b24735": "自訂 Orca 啟動 Agent 前傳送給它的內容。",
-            "repoAgentOverrideNote": "此存放庫會覆蓋你的全域性預設值（{{global}}），目前執行 {{effective}}。儲存到此存放庫以變更這裡執行的內容。"
+            "repoAgentOverrideNote": "此存放庫會覆蓋你的全域預設值（{{global}}），目前執行 {{effective}}。儲存到此存放庫以變更這裡執行的內容。"
           },
           "SourceControlTextGenerationDialog": {
-            "c5b7fa7cb6": "儲存為全域性預設值",
+            "c5b7fa7cb6": "儲存為全域預設值",
             "7f1ec309a4": "儲存為所有存放庫的預設值",
             "5959da1e4d": "僅儲存到此存放庫",
             "d054d5e0a0": "設定未載入。"
@@ -9839,7 +9839,7 @@ const zhTW = {
             "25fcd8e49a": "儲存預設值",
             "d91b0a189d": "儲存預設",
             "1f6fcfb6cf": "提示詞範本",
-            "551ffd111b": "——模範十四行詩",
+            "551ffd111b": "--model sonnet",
             "4eab815004": "CLI 引數",
             "914c8f6ac2": "自訂命令",
             "cce2cbd01d": "選擇 Agent",
@@ -9848,7 +9848,7 @@ const zhTW = {
           "activity": {
             "bar": {
               "buttons": {
-                "1fd284e931": "更多側邊欄選項卡",
+                "1fd284e931": "更多側邊欄分頁",
                 "f1132ea95d": "中性"
               }
             }
@@ -9872,14 +9872,14 @@ const zhTW = {
                 "6cc6eace26": "刪除",
                 "03ca88f623": "編輯",
                 "d3923d18fe": "前往留言",
-                "1abb17aac9": "更多的",
+                "1abb17aac9": "更多",
                 "74c6885b8a": "更多留言動作",
                 "cbcc4ab3db": "顯示前 100 項檢查",
                 "0dca6bfab5": "開啟檢查詳細資訊",
                 "991f50c7e4": "尚未報告任何檢查",
-                "9ad98f2a17": "待辦的",
+                "9ad98f2a17": "待處理",
                 "5e52f4ef7f": "失敗",
-                "02ca4f9074": "透過",
+                "02ca4f9074": "通過",
                 "e15a8b77ef": "此檢查沒有可用的內聯詳細資訊。",
                 "679bf2093c": "複製記錄檔尾部",
                 "d713f500b2": "記錄檔尾部（最後 200 行）",
@@ -9941,7 +9941,7 @@ const zhTW = {
                 "e8b4c1a903": "已解決 · {{value0}}",
                 "c3a8e5d710": "需稽核 · {{value0}}",
                 "a7f0c7e8d1": "加入佇列",
-                "8a621a2c4f": "已分群組",
+                "8a621a2c4f": "已分組",
                 "b13f85d75c": "時間線",
                 "f5cf324efa": "留言顯示選項",
                 "5e6e5a13fa": "檢視",
@@ -10124,7 +10124,7 @@ const zhTW = {
             }
           },
           "index": {
-            "70893f017b": "邊",
+            "70893f017b": "側邊",
             "7b415c39e9": "頂部",
             "864111caa2": "活動欄位置",
             "e8e2e4ce74": "切換右側邊欄",
@@ -10132,15 +10132,15 @@ const zhTW = {
             "83a10e3c44": "檢查項",
             "0314901467": "原始碼控制",
             "06219e4cb1": "搜尋",
-            "8bc2bbc3a0": "資源管理器",
-            "45b78f03bc": "邊",
+            "8bc2bbc3a0": "檔案總管",
+            "45b78f03bc": "側邊",
             "34af8aadf5": "頂部",
             "9fffaf17c1": "切換右側邊欄 ({{value0}})",
             "b37ff4a89a": "埠",
             "9f83375839": "檢查",
             "6306b48afd": "原始碼控制",
             "ef182dcb12": "搜尋",
-            "fc3095d2ed": "資源管理器",
+            "fc3095d2ed": "檔案總管",
             "aiVaultSessionHistory": "Agent",
             "folderWorkspaces": "已附加的 Worktree",
             "parentPrChecks": "PR 檢查"
@@ -10385,14 +10385,14 @@ const zhTW = {
             "sort": "排序",
             "lastUpdated": "最後更新",
             "created": "建立時間",
-            "group": "分群組",
+            "group": "分組",
             "folder": "資料夾",
             "agent": "Agent",
             "resetView": "重設檢視",
             "hideEmptySessions": "隱藏空工作階段",
             "workspaceScope": "工作區",
             "worktreeScope": "Worktree",
-            "globalScope": "全域性",
+            "globalScope": "全域",
             "projectScope": "專案",
             "currentProjectLower": "目前專案",
             "project": "專案",
@@ -10487,14 +10487,14 @@ const zhTW = {
             "subagentCountPlural": "{{value0}} 個子 Agent"
           },
           "FileExplorerNameFilter": {
-            "26fb73c6e3": "查詢檔案",
+            "26fb73c6e3": "搜尋檔案",
             "4d5a6b2a49": "清除檔案篩選器",
             "7a9fb1e6aa": "內容"
           },
           "FileExplorerViewSwitch": {
             "c4e9a2b713": "名稱",
             "b3c8f1a902": "按名稱篩選檔案",
-            "f8a2c4d1e0": "資源管理器搜尋模式"
+            "f8a2c4d1e0": "檔案總管搜尋模式"
           },
           "GitHistoryCommitFiles": {
             "a1b2c3d4e5": "正在載入檔案…",
@@ -10854,7 +10854,7 @@ const zhTW = {
             "ad188067ae": "GitHub URL 指向",
             "4bd98f1091": "切換專案？",
             "0c9e668e3a": "清除",
-            "7199ff19c7": "清除選定的來源",
+            "7199ff19c7": "清除所選的來源",
             "370a1faf67": "在瀏覽器中開啟",
             "2c69728c2a": "在瀏覽器中開啟連結",
             "6f07a18604": "姓名",
@@ -11020,7 +11020,7 @@ const zhTW = {
             "69334b4b10": "語音聽寫",
             "29f2d13839": "輸入命令…",
             "817090af40": "Ctrl+C",
-            "53ff909568": "選項卡",
+            "53ff909568": "分頁",
             "4930eaaae7": "Esc 鍵",
             "fa22927f13": "貼上",
             "985373052e": "切換到手機模式",
@@ -11141,7 +11141,7 @@ const zhTW = {
             "8cf80db43b": "設定 Orca CLI 和 Agent 技能，以便 Agent 可以透過 Orca 進行協調。",
             "2a3c5ddf5e": "啟用編排",
             "d6b563ae24": "正在載入編輯器…",
-            "8b14ba6c17": "新瀏覽器選項卡",
+            "8b14ba6c17": "新瀏覽器分頁",
             "b085fb58b5": "該檔案有未儲存的變更。",
             "5ddc688c52": "「{{value0}}」有未儲存的變更。你想在關閉前儲存嗎？",
             "25d7817f79": "終端機"
@@ -11206,7 +11206,7 @@ const zhTW = {
             "3d2352f94b": "描述一下變化……",
             "d8856b604a": "div.pricing-grid > div.card.starter:nth-of-type(1) > a.cta",
             "7da6eed7bf": "本機主機:3000",
-            "0a2bd01c02": "新瀏覽器選項卡",
+            "0a2bd01c02": "新瀏覽器分頁",
             "04096318ab": "CLI 1",
             "eb88125c6f": "✓ 已驗證 — 免費試用仍然有效。",
             "051c97d15a": ".pp-card[data-card=\"starter\"] .pp-cta",
@@ -11231,7 +11231,7 @@ const zhTW = {
             "9cddfe96b2": "本機應用程式",
             "9634d870d1": "批准",
             "3cc2df3671": "完成",
-            "bdd5312213": "待辦的",
+            "bdd5312213": "待處理",
             "c11dda000b": "已批准"
           },
           "EditorAnimatedVisual": {
@@ -11346,7 +11346,7 @@ const zhTW = {
             "71828fba75": "我們可以將失敗的命令包含在診斷負載中嗎？",
             "fb1a856b6d": "開啟",
             "7a8b896e11": "留言",
-            "ca36f7b27c": "透過",
+            "ca36f7b27c": "通過",
             "25f6838e43": "Lint",
             "2ef0b97954": "型別檢查",
             "8ed213397c": "執行中",
@@ -11355,7 +11355,7 @@ const zhTW = {
             "2f37142229": "壓縮合並",
             "0aab7ab84a": "新增本機診斷錯誤追蹤",
             "dfe313e0c9": "開啟",
-            "6e3f5223c5": "資源管理器",
+            "6e3f5223c5": "檔案總管",
             "ab2901bce6": "檢查項",
             "d7f80060ca": "原始碼控制",
             "8e715588e4": "搜尋",
@@ -11773,7 +11773,7 @@ const zhTW = {
         },
         "CombinedDiffViewer": {
           "35cc27aeb2": "在原始碼控制中",
-          "e3b9a6ce02": "更多的",
+          "e3b9a6ce02": "更多",
           "1da745c551": "傳送",
           "84898c548d": "清除",
           "88b70d0ef5": "複製",
@@ -11798,7 +11798,7 @@ const zhTW = {
           "19c45cfdc0": "全部展開",
           "982d14bfa5": "開啟未提交的差異",
           "3d909843bb": "開啟分支差異",
-          "8368d256ec": "群組合分支",
+          "8368d256ec": "組合分支",
           "8f68ad9ca9": "顯示 {{value0}} AI {{value1}}",
           "724a13568d": "在 {{value0}}",
           "6094135eec": "與 {{value0}}",
@@ -11883,8 +11883,8 @@ const zhTW = {
           "e836faacfa": "切換到並排差異",
           "94756f08ba": "切換到內聯差異",
           "c98ce191da": "此差異沒有可開啟的修改端檔案",
-          "9b80bbe1de": "開啟檔案選項卡",
-          "f0fd4174b5": "開啟檔案選項卡以使用豐富的 Markdown 編輯",
+          "9b80bbe1de": "開啟檔案分頁",
+          "f0fd4174b5": "開啟檔案分頁以使用豐富的 Markdown 編輯",
           "a10d9b8337": "開啟檔案",
           "2076ecfc9c": "上一個變更",
           "631dab0df3": "下一個變更"
@@ -11955,7 +11955,7 @@ const zhTW = {
         "MarkdownPreview": {
           "e4683f70c4": "取消",
           "d737791433": "為 AI 新增註解",
-          "b1bfc04034": "選定的文字",
+          "b1bfc04034": "所選的文字",
           "f37b98999e": "此注",
           "2b2b31382c": "前言",
           "bb629de58a": "複製備註給 Agent",
@@ -12001,7 +12001,7 @@ const zhTW = {
           "dcc132e691": "圖表錯誤："
         },
         "MonacoEditor": {
-          "68cb83f4a7": "在選定的文字上新增註解",
+          "68cb83f4a7": "在所選的文字上新增註解",
           "fd68ae03b3": "在檔案中搜尋",
           "largePasteTooLarge": "貼上內容過大。"
         },
@@ -12038,7 +12038,7 @@ const zhTW = {
           "50f7e753ea": "正在向活動 Agent 傳送註解…"
         },
         "RichMarkdownAnnotationOverlay": {
-          "069b5677b8": "選定的文字",
+          "069b5677b8": "所選的文字",
           "6f2f3a6001": "新增留言註解"
         },
         "RichMarkdownCodeBlock": {
@@ -12265,7 +12265,7 @@ const zhTW = {
           "593f2193f6": "此草稿已超過安全顯示限制，但仍可儲存。"
         },
         "CheckRunDetailsPanel": {
-          "8f2d0f5a91": "透過",
+          "8f2d0f5a91": "通過",
           "4c8e1b2d73": "失敗",
           "91a4c7e2b0": "已取消",
           "2f6d8a1c45": "已逾時",
@@ -12493,12 +12493,12 @@ const zhTW = {
               "9537b910fe": "刪除 Worktree",
               "0b1f25f796": "啟動一個新的 Worktree。",
               "52ac9da671": "建立 Worktree",
-              "f70812764a": "在活動工作區中開啟 CLI 選項卡。",
-              "34980395d4": "新 CLI 選項卡",
+              "f70812764a": "在活動工作區中開啟 CLI 分頁。",
+              "34980395d4": "新 CLI 分頁",
               "f2a1b33f8d": "在活動工作區中建立一個無標題的 Markdown 檔案。",
               "25349b66fc": "新的 Markdown 檔案",
-              "784812ca24": "在活動工作區中開啟瀏覽器選項卡。",
-              "892bfa9339": "新瀏覽器選項卡",
+              "784812ca24": "在活動工作區中開啟瀏覽器分頁。",
+              "892bfa9339": "新瀏覽器分頁",
               "verbs": {
                 "newBrowser": "新瀏覽器",
                 "newBrowserTab": "新的瀏覽器頁",
@@ -12510,9 +12510,9 @@ const zhTW = {
                 "newFile": "新檔案",
                 "markdownFile": "Markdown",
                 "newTerminal": "新終端機",
-                "newTerminalTab": "新的終端機選項卡",
+                "newTerminalTab": "新的終端機分頁",
                 "newShell": "新 shell",
-                "terminalTab": "CLI 選項卡",
+                "terminalTab": "CLI 分頁",
                 "createWorktree": "建立 Worktree",
                 "addWorktree": "新增 Worktree",
                 "newWorktree": "新 Worktree",
@@ -12559,7 +12559,7 @@ const zhTW = {
           },
           "BrowserMobileDriverOverlay": {
             "a6914ee43f": "收回",
-            "f4ecd61552": "該選項卡由你的手機控制。收回來在桌面上使用它。",
+            "f4ecd61552": "該分頁由你的手機控制。收回來在桌面上使用它。",
             "d9768ec642": "瀏覽器輸入已暫停",
             "20539eca03": "手機裝置正在推動該瀏覽器的發展"
           },
@@ -12601,7 +12601,7 @@ const zhTW = {
             "27d863542c": "瀏覽器註解",
             "e48569ac6d": "無法存取該網站。",
             "bbe8f15e83": "該窗格是從活動執行時伺服器呈現的。",
-            "8b7e6d1f5a": "瀏覽器註解僅在本機瀏覽器選項卡中可用。",
+            "8b7e6d1f5a": "瀏覽器註解僅在本機瀏覽器分頁中可用。",
             "deb5293610": "瀏覽器註解在遠端執行時不可用",
             "90d021f2ad": "新增",
             "0cb3bd6221": "註解意圖",
@@ -12684,7 +12684,7 @@ const zhTW = {
             "9098b118ab": "頁",
             "eb98a0971a": "」",
             "d053db279d": "角色=",
-            "a759d8f866": "選定的元素",
+            "a759d8f866": "所選的元素",
             "9c6ce0632a": "所選元素螢幕截圖",
             "50f7114f99": "附加前請先檢查。捕獲的頁面上下文可以套件括可見的站點內容。",
             "f3575229df": "抓住",
@@ -12740,7 +12740,7 @@ const zhTW = {
           "57b722cbba": "Agent",
           "6ff66f9012": "新執行",
           "a2e688226d": "Worktree",
-          "6f9610e667": "Worktree 在選定的工作區中執行。新執行每次都會從所選分支建立一個新的工作區。",
+          "6f9610e667": "Worktree 在所選的工作區中執行。新執行每次都會從所選分支建立一個新的工作區。",
           "2c3fd9bfa1": "工作區模式幫助",
           "b28b140eaf": "工作區",
           "0d17f4ca8f": "選擇專案",
@@ -12883,7 +12883,7 @@ const zhTW = {
           "e059042585": "只讀",
           "aecdc3681f": "易於管理",
           "8500baacb4": "外部來源",
-          "36f71740a7": "選定的工作區",
+          "36f71740a7": "所選的工作區",
           "cd8397cc32": "每次執行新工作區",
           "dd0bc7a1ba": "每次執行新的",
           "7b2e285552": "SSH 連線在此使用者端中不可用。",
@@ -13040,7 +13040,7 @@ const zhTW = {
           "b29191b3e0": "Worktree",
           "8c3b621ddf": "專案",
           "4a3986b200": "狀態",
-          "770d458144": "對 Agent 活動進行分群組",
+          "770d458144": "對 Agent 活動進行分組",
           "795cbf26e2": "篩選…",
           "4616ea39fd": "跳轉到工作區",
           "59b131fbd9": "將話題標記為未讀",
@@ -13150,7 +13150,7 @@ const zhTW = {
             "needsAttention": "需注意",
             "pending": "等待中",
             "merged": "已合併",
-            "passing": "透過",
+            "passing": "通過",
             "draftOrNoChecks": "草稿 / 無檢查",
             "noPr": "無 PR",
             "unavailable": "不可用"
@@ -13259,11 +13259,11 @@ const zhTW = {
             "account": "帳號",
             "reconnect": "重新連線設定檔案",
             "connect": "連線設定檔案",
-            "organization": "群組織",
+            "organization": "組織",
             "create": {
               "profile": {
                 "for": {
-                  "org": "為群組織建立設定檔案"
+                  "org": "為組織建立設定檔案"
                 }
               }
             },
@@ -13277,7 +13277,7 @@ const zhTW = {
             "d00d853e2a": "管理設定檔案",
             "c106c674fe": "新建本機設定檔案",
             "org": {
-              "members": "群組織成員"
+              "members": "組織成員"
             },
             "signInWaiting": "正在等待登入…",
             "signInAgain": "重新登入",
@@ -13317,8 +13317,8 @@ const zhTW = {
                   "work": "此專案中正在進行的工作"
                 },
                 "cancel": "取消",
-                "terminalSingular": "{{count}} 個正在執行的 CLI 選項卡",
-                "terminalPlural": "{{count}} 個正在執行的 CLI 選項卡",
+                "terminalSingular": "{{count}} 個正在執行的 CLI 分頁",
+                "terminalPlural": "{{count}} 個正在執行的 CLI 分頁",
                 "agentSingular": "{{count}} 個活動的 Agent",
                 "agentPlural": "{{count}} 個活動的 Agent",
                 "browserSingular": "{{count}} 個瀏覽器工作區",
@@ -13344,8 +13344,8 @@ const zhTW = {
               },
               "cancel": "取消",
               "switch": "切換設定檔案",
-              "terminalSingular": "{{count}} 個正在執行的 CLI 選項卡",
-              "terminalPlural": "{{count}} 個正在執行的 CLI 選項卡",
+              "terminalSingular": "{{count}} 個正在執行的 CLI 分頁",
+              "terminalPlural": "{{count}} 個正在執行的 CLI 分頁",
               "agentSingular": "{{count}} 個活動的 Agent",
               "agentPlural": "{{count}} 個活動的 Agent",
               "browserSingular": "{{count}} 個瀏覽器工作區",
@@ -13370,9 +13370,9 @@ const zhTW = {
                 "cancel": "取消",
                 "label": "移除成員"
               },
-              "title": "群組織成員",
+              "title": "組織成員",
               "load": {
-                "error": "無法載入群組織成員。"
+                "error": "無法載入組織成員。"
               },
               "retry": "重試",
               "pending": {
@@ -13395,15 +13395,15 @@ const zhTW = {
                   "role": "無法變更你自己的角色。"
                 },
                 "not": {
-                  "found": "該成員已不在此群組織中。"
+                  "found": "該成員已不在此組織中。"
                 },
                 "reconnect": "請重新連線你的設定檔案以管理成員。",
-                "unconfigured": "此版本不支援群組織管理。",
+                "unconfigured": "此版本不支援組織管理。",
                 "failed": "出現問題。請重試。"
               },
               "subtitle": {
                 "named": "{{orgName}} 中可以協作使用 Orca 的成員。",
-                "default": "你的群組織中可以協作使用 Orca 的成員。"
+                "default": "你的組織中可以協作使用 Orca 的成員。"
               }
             }
           }
