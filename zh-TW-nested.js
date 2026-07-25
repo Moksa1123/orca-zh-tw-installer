@@ -5218,7 +5218,7 @@ export default {
           "b468f46726": "upstream/main",
           "80f7c82303": ") 或完整的 ref (例如",
           "915ad97875": "upstream",
-          "a5c16712c1": "偵測到多個遠端。輸入遠端名稱 (例如",
+          "a5c16712c1": "偵測到多個遠端。輸入遠端名稱（例如",
           "9a14ec7400": "在下方選擇基礎分支",
           "086ce7f369": "正在跟隨主分支（{{value0}}）",
           "2f3cda96f5": "已為此存放庫釘選",
@@ -5655,7 +5655,7 @@ export default {
           "9d3e56ca36": "套用變更",
           "f96688b6bc": "取消",
           "b7ddae600c": "完成",
-          "e4bda7ce6f": "在此係統上找不到 Ghostty 設定。",
+          "e4bda7ce6f": "在此系統上找不到 Ghostty 設定。",
           "b58d4c9051": "不支援的按鍵",
           "674b5ccd6b": "沒有可匯入的新設定 — 你目前的設定已相符。",
           "a4c5dec640": "要更新的設定",
@@ -5900,7 +5900,7 @@ export default {
           "3b224167ff": "伺服器",
           "251b96564a": "已偵測 ·",
           "f34c152dc0": "重新整理 MCP 設定",
-          "6bac9ddfc6": "SSH 存放庫是透過遠端檔案系統讀取的。啟始設定的建立僅限於工作區根目錄設定。",
+          "6bac9ddfc6": "SSH 存放庫是透過遠端檔案系統讀取的。起始設定的建立僅限於工作區根目錄設定。",
           "96f5609b04": "檢視 Agent 在此存放庫中工作時可使用的 MCP 伺服器定義。",
           "55eea3ef47": "MCP 設定",
           "9ee215caf6": ".mcp.json",
@@ -5946,7 +5946,7 @@ export default {
           "6593c9ddd3": "行動裝置模擬器",
           "a4f1c82d90": "已停用",
           "b5e2d93e01": "檢查中…",
-          "c6f3ea4f12": "就緒",
+          "c6f3ea4f12": "已就緒",
           "d704fb5023": "需要設定",
           "06b06429c6": "正在檢查 Android SDK 與 iOS 模擬器支援。",
           "6d1483d4a0": "偵測到 1 個模擬器裝置。",
@@ -5965,7 +5965,7 @@ export default {
           "39fad211d9": "透過 tailnet 在 Wi-Fi 以外連線",
           "a9db5d771d": "重新整理網路介面",
           "b2c384cfd6": "找不到介面",
-          "d536b5e20d": "選擇要在 QR code 中公佈的網路位址。同網路配對請使用你的 LAN 位址，跨網路存取請使用覆蓋網路位址（Tailscale、ZeroTier）。",
+          "d536b5e20d": "選擇要在 QR code 中公布的網路位址。同網路配對請使用你的 LAN 位址，跨網路存取請使用覆蓋網路位址（Tailscale、ZeroTier）。",
           "406a35121c": "網路介面",
           "c541f67790": "產生 QR Code",
           "1e64659126": "重新產生"
@@ -6033,7 +6033,7 @@ export default {
           "115437bc35": "如果沒有出現 macOS 橫幅，請啟用「允許 Orca 通知」。",
           "7f45542625": "已要求測試通知",
           "98d70fb261": "無法播放自訂通知音效",
-          "c83b05a055": "此係統不支援通知",
+          "c83b05a055": "此系統不支援通知",
           "274af61bc0": "系統",
           "6e6df3a09a": "選擇自訂檔案",
           "76e02467b8": "變更自訂檔案",
@@ -6832,9 +6832,9 @@ export default {
         "TerminalAppearanceSection": {
           "a14a427ae4": "窗格分隔線的粗細。",
           "f27a99978d": "分隔線粗細",
-          "db632cb50e": "套用到目前非作用中窗格的不透明度。",
-          "a6fdd6a3b1": "非作用中窗格不透明度",
-          "1b79379d4f": "控制非作用中窗格的變暗與分割分隔線粗細。",
+          "db632cb50e": "套用到目前非使用中窗格的不透明度。",
+          "a6fdd6a3b1": "非使用中窗格不透明度",
+          "1b79379d4f": "控制非使用中窗格的變暗與分割分隔線粗細。",
           "e1a5c25555": "終端機窗格",
           "04cdf85dec": "終端機遊標的不透明度。",
           "b9f1804422": "遊標不透明度",
@@ -6900,15 +6900,15 @@ export default {
           "a016ffbeed": "Auto 目前使用 Windows PowerShell，安裝後會切換到 PowerShell 7+。",
           "5ed5c95344": "為新的終端機窗格在 Windows PowerShell 與 PowerShell 7+ 之間選擇。",
           "3d88af864d": "選擇 PowerShell shell 選項要為新的終端機窗格啟動 Windows PowerShell 還是 PowerShell 7+。",
-          "8a956cc91e": "在按兩下選取時視為單字邊界的字元。",
-          "4bebcc2b2c": "單字分隔符",
+          "8a956cc91e": "在按兩下選取時視為字詞邊界的字元。",
+          "4bebcc2b2c": "字詞分隔符",
           "12e06178fa": "行",
           "907b0b9d3e": "自訂",
           "5336c096af": "{{value0}} 行",
           "81d86b2dd2": "為新窗格與已開啟窗格保留的桌面終端機行數。",
           "9df53f7c14": "回捲行數",
           "c3810b2b42": "保留的桌面終端機行數。",
-          "267d020745": "回捲、單字邊界，以及各平臺特有的終端機行為。",
+          "267d020745": "回捲、字詞邊界，以及各平臺特有的終端機行為。",
           "5e5f06c82c": "進階",
           "003df129fe": "水平分割",
           "623e62df99": "水平分割",
@@ -8126,7 +8126,7 @@ export default {
               "e518cbd61c": "一對",
               "4a0c826f3d": "程式碼",
               "3c1807a81a": "qr",
-              "7fb728fb2b": "透過掃描二維碼來配對手機裝置。",
+              "7fb728fb2b": "透過掃描 QR Code 來配對手機裝置。",
               "d49925710a": "手機配對"
             }
           },
@@ -8156,7 +8156,7 @@ export default {
           "search": {
             "aa288005c3": "測試",
             "ca8faa40d7": "通知",
-            "4e30b1925e": "使用本機傳遞路徑觸發示例桌面通知。",
+            "4e30b1925e": "使用本機傳遞路徑觸發範例桌面通知。",
             "ef9b311346": "傳送測試通知",
             "ecdeff4993": "響度",
             "d58b64dddf": "音量",
@@ -9076,7 +9076,7 @@ export default {
           "branchHasChanges": "分支有變更",
           "viewChangesClicked": "檢視變更已點選",
           "forceDeleteClicked": "強制刪除已點選",
-          "devOnlyCallback": "僅開發回撥。",
+          "devOnlyCallback": "僅開發回呼。",
           "infoToast": "資訊提示",
           "infoToastDescription": "無明確操作的長資訊文案。",
           "localCanaryBehind": "本機 canary 落後於 origin/canary",
@@ -9188,7 +9188,7 @@ export default {
               },
               "search": {
                 "title": "Linear",
-                "description": "Give agents the skill to read and update your linked Linear tickets."
+                "description": "讓 Agent 具備讀取與更新你已連結的 Linear Issue 的能力。"
               }
             }
           }
@@ -9252,13 +9252,13 @@ export default {
         },
         "MobilePairingSetupSection": {
           "title": "配對手機",
-          "overview": "產生二維碼，然後在 Orca Mobile 的 Pair Desktop 中掃描。",
+          "overview": "產生 QR Code，然後在 Orca Mobile 的 Pair Desktop 中掃描。",
           "step1Title": "連線方式",
           "step2Title": "此電腦的位址",
           "step2RelayDescription": "距離較近時用於快速直接連線。Relay 覆蓋遠端存取。",
           "step2LocalDescription": "手機必須能透過 Wi‑Fi 或 Tailscale 存取此位址。",
           "regenerate": "重新產生",
-          "generate": "產生二維碼",
+          "generate": "產生 QR Code",
           "refresh": "重新整理網路介面"
         },
         "MobileRelayBetaAvailability": {
@@ -9269,31 +9269,31 @@ export default {
           "androidApk": "Android APK"
         },
         "SkillUsageExampleDialog": {
-          "copiedPrompt": "複製示例提示。",
+          "copiedPrompt": "複製範例提示。",
           "copyFailed": "複製提示失敗。",
-          "copyExampleAria": "複製 {{value0}} 示例提示",
+          "copyExampleAria": "複製 {{value0}} 範例提示",
           "done": "完成",
           "copyPrompt": "複製提示"
         },
         "LinearAgentSkillPane": {
           "title": "Linear",
-          "description": "Give agents the skill to read and update your linked Linear tickets.",
-          "skillTitle": "Linear skill",
-          "skillDescription": "Enables agents to read linked tickets and post updates to Linear through Orca.",
-          "howToUse": "How to use it",
-          "howToUseDescription": "Ask an agent working a Linear-linked worktree to read context, post updates, move the ticket, or attach the PR.",
-          "terminalTitle": "Linear skill setup",
-          "terminalAriaLabel": "Linear skill install terminal",
-          "manageConnectionHint": "Review connected Linear workspaces and API keys in",
-          "manageConnectionLink": "Integrations settings"
+          "description": "讓 Agent 具備讀取與更新你已連結的 Linear Issue 的能力。",
+          "skillTitle": "Linear 技能",
+          "skillDescription": "讓 Agent 能透過 Orca 讀取已連結的 Issue 並將更新發布到 Linear。",
+          "howToUse": "使用方式",
+          "howToUseDescription": "請在已連結 Linear 的 Worktree 中，要求 Agent 讀取上下文、發布更新、推進 Issue 進度，或附上 Pull Request。",
+          "terminalTitle": "Linear 技能設定",
+          "terminalAriaLabel": "Linear 技能安裝終端機",
+          "manageConnectionHint": "檢視已連線的 Linear 工作區與 API 金鑰，位置在",
+          "manageConnectionLink": "整合設定"
         },
         "MobileRelayBetaNotice": {
-          "notice": "Orca Relay is in beta."
+          "notice": "Orca Relay 目前為 Beta 版。"
         },
         "EditorFontFamilySetting": {
-          "title": "Editor Font Family",
-          "description": "Font used by file editors and diff views. Leave empty to follow the terminal font.",
-          "placeholder": "Same as terminal font"
+          "title": "編輯器字型系列",
+          "description": "檔案編輯器與差異檢視使用的字型。留空則沿用終端機字型。",
+          "placeholder": "與終端機字型相同"
         }
       },
       "right": {
@@ -10902,8 +10902,8 @@ export default {
           "3f90dbd274": "完成",
           "b622eba64d": "返回",
           "65b3f2e8bc": "產生…",
-          "27735e5f4e": "配對二維碼",
-          "bb0074ce11": "配對二維碼",
+          "27735e5f4e": "配對 QR Code",
+          "bb0074ce11": "配對 QR Code",
           "010dddcf27": "複製配對碼",
           "4c1df4eba7": "無法掃描？",
           "85067b9e06": "重新整理網路介面",
@@ -10915,12 +10915,12 @@ export default {
           "d1495e5e64": "開啟 Orca 手機端，點選",
           "901c98bb93": "配對這個",
           "3960f5c339": "第 2 步（共 2 步）",
-          "3241f3c26a": "安裝二維碼",
-          "7af266b80d": "安裝二維碼",
+          "3241f3c26a": "安裝 QR Code",
+          "7af266b80d": "安裝 QR Code",
           "aa97420ba4": "複製安裝連結",
           "ac1eb64952": "Android",
           "711e6f4b47": "iOS 系統",
-          "e75647ace0": "使用手機掃描二維碼或開啟安裝連結以取得 Orca 手機端。",
+          "e75647ace0": "使用手機掃描 QR Code 或開啟安裝連結以取得 Orca 手機端。",
           "0d9b33299e": "取得應用程式。",
           "92ddfdfa1f": "第 1 步（共 2 步）",
           "ff48d9d520": "與另一臺裝置配對",
@@ -11068,7 +11068,7 @@ export default {
           "use": "使用位址"
         },
         "NetworkInterfacePicker": {
-          "trigger-label": "要公佈的網路位址",
+          "trigger-label": "要公布的網路位址",
           "custom-option": "{{address}}（自訂）",
           "add-custom": "新增自訂位址…"
         },
