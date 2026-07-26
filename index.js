@@ -131,6 +131,69 @@ function patchLocaleGate(p) {
     '$1\n  if (language === "zh-TW") {\n    return "zh-TW";\n  }');
 }
 
+// ── 原生選單本地化 ─────────────────────────────────────────────────────
+// Orca 的 Electron 原生選單有兩類字串完全沒有經過 i18n，語系檔再完整也翻不到：
+//
+//   1. { role: "undo" } 這種沒給 label 的項目。label 由 Electron 自己提供，
+//      而 Electron 只在 macOS 從系統取得本地化字串，Windows／Linux 是寫死英文。
+//      所以「編輯」選單會出現 Undo / Redo / Cut / Copy / Select All 全英文，
+//      只有 Paste 是中文——因為 Orca 給 Paste 寫了 label（它有自訂行為）。
+//
+//   2. Markdown 右鍵選單的標籤是直接寫在原始碼裡的字面值
+//      （markdownCommandItem("Bold", …)、label: "Format"），根本沒有對應的鍵。
+//
+// 兩類都靠改寫 main process 原始碼解決：注入 translateMain(...) 呼叫。
+// translateMain 是 Orca 自己的翻譯函式，定義在該檔案的模組作用域，
+// 所有選單建構點都在其後，可安全呼叫。
+const MENU_ROLE_LABELS = {
+  about: 'About', services: 'Services', hide: 'Hide', hideOthers: 'Hide Others',
+  unhide: 'Show All', quit: 'Quit', undo: 'Undo', redo: 'Redo', cut: 'Cut',
+  copy: 'Copy', selectAll: 'Select All', toggleDevTools: 'Toggle Developer Tools',
+  togglefullscreen: 'Toggle Full Screen', minimize: 'Minimize', zoom: 'Zoom',
+};
+// 字面值 → 鍵名。必須連呼叫包裝一起比對：「Quote」在全檔出現 5 次，
+// 但只有 markdownCommandItem("Quote" 這一處是選單標籤。
+const MENU_MD_ITEMS = {
+  'Add link': 'addLink', 'Bold': 'bold', 'Italic': 'italic', 'Strike': 'strike',
+  'Inline code': 'inlineCode', 'Code block': 'codeBlock', 'Quote': 'quote',
+  'Body text': 'bodyText', 'Heading 1': 'heading1', 'Heading 2': 'heading2',
+  'Heading 3': 'heading3', 'Heading 4': 'heading4', 'Heading 5': 'heading5',
+  'Bullet list': 'bulletList', 'Numbered list': 'numberedList', 'Checklist': 'checklist',
+  'Link': 'link', 'Image': 'image', 'Divider': 'divider',
+};
+const MENU_SUBMENU_LABELS = { 'Format': 'format', 'Paragraph': 'paragraph', 'Insert': 'insert' };
+const MENU_PASTE_ITEMS = { 'Paste': 'paste', 'Paste as plain text': 'pasteAsPlainText' };
+
+const t = (key, en) => `translateMain("nativeMenu.${key}", ${JSON.stringify(en)})`;
+
+function patchNativeMenus(p) {
+  p.patch('原生選單：為無 label 的 role 注入譯文',
+    c => c.includes('nativeMenu.selectAll'),
+    /\{\s*role:\s*"([A-Za-z]+)"\s*\}/g,
+    (m, role) => MENU_ROLE_LABELS[role]
+      ? `{ role: "${role}", label: ${t(role, MENU_ROLE_LABELS[role])} }`
+      : m);
+
+  p.patch('原生選單：Markdown 命令項改走 i18n',
+    c => c.includes('nativeMenu.addLink'),
+    /markdownCommandItem\("([^"]+)"/g,
+    (m, label) => MENU_MD_ITEMS[label]
+      ? `markdownCommandItem(${t(MENU_MD_ITEMS[label], label)}`
+      : m);
+
+  p.patch('原生選單：子選單標題改走 i18n',
+    c => c.includes('nativeMenu.format'),
+    /label:\s*"(Format|Paragraph|Insert)"/g,
+    (m, label) => `label: ${t(MENU_SUBMENU_LABELS[label], label)}`);
+
+  p.patch('原生選單：貼上項改走 i18n',
+    c => c.includes('nativeMenu.pasteAsPlainText'),
+    /editableContextPasteItem\("([^"]+)"/g,
+    (m, label) => MENU_PASTE_ITEMS[label]
+      ? `editableContextPasteItem(${t(MENU_PASTE_ITEMS[label], label)}`
+      : m);
+}
+
 async function patch() {
   try {
     // dry-run 不寫檔，Orca 執行中也能安全跑，故不檢查
@@ -191,6 +254,7 @@ async function patch() {
       c => c.includes('"zh-TW": () => Promise.resolve()'),
       /(zh: \(\) => Promise\.resolve\(\)\.then\(\(\) => require\("\.\/chunks\/zh-[A-Za-z0-9_-]+\.js"\)\))/,
       '$1,\n  "zh-TW": () => Promise.resolve().then(() => require("./chunks/zh-TW-nested.js"))');
+    patchNativeMenus(mp);
     mp.save();
 
     console.log('🛠️ 3/6 正在修補渲染器 (renderer process) 語言限制...');
@@ -249,6 +313,36 @@ async function patch() {
         `有 ${allFailed.length} 個注入點失敗，已中止且未改動你的 Orca。\n` +
         '   這通常表示 Orca 更新後改了程式碼結構，需要更新本安裝包的錨點。'
       );
+    }
+
+    // 注入點都成功不代表改出來的檔案還能執行。原生選單那幾個補丁是用正則
+    // 改寫 8MB 的 bundle，一旦括號配對出錯，Orca 會在啟動時整個掛掉而不是
+    // 只有選單壞掉。所以重新封裝前先讓 Node 真的解析一遍。
+    const { execFileSync } = require('child_process');
+    // renderer 是 ES module（用了 import.meta.url），但副檔名是 .js，
+    // node --check 會以 CommonJS 解析而誤判失敗。複製成 .mjs 再檢查。
+    const probeDir = fs.mkdtempSync(path.join(os.tmpdir(), 'orca-zh-tw-check-'));
+    try {
+      for (const [label, file, ext] of [
+        ['main process', mainFile, '.js'],
+        ['renderer', rendererFile, '.mjs'],
+      ]) {
+        const probe = path.join(probeDir, 'probe' + ext);
+        fs.copyFileSync(file, probe);
+        try {
+          execFileSync(process.execPath, ['--check', probe], { stdio: ['ignore', 'ignore', 'pipe'] });
+          console.log(`   ✅ [${label}] 修補後的檔案通過 node --check`);
+        } catch (e) {
+          const msg = String(e.stderr || e.message)
+            .split('\n').filter(l => !/^\(node:/.test(l) && !/trace-warnings/.test(l))
+            .slice(0, 4).join('\n      ');
+          throw new Error(
+            `[${label}] 修補後的檔案語法無效，已中止且未改動你的 Orca：\n      ${msg}`
+          );
+        }
+      }
+    } finally {
+      fs.rmSync(probeDir, { recursive: true, force: true });
     }
 
     if (DRY_RUN) {
