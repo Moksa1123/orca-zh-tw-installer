@@ -11351,5 +11351,16 @@
   "slashCommand.listBackgroundTerminals": "列出背景終端機",
   "slashCommand.stopAllBackgroundTerminals": "停止所有背景終端機",
   "slashCommand.clearTheTerminalAndStartANewChat": "清除終端機並開始新的聊天",
-  "slashCommand.chooseACommunicationStyle": "選擇溝通風格"
+  "slashCommand.chooseACommunicationStyle": "選擇溝通風格",
+  "sourceControl.noChangesHeading": "此分支沒有變更",
+  "sourceControl.noChangesDetail": "此工作區是乾淨的，且此分支沒有領先 {{base}} 的變更",
+  "sourceControl.noMatchingFilesHeading": "沒有符合的檔案",
+  "sourceControl.noChangedFilesMatch": "沒有變更的檔案符合「{{query}}」",
+  "sourceControl.operationInProgress": "操作進行中…",
+  "sourceControl.abortConflictOperation": "中止進行中的 {{operation}}",
+  "sourceControl.abortConfirm": "中止 {{label}}",
+  "automation.scheduleHourly": "每小時於 :{{minute}}",
+  "automation.scheduleDaily": "每天於 {{time}}",
+  "automation.scheduleWeekdays": "平日於 {{time}}",
+  "tab.newAgentTab": "新增 {{agent}} 分頁"
 }

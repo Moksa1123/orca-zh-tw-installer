@@ -278,6 +278,69 @@ function patchSlashCommands(p, translateFn) {
       + `return ${translateFn}(${JSON.stringify(slashKey(en))}, ${JSON.stringify(en)}); }${s2}}`);
 }
 
+// ── JSX 屬性裡寫死的字串 ───────────────────────────────────────────────
+// 使用者回報原始碼控制的空狀態是英文：
+//
+//   jsx(EmptyState, {
+//     heading: "No changes on this branch",
+//     supportingText: `This workspace is clean and this branch has no changes ahead of ${…}`
+//   })
+//
+// 這暴露了先前掃描的盲點——我只找雙引號字面值，反引號模板字串整類漏掉。
+//
+// 模板字串含插值，改寫時要把 ${expr} 轉成 i18next 的 {{name}} 佔位符，
+// 並把原本的運算式搬到第三個參數。因為每處的運算式都不同，只能用
+// 「完整字面值完全相符」逐句取代，不能用正則。
+const JSX_HARDCODED = [
+  // ── 原始碼控制空狀態（使用者回報的那一處）──
+  ['SourceControl', 'heading: "No changes on this branch"',
+    'heading: translate("sourceControl.noChangesHeading", "No changes on this branch")'],
+  ['SourceControl',
+    'supportingText: `This workspace is clean and this branch has no changes ahead of ${branchSummary?.baseRef ?? "base"}`',
+    'supportingText: translate("sourceControl.noChangesDetail", '
+    + '"This workspace is clean and this branch has no changes ahead of {{base}}", '
+    + '{ base: branchSummary?.baseRef ?? "base" })'],
+  ['SourceControl', 'heading: "No matching files"',
+    'heading: translate("sourceControl.noMatchingFilesHeading", "No matching files")'],
+  ['SourceControl', 'supportingText: `No changed files match "${filterQuery}"`',
+    'supportingText: translate("sourceControl.noChangedFilesMatch", '
+    + '"No changed files match \\"{{query}}\\"", { query: filterQuery })'],
+  ['SourceControl', '"Operation in progress…"',
+    'translate("sourceControl.operationInProgress", "Operation in progress…")'],
+  ['SourceControl', '`Abort the ${conflictOperation} in progress`',
+    'translate("sourceControl.abortConflictOperation", "Abort the {{operation}} in progress", '
+    + '{ operation: conflictOperation })'],
+  ['SourceControl', 'confirmLabel: `Abort ${label}`',
+    'confirmLabel: translate("sourceControl.abortConfirm", "Abort {{label}}", { label })'],
+
+  // ── 自動化排程描述。同一句英文出現兩次，插值運算式不同，故分開列 ──
+  ['AutomationsPage', '`Hourly at :${String(schedule.minute).padStart(2, "0")}`',
+    'translate("automation.scheduleHourly", "Hourly at :{{minute}}", '
+    + '{ minute: String(schedule.minute).padStart(2, "0") })'],
+  ['AutomationsPage', '`Hourly at :${String(minute).padStart(2, "0")}`',
+    'translate("automation.scheduleHourly", "Hourly at :{{minute}}", '
+    + '{ minute: String(minute).padStart(2, "0") })'],
+  ['AutomationsPage', '`Daily at ${time}`',
+    'translate("automation.scheduleDaily", "Daily at {{time}}", { time })'],
+  ['AutomationsPage', '`Weekdays at ${time}`',
+    'translate("automation.scheduleWeekdays", "Weekdays at {{time}}", { time })'],
+
+  // ── 新增 Agent 分頁的標題 ──
+  ['I18nProvider', '`New ${TUI_AGENT_DISPLAY_NAMES[agent]} tab`',
+    'translate("tab.newAgentTab", "New {{agent}} tab", { agent: TUI_AGENT_DISPLAY_NAMES[agent] })'],
+];
+
+function patchJsxHardcoded(p, chunkTag) {
+  const items = JSX_HARDCODED.filter(x => x[0] === chunkTag);
+  for (const [, find, repl] of items) {
+    // 名稱取原文前 26 字，方便在輸出裡辨認是哪一句
+    const label = find.replace(/^[a-zA-Z]+:\s*/, '').slice(0, 26).replace(/\s+/g, ' ');
+    p.patchOptional(`寫死字串改走 i18n：${label}`,
+      c => c.includes(repl),
+      find, repl);
+  }
+}
+
 function patchNativeMenus(p) {
   p.patchOptional('原生選單：為無 label 的 role 注入譯文',
     c => c.includes('nativeMenu.selectAll'),
@@ -403,6 +466,7 @@ async function patch() {
     // main process 也有一份，但那份不用於顯示，動它只增加風險。
     patchKeybindingTitles(rp, 'translate');
     patchOptionLabels(rp, 'translate');
+    patchJsxHardcoded(rp, 'I18nProvider');
     rp.save();
 
     // Agent 斜線命令的說明在另一個 chunk。檔名帶 hash（index-DlEnJ7xL.js），
@@ -423,6 +487,29 @@ async function patch() {
       console.log('   ⚠️ 找不到含 CODEX_COMMANDS 的 chunk，斜線命令說明將維持英文。');
     }
 
+    // 原始碼控制空狀態與自動化排程描述各在自己的 chunk。
+    // 同樣靠內容找（檔名帶 hash），找不到就警告並繼續。
+    const extraPatchers = [];
+    for (const [tag, marker] of [
+      ['SourceControl', 'No changes on this branch'],
+      ['AutomationsPage', 'Weekdays at '],
+    ]) {
+      const file = fs.readdirSync(assetsDir)
+        .filter(f => f.endsWith('.js') && f.startsWith(tag))
+        .map(f => path.join(assetsDir, f))
+        .find(f => {
+          try { return fs.readFileSync(f, 'utf8').includes(marker); } catch { return false; }
+        });
+      if (!file) {
+        console.log(`   ⚠️ 找不到 ${tag} chunk，該部分字串將維持英文。`);
+        continue;
+      }
+      const xp = createPatcher(tag, file);
+      patchJsxHardcoded(xp, tag);
+      xp.save();
+      extraPatchers.push({ p: xp, file });
+    }
+
     console.log('📂 4/6 正在植入繁體中文字典 (ESM + CJS 兩種格式)...');
     const esmDict = path.join(__dirname, 'zh-TW-nested.js');
     const cjsDict = path.join(__dirname, 'zh-TW-nested.cjs.js');
@@ -434,7 +521,7 @@ async function patch() {
     fs.copyFileSync(cjsDict, path.join(chunksDir, 'zh-TW-nested.js'));
 
     console.log('🔎 5/6 正在驗證所有注入點...');
-    const patchers = sp ? [mp, rp, sp] : [mp, rp];
+    const patchers = [mp, rp, ...(sp ? [sp] : []), ...extraPatchers.map(x => x.p)];
     const allFailed = patchers.flatMap(p => p.failed.map(n => `[${p.label}] ${n}`));
     const allWarned = patchers.flatMap(p => p.warned.map(n => `[${p.label}] ${n}`));
     for (const p of patchers) {
@@ -465,6 +552,7 @@ async function patch() {
         ['renderer', rendererFile, '.mjs'],
       ];
       if (slashFile) toCheck.push(['slash commands', slashFile, '.mjs']);
+      for (const x of extraPatchers) toCheck.push([x.p.label, x.file, '.mjs']);
       for (const [label, file, ext] of toCheck) {
         const probe = path.join(probeDir, 'probe' + ext);
         fs.copyFileSync(file, probe);

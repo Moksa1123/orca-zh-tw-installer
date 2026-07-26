@@ -14089,5 +14089,22 @@ export default {
     "stopAllBackgroundTerminals": "停止所有背景終端機",
     "clearTheTerminalAndStartANewChat": "清除終端機並開始新的聊天",
     "chooseACommunicationStyle": "選擇溝通風格"
+  },
+  "sourceControl": {
+    "noChangesHeading": "此分支沒有變更",
+    "noChangesDetail": "此工作區是乾淨的，且此分支沒有領先 {{base}} 的變更",
+    "noMatchingFilesHeading": "沒有符合的檔案",
+    "noChangedFilesMatch": "沒有變更的檔案符合「{{query}}」",
+    "operationInProgress": "操作進行中…",
+    "abortConflictOperation": "中止進行中的 {{operation}}",
+    "abortConfirm": "中止 {{label}}"
+  },
+  "automation": {
+    "scheduleHourly": "每小時於 :{{minute}}",
+    "scheduleDaily": "每天於 {{time}}",
+    "scheduleWeekdays": "平日於 {{time}}"
+  },
+  "tab": {
+    "newAgentTab": "新增 {{agent}} 分頁"
   }
 };
