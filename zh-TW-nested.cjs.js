@@ -401,7 +401,7 @@ const zhTW = {
         "workspace": {
           "tab": {
             "creation": {
-              "f3785eddc2": "新瀏覽器分頁"
+              "f3785eddc2": "新增瀏覽器分頁"
             }
           }
         }
@@ -634,7 +634,7 @@ const zhTW = {
             "moveStatePrompt": "變更已就緒，使用 {{value0}} 將連結的 Linear Issue 移至 In Review。",
             "attachPrSummary": "在你開啟 Pull Request 時，將它連結到 Linear Issue。",
             "attachPrPrompt": "使用 {{value0}} 以 PR 連結，將此 PR 附加到連結的 Linear Issue。",
-            "triageFollowupsSummary": "設定負責人、優先順序或預估，並建立帶父項的後續 Issue。",
+            "triageFollowupsSummary": "設定指派對象、優先順序或預估，並建立帶父項的後續 Issue。",
             "triageFollowupsPrompt": "使用 {{value0}} 分類連結的 Linear Issue（設定優先順序與預估），並為延後的清理工作建立一個帶父項的後續 Issue。"
           }
         }
@@ -799,7 +799,7 @@ const zhTW = {
         "e30a5470c9": "對話",
         "474c59b4b3": "關閉 · Esc",
         "45af57999b": "關閉預覽",
-        "3fdf777817": "在 GitHub 上開啟",
+        "3fdf777817": "在 GitHub 中開啟",
         "c43fe79ee0": "複製 GitHub 連結",
         "0caac1a18f": "從 PR 啟動工作區",
         "8223320f8d": "已更新",
@@ -819,17 +819,17 @@ const zhTW = {
         "0a73f59e85": "送出留言",
         "c5c117270e": "新增留言…",
         "082515176a": "新增留言失敗",
-        "c6f37a563d": "+ 負責人",
+        "c6f37a563d": "+ 指派對象",
         "f41ec96c13": "+ 標籤",
         "ab050dffec": "已關閉",
-        "dc1ca081a8": "開啟中",
+        "dc1ca081a8": "開啟",
         "2e4d806c92": "工作區",
         "886a64b081": "尚無",
         "4ba0132f37": "編輯標籤",
         "217e55d87c": "標籤",
         "c67de9e2fe": "尚未指派任何人",
-        "76adcf5fe2": "編輯負責人",
-        "83ac703dda": "負責人",
+        "76adcf5fe2": "編輯指派對象",
+        "83ac703dda": "指派對象",
         "00ccdf9b5a": "狀態",
         "2aa9acdf34": "在 GitHub 上編輯標籤",
         "d23bbb6416": "{{value0}} 已略過",
@@ -968,7 +968,7 @@ const zhTW = {
         "ba8e329d92": "取消標記已檢視",
         "3f79ffc8b7": "開啟 PR 詳細資訊以檢視目前的審查者。",
         "5c1c973855": "移除審查者",
-        "commentTooLarge": "留言內容過大，無法安全提交。",
+        "commentTooLarge": "留言過長，無法安全提交。",
         "timeline": {
           "completed": "為已完成",
           "notPlanned": "為未規劃",
@@ -1050,7 +1050,7 @@ const zhTW = {
         "3a051b8ade": "工作項目",
         "32f8bef818": "無記錄檔輸出。",
         "4168eb2c51": "解決",
-        "commentTooLarge": "留言內容過長，無法安全提交。"
+        "commentTooLarge": "留言過長，無法安全提交。"
       },
       "JiraIssueWorkspace": {
         "b0b92666c9": "留言",
@@ -1085,7 +1085,7 @@ const zhTW = {
         "2a829a2f00": "優先順序",
         "693be070d0": "狀態轉換",
         "ef21405c6d": "Jira Issue",
-        "commentTooLarge": "留言內容過長，無法安全提交。"
+        "commentTooLarge": "留言過長，無法安全提交。"
       },
       "Landing": {
         "76a95f7f47": "建立",
@@ -1207,7 +1207,7 @@ const zhTW = {
         "858d0630da": "關閉預覽",
         "39883467f4": "Linear Issue",
         "fda549766e": "{{value0}} 以留言",
-        "d71cd3003e": "+ 負責人",
+        "d71cd3003e": "+ 指派對象",
         "commentTooLarge": "留言過長，無法安全提交。"
       },
       "NewWorkspaceComposerCard": {
@@ -1311,25 +1311,25 @@ const zhTW = {
         "e1f3641bfd": "從",
         "c44b70352b": "基底分支",
         "b0e80f083d": "想要合併到",
-        "8ecda455a0": "在 GitHub 開啟",
+        "8ecda455a0": "在 GitHub 中開啟",
         "1a2570e18e": "啟動新工作區",
         "57c13a5aa4": "更多 PR 工作區操作",
         "25690a3855": "從 PR 啟動工作區",
         "a459866967": "還原關聯 PR 的工作區",
         "347034903a": "複製 GitHub 連結",
         "5a01ca7253": "無法將已檢視狀態同步至 GitHub。",
-        "996a1897d2": "無法同步此 Pull Request 的已檢視狀態。",
+        "996a1897d2": "無法同步此 Pull Request 的檢視狀態。",
         "e0b15c793f": "複製 GitHub 連結失敗",
-        "992e799227": "已複製 GitHub 連結",
+        "992e799227": "GitHub 連結已複製",
         "61bfc81ada": "無法開啟關聯此 Pull Request 的工作區。",
         "161d91ef02": "傳送留言",
         "d2030fc8cd": "新增留言…",
         "1208347ac0": "新增留言失敗",
         "61452f2143": "從 issue 啟動工作區",
-        "14c9fc70ed": "+ 指派人",
+        "14c9fc70ed": "+ 指派對象",
         "bc215fea4d": "+ 標籤",
         "b936cc51a4": "已關閉",
-        "7b8f6bf6d8": "開啟中",
+        "7b8f6bf6d8": "開啟",
         "e6ad0a8d06": "{{value0}} 已略過",
         "88267924d5": "{{value0}} 待處理",
         "ae2a34c7b8": "{{value0}} 失敗",
@@ -1465,7 +1465,7 @@ const zhTW = {
         "2b4fdb880c": "取消標記已檢視",
         "56ec6eafb7": "開啟 PR 詳細資訊以檢視目前的審查者。",
         "7f964a365a": "移除審查者",
-        "commentTooLarge": "留言內容太長，無法安全提交。",
+        "commentTooLarge": "留言過長，無法安全提交。",
         "8ff5ae8866": "受指派者",
         "82c87eceb9": "編輯受指派者",
         "1ff5d979df": "尚未指派任何人",
@@ -1623,7 +1623,7 @@ const zhTW = {
         "a0544fb653": "MR !{{value0}}",
         "8396825a14": "動作",
         "c1d1600362": "在瀏覽器中開啟",
-        "b6329379ca": "啟動新的工作區",
+        "b6329379ca": "啟動新工作區",
         "054bf695cc": "草稿",
         "285bc21dc5": "變更查詢或將其清除。",
         "d0e3c8f933": "沒有相符的 GitHub 工作項目",
@@ -1776,7 +1776,7 @@ const zhTW = {
         "66ae7330f6": "更多操作",
         "93d5f21fc1": "pr",
         "e104fa3d3d": "從 Issue 啟動工作區",
-        "2193a99ec1": "開啟附加於 Issue 的工作區",
+        "2193a99ec1": "開啟 Issue 附帶的工作區",
         "7deb9e59a5": "更多 PR 操作",
         "7753652524": "繼續",
         "e4b29c5bcf": "從 PR 啟動工作區",
@@ -2102,7 +2102,7 @@ const zhTW = {
                 "463d030ae4": "刪除",
                 "8564f58542": "編輯",
                 "5f104bf855": "尚無留言。",
-                "commentTooLarge": "留言內容過長，無法安全提交。"
+                "commentTooLarge": "留言過長，無法安全提交。"
               },
               "LabelsEditor": {
                 "34dd57d6c8": "載入中…",
@@ -2176,7 +2176,7 @@ const zhTW = {
           "e0002f1eba": "已選取",
           "2b2f019091": "任何狀態",
           "0fd3249e2e": "已關閉",
-          "d78b60b5c2": "開啟中",
+          "d78b60b5c2": "開啟",
           "bd162b7d5a": "已合併",
           "2e639b84fa": "審查者",
           "712c5abdbf": "標籤",
@@ -2263,7 +2263,7 @@ const zhTW = {
               "af52a6227f": "從「帳號 > 安全性與存取」建立個人 API 金鑰。",
               "edec49dfae": "lin_api_...",
               "7d498f653c": "個人 API 金鑰",
-              "57a66522c8": "正在連線",
+              "57a66522c8": "連線中",
               "c9889a09f8": "建立金鑰前，請使用 Linear 選擇目標工作區。",
               "e689a4d0a6": "錯誤"
             }
@@ -3175,7 +3175,7 @@ const zhTW = {
             "9be86c46a0": "可釋放",
             "f4d2651498": "已掃描",
             "6a5dc3c61a": "審查",
-            "c361440dc0": "測試版",
+            "c361440dc0": "Beta",
             "8ff597593d": "空間",
             "0582df6d2e": "掃描",
             "f5e1a84d79": "重新整理",
@@ -3817,7 +3817,7 @@ const zhTW = {
           "3a13f6e88b": "未選擇位置",
           "6ed14c0281": "未選擇主機資料夾",
           "5e97f0c4b9": "專案已建立",
-          "2c12db1511": "專案已新增",
+          "2c12db1511": "專案已新增過",
           "875dda0995": "輸入主機父路徑。",
           "ssh_parent_manual": "輸入 SSH 父路徑。",
           "45b7c26034": "建立專案",
@@ -3828,7 +3828,7 @@ const zhTW = {
           "local": "本機",
           "runtime": "伺服器",
           "ssh": "SSH",
-          "connecting": "正在連線",
+          "connecting": "連線中",
           "connect": "連線",
           "addSshHost": "新增 SSH 主機",
           "addRemoteServer": "新增遠端伺服器",
@@ -5694,7 +5694,7 @@ const zhTW = {
           "a0832ccdb1": "已下載",
           "2a48034c4c": "正在下載 v{{value0}}... {{value1}}%",
           "4c1c001813": "下載中",
-          "f40d88390d": "你使用的是最新版本。",
+          "f40d88390d": "你已是最新版本。",
           "90eb7309d7": "無法使用",
           "82465b2444": "可用",
           "31fd7150cf": "正在檢查更新…",
@@ -6212,7 +6212,7 @@ const zhTW = {
           "5aacc8f7dc": "新增命令",
           "c36912efd5": "從分頁列的「快速命令」按鈕執行它們，或在任何終端機內按右鍵。",
           "f91b649324": "已儲存的命令",
-          "3d9dc558e8": "這個快速命令將從你已儲存的清單中移除。",
+          "3d9dc558e8": "此快速命令將從你儲存的清單中移除。",
           "3edf3deaf8": "刪除「{{value0}}」？",
           "9fcfc29519": "插入",
           "9b3e338d62": "Enter",
@@ -6596,15 +6596,15 @@ const zhTW = {
         },
         "Settings": {
           "3bf149e873": "專案設定 > {{value0}}",
-          "075341c763": "仍在成形中的新功能。歡迎試試看。",
+          "075341c763": "仍在成形中的新功能。歡迎試用。",
           "8b017f2506": "實驗性",
           "499c1cd7f9": "用於疑難排解的低階相容性設定。",
           "1c87f8d024": "進階",
-          "c1b43dc4e2": "匿名使用資料與遙測控制。",
+          "c1b43dc4e2": "匿名使用資料與遙測控制項。",
           "d7e3f62d70": "隱私權與遙測",
           "9b83cc62c2": "終端機啟動的開發者工具的 macOS 隱私權存取權。",
           "65660d4548": "macOS 權限",
-          "c6c01ac209": "從手機控制終端機和 Agent。",
+          "c6c01ac209": "從手機控制終端機與 Agent。",
           "c40dadaac8": "行動裝置",
           "c2ee313198": "透過 SSH 使用現有機器處理檔案、終端機、Git 和工作區。",
           "9b02492d1f": "SSH 主機",
@@ -6630,7 +6630,7 @@ const zhTW = {
           "13d4fe30ad": "快速命令",
           "b79b5b31e9": "Shell、算繪器、工作階段和終端機行為。",
           "3de4bbb841": "終端機",
-          "dd72ed437a": "選擇要在「任務」頁面和側邊欄中顯示的任務提供者。",
+          "dd72ed437a": "選擇要在「任務」頁面與側邊欄顯示的任務提供者。",
           "11faa2f7dd": "任務來源",
           "cfa34f4465": "分支命名、基礎參考、署名和 Git AI Author。",
           "70100f94c7": "Git 與原始碼控制",
@@ -6639,7 +6639,7 @@ const zhTW = {
           "f9b77539fd": "工作區預設值、應用程式設定和維護。",
           "7807c11c4d": "一般",
           "6855b0f77d": "完成讓 Orca 適用於並行 Agent 工作的核心工作流程。",
-          "6d119427ef": "上手清單",
+          "6d119427ef": "入門檢查清單",
           "eb1176a14e": "使用裝置端模型進行本機語音轉文字聽寫。",
           "5063bb47a5": "語音",
           "7118953f14": "讓 Agent 能控制你電腦上的任何應用程式。",
@@ -6665,7 +6665,7 @@ const zhTW = {
           "23c6874fdf": "AI 功能",
           "2309068a6f": "destructive",
           "65358016ea": "捨棄",
-          "dev": "開發工具",
+          "dev": "開發者工具",
           "devDescription": "僅供開發使用、用於測試 UI 狀態的工具。",
           "linearTitle": "Linear",
           "linearDescription": "讓 Agent 具備讀取並更新你已連結的 Linear Issue 的能力。",
@@ -6696,7 +6696,7 @@ const zhTW = {
           "5c9669ff9c": "專案",
           "dbceaa8840": "搜尋設定",
           "60f8a673a7": "返回應用程式",
-          "6503182299": "上手清單",
+          "6503182299": "入門檢查清單",
           "82db1b7de4": "上手清單，已完成 {{value0}}／{{value1}}。顯示設定指南。",
           "df38d612b7": "尚未新增任何專案。",
           "3e483e256b": "沒有相符的專案設定。"
@@ -6795,7 +6795,7 @@ const zhTW = {
           "895b216267": "取消"
         },
         "SshPane": {
-          "c0f1c80166": "尚未設定任何 SSH 目標。",
+          "c0f1c80166": "尚未設定 SSH 目標。",
           "639ceb3698": "新增目標",
           "51d7dba44d": "匯入",
           "a7d28dff81": "新增遠端主機，以在 Orca 中連線至該主機。",
@@ -8110,7 +8110,7 @@ const zhTW = {
               "5936977fcd": "取消",
               "1666f8d562": "建立 Atlassian API Token",
               "1ab7f551f3": "Atlassian API Token",
-              "09d310e42d": "你@example.com",
+              "09d310e42d": "you@example.com",
               "27dae4ab60": "https://example.atlassian.net",
               "a28f417220": "連線 Jira",
               "9bb34706ca": "已連線",
@@ -8164,9 +8164,9 @@ const zhTW = {
               "6b6407dc1f": "模擬器",
               "2d67f708ce": "模擬器",
               "c5eca29310": "ios 模擬器",
-              "25159de808": "手機模擬器",
+              "25159de808": "行動裝置模擬器",
               "9595354cff": "設定對 Orca 和編碼 Agent 的手機模擬器支援。",
-              "cdd3c31918": "手機模擬器"
+              "cdd3c31918": "行動裝置模擬器"
             }
           },
           "pane": {
@@ -8224,7 +8224,7 @@ const zhTW = {
               "cf2c93b479": "一對",
               "f4ed142753": "手機",
               "f213400800": "行動裝置",
-              "671eb4173c": "透過手機控制終端機和 Agent。",
+              "671eb4173c": "從手機控制終端機與 Agent。",
               "ffd52a96e4": "行動裝置",
               "1de96ec8a6": "顯示 Orca Mobile 按鈕",
               "682293cadf": "在左側邊欄頂部顯示 Orca Mobile 按鈕。",
@@ -9118,7 +9118,7 @@ const zhTW = {
         },
         "BrowserLocalhostWorktreeLabelsSetting": {
           "8ac8c3ad19": "localhost Worktree 標籤",
-          "1db3c8b983": "將 Worktree 埠開啟為特定於 Worktree 的 Orca localhost URL，便於區分瀏覽器分頁。"
+          "1db3c8b983": "將 Worktree 連接埠開啟為特定於 Worktree 的 Orca localhost URL，便於區分瀏覽器分頁。"
         },
         "AgentRuntimeSetting": {
           "label": "Agent 執行時",
@@ -9127,7 +9127,7 @@ const zhTW = {
           "selectDistro": "選擇發行版",
           "windowsDescription": "對於未覆蓋執行時的專案，在 Windows 上偵測並啟動 Agent。",
           "wslUnavailable": "此機器上不可用 WSL。",
-          "distroRequired": "專案繼承 WSL 前，請先選擇一個 WSL 發行版。",
+          "distroRequired": "在專案可繼承 WSL 之前，請選擇一個 WSL 發行版。",
           "wslDescription": "對於未覆蓋執行時的專案，透過 WSL 在 {{value0}} 中偵測並啟動 Agent。"
         },
         "MobileEmulatorSdkStatus": {
@@ -9303,7 +9303,7 @@ const zhTW = {
         },
         "MobileRelayStatusSection": {
           "registered": "已註冊",
-          "connecting": "正在連線",
+          "connecting": "連線中",
           "reconnecting": "正在重新連線",
           "offline": "離線",
           "title": "Orca Relay",
@@ -9317,7 +9317,7 @@ const zhTW = {
         },
         "MobilePairingConnectionOptions": {
           "ready": "已就緒",
-          "connecting": "正在連線",
+          "connecting": "連線中",
           "available": "可用",
           "reconnecting": "正在重新連線",
           "unavailable": "不可用",
@@ -9344,8 +9344,8 @@ const zhTW = {
         },
         "MobileRelayBetaAvailability": {
           "about": "關於 Orca Relay 測試版",
-          "beta": "測試版",
-          "availability": "可用平臺：",
+          "beta": "Beta",
+          "availability": "可用於",
           "testFlight": "TestFlight",
           "androidApk": "Android APK"
         },
@@ -9616,8 +9616,8 @@ const zhTW = {
             "17bea6e391": "localhost",
             "a3721a50b0": "遠端主機",
             "d57545ff92": "與遠端相同",
-            "b950b1948b": "本機埠",
-            "9e5a4118b0": "遠端埠",
+            "b950b1948b": "本機連接埠",
+            "9e5a4118b0": "遠端連接埠",
             "c9d106547a": "轉發",
             "c7e920aa7c": "公開為 {{value0}}",
             "e740075063": "移除",
@@ -9626,13 +9626,13 @@ const zhTW = {
             "b22b128b2a": "在瀏覽器中開啟",
             "75aeea592f": "在瀏覽器中開啟 {{value0}}",
             "de349d4560": "開啟 {{value0}}",
-            "907eb53ed2": "轉發埠",
-            "04efd3dad4": "轉發埠以存取本機電腦上的遠端服務。",
-            "1f0d2a24f9": "無轉發埠",
+            "907eb53ed2": "轉發連接埠",
+            "04efd3dad4": "轉發連接埠以存取本機電腦上的遠端服務。",
+            "1f0d2a24f9": "無轉發連接埠",
             "36b1b2984a": "已偵測",
             "ddbe58d74e": "轉發",
             "a103dae837": "新增",
-            "6bc058dbe1": "埠",
+            "6bc058dbe1": "連接埠",
             "d4c3cd679c": "正在重新連線…",
             "a2f1a47f42": "SSH 連線丟失",
             "409afcc145": "沒有為瀏覽器選擇工作區。",
@@ -9648,32 +9648,32 @@ const zhTW = {
             "a223459512": "顯示詳細資訊",
             "bdac206faf": "複製詳細資訊",
             "792baeb7ed": "複製位址",
-            "d41a8241ec": "埠",
-            "a2a9fc6899": "未偵測到本機埠",
-            "f59c783b7a": "{{value0}} 上無法進行埠掃描：{{value1}}",
-            "7822e3edc6": "重新整理埠",
+            "d41a8241ec": "連接埠",
+            "a2a9fc6899": "未偵測到本機連接埠",
+            "f59c783b7a": "{{value0}} 上無法進行連接埠掃描：{{value1}}",
+            "7822e3edc6": "重新整理連接埠",
             "c1b115c375": "未選擇工作區",
             "98e9a414f8": "無法開啟瀏覽器",
-            "a00f3a2840": "重新整理埠失敗",
+            "a00f3a2840": "重新整理連接埠失敗",
             "97b562d21d": "已停止程式：{{value0}}",
             "9079776663": "儲存",
             "c57eda6822": "編輯",
             "9f475dc994": "轉發…",
             "d7c83cfd24": "儲存中…",
-            "31e80cff2d": "將遠端埠轉發到本機電腦。",
-            "10360598a4": "更新埠轉發設定。",
-            "80206251c8": "編輯埠轉發",
+            "31e80cff2d": "將遠端連接埠轉發到本機電腦。",
+            "10360598a4": "更新連接埠轉發設定。",
+            "80206251c8": "編輯連接埠轉發",
             "4bc9b00912": "工作區",
             "3e13cb63ee": "不明",
-            "472054d94c": "埠：{{value0}}",
+            "472054d94c": "連接埠：{{value0}}",
             "1119f90ad7": "容器",
             "d32820d3e2": "外部",
             "4db4b5e435": "其他工作區",
-            "38b16cfbef": "未偵測到埠",
-            "0d63d94db3": "掃描…",
+            "38b16cfbef": "未偵測到連接埠",
+            "0d63d94db3": "正在掃描…",
             "935dda7718": "活躍的工作區",
-            "740aca88ab": "工作區埠掃描失敗。",
-            "5be4f7f727": "埠 {{value0}} 選單",
+            "740aca88ab": "工作區連接埠掃描失敗。",
+            "5be4f7f727": "連接埠 {{value0}} 選單",
             "7550998473": "複製",
             "1004af16ab": "複製 {{value0}}"
           },
@@ -9961,7 +9961,7 @@ const zhTW = {
             "15c5d85706": "Agent",
             "3e8f21954f": "錯誤",
             "74168d7ada": "閒置",
-            "1d47db9bf0": "沒有啟用 Agent",
+            "1d47db9bf0": "沒有已啟用的 Agent",
             "c7ff8cef11": "偵測中…",
             "b0da3a4d3e": "啟動預設已儲存",
             "bff4795a6d": "變更 Agent、引數或提示詞範本以更新已儲存的預設。",
@@ -10267,15 +10267,15 @@ const zhTW = {
             "7b415c39e9": "頂部",
             "864111caa2": "活動欄位置",
             "e8e2e4ce74": "切換右側邊欄",
-            "441733b630": "埠",
+            "441733b630": "連接埠",
             "83a10e3c44": "檢查",
             "0314901467": "原始碼控制",
             "06219e4cb1": "搜尋",
             "8bc2bbc3a0": "檔案總管",
             "45b78f03bc": "側邊",
             "34af8aadf5": "頂部",
-            "9fffaf17c1": "切換右側邊欄 ({{value0}})",
-            "b37ff4a89a": "埠",
+            "9fffaf17c1": "切換右側邊欄（{{value0}}）",
+            "b37ff4a89a": "連接埠",
             "9f83375839": "檢查",
             "6306b48afd": "原始碼控制",
             "ef182dcb12": "搜尋",
@@ -10632,7 +10632,7 @@ const zhTW = {
           },
           "FileExplorerViewSwitch": {
             "c4e9a2b713": "名稱",
-            "b3c8f1a902": "按名稱篩選檔案",
+            "b3c8f1a902": "按檔名篩選",
             "f8a2c4d1e0": "檔案總管搜尋模式"
           },
           "GitHistoryCommitFiles": {
@@ -10713,7 +10713,7 @@ const zhTW = {
         "NestedRepoChecklist": {
           "f7e1170567": "已選擇",
           "ea54c7bf8f": "的",
-          "91b5bcadb6": "選擇全部",
+          "91b5bcadb6": "全選",
           "929734aea5": "取消全選"
         },
         "NestedRepoScanLimitNotice": {
@@ -11032,7 +11032,7 @@ const zhTW = {
           },
           "ProjectCombobox": {
             "search": "搜尋專案…",
-            "empty": "沒有符合搜尋的專案。",
+            "empty": "沒有符合搜尋條件的專案。",
             "addProject": "Add a new project"
           }
         }
@@ -11141,7 +11141,7 @@ const zhTW = {
             "a4c3f7b7aa": "任務",
             "d33d7a9c29": "Orca / mobile 頁面",
             "25d6e8a491": "feat/mobile-page",
-            "c791677f2f": "還原",
+            "c791677f2f": "繼續",
             "cf3f98fa3f": "已中斷連線",
             "091355da3d": "M1 迷你·家",
             "0bc1881bc4": "已連線 · 40 個 Worktree · 5 個活動樹",
@@ -11160,7 +11160,7 @@ const zhTW = {
             "29f2d13839": "輸入命令…",
             "817090af40": "Ctrl+C",
             "53ff909568": "分頁",
-            "4930eaaae7": "Esc 鍵",
+            "4930eaaae7": "Esc",
             "fa22927f13": "貼上",
             "985373052e": "切換到手機模式",
             "58a9ee6003": "工具呼叫格式化。接下來要我新增差異嗎？",
@@ -11204,7 +11204,7 @@ const zhTW = {
           "description": "指定當手機不在同一 Wi-Fi 時可以存取的位址，例如 Tailscale 主機名或靜態 IP。",
           "label": "位址",
           "placeholder": "my-mac.ts.net、home.example.com 或 192.168.1.50",
-          "hint": "請輸入 IP 位址或主機名（Tailscale MagicDNS 名稱、DDNS 域名或 LAN 主機名），選填擇附加 :埠。",
+          "hint": "請輸入 IP 位址或主機名（Tailscale MagicDNS 名稱、DDNS 域名或 LAN 主機名），選填擇附加 :連接埠。",
           "cancel": "取消",
           "use": "使用位址"
         },
@@ -11219,13 +11219,13 @@ const zhTW = {
           "public-title": "Windows 將此網路標記為公用",
           "missing-title": "允許手機連線透過 Windows 防火牆",
           "public-description": "請先將此受信任的 Wi-Fi 網路變更為專用網路，然後再允許 Orca Mobile 連線。",
-          "missing-description": "Windows 可能會阻止配對伺服器。請為此 Orca 應用程式和專用網路上的 TCP 埠 {{port}} 新增規則。",
+          "missing-description": "Windows 可能會阻止配對伺服器。請為此 Orca 應用程式和專用網路上的 TCP 連接埠 {{port}} 新增規則。",
           "open-settings": "開啟網路設定",
           "waiting": "正在等待 Windows…",
           "allow": "允許手機連線",
           "repair-unverified": "無法驗證 Windows 防火牆存取權限",
           "blocked-title": "Windows 可能正在阻止 Orca Mobile",
-          "blocked-description": "現有的入站阻止規則可能會覆蓋配對例外。修復將移除此 Orca 應用程式的衝突 TCP 規則，然後在專用網路上允許埠 {{port}}。",
+          "blocked-description": "現有的入站阻止規則可能會覆蓋配對例外。修復將移除此 Orca 應用程式的衝突 TCP 規則，然後在專用網路上允許連接埠 {{port}}。",
           "repair": "修復防火牆存取權限"
         }
       },
@@ -11280,7 +11280,7 @@ const zhTW = {
             "8cf80db43b": "設定 Orca CLI 和 Agent 技能，以便 Agent 可以透過 Orca 進行協調。",
             "2a3c5ddf5e": "啟用編排",
             "d6b563ae24": "正在載入編輯器…",
-            "8b14ba6c17": "新瀏覽器分頁",
+            "8b14ba6c17": "新增瀏覽器分頁",
             "b085fb58b5": "該檔案有未儲存的變更。",
             "5ddc688c52": "「{{value0}}」有未儲存的變更。你想在關閉前儲存嗎？",
             "25d7817f79": "終端機"
@@ -11345,7 +11345,7 @@ const zhTW = {
             "3d2352f94b": "描述一下變更…",
             "d8856b604a": "div.pricing-grid > div.card.starter:nth-of-type(1) > a.cta",
             "7da6eed7bf": "localhost:3000",
-            "0a2bd01c02": "新瀏覽器分頁",
+            "0a2bd01c02": "新增瀏覽器分頁",
             "04096318ab": "CLI 1",
             "eb88125c6f": "✓ 已驗證 — 免費試用仍然有效。",
             "051c97d15a": ".pp-card[data-card=\"starter\"] .pp-cta",
@@ -11780,7 +11780,7 @@ const zhTW = {
             "pane": {
               "toolbar": {
                 "06e10d7356": "關閉模擬器",
-                "e7a0d1897e": "家",
+                "e7a0d1897e": "家目錄",
                 "6bd8dff42a": "旋轉",
                 "3d836b879c": "選擇模擬器",
                 "81b3571a07": "連線",
@@ -12142,7 +12142,7 @@ const zhTW = {
         "MonacoEditor": {
           "68cb83f4a7": "在所選的文字上新增註解",
           "fd68ae03b3": "在檔案中搜尋",
-          "largePasteTooLarge": "貼上內容過大。"
+          "largePasteTooLarge": "貼上的內容過大。"
         },
         "MonacoGutterContextMenu": {
           "7b57b1b468": "複製遠端 URL",
@@ -12202,7 +12202,7 @@ const zhTW = {
           "8c4a3fa02d": "HTML",
           "706fd85738": "GraphQL",
           "edfcc64182": "Go",
-          "bf6ee5caaa": "Diff",
+          "bf6ee5caaa": "差異",
           "026653f21f": "CSS",
           "4daed43ae3": "C++",
           "4227cf50fe": "Bash",
@@ -12460,7 +12460,7 @@ const zhTW = {
           }
         },
         "richMarkdownLargeTextPaste": {
-          "tooLarge": "貼上內容過大。"
+          "tooLarge": "貼上的內容過大。"
         },
         "ExternalFileChangeBanner": {
           "7c41e90d12": "此檔案在你有未儲存編輯時在磁碟上發生了變更。儲存將覆蓋較新的磁碟內容。",
@@ -12637,7 +12637,7 @@ const zhTW = {
               "f2a1b33f8d": "在活動工作區中建立一個無標題的 Markdown 檔案。",
               "25349b66fc": "新的 Markdown 檔案",
               "784812ca24": "在活動工作區中開啟瀏覽器分頁。",
-              "892bfa9339": "新瀏覽器分頁",
+              "892bfa9339": "新增瀏覽器分頁",
               "verbs": {
                 "newBrowser": "新瀏覽器",
                 "newBrowserTab": "新的瀏覽器頁",
@@ -13016,7 +13016,7 @@ const zhTW = {
           "7934ee0d81": "連線 SSH",
           "f93ed7a6f8": "正在連線…",
           "8705757e27": "工作",
-          "376631ef2b": "還原",
+          "376631ef2b": "繼續",
           "b457436d6a": "暫停",
           "0ae52dd760": "愛馬仕",
           "e059042585": "唯讀",
@@ -13137,7 +13137,7 @@ const zhTW = {
           "search": "搜尋專案/資料夾…",
           "empty": "沒有符合搜尋的專案/資料夾。",
           "chooseHost": "選擇自動化主機",
-          "adding": "正在新增專案…",
+          "adding": "新增專案…",
           "addProject": "新增專案"
         },
         "AutomationSetupDecisionField": {
@@ -13342,7 +13342,7 @@ const zhTW = {
               "allProjects": "所有專案",
               "hostCount": "{{value0}} 個主機",
               "searchProjects": "搜尋專案…",
-              "noMatches": "沒有符合搜尋的專案。",
+              "noMatches": "沒有符合搜尋條件的專案。",
               "chooseSource": "選擇任務來源"
             }
           }
@@ -13351,7 +13351,7 @@ const zhTW = {
       "taskPageEmptyState": {
         "noProjectSourcesTitle": "未選擇專案來源",
         "noProjectSourcesDescription": "請至少選擇一個專案來源，讓 Orca 知道要從哪個主機/帳號取得任務。",
-        "noMatchingGitHubWorkTitle": "沒有符合的 GitHub 工作",
+        "noMatchingGitHubWorkTitle": "沒有相符的 GitHub 工作項目",
         "changeQueryDescription": "變更查詢或清除它。",
         "noGitLabIssuesTitle": "沒有 GitLab Issue",
         "noGitLabIssuesDescription": "沒有 GitLab Issue 符合此篩選器。",
@@ -13550,17 +13550,17 @@ const zhTW = {
       },
       "linear-issue-attribute-filter-dropdowns": {
         "removeFilter": "移除 {{value0}} 篩選器",
-        "teamRequired": "選擇一個團隊以載入此工作區的狀態、負責人和標籤。",
+        "teamRequired": "選擇一個團隊以載入此工作區的狀態、指派對象和標籤。",
         "filters": "篩選器",
         "allWorkspacesTitle": "選擇一個工作區",
-        "allWorkspacesBody": "狀態、負責人和標籤篩選器使用單個 Linear 工作區的 ID。請選擇一個工作區以按這些屬性進行篩選。",
+        "allWorkspacesBody": "狀態、指派對象和標籤篩選器使用單個 Linear 工作區的 ID。請選擇一個工作區以按這些屬性進行篩選。",
         "optionsFromTeam": "來自 {{team}} 的選項",
         "clearAll": "清除所有篩選器"
       },
       "linear-issue-attribute-filter-sections": {
         "status": "狀態",
         "priority": "優先順序",
-        "assignee": "負責人",
+        "assignee": "指派對象",
         "unassigned": "未分配",
         "labels": "標籤",
         "countSelected": "已選擇 {{count}} 個",
@@ -13568,7 +13568,7 @@ const zhTW = {
         "searchPriority": "篩選優先順序…",
         "searchStatus": "篩選狀態…",
         "searchLabels": "篩選標籤…",
-        "searchAssignee": "篩選負責人…",
+        "searchAssignee": "篩選指派對象…",
         "back": "返回"
       },
       "browser-pane": {
