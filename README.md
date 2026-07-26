@@ -73,15 +73,31 @@ npx orca-zh-tw-installer
 ```bash
 npx orca-zh-tw-installer --dry-run   # 只檢查相容性，不改動 Orca（執行中也能安全跑）
 npx orca-zh-tw-installer --verify    # 檢查已安裝的 app.asar 是否含全部補丁與字典
+npx orca-zh-tw-installer --restore   # 一鍵還原成官方原版
 npx orca-zh-tw-installer --force     # 即使 Orca 執行中也強制套用（不建議）
 npx orca-zh-tw-installer --help      # 顯示說明
 ```
 
 `--dry-run` 適合在 Orca 更新後先跑，確認語系包是否仍與新版相容。
 
-### 出問題時
+### 出問題時：一鍵還原
 
-若安裝後 Orca 顯示異常，先還原官方版本：
+```bash
+# 先完全關閉 Orca，然後：
+npx orca-zh-tw-installer --restore
+```
+
+動手前會檢查三件事，任一不過就中止且不動你的檔案：
+
+| 檢查 | 為什麼 |
+|---|---|
+| 備份存在 | 沒有備份就無從還原 |
+| Orca 已完全關閉 | 執行中替換 `app.asar` 會讓那個實例噴 `Unexpected token`，看起來像還原失敗 |
+| **備份本身是乾淨的** | 備份若已含補丁（某次安裝中斷所致），還原了仍是中文，只會更困惑 |
+
+還原後**備份檔保留不刪**，之後想再套用繁中直接執行 `npx orca-zh-tw-installer`。
+
+若因故無法使用該指令，也可以手動複製：
 
 ```powershell
 # Windows

@@ -24,6 +24,8 @@ if (!fs.existsSync(orcaPath)) {
 }
 
 const asar = require('@electron/asar');
+// 判斷 app.asar 是否已含補丁的標記。--restore 也要用，故定義在旗標處理之前。
+const MARK = 'UI_LANGUAGE_TRADITIONAL_CHINESE = "zh-TW"';
 // --dry-run：解包、修補、驗證，但不備份也不重新打包。
 // 可在 Orca 執行中安全使用，用來確認 Orca 更新後錨點是否仍然有效。
 const DRY_RUN = process.argv.includes('--dry-run');
@@ -43,15 +45,82 @@ if (process.argv.includes('--help') || process.argv.includes('-h')) {
   （無選項）    套用繁體中文語系包。需先完全關閉 Orca。
   --dry-run    只檢查相容性，不改動 Orca。可在 Orca 執行中安全使用。
   --verify     檢查已安裝的 app.asar 是否含全部補丁與字典。
+  --restore    還原成官方原版（從 app.asar.bak）。需先完全關閉 Orca。
   --force      即使 Orca 執行中也強制套用（不建議）。
   --help       顯示這段說明。
 `);
   return;
 }
+
+// --restore：一鍵還原成官方原版。
+//
+// 原本 README 要使用者自己敲 Copy-Item／cp，那不但麻煩，還容易出兩種錯：
+//   1. 在 Orca 執行中還原 → 跑著的 renderer 握著舊 chunk 檔名，會噴
+//      「Unexpected token」，看起來像還原失敗
+//   2. 備份其實已含補丁（例如某次安裝流程中斷）→ 還原後仍是中文，
+//      使用者只會更困惑
+// 所以這裡兩件都先檢查再動手。
+if (process.argv.includes('--restore')) {
+  const bak = orcaPath + '.bak';
+  if (!fs.existsSync(bak)) {
+    console.error(`❌ 找不到備份檔：${bak}\n`);
+    console.error('   本安裝包只在首次套用時建立備份。若備份不存在，');
+    console.error('   請重新安裝 Orca 以取得官方原版。');
+    process.exitCode = 1;
+    return;
+  }
+
+  // 注意條件是 !== 0 而不是 > 0。countRunningOrca() 回傳 -1 表示「無法判斷」
+  // （tasklist 偶發失敗）。對「直接覆蓋 app.asar」這種破壞性操作，
+  // 無法判斷時就必須擋下——我自己就踩過：測試時 tasklist 剛好失敗回 -1，
+  // 守門放行，結果在 Orca 執行中把安裝好的語系包換回了官方版。
+  const running = countRunningOrca();
+  if (running !== 0 && !FORCE) {
+    if (running < 0) {
+      console.error('❌ 無法確認 Orca 是否在執行中，為安全起見已中止。\n');
+      console.error('   請確認 Orca 已完全關閉，然後加上 --force 重試：');
+      console.error('     npx orca-zh-tw-installer --restore --force');
+    } else {
+      console.error(`❌ Orca 仍在執行中（偵測到 ${running} 個程序），已中止。\n`);
+      console.error('   請先完全關閉 Orca：系統匣圖示右鍵 → Quit（不是只關閉視窗）。');
+      console.error('   在執行中替換 app.asar 會讓那個實例噴「Unexpected token」，');
+      console.error('   看起來像還原失敗，其實只是需要重啟。');
+    }
+    process.exitCode = 1;
+    return;
+  }
+
+  // 備份本身必須是乾淨的，否則還原了也還是中文
+  let bakIsClean = true;
+  try {
+    bakIsClean = !asar.extractFile(bak, path.join('out', 'main', 'index.js'))
+      .toString('utf8').includes(MARK);
+  } catch (e) {
+    console.error(`❌ 無法讀取備份檔內容：${e.message}`);
+    console.error('   備份可能已損毀，請重新安裝 Orca。');
+    process.exitCode = 1;
+    return;
+  }
+  if (!bakIsClean) {
+    console.error('❌ 備份檔本身已含繁中補丁，還原它不會回到官方原版。\n');
+    console.error('   這通常表示某次安裝流程中斷，導致備份被覆蓋。');
+    console.error('   請重新安裝 Orca 以取得官方原版。');
+    process.exitCode = 1;
+    return;
+  }
+
+  const sizeMb = n => (fs.statSync(n).size / 1048576).toFixed(1);
+  console.log(`🔄 正在還原官方原版...`);
+  console.log(`   目前：app.asar        ${sizeMb(orcaPath)} MB`);
+  console.log(`   備份：app.asar.bak    ${sizeMb(bak)} MB（已確認為乾淨版本）`);
+  fs.copyFileSync(bak, orcaPath);
+  console.log('\n✅ 已還原成官方原版。重新啟動 Orca 後介面會回到英文。');
+  console.log('   備份檔保留未刪，之後想再套用繁中直接執行 npx orca-zh-tw-installer。');
+  return;
+}
 const workDir = path.join(os.tmpdir(), DRY_RUN ? 'orca-zh-tw-patcher-dry' : 'orca-zh-tw-patcher');
 const unpackedDir = path.join(workDir, 'app.asar.unpacked');
 
-const MARK = 'UI_LANGUAGE_TRADITIONAL_CHINESE = "zh-TW"';
 
 /**
  * 偵測 Orca 是否還在執行。
@@ -471,7 +540,15 @@ async function patch() {
   try {
     // dry-run 不寫檔，Orca 執行中也能安全跑，故不檢查
     if (!DRY_RUN && !FORCE) {
+      // 同 --restore：-1 是「無法判斷」，破壞性操作必須擋下而非放行。
       const n = countRunningOrca();
+      if (n < 0) {
+        console.error('❌ 無法確認 Orca 是否在執行中，為安全起見已中止。\n');
+        console.error('   請確認 Orca 已完全關閉，然後加上 --force 重試。');
+        console.error('   想在 Orca 執行中檢查相容性，請改用：npm run dry-run');
+        process.exitCode = 1;
+        return;
+      }
       if (n > 0) {
         console.error(`❌ Orca 仍在執行中（偵測到 ${n} 個程序），已中止。\n`);
         console.error('   請先完全關閉 Orca：系統匣圖示右鍵 → Quit（不是只關閉視窗）。');
