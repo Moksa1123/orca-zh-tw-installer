@@ -737,7 +737,62 @@ async function patch() {
     console.log('📦 1/6 正在解包 app.asar (這可能需要數十秒)...');
     if (fs.existsSync(workDir)) fs.rmSync(workDir, { recursive: true, force: true });
     fs.mkdirSync(workDir, { recursive: true });
-    asar.extractAll(orcaPath, unpackedDir);
+
+    // 有乾淨備份就從備份解包，不要從目前的 app.asar。
+    //
+    // 從現況解包會讓安裝變成不可重入：補丁的錨點是原始英文字面值
+    // （例如 title: "Plan work on the board"），一旦上一版已經把它換成
+    // title: translate(...)，新版要找的錨點就不存在了。
+    // 結果是新的修正套不進去、舊的壞寫法原封不動留著，而畫面上只會多幾行
+    // 「未對上」的警告——安裝仍然回報成功。
+    //
+    // 使用者的筆電就是這樣：裝了含白畫面 bug 的舊版，再裝修正版也救不回來，
+    // 因為修正需要的錨點已經被舊版吃掉了。必須先 --restore 才行。
+    // 那不該是使用者要知道的事，所以改成一律從乾淨來源重建。
+    const bakPath = orcaPath + '.bak';
+    const isClean = f => {
+      try {
+        return !asar.extractFile(f, path.join('out', 'main', 'index.js'))
+          .toString('utf8').includes(MARK);
+      } catch { return false; }
+    };
+    const bakUsable = fs.existsSync(bakPath) && isClean(bakPath);
+    const currentClean = isClean(orcaPath);
+
+    if (!bakUsable && !currentClean) {
+      // 現況已修補，又沒有可用的乾淨備份——沒有任何來源能拿到原始碼。
+      // 硬著頭皮套下去只會得到一個補丁半舊半新的 asar，那比裝不起來更糟。
+      console.error('❌ 找不到乾淨的原始 app.asar，已中止（未改動任何檔案）。\n');
+      console.error('   目前的 app.asar 已含補丁，而 app.asar.bak 不存在或同樣含補丁。');
+      console.error('   補丁必須套在原始碼上，混著套會產生半舊半新的檔案。\n');
+      console.error('   請重新安裝 Orca 取得原始檔案，再執行本安裝包。');
+      process.exitCode = 1;
+      return;
+    }
+
+    // extractAll 會去 `<檔名>.unpacked/` 取那些沒有打包進 asar 的原生模組，
+    // 所以不能直接對 app.asar.bak 解包——它會去找 app.asar.bak.unpacked，
+    // 那個目錄不存在，整個解包就會失敗（Unable to extract some files）。
+    // 把備份擺進暫存目錄改名成 app.asar，旁邊用 junction 指回真正的 unpacked。
+    let extractFrom = orcaPath;
+    if (bakUsable) {
+      const stageDir = path.join(workDir, 'stage');
+      fs.mkdirSync(stageDir, { recursive: true });
+      extractFrom = path.join(stageDir, 'app.asar');
+      fs.copyFileSync(bakPath, extractFrom);
+      const unpackedSrc = orcaPath + '.unpacked';
+      if (fs.existsSync(unpackedSrc)) {
+        const link = extractFrom + '.unpacked';
+        // junction 在 Windows 上不需要管理員權限；POSIX 會自動當成目錄符號連結。
+        // 萬一系統擋掉（例如某些受限環境），退而求其次整份複製。
+        try { fs.symlinkSync(unpackedSrc, link, 'junction'); }
+        catch { fs.cpSync(unpackedSrc, link, { recursive: true }); }
+      }
+    }
+    asar.extractAll(extractFrom, unpackedDir);
+    if (bakUsable && !currentClean) {
+      console.log('   ↳ 從乾淨備份解包（目前 app.asar 已含舊補丁，重建以確保完整套用）');
+    }
 
     const mainFile = path.join(unpackedDir, 'out', 'main', 'index.js');
     if (!fs.existsSync(mainFile)) {
@@ -746,12 +801,10 @@ async function patch() {
 
     // 只在「目前的 asar 尚未被修補」時更新備份，
     // 否則重複執行會用已修補的版本覆蓋掉乾淨備份。
-    const alreadyPatched = fs.readFileSync(mainFile, 'utf8').includes(MARK);
-    const bakPath = orcaPath + '.bak';
     if (DRY_RUN) {
-      console.log(`   ↳ [dry-run] 跳過備份。目前 app.asar ${alreadyPatched ? '已含' : '未含'}補丁。`);
-    } else if (alreadyPatched && fs.existsSync(bakPath)) {
-      console.log('   ↳ 偵測到目前 app.asar 已含補丁，保留既有的乾淨備份。');
+      console.log(`   ↳ [dry-run] 跳過備份。目前 app.asar ${currentClean ? '未含' : '已含'}補丁。`);
+    } else if (!currentClean) {
+      console.log('   ↳ 保留既有的乾淨備份。');
     } else {
       fs.copyFileSync(orcaPath, bakPath);
       console.log('   ↳ 已備份原始 app.asar → app.asar.bak');
