@@ -11289,5 +11289,18 @@
   "keybinding.terminal.closePane": "關閉使用中的窗格",
   "keybinding.terminal.splitRight": "向右分割終端機",
   "keybinding.terminal.splitDown": "向下分割終端機",
-  "keybinding.terminal.switchInputSource": "切換輸入來源／語言（原生）"
+  "keybinding.terminal.switchInputSource": "切換輸入來源／語言（原生）",
+  "optionLabel.todo": "待處理",
+  "optionLabel.in-progress": "進行中",
+  "optionLabel.in-review": "待審查",
+  "optionLabel.completed": "已完成",
+  "optionLabel.low": "低",
+  "optionLabel.medium": "中",
+  "optionLabel.high": "高",
+  "optionLabel.xhigh": "極高",
+  "optionLabel.max": "最大",
+  "optionLabel.off": "關",
+  "optionLabel.on": "開",
+  "optionLabel.auto": "自動",
+  "optionLabel.default": "設定檔預設"
 }

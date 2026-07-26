@@ -197,6 +197,45 @@ function patchKeybindingTitles(p, translateFn) {
     });
 }
 
+// ── 選項清單標籤本地化 ─────────────────────────────────────────────────
+// Orca 用 { id: "x", label: "English" } 描述選項清單，label 全是寫死的英文：
+//   DEFAULT_WORKSPACE_STATUSES   側邊欄／看板的狀態
+//   *_THINKING_LEVELS            推理強度與模型模式
+//
+// 只翻「通用形容詞」，模型與產品名一律保留英文（Claude、Sonnet、Cursor、
+// Kimi、GitHub Copilot、GPT-5 Mini、Antigravity、VS Code、Amp 的 Smart／
+// Rush、Cursor 的 Large／Deep 都不動）。
+//
+// 以 (id, label) 成對比對而非只看 id：同一個 id 在不同陣列裡可能是別的東西，
+// 成對比對才能確定是我們認得的那一個。
+const OPTION_LABELS = {
+  'todo|Todo': '待處理',
+  'in-progress|In progress': '進行中',
+  'in-review|In review': '待審查',
+  'completed|Done': '已完成',
+  'low|Low': '低',
+  'medium|Medium': '中',
+  'high|High': '高',
+  'xhigh|Extra High': '極高',
+  'max|Max': '最大',
+  'off|Off': '關',
+  'on|On': '開',
+  'auto|Auto': '自動',
+  'default|Config default': '設定檔預設',
+};
+
+function patchOptionLabels(p, translateFn) {
+  p.patch('選項清單標籤改走 i18n',
+    c => c.includes('optionLabel.in-progress'),
+    /\{(\s*)id: "([a-z0-9-]+)",(\s*)label: "([^"]{1,40})"/g,
+    (m, s0, id, s1, label) => {
+      const en = OPTION_LABELS[`${id}|${label}`];
+      if (!en) return m;   // 不在白名單就整段不動
+      return `{${s0}id: ${JSON.stringify(id)},${s1}get label() { `
+        + `return ${translateFn}("optionLabel.${id}", ${JSON.stringify(label)}); }`;
+    });
+}
+
 function patchNativeMenus(p) {
   p.patch('原生選單：為無 label 的 role 注入譯文',
     c => c.includes('nativeMenu.selectAll'),
@@ -321,6 +360,7 @@ async function patch() {
     // 「設定 → 快速鍵」顯示的是 renderer 這份定義，所以只改這裡。
     // main process 也有一份，但那份不用於顯示，動它只增加風險。
     patchKeybindingTitles(rp, 'translate');
+    patchOptionLabels(rp, 'translate');
     rp.save();
 
     console.log('📂 4/6 正在植入繁體中文字典 (ESM + CJS 兩種格式)...');

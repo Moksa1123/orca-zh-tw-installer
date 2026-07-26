@@ -14025,6 +14025,21 @@ const zhTW = {
       "splitDown": "向下分割終端機",
       "switchInputSource": "切換輸入來源／語言（原生）"
     }
+  },
+  "optionLabel": {
+    "todo": "待處理",
+    "in-progress": "進行中",
+    "in-review": "待審查",
+    "completed": "已完成",
+    "low": "低",
+    "medium": "中",
+    "high": "高",
+    "xhigh": "極高",
+    "max": "最大",
+    "off": "關",
+    "on": "開",
+    "auto": "自動",
+    "default": "設定檔預設"
   }
 };
 exports.default = zhTW;
@@ -14041,3 +14056,4 @@ exports.dashboard = zhTW.dashboard;
 exports.nativeMenu = zhTW.nativeMenu;
 exports.keybindingGroup = zhTW.keybindingGroup;
 exports.keybinding = zhTW.keybinding;
+exports.optionLabel = zhTW.optionLabel;
