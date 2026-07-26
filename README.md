@@ -11,6 +11,7 @@
 [![node](https://img.shields.io/node/v/orca-zh-tw-installer.svg?style=flat-square)](https://nodejs.org)
 [![platforms](https://img.shields.io/badge/platforms-Win%20%7C%20Mac%20%7C%20Linux-blue?style=flat-square)](#支援的作業系統)
 [![license](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](LICENSE)
+[![stars](https://img.shields.io/github/stars/Moksa1123/orca-zh-tw-installer?style=flat-square)](https://star-history.com/#Moksa1123/orca-zh-tw-installer&Date)
 
 [快速開始](#快速開始) | [功能特色](#功能特色) | [支援系統](#支援的作業系統)
 
@@ -171,12 +172,6 @@ npm run build
 # 3. 套用
 npm start
 ```
-
----
-
-## Star 成長
-
-[![Star History Chart](https://api.star-history.com/svg?repos=Moksa1123/orca-zh-tw-installer&type=Date)](https://star-history.com/#Moksa1123/orca-zh-tw-installer&Date)
 
 ---
 
