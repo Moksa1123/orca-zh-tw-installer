@@ -8099,7 +8099,7 @@ export default {
         "jira": {
           "integration": {
             "card": {
-              "8ff73fef62": "Jira Token 由活動執行時加密並儲存在本機。重新輸入相同的網站 URL 和電子郵件將取代該網站的 API Token。",
+              "8ff73fef62": "Jira Token 由使用中的執行環境加密並儲存在本機。重新輸入相同的網站 URL 和電子郵件將取代該網站的 API Token。",
               "9046a20d4c": "中斷連線 {{value0}}",
               "eaffa454e9": "更新",
               "cec06a0f79": "測試…",
@@ -8137,7 +8137,7 @@ export default {
               "f8b871d655": "Agent 用戶端",
               "2e0b45b2ba": "使用 Orca CLI 命令列出、附加、點選和輸入行動裝置模擬器。",
               "ea3eac39bb": "Agent CLI 控制",
-              "8ef0f08d36": "執行時",
+              "8ef0f08d36": "執行環境",
               "27397fe8e9": "xcode 命令列工具",
               "7650063d17": "simctl",
               "3211e7acf9": "xcrun",
@@ -8481,7 +8481,7 @@ export default {
               "d760866285": "用戶端",
               "09568ccc65": "伺服器",
               "ebd5369acf": "環境",
-              "d198440ce3": "執行時",
+              "d198440ce3": "執行環境",
               "baec27aa8f": "將此瀏覽器連線到已儲存的 Orca 伺服器。",
               "3517fb2ec0": "活動伺服器",
               "c6e5a03aa0": "開發盒",
@@ -8888,7 +8888,7 @@ export default {
                   "4be0616873": "GitLab CLI 已安裝但未通過驗證。請在 CLI 中執行此命令：",
                   "54a640af7a": "安裝 GitLab CLI",
                   "b56fd5676a": "安裝 GitLab CLI 以啟用 Merge Request、Issue 和流水線。",
-                  "faddeb763d": "此執行時暫不支援 GitLab CLI 狀態。",
+                  "faddeb763d": "此執行環境暫不支援 GitLab CLI 狀態。",
                   "a47f71e357": "CLI。",
                   "2a6b359e75": "glab",
                   "1f2b347bd3": "透過",
@@ -8896,7 +8896,7 @@ export default {
                   "2e44dda68a": "GitHub CLI 已安裝但未通過驗證。請在 CLI 中執行此命令：",
                   "7755c28af5": "安裝 GitHub CLI",
                   "23cb5a0dee": "安裝 GitHub CLI 以啟用 Pull Request、Issue 和檢查。",
-                  "6f30fc4216": "此執行時暫不支援 GitHub CLI 狀態。",
+                  "6f30fc4216": "此執行環境暫不支援 GitHub CLI 狀態。",
                   "6b2cfb52b4": "gh",
                   "b4d900e7f1": "透過",
                   "account_scope_prefix": "帳號範圍"
@@ -8911,8 +8911,8 @@ export default {
               "cards": {
                 "c90f2ef419": "重新檢查",
                 "dd3529015d": "中斷連線 {{value0}}",
-                "8b2408a8e5": "此執行時已連線 Jira。如果已連線的網站清單看起來過期，請重新檢查。",
-                "8c20e76308": "每個已連線的 Jira 網站都由活動執行時儲存一個 Token。",
+                "8b2408a8e5": "此執行環境已連線 Jira。如果已連線的網站清單看起來過期，請重新檢查。",
+                "8c20e76308": "每個已連線的 Jira 網站都由使用中的執行環境儲存一個 Token。",
                 "c24e56c532": "測試",
                 "3e7c10d286": "測試中…",
                 "a2c0015fb8": "已驗證",
@@ -8922,7 +8922,7 @@ export default {
                 "a1093a06c7": "在顯示設定操作前正在檢查 Jira 存取權限。",
                 "9fa04a032e": "{{value0}} 個網站已連線",
                 "cef18762a2": "用 Linear 設定裡的個人 API 金鑰新增存取權限。完全存取金鑰可看到金鑰擁有者能存取的所有團隊。",
-                "6224fe9d34": "每個已連線的 Linear 工作區都有一個由活動執行時儲存的金鑰。全權限金鑰可覆蓋金鑰擁有者可存取的所有團隊；受限金鑰可隨時更換。",
+                "6224fe9d34": "每個已連線的 Linear 工作區都有一個由使用中的執行環境儲存的金鑰。全權限金鑰可覆蓋金鑰擁有者可存取的所有團隊；受限金鑰可隨時更換。",
                 "1a12e33fe5": "新增 Linear 存取",
                 "622c224082": "新增工作區存取權限",
                 "eae4a9f16b": "新增 Linear 存取以瀏覽和連結 Issue。",
@@ -8930,8 +8930,8 @@ export default {
                 "e1f5e6424c": "{{value0}} 個工作區已連線",
                 "disconnect_all": "中斷連線",
                 "account_scope_prefix": "帳號範圍",
-                "2d60ec7921": "使用 API Token 連線 Jira Cloud 網站，或使用個人存取權杖或使用者名稱和密碼連線自託管 Jira。認證會傳送到所選遠端執行時並以執行時支援的加密方式儲存。",
-                "977e360b71": "使用 API Token 連線 Jira Cloud 網站，或使用個人存取權杖或使用者名稱和密碼連線自託管 Jira。認證儲存在本機，本機執行時儲存支援時會進行加密。"
+                "2d60ec7921": "使用 API Token 連線 Jira Cloud 網站，或使用個人存取權杖或使用者名稱和密碼連線自託管 Jira。認證會傳送到所選遠端執行環境並以執行環境支援的加密方式儲存。",
+                "977e360b71": "使用 API Token 連線 Jira Cloud 網站，或使用個人存取權杖或使用者名稱和密碼連線自託管 Jira。認證儲存在本機，本機執行環境儲存支援時會進行加密。"
               }
             }
           }
@@ -8949,7 +8949,7 @@ export default {
                   "6da9dfa5de": "用於私有存放庫，並設定",
                   "6d5c2a3005": "ORCA_GITEA_TOKEN",
                   "fcbe0469fd": "公開存放庫會從其 git remote 偵測。設定",
-                  "0613928cb3": "此執行時暫不支援 Gitea 狀態。",
+                  "0613928cb3": "此執行環境暫不支援 Gitea 狀態。",
                   "05863d2599": "透過 Gitea REST API 取得 Pull Request 和 commit 狀態。",
                   "52f75876be": "已偵測存放庫的 Pull Request 和 commit 狀態",
                   "0b5242f8a2": "{{value0}} · Pull Request 和提交狀態",
@@ -8961,7 +8961,7 @@ export default {
                   "087feb92f1": "，或設定",
                   "48842720d2": "ORCA_AZURE_DEVOPS_TOKEN",
                   "7bbc9c64f0": "設定",
-                  "f3f47dc7de": "此執行時暫不支援 Azure DevOps 狀態。",
+                  "f3f47dc7de": "此執行環境暫不支援 Azure DevOps 狀態。",
                   "0eb50d5593": "透過 Azure DevOps REST API Token 取得 Pull Request 和建置狀態。",
                   "54636c65d4": "已偵測 Azure Repos 的 Pull Request 和建置狀態",
                   "ea204f5e03": "{{value0}} · Pull Request 和建置狀態",
@@ -8970,7 +8970,7 @@ export default {
                   "19416c874c": "ORCA_BITBUCKET_API_TOKEN",
                   "fc71a0e7aa": "和",
                   "63a7f47392": "ORCA_BITBUCKET_EMAIL",
-                  "24ac1c69dc": "此執行時暫不支援 Bitbucket 狀態。",
+                  "24ac1c69dc": "此執行環境暫不支援 Bitbucket 狀態。",
                   "a924e8dcd1": "透過 Bitbucket Cloud API Token 取得 Pull Request 和建置狀態。",
                   "0fa5629dad": "Pull Request 和建置狀態"
                 }
@@ -8997,10 +8997,10 @@ export default {
         },
         "providerAccountScope": {
           "remoteServer": "遠端伺服器：{{value0}}",
-          "remoteServerCredentials": "此供應商的認證和帳號檢查由該遠端伺服器擁有。使用「設定 > 遠端 Orca 伺服器 > 高階」編輯另一個預設執行時範圍。",
+          "remoteServerCredentials": "此供應商的認證和帳號檢查由該遠端伺服器擁有。使用「設定 > 遠端 Orca 伺服器 > 高階」編輯另一個預設執行環境範圍。",
           "localMac": "本機 Mac",
           "localCredentials": "此供應商的認證和帳號檢查由該桌面用戶端擁有。使用「設定 > 遠端 Orca 伺服器 > 高階」編輯伺服器擁有的認證。",
-          "remoteServerRateLimit": "{{value0}} API 預算從此遠端伺服器上的 CLI 取得。使用「設定 > 遠端 Orca 伺服器 > 高階」檢視另一個預設執行時預算。",
+          "remoteServerRateLimit": "{{value0}} API 預算從此遠端伺服器上的 CLI 取得。使用「設定 > 遠端 Orca 伺服器 > 高階」檢視另一個預設執行環境預算。",
           "localRateLimit": "{{value0}} API 預算從此桌面用戶端上的 CLI 取得。使用「設定 > 遠端 Orca 伺服器 > 高階」檢視伺服器擁有的預算。"
         },
         "settingOwnership": {
@@ -9008,7 +9008,7 @@ export default {
           "sourceControlAiDefaults": "方案、提示和託管審查預設值由此用戶端共用；模型選擇和發現則限定在 Agent 執行的主機內。",
           "projectOnThisHost": "此主機上的專案",
           "repositorySourceControlAi": "這些覆蓋項套用於此專案設定，並繼承用戶端的原始碼控制 AI 預設值，直至自訂。",
-          "agentLaunchDefaults": "預設 Agent、命令覆蓋、CLI 引數和啟動環境是用戶端偏好。SSH 和遠端伺服器啟動仍會在執行時驗證主機可用性。",
+          "agentLaunchDefaults": "預設 Agent、命令覆蓋、CLI 引數和啟動環境是用戶端偏好。SSH 和遠端伺服器啟動仍會在執行環境驗證主機可用性。",
           "clientDefaultProjectScopes": "用戶端預設 + 專案範圍",
           "terminalQuickCommands": "命令儲存在此用戶端，然後限定為全域或某專案設定，以便從所選終端機上下文執行。",
           "hostOverride": "主機覆蓋",
@@ -9044,7 +9044,7 @@ export default {
           "off": "關"
         },
         "DefaultWindowsProjectRuntimeSetting": {
-          "defaultRuntime": "預設專案執行時",
+          "defaultRuntime": "預設專案執行環境",
           "windows": "Windows",
           "wsl": "WSL",
           "selectDistro": "選擇發行版",
@@ -9059,7 +9059,7 @@ export default {
           "windows": "Windows",
           "wsl": "WSL",
           "selectDistro": "選擇發行版",
-          "runtimeChangeHelp": "執行時變更套用於此專案的新終端機、Agent 檢查和技能發現。已有終端機保留其目前執行時。",
+          "runtimeChangeHelp": "執行環境變更套用於此專案的新終端機、Agent 檢查和技能發現。已有終端機保留其目前執行環境。",
           "wslUnavailable": "WSL 不可用。請將此專案切換到 Windows 或修復 WSL。",
           "distroMissing": "WSL 中未安裝 {{value0}}。請選擇已安裝的發行版，或將此專案切換到 Windows。",
           "distroRequired": "選擇一個 WSL 發行版，或將此專案切換到 Windows。",
@@ -9072,10 +9072,10 @@ export default {
           "activeTaskSingular": "{{count}} 個活動任務",
           "activeTaskPlural": "{{count}} 個活動任務",
           "runtimeSessionJoin": "{{value0}} 和 {{value1}}",
-          "runtimeSessionWarning": "{{value0}} 會繼續在目前執行時中執行。繼續前請等待任務完成或重新啟動終端機。",
-          "pendingRuntimeChange": "執行時變更待處理。套用後，新專案工作將使用所選執行時。",
+          "runtimeSessionWarning": "{{value0}} 會繼續在目前執行環境中執行。繼續前請等待任務完成或重新啟動終端機。",
+          "pendingRuntimeChange": "執行環境變更待處理。套用後，新專案工作將使用所選執行環境。",
           "cancel": "取消",
-          "applyRuntimeChange": "套用執行時變更"
+          "applyRuntimeChange": "套用執行環境變更"
         },
         "PrivacyDiagnosticsRows": {
           "5a7cbe069a": "已設定 DO_NOT_TRACK=1，建立和傳送診斷檔案已停用。",
@@ -9119,14 +9119,14 @@ export default {
           "1db3c8b983": "將 Worktree 連接埠開啟為特定於 Worktree 的 Orca localhost URL，便於區分瀏覽器分頁。"
         },
         "AgentRuntimeSetting": {
-          "label": "Agent 執行時",
+          "label": "Agent 執行環境",
           "wsl": "WSL",
           "loadingWsl": "正在載入 WSL",
           "selectDistro": "選擇發行版",
-          "windowsDescription": "對於未覆蓋執行時的專案，在 Windows 上偵測並啟動 Agent。",
+          "windowsDescription": "對於未覆蓋執行環境的專案，在 Windows 上偵測並啟動 Agent。",
           "wslUnavailable": "此機器上無法使用 WSL。",
           "distroRequired": "在專案可繼承 WSL 之前，請選擇一個 WSL 發行版。",
-          "wslDescription": "對於未覆蓋執行時的專案，透過 WSL 在 {{value0}} 中偵測並啟動 Agent。"
+          "wslDescription": "對於未覆蓋執行環境的專案，透過 WSL 在 {{value0}} 中偵測並啟動 Agent。"
         },
         "MobileEmulatorSdkStatus": {
           "536026130e": "模擬器 SDK",
@@ -9140,7 +9140,7 @@ export default {
           "8c52684db8": "清除",
           "76eb88b88e": "iOS 模擬器 (Xcode)",
           "c6f3ea4f12": "就緒",
-          "e4f14b50d7": "請安裝 Xcode 並新增 iOS 模擬器執行時。",
+          "e4f14b50d7": "請安裝 Xcode 並新增 iOS 模擬器執行環境。",
           "63fe73a1ea": "無法更新 Android SDK 資料夾。"
         },
         "AppearanceAdvancedDisclosure": {
@@ -9192,18 +9192,18 @@ export default {
           "cleanupDisabled": "清理已停用",
           "running": "執行中",
           "failed": "失敗",
-          "loadFailed": "無法載入臨時 VM 執行時。",
-          "cleanupFailedToast": "無法清理臨時 VM 執行時。",
-          "markedCleaned": "已將臨時 VM 執行時標記為已清理。",
-          "cleaned": "已清理臨時 VM 執行時。",
+          "loadFailed": "無法載入臨時 VM 執行環境。",
+          "cleanupFailedToast": "無法清理臨時 VM 執行環境。",
+          "markedCleaned": "已將臨時 VM 執行環境標記為已清理。",
+          "cleaned": "已清理臨時 VM 執行環境。",
           "copiedCleanupCommand": "已複製清理命令。",
           "copiedCleanupPayload": "已複製清理載荷。",
           "copyCleanupFailed": "無法複製清理命令。",
-          "title": "臨時 VM 執行時",
-          "description": "由環境範本建立的執行時歸工作區所有。當機、建立失敗或手動還原後，請清理過期條目。",
-          "refresh": "重新整理臨時 VM 執行時",
-          "loading": "正在檢查臨時 VM 執行時…",
-          "empty": "沒有需要清理的臨時 VM 執行時。",
+          "title": "臨時 VM 執行環境",
+          "description": "由環境範本建立的執行環境歸工作區所有。當機、建立失敗或手動還原後，請清理過期條目。",
+          "refresh": "重新整理臨時 VM 執行環境",
+          "loading": "正在檢查臨時 VM 執行環境…",
+          "empty": "沒有需要清理的臨時 VM 執行環境。",
           "copyCleanup": "複製命令",
           "retry": "重試清理",
           "cleanup": "清除"
@@ -10890,14 +10890,14 @@ export default {
           "e8214aa632": "以資料夾開啟",
           "3863747c56": "新增 Git 專案",
           "2ebbc26343": "/home/user/project",
-          "466108ab89": "輸入執行時伺服器上存在的路徑。",
+          "466108ab89": "輸入執行環境伺服器上存在的路徑。",
           "8cab104e3c": "開啟伺服器專案",
           "2d20200346": "匯入存放庫",
           "27ca610db1": "返回",
           "cecd6593fa": "掃描的資料夾：",
           "c7af322fc3": "停止掃描",
           "c3d9d44ca2": "停止掃描",
-          "cf23006ba7": "執行時伺服器",
+          "cf23006ba7": "執行環境伺服器",
           "7ec3f48820": "/home/user",
           "2e6438dd34": "{{value0}} 在此資料夾中找到 {{value1}} {{value2}}。"
         },
@@ -11797,7 +11797,7 @@ export default {
             },
             "unavailable": {
               "pane": {
-                "f630b9ca9f": "行動裝置模擬器需要配備 Xcode 和 iOS Simulator 執行時的 Mac。在 Linux 或 Windows 上，使用實體裝置或遠端 Mac 建置主機。",
+                "f630b9ca9f": "行動裝置模擬器需要配備 Xcode 和 iOS Simulator 執行環境的 Mac。在 Linux 或 Windows 上，使用實體裝置或遠端 Mac 建置主機。",
                 "b2c268a0b9": "行動裝置模擬器僅適用於 macOS"
               }
             }
@@ -12737,9 +12737,9 @@ export default {
             "87eb75f7d2": "輸入有效的 http(s) 或 localhost URL。",
             "27d863542c": "瀏覽器註解",
             "e48569ac6d": "無法存取該網站。",
-            "bbe8f15e83": "該窗格是從活動執行時伺服器呈現的。",
+            "bbe8f15e83": "該窗格是從使用中的執行環境伺服器呈現的。",
             "8b7e6d1f5a": "瀏覽器註解僅在本機瀏覽器分頁中可用。",
-            "deb5293610": "瀏覽器註解在遠端執行時不可用",
+            "deb5293610": "瀏覽器註解在遠端執行環境不可用",
             "90d021f2ad": "新增",
             "0cb3bd6221": "註解意圖",
             "8f87e6c2e5": "意圖",

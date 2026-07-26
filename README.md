@@ -174,6 +174,12 @@ npm start
 
 ---
 
+## Star 成長
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Moksa1123/orca-zh-tw-installer&type=Date)](https://star-history.com/#Moksa1123/orca-zh-tw-installer&Date)
+
+---
+
 ## 免責聲明
 
 此為非官方社群補丁，僅修改本地客戶端檔案。安裝過程會自動建立 `app.asar.bak` 備份檔，如遇應用程式異常，請自行還原備份檔案。
