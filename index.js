@@ -58,17 +58,16 @@ const FULL = process.argv.includes('--full');
 // --verbose：列出每一個注入點，而不是只印總數。
 const VERBOSE = process.argv.includes('--verbose') || process.argv.includes('-v');
 
-// 預設不套用任何加值補丁。
+// 預設套用全部加值本地化。
 //
-// 加值補丁（選單、快速鍵、引導文案等）目前會讓部分環境的 Orca 開起來是白畫面，
-// 原因還在查。在查清楚之前，預設就必須是「一定能用」的那個組合——
-// 使用者不該為了避開一個已知的壞功能而去記旗標。
-//
-// 核心翻譯（11,000 多句）不受影響，那才是這個語系包的主體。
+// 2.12.0 曾把預設關掉，因為加值補丁會造成白畫面。根因已在 2.13.0 找到並修正
+// （patchVarInfo 在模組層直接呼叫 translate()，踩到 i18n 的暫時性死區），
+// 且以實機啟動＋截圖比對驗證過，所以恢復預設全開。
+// assertLazyTranslate() 會擋下同一類寫法再次出現。
 const wantExtra = name => {
   if (MINIMAL) return false;
   if (EXTRAS) return EXTRAS.has(name);
-  return FULL;
+  return true;
 };
 
 // --verify：檢查已安裝的 app.asar 是否含全部補丁與字典。
@@ -81,16 +80,14 @@ if (process.argv.includes('--verify')) {
 if (process.argv.includes('--help') || process.argv.includes('-h')) {
   console.log(`用法： npx orca-zh-tw-installer [選項]
 
-  （無選項）    套用繁體中文語系包（11,000+ 句）。需先完全關閉 Orca。
+  （無選項）    套用完整繁體中文語系包。需先完全關閉 Orca。
   --dry-run    只檢查相容性，不改動 Orca。可在 Orca 執行中安全使用。
   --verify     檢查已安裝的 app.asar 是否含全部補丁與字典。
   --restore    還原成官方原版（從 app.asar.bak）。需先完全關閉 Orca。
-  --full       另外翻譯原生選單、快速鍵、新手引導等。
-               ⚠ 已知在部分環境會造成白畫面，原因調查中，預設不啟用。
   --extras=a,b 只啟用指定的加值分組（用來定位問題）。可用：
                menus, keybindings, labels, slash, jsx, onboarding, varinfo
   --verbose    列出每一個注入點（預設只印總數）。
-  --minimal    同預設值，保留此旗標以相容舊說明。
+  --minimal    只套用核心翻譯，跳過選單／快速鍵／引導等加值本地化。
   --force      即使 Orca 執行中也強制套用（不建議）。
   --help       顯示這段說明。
 `);
@@ -196,6 +193,42 @@ function countRunningOrca() {
 }
 
 /**
+ * 擋下「在物件字面值裡直接呼叫 translate()」這種寫法。
+ *
+ * renderer chunk 裡的 translate() 內部會讀 `const i18n`，而那個宣告在檔案很後面
+ * （SOURCE_CONTROL_ACTION_VARIABLE_INFO 之後約 62 萬字元）。把
+ *
+ *     description: translate("k", "English")
+ *
+ * 塞進模組層的物件字面值，模組一載入求值到那行就踩進暫時性死區，拋
+ * ReferenceError: Cannot access 'i18n' before initialization。
+ * 那是模組頂層，React 的 error boundary 接不到，整包 renderer 求值失敗——
+ * 使用者看到的是全白視窗，而所有靜態檢查（node --check、錨點命中數、
+ * 字典載入測試）全都會通過。2.9.0～2.12.0 的白畫面就是這樣來的。
+ *
+ * 正確寫法是包成 getter，把求值延到真的有人讀這個屬性時：
+ *
+ *     get description() { return translate("k", "English"); }
+ *
+ * 這個檢查只認語法形狀，不管補丁是誰寫的——因為當初就是「三個補丁函式各寫各的，
+ * 其中一個漏掉 getter」才出事。
+ */
+function assertLazyTranslate(repl, where, renderScoped) {
+  if (typeof repl !== 'string') return;
+  // renderScoped：呼叫端已確認這個位置在元件函式／render 樹內，
+  // 求值時機必定晚於 i18n 初始化。這個豁免要附證據，不接受「應該沒事」。
+  if (renderScoped) return;
+  const m = repl.match(/^\s*(\w+)\s*:\s*(translate|t)\s*\(/);
+  if (m) {
+    throw new Error(
+      `補丁寫法不安全（${where}）：\n` +
+      `  ${repl.slice(0, 90)}\n` +
+      `  物件屬性不可直接呼叫 ${m[2]}()，模組載入時 i18n 尚未初始化會導致白畫面。\n` +
+      `  請改成：get ${m[1]}() { return ${m[2]}(...); }`);
+  }
+}
+
+/**
  * 修補器：每個修補都要宣告「如何判斷已完成」。
  * 若錨點找不到且尚未完成，就記為失敗——絕不靜默略過。
  */
@@ -247,6 +280,7 @@ function createPatcher(label, filePath) {
       let hit = 0;
       const miss = [];
       for (const it of items) {
+        assertLazyTranslate(it.repl, `${label} / ${name} / ${it.label}`, it.renderScoped);
         if (it.done(code)) { hit++; continue; }
         const before = code;
         code = code.replace(it.find, it.repl);
@@ -474,6 +508,10 @@ function patchJsxHardcoded(p, chunkTag) {
     done: c => c.includes(repl),
     find,
     repl,
+    // 這些全部落在 jsxRuntimeExports.jsx(Component, { ... }) 的 render 樹裡，
+    // 已逐一在乾淨檔比對過前後文確認；多數還引用 branchSummary、filterQuery、
+    // label 這類區域變數，本身就證明了它在元件函式內。求值時 i18n 必定已就緒。
+    renderScoped: true,
     label: find.replace(/^[a-zA-Z]+:\s*/, '').slice(0, 20).replace(/\s+/g, ' '),
   })));
 }
@@ -568,7 +606,11 @@ function patchOnboarding(p, chunkTag, translateFn) {
   const items = [];
   for (const [tag, field, en] of ONBOARDING_STRINGS) {
     if (tag !== chunkTag) continue;
-    const repl = `${field}: ${translateFn}("onboarding.${slug(en)}", ${JSON.stringify(en)})`;
+    // 同 patchVarInfo：一律用 getter 延後求值。
+    // 這些引導字串目前是在函式內建立的物件，直接呼叫剛好沒事——但那是運氣，
+    // Orca 哪天把它提到模組層就會變成白畫面，而且靜態檢查抓不到。
+    // getter 在兩種情境都安全，沒有理由不用。
+    const repl = `get ${field}() { return ${translateFn}("onboarding.${slug(en)}", ${JSON.stringify(en)}); }`;
     items.push({
       done: c => c.includes(repl),
       find: new RegExp(`${field}: "${esc(en)}"`, 'g'),
@@ -611,8 +653,20 @@ function patchVarInfo(p, translateFn) {
   const slug = en => en.replace(/[^A-Za-z0-9 ]/g, '').split(/\s+/).filter(Boolean).slice(0, 6)
     .map((w, i) => i === 0 ? w.toLowerCase() : w[0].toUpperCase() + w.slice(1).toLowerCase()).join('');
   const esc = x => x.replace(/[.*+?^${}()|[\]\\]/g, m => '\\' + m);
+  // 必須用 getter，不能直接寫成 `field: translate(...)`。
+  //
+  // 這些字串在 SOURCE_CONTROL_ACTION_VARIABLE_INFO 這個模組層的 const 物件裡，
+  // 位置比 renderer chunk 裡的 `const i18n = ...` 早了約 62 萬字元。
+  // translate() 內部讀 i18n，而 i18n 是 const——模組一載入求值到這裡就會踩進
+  // 暫時性死區，拋 ReferenceError: Cannot access 'i18n' before initialization。
+  // 那是在模組頂層，沒有 error boundary 接得住，整包 renderer 求值失敗，
+  // 使用者看到的就是全白的視窗。
+  //
+  // 包成 getter 之後求值時機延到真的有人讀這個屬性時，那時 i18n 早就就緒了。
+  // 這也是 keybindings／labels／slash 一開始就用 getter 的原因，
+  // 只有這組當初漏掉——它們是三個獨立的補丁函式，沒有共用同一條規則。
   const items = VARINFO_STRINGS.map(([field, en]) => {
-    const repl = `${field}: ${translateFn}("scVariable.${slug(en)}", ${JSON.stringify(en)})`;
+    const repl = `get ${field}() { return ${translateFn}("scVariable.${slug(en)}", ${JSON.stringify(en)}); }`;
     return {
       done: c => c.includes(repl),
       find: new RegExp(`${field}: "${esc(en)}"`, 'g'),
