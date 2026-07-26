@@ -38,6 +38,23 @@ const FORCE = process.argv.includes('--force');
 // 萬一某個 Orca 版本因此在 renderer 出問題，這個旗標可以立刻排除它們，
 // 同時保留 11,000 多句的核心翻譯。
 const MINIMAL = process.argv.includes('--minimal');
+// --extras=a,b,c：只啟用指定的加值補丁分組，用來二分定位問題。
+// 分組刻意照「改寫手法」而不是「功能」來切：getter 類會在 render 期間求值，
+// 是最可能影響畫面的一種；translate 類只是把字面值換成函式呼叫，風險低得多。
+//
+//   menus        原生選單（main process，translate 呼叫）
+//   keybindings  快速鍵名稱（renderer，getter）
+//   labels       選項清單標籤（renderer，getter）
+//   slash        Agent 斜線命令（index chunk，getter）
+//   jsx          JSX 寫死字串（translate 呼叫）
+//   onboarding   新手引導與功能提示（translate 呼叫）
+//   varinfo      原始碼控制變數說明（translate 呼叫）
+const EXTRAS_ARG = process.argv.find(a => a.startsWith('--extras='));
+const EXTRAS = EXTRAS_ARG
+  ? new Set(EXTRAS_ARG.slice('--extras='.length).split(',').map(x => x.trim()).filter(Boolean))
+  : null;
+// 沒給 --extras 就是全部啟用（除非 --minimal）
+const wantExtra = name => !MINIMAL && (EXTRAS === null || EXTRAS.has(name));
 
 // --verify：檢查已安裝的 app.asar 是否含全部補丁與字典。
 // 透過 npx 安裝的人沒有專案目錄，無法用 npm run verify，故在此提供同一個入口。
@@ -53,7 +70,9 @@ if (process.argv.includes('--help') || process.argv.includes('-h')) {
   --dry-run    只檢查相容性，不改動 Orca。可在 Orca 執行中安全使用。
   --verify     檢查已安裝的 app.asar 是否含全部補丁與字典。
   --restore    還原成官方原版（從 app.asar.bak）。需先完全關閉 Orca。
-  --minimal    只套用核心翻譯，跳過選單／快速鍵／引導等加值本地化。
+  --minimal    只套用核心翻譯，跳過全部加值本地化。
+  --extras=a,b  只啟用指定的加值分組（用來定位問題）。可用：
+               menus, keybindings, labels, slash, jsx, onboarding, varinfo
   --force      即使 Orca 執行中也強制套用（不建議）。
   --help       顯示這段說明。
 `);
@@ -682,7 +701,7 @@ async function patch() {
       c => c.includes('"zh-TW": () => Promise.resolve()'),
       /(zh: \(\) => Promise\.resolve\(\)\.then\(\(\) => require\("\.\/chunks\/zh-[A-Za-z0-9_-]+\.js"\)\))/,
       '$1,\n  "zh-TW": () => Promise.resolve().then(() => require("./chunks/zh-TW-nested.js"))');
-    if (!MINIMAL) patchNativeMenus(mp);
+    if (wantExtra('menus')) patchNativeMenus(mp);
     mp.save();
 
     console.log('🛠️ 3/6 正在修補渲染器 (renderer process) 語言限制...');
@@ -717,29 +736,27 @@ async function patch() {
     patchLocaleGate(rp);
     // 「設定 → 快速鍵」顯示的是 renderer 這份定義，所以只改這裡。
     // main process 也有一份，但那份不用於顯示，動它只增加風險。
-    if (!MINIMAL) {
-      patchKeybindingTitles(rp, 'translate');
-      patchOptionLabels(rp, 'translate');
-      patchJsxHardcoded(rp, 'I18nProvider');
-      patchOnboarding(rp, 'I18nProvider', 'translate');
-      patchVarInfo(rp, 'translate');
-    }
+    if (wantExtra('keybindings')) patchKeybindingTitles(rp, 'translate');
+    if (wantExtra('labels')) patchOptionLabels(rp, 'translate');
+    if (wantExtra('jsx')) patchJsxHardcoded(rp, 'I18nProvider');
+    if (wantExtra('onboarding')) patchOnboarding(rp, 'I18nProvider', 'translate');
+    if (wantExtra('varinfo')) patchVarInfo(rp, 'translate');
     rp.save();
 
     // Agent 斜線命令的說明在另一個 chunk。檔名帶 hash（index-DlEnJ7xL.js），
     // 每次 Orca 建置都會變，所以靠內容找而不是靠檔名。
     // 那個 chunk 有 import { t as translate }，模組層可直接呼叫。
-    const slashFile = MINIMAL ? null : fs.readdirSync(assetsDir)
+    const slashFile = (wantExtra('slash') || wantExtra('onboarding')) ? fs.readdirSync(assetsDir)
       .filter(f => f.endsWith('.js'))
       .map(f => path.join(assetsDir, f))
       .find(f => {
         try { return fs.readFileSync(f, 'utf8').includes('CODEX_COMMANDS'); } catch { return false; }
-      });
+      }) : null;
     let sp = null;
     if (slashFile) {
       sp = createPatcher('slash commands', slashFile);
-      patchSlashCommands(sp, 'translate');
-      patchOnboarding(sp, 'index', 'translate');
+      if (wantExtra('slash')) patchSlashCommands(sp, 'translate');
+      if (wantExtra('onboarding')) patchOnboarding(sp, 'index', 'translate');
       sp.save();
     } else {
       console.log('   ⚠️ 找不到含 CODEX_COMMANDS 的 chunk，斜線命令說明將維持英文。');
@@ -748,10 +765,10 @@ async function patch() {
     // 原始碼控制空狀態與自動化排程描述各在自己的 chunk。
     // 同樣靠內容找（檔名帶 hash），找不到就警告並繼續。
     const extraPatchers = [];
-    for (const [tag, marker] of MINIMAL ? [] : [
+    for (const [tag, marker] of (wantExtra('jsx') ? [
       ['SourceControl', 'No changes on this branch'],
       ['AutomationsPage', 'Weekdays at '],
-    ]) {
+    ] : [])) {
       const file = fs.readdirSync(assetsDir)
         .filter(f => f.endsWith('.js') && f.startsWith(tag))
         .map(f => path.join(assetsDir, f))
