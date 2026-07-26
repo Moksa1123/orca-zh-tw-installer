@@ -92,8 +92,25 @@ npx orca-zh-tw-installer
 npx orca-zh-tw-installer --dry-run   # 只檢查相容性，不改動 Orca（執行中也能安全跑）
 npx orca-zh-tw-installer --verify    # 檢查已安裝的 app.asar 是否含全部補丁與字典
 npx orca-zh-tw-installer --restore   # 一鍵還原成官方原版
+npx orca-zh-tw-installer --verbose   # 列出每一個注入點（預設只印總數）
 npx orca-zh-tw-installer --force     # 即使 Orca 執行中也強制套用（不建議）
 npx orca-zh-tw-installer --help      # 顯示說明
+```
+
+### `--full`：原生選單、快速鍵、新手引導（目前不建議）
+
+預設安裝涵蓋 11,000 多句介面文字，但不含**原生選單列**（檔案／編輯／檢視）、
+**快速鍵名稱**、**斜線命令說明**、**新手引導文案**這幾類。
+
+這些字串不在 Orca 的語系檔裡，是寫死在程式碼中的，要翻就得改寫程式結構。
+`--full` 會做這件事——但**目前已知在部分環境會讓 Orca 開起來是白畫面**，
+原因還在查，所以預設不啟用。
+
+想協助定位的話可以用 `--extras=` 只開部分分組，出問題隨時 `--restore`：
+
+```bash
+npx orca-zh-tw-installer --extras=keybindings,labels,slash    # getter 類
+npx orca-zh-tw-installer --extras=menus,jsx,onboarding,varinfo # translate 類
 ```
 
 `--dry-run` 適合在 Orca 更新後先跑，確認語系包是否仍與新版相容。

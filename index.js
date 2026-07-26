@@ -53,8 +53,23 @@ const EXTRAS_ARG = process.argv.find(a => a.startsWith('--extras='));
 const EXTRAS = EXTRAS_ARG
   ? new Set(EXTRAS_ARG.slice('--extras='.length).split(',').map(x => x.trim()).filter(Boolean))
   : null;
-// 沒給 --extras 就是全部啟用（除非 --minimal）
-const wantExtra = name => !MINIMAL && (EXTRAS === null || EXTRAS.has(name));
+// --full：啟用全部加值本地化。
+const FULL = process.argv.includes('--full');
+// --verbose：列出每一個注入點，而不是只印總數。
+const VERBOSE = process.argv.includes('--verbose') || process.argv.includes('-v');
+
+// 預設不套用任何加值補丁。
+//
+// 加值補丁（選單、快速鍵、引導文案等）目前會讓部分環境的 Orca 開起來是白畫面，
+// 原因還在查。在查清楚之前，預設就必須是「一定能用」的那個組合——
+// 使用者不該為了避開一個已知的壞功能而去記旗標。
+//
+// 核心翻譯（11,000 多句）不受影響，那才是這個語系包的主體。
+const wantExtra = name => {
+  if (MINIMAL) return false;
+  if (EXTRAS) return EXTRAS.has(name);
+  return FULL;
+};
 
 // --verify：檢查已安裝的 app.asar 是否含全部補丁與字典。
 // 透過 npx 安裝的人沒有專案目錄，無法用 npm run verify，故在此提供同一個入口。
@@ -66,13 +81,16 @@ if (process.argv.includes('--verify')) {
 if (process.argv.includes('--help') || process.argv.includes('-h')) {
   console.log(`用法： npx orca-zh-tw-installer [選項]
 
-  （無選項）    套用繁體中文語系包。需先完全關閉 Orca。
+  （無選項）    套用繁體中文語系包（11,000+ 句）。需先完全關閉 Orca。
   --dry-run    只檢查相容性，不改動 Orca。可在 Orca 執行中安全使用。
   --verify     檢查已安裝的 app.asar 是否含全部補丁與字典。
   --restore    還原成官方原版（從 app.asar.bak）。需先完全關閉 Orca。
-  --minimal    只套用核心翻譯，跳過全部加值本地化。
-  --extras=a,b  只啟用指定的加值分組（用來定位問題）。可用：
+  --full       另外翻譯原生選單、快速鍵、新手引導等。
+               ⚠ 已知在部分環境會造成白畫面，原因調查中，預設不啟用。
+  --extras=a,b 只啟用指定的加值分組（用來定位問題）。可用：
                menus, keybindings, labels, slash, jsx, onboarding, varinfo
+  --verbose    列出每一個注入點（預設只印總數）。
+  --minimal    同預設值，保留此旗標以相容舊說明。
   --force      即使 Orca 執行中也強制套用（不建議）。
   --help       顯示這段說明。
 `);
@@ -799,8 +817,16 @@ async function patch() {
     const patchers = [mp, rp, ...(sp ? [sp] : []), ...extraPatchers.map(x => x.p)];
     const allFailed = patchers.flatMap(p => p.failed.map(n => `[${p.label}] ${n}`));
     const allWarned = patchers.flatMap(p => p.warned.map(n => `[${p.label}] ${n}`));
-    for (const p of patchers) {
-      for (const n of p.ok) console.log(`   ✅ [${p.label}] ${n}`);
+    // 逐條列出注入點對安裝者沒有意義——他要的是「成了沒」。
+    // 有東西沒對上時才需要細節，那時列出來才幫得上忙。
+    // 想看完整清單：--verbose，或用 --dry-run（診斷模式本來就該話多）。
+    const okCount = patchers.reduce((n, p) => n + p.ok.length, 0);
+    if (VERBOSE || DRY_RUN || allFailed.length || allWarned.length) {
+      for (const p of patchers) {
+        for (const n of p.ok) console.log(`   ✅ [${p.label}] ${n}`);
+      }
+    } else {
+      console.log(`   ✅ ${okCount} 個注入點全數套用（--verbose 可看細項）`);
     }
     // 加值型修補失敗只警告——那部分維持英文，但語言切換與字典照樣生效。
     for (const n of allWarned) {
