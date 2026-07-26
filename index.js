@@ -189,6 +189,29 @@ function createPatcher(label, filePath) {
       if (code === before || !done(code)) warned.push(name);
       else ok.push(name);
     },
+    /**
+     * 批次加值型修補：一次套用多筆取代，只回報一行摘要。
+     *
+     * 引導文案、變數說明這類是「同一件事的很多句」，逐句各印一行會讓安裝
+     * 輸出多出 95 行，把真正該注意的訊息淹掉。改成回報 66/66 這種比例，
+     * 沒全中時才列出前幾筆沒對上的，方便追。
+     *
+     * @param items [{ done, find, repl, label }]
+     */
+    patchBatch(name, items) {
+      let hit = 0;
+      const miss = [];
+      for (const it of items) {
+        if (it.done(code)) { hit++; continue; }
+        const before = code;
+        code = code.replace(it.find, it.repl);
+        if (code === before || !it.done(code)) miss.push(it.label);
+        else hit++;
+      }
+      const total = items.length;
+      if (!miss.length) { ok.push(`${name}（${hit}/${total}）`); return; }
+      warned.push(`${name}（${hit}/${total}，未對上：${miss.slice(0, 3).join('、')}${miss.length > 3 ? ` 等 ${miss.length} 筆` : ''}）`);
+    },
     save() { fs.writeFileSync(filePath, code); },
     get ok() { return ok; },
     get failed() { return failed; },
@@ -401,13 +424,13 @@ const JSX_HARDCODED = [
 
 function patchJsxHardcoded(p, chunkTag) {
   const items = JSX_HARDCODED.filter(x => x[0] === chunkTag);
-  for (const [, find, repl] of items) {
-    // 名稱取原文前 26 字，方便在輸出裡辨認是哪一句
-    const label = find.replace(/^[a-zA-Z]+:\s*/, '').slice(0, 26).replace(/\s+/g, ' ');
-    p.patchOptional(`寫死字串改走 i18n：${label}`,
-      c => c.includes(repl),
-      find, repl);
-  }
+  if (!items.length) return;
+  p.patchBatch('JSX 寫死字串改走 i18n', items.map(([, find, repl]) => ({
+    done: c => c.includes(repl),
+    find,
+    repl,
+    label: find.replace(/^[a-zA-Z]+:\s*/, '').slice(0, 20).replace(/\s+/g, ' '),
+  })));
 }
 
 
@@ -497,15 +520,18 @@ function patchOnboarding(p, chunkTag, translateFn) {
   // 用具名替換而非 '\\$&'——$& 在字串替換裡是「匹配到的內容」，
   // 之前用產生器寫入這行時被外層 replace 吃掉，導致 esc 產生垃圾。
   const esc = x => x.replace(/[.*+?^${}()|[\]\\]/g, m => '\\' + m);
+  const items = [];
   for (const [tag, field, en] of ONBOARDING_STRINGS) {
     if (tag !== chunkTag) continue;
-    const key = 'onboarding.' + slug(en);
-    const repl = `${field}: ${translateFn}(${JSON.stringify(key)}, ${JSON.stringify(en)})`;
-    p.patchOptional(`引導文案改走 i18n：${en.slice(0, 24)}`,
-      c => c.includes(repl),
-      new RegExp(`${field}: "${esc(en)}"`, 'g'),
-      repl);
+    const repl = `${field}: ${translateFn}("onboarding.${slug(en)}", ${JSON.stringify(en)})`;
+    items.push({
+      done: c => c.includes(repl),
+      find: new RegExp(`${field}: "${esc(en)}"`, 'g'),
+      repl,
+      label: en.slice(0, 20),
+    });
   }
+  if (items.length) p.patchBatch('新手引導與功能提示改走 i18n', items);
 }
 
 
@@ -540,13 +566,16 @@ function patchVarInfo(p, translateFn) {
   const slug = en => en.replace(/[^A-Za-z0-9 ]/g, '').split(/\s+/).filter(Boolean).slice(0, 6)
     .map((w, i) => i === 0 ? w.toLowerCase() : w[0].toUpperCase() + w.slice(1).toLowerCase()).join('');
   const esc = x => x.replace(/[.*+?^${}()|[\]\\]/g, m => '\\' + m);
-  for (const [field, en] of VARINFO_STRINGS) {
+  const items = VARINFO_STRINGS.map(([field, en]) => {
     const repl = `${field}: ${translateFn}("scVariable.${slug(en)}", ${JSON.stringify(en)})`;
-    p.patchOptional(`變數說明改走 i18n：${en.slice(0, 24)}`,
-      c => c.includes(repl),
-      new RegExp(`${field}: "${esc(en)}"`, 'g'),
-      repl);
-  }
+    return {
+      done: c => c.includes(repl),
+      find: new RegExp(`${field}: "${esc(en)}"`, 'g'),
+      repl,
+      label: en.slice(0, 20),
+    };
+  });
+  p.patchBatch('原始碼控制變數說明改走 i18n', items);
 }
 
 function patchNativeMenus(p) {

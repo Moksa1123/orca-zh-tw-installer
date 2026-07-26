@@ -1,0 +1,4 @@
+# 批次檔必須是 CRLF，否則 Windows 的 cmd 解析多行結構會出錯
+*.bat text eol=crlf
+# .command 由 macOS 的 bash 執行，CRLF 會讓它報 $'\r': command not found
+*.command text eol=lf
