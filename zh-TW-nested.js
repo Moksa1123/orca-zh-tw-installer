@@ -37,7 +37,7 @@ export default {
         "description": "選擇 Orca 介面使用的語言。",
         "system": "系統",
         "english": "English",
-        "chinese": "中文（簡體）",
+        "chinese": "中文（简体）",
         "korean": "한국어",
         "japanese": "日本語",
         "spanish": "Español",
@@ -13779,7 +13779,7 @@ export default {
       "detectionFailed": "無法偵測此工作區主機上的 Agent。",
       "noAgents": "未在此工作區主機上偵測到已啟用的 Agent。",
       "context": "上下文",
-      "modeFocused": "焦點續接（推薦）",
+      "modeFocused": "焦點交接（推薦）",
       "modeFocusedDescription": "使用最新進度和目前工作區，僅在需要時讀取更早的工作階段詳細資訊。",
       "modeFull": "完整工作階段記錄",
       "modeFullDescription": "讓新 Agent 在繼續前讀取完整的已儲存工作階段。這可能需要更長時間，並消耗大量上下文、套餐用量或 API 額度。",
@@ -13801,7 +13801,7 @@ export default {
     },
     "recoverableError": {
       "title": "Orca 儀表板發生錯誤。",
-      "description": "儀表板無法完成繪製。重試以重新掛載，或重新開啟。"
+      "description": "儀表板無法完成渲染。重試以重新掛載，或重新開啟。"
     },
     "bucket": {
       "attention": "需要你處理",
