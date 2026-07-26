@@ -508,6 +508,47 @@ function patchOnboarding(p, chunkTag, translateFn) {
   }
 }
 
+
+// ── 原始碼控制 AI 動作的變數說明 ─────────────────────────────────────
+// SOURCE_CONTROL_ACTION_VARIABLE_INFO 描述 {branch}、{stagedPatch} 這些
+// 可在自訂提示詞裡使用的變數。description 是 Orca 自己的說明文字，
+// 全部寫死沒有進 i18n。
+//
+// example 只翻敘述性的那幾句；git diff、分支名、檔案清單這類技術範例
+// 保持原樣——那是要讓使用者認出實際資料長什麼樣。
+const VARINFO_STRINGS = [
+  ["description", "Orca’s built-in prompt for this action, including the context Orca knows how to gather safely."],
+  ["example", "Commit messages include staged diff guidance; PR details include branch comparison guidance; fix actions include the failure summary."],
+  ["description", "The current source-control branch name."],
+  ["description", "A newline-separated list of staged files for commit-message generation."],
+  ["description", "The staged git patch used for commit-message generation."],
+  ["description", "The target branch selected in the Create PR composer."],
+  ["description", "The PR title currently typed in the composer before generation starts."],
+  ["example", "Improve Source Control AI customization"],
+  ["description", "The PR description currently typed in the composer before generation starts."],
+  ["example", "Adds configurable agents and command templates for Source Control actions."],
+  ["description", "A newline-separated list of commits on the branch compared to the base."],
+  ["description", "A summary of files changed between the branch and the base branch."],
+  ["description", "The branch diff against the base branch used for PR-details generation."],
+  ["description", "The first user request that created the Orca workspace."],
+  ["example", "Fix CI and commit the result"],
+  ["description", "The initial agent response, when Orca has one available."],
+  ["example", "I will inspect the failing check, patch the issue, and run tests."],
+];
+
+function patchVarInfo(p, translateFn) {
+  const slug = en => en.replace(/[^A-Za-z0-9 ]/g, '').split(/\s+/).filter(Boolean).slice(0, 6)
+    .map((w, i) => i === 0 ? w.toLowerCase() : w[0].toUpperCase() + w.slice(1).toLowerCase()).join('');
+  const esc = x => x.replace(/[.*+?^${}()|[\]\\]/g, m => '\\' + m);
+  for (const [field, en] of VARINFO_STRINGS) {
+    const repl = `${field}: ${translateFn}("scVariable.${slug(en)}", ${JSON.stringify(en)})`;
+    p.patchOptional(`變數說明改走 i18n：${en.slice(0, 24)}`,
+      c => c.includes(repl),
+      new RegExp(`${field}: "${esc(en)}"`, 'g'),
+      repl);
+  }
+}
+
 function patchNativeMenus(p) {
   p.patchOptional('原生選單：為無 label 的 role 注入譯文',
     c => c.includes('nativeMenu.selectAll'),
@@ -643,6 +684,7 @@ async function patch() {
     patchOptionLabels(rp, 'translate');
     patchJsxHardcoded(rp, 'I18nProvider');
     patchOnboarding(rp, 'I18nProvider', 'translate');
+    patchVarInfo(rp, 'translate');
     rp.save();
 
     // Agent 斜線命令的說明在另一個 chunk。檔名帶 hash（index-DlEnJ7xL.js），

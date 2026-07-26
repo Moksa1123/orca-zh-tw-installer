@@ -14167,5 +14167,24 @@ export default {
     "connectIntegrations": "連線整合",
     "automateWorkspaceSetup": "自動化工作區設定",
     "startWorkInMultipleRepos": "在多個存放庫中開始工作"
+  },
+  "scVariable": {
+    "orcasBuiltinPromptForThisAction": "Orca 為此動作內建的提示詞，包含 Orca 知道如何安全蒐集的上下文。",
+    "commitMessagesIncludeStagedDiffGuidance": "commit 訊息包含已暫存差異的指引；PR 詳細資訊包含分支比較的指引；修復動作包含失敗摘要。",
+    "theCurrentSourcecontrolBranchName": "目前原始碼控制的分支名稱。",
+    "aNewlineseparatedListOfStagedFiles": "以換行分隔的已暫存檔案清單，用於產生 commit 訊息。",
+    "theStagedGitPatchUsedFor": "用於產生 commit 訊息的已暫存 git patch。",
+    "theTargetBranchSelectedInThe": "在「建立 PR」編寫區中選擇的目標分支。",
+    "thePrTitleCurrentlyTypedIn": "開始產生前，你在編寫區中已輸入的 PR 標題。",
+    "improveSourceControlAiCustomization": "改善原始碼控制 AI 的自訂能力",
+    "thePrDescriptionCurrentlyTypedIn": "開始產生前，你在編寫區中已輸入的 PR 描述。",
+    "addsConfigurableAgentsAndCommandTemplates": "為原始碼控制動作加入可設定的 Agent 與命令範本。",
+    "aNewlineseparatedListOfCommitsOn": "以換行分隔的清單，列出此分支相對於基準分支的 commit。",
+    "aSummaryOfFilesChangedBetween": "此分支與基準分支之間變更檔案的摘要。",
+    "theBranchDiffAgainstTheBase": "用於產生 PR 詳細資訊的分支差異（相對於基準分支）。",
+    "theFirstUserRequestThatCreated": "建立此 Orca 工作區的第一個使用者請求。",
+    "fixCiAndCommitTheResult": "修好 CI 並提交結果",
+    "theInitialAgentResponseWhenOrca": "Agent 的初始回應（若 Orca 有取得的話）。",
+    "iWillInspectTheFailingCheck": "我會檢查失敗的檢查項、修補問題，然後執行測試。"
   }
 };

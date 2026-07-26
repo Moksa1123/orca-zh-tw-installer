@@ -11421,5 +11421,22 @@
   "onboarding.enableOrcaCli": "啟用 Orca CLI",
   "onboarding.connectIntegrations": "連線整合",
   "onboarding.automateWorkspaceSetup": "自動化工作區設定",
-  "onboarding.startWorkInMultipleRepos": "在多個存放庫中開始工作"
+  "onboarding.startWorkInMultipleRepos": "在多個存放庫中開始工作",
+  "scVariable.orcasBuiltinPromptForThisAction": "Orca 為此動作內建的提示詞，包含 Orca 知道如何安全蒐集的上下文。",
+  "scVariable.commitMessagesIncludeStagedDiffGuidance": "commit 訊息包含已暫存差異的指引；PR 詳細資訊包含分支比較的指引；修復動作包含失敗摘要。",
+  "scVariable.theCurrentSourcecontrolBranchName": "目前原始碼控制的分支名稱。",
+  "scVariable.aNewlineseparatedListOfStagedFiles": "以換行分隔的已暫存檔案清單，用於產生 commit 訊息。",
+  "scVariable.theStagedGitPatchUsedFor": "用於產生 commit 訊息的已暫存 git patch。",
+  "scVariable.theTargetBranchSelectedInThe": "在「建立 PR」編寫區中選擇的目標分支。",
+  "scVariable.thePrTitleCurrentlyTypedIn": "開始產生前，你在編寫區中已輸入的 PR 標題。",
+  "scVariable.improveSourceControlAiCustomization": "改善原始碼控制 AI 的自訂能力",
+  "scVariable.thePrDescriptionCurrentlyTypedIn": "開始產生前，你在編寫區中已輸入的 PR 描述。",
+  "scVariable.addsConfigurableAgentsAndCommandTemplates": "為原始碼控制動作加入可設定的 Agent 與命令範本。",
+  "scVariable.aNewlineseparatedListOfCommitsOn": "以換行分隔的清單，列出此分支相對於基準分支的 commit。",
+  "scVariable.aSummaryOfFilesChangedBetween": "此分支與基準分支之間變更檔案的摘要。",
+  "scVariable.theBranchDiffAgainstTheBase": "用於產生 PR 詳細資訊的分支差異（相對於基準分支）。",
+  "scVariable.theFirstUserRequestThatCreated": "建立此 Orca 工作區的第一個使用者請求。",
+  "scVariable.fixCiAndCommitTheResult": "修好 CI 並提交結果",
+  "scVariable.theInitialAgentResponseWhenOrca": "Agent 的初始回應（若 Orca 有取得的話）。",
+  "scVariable.iWillInspectTheFailingCheck": "我會檢查失敗的檢查項、修補問題，然後執行測試。"
 }
