@@ -207,7 +207,8 @@ const zhTW = {
       "slices": {
         "browser": {
           "d175274b6d": "新增瀏覽器分頁",
-          "08fc23631d": "瀏覽器"
+          "08fc23631d": "瀏覽器",
+          "remoteCookieImportUnavailable": "遠端執行環境作用中時無法手動匯入 cookie 檔案。"
         },
         "editor": {
           "dcb521ed29": "此檔案處於衝突狀態，但沒有可編輯的 Worktree 檔案。",
@@ -686,7 +687,8 @@ const zhTW = {
         "4f78ba5885": "工作區已同步",
         "ef223fbb6b": "有裝置嘗試連線，但尚未配對",
         "11992d0337": "如果這是你的手機或其他 Orca 用戶端，請從「設定」>「行動裝置」重新配對。",
-        "6573cfe955": "開啟行動裝置設定"
+        "6573cfe955": "開啟行動裝置設定",
+        "unresolvedTerminalWorktreeOwner": "無法解析 Worktree 的擁有者，因此無法建立終端機"
       },
       "useSettingsNavigationMetadata": {
         "4a728cd56b": "仍在成形中的新功能。歡迎試用。",
@@ -1276,7 +1278,17 @@ const zhTW = {
         "noRunTargets": "此專案尚無可用的執行目標。",
         "perWorkspaceEnvHint": "依配方佈建隨需環境",
         "branchName": "分支名稱",
-        "branchNamePlaceholder": "feature/my-branch"
+        "branchNamePlaceholder": "feature/my-branch",
+        "connectTimedOut": "連線逾時。它可能仍在背景中連線。",
+        "connectingHost": "連線中…",
+        "connectHost": "連線",
+        "addHost": "新增主機",
+        "addHostHint": "註冊另一台機器或 Orca 伺服器",
+        "addSshHost": "新增 SSH 主機",
+        "addSshHostHint": "透過 SSH 使用既有的機器",
+        "addRemoteOrcaServer": "新增遠端 Orca 伺服器",
+        "addRemoteOrcaServerHint": "配對另一個 Orca 執行環境",
+        "hostConnectionFailed": "連線失敗"
       },
       "NewWorkspaceComposerModal": {
         "createWorktree": "建立 Worktree",
@@ -1477,7 +1489,8 @@ const zhTW = {
         "4725b0e931": "快速開啟掃描範圍過大（",
         "b227d88520": "找到 {{value0}} 個檔案",
         "995be8ea22": "複製",
-        "cf144856dc": "已複製"
+        "cf144856dc": "已複製",
+        "344f8a48dd": "在執行快速開啟掃描的主機上，以啟用快速且遵循 gitignore 的清單："
       },
       "SelectedTextCopyMenu": {
         "9b40d7b018": "複製"
@@ -2917,7 +2930,8 @@ const zhTW = {
                   "5a9c83c04b": "開啟任何檔案、URL、Agent…",
                   "90eb94dc48": "輸入 http:// 或 https:// URL。",
                   "5553b283ce": "輸入 URL 或檔案路徑。",
-                  "queryTooLarge": "搜尋文字過長。"
+                  "queryTooLarge": "搜尋文字過長。",
+                  "absolutePathRemoteBlocked": "絕對路徑需要本機工作區。"
                 }
               },
               "menu": {
@@ -3737,7 +3751,8 @@ const zhTW = {
           "tipBrokenLink": "指向已不存在內容的捷徑。",
           "tipReadOnly": "這份副本位於唯讀位置。",
           "tipInRepo": "這份副本位於某個專案內，而非你的全域 skill。",
-          "tipPluginCache": "這份副本由外掛管理。"
+          "tipPluginCache": "這份副本由外掛管理。",
+          "skippedReasonDuplicate": "這是獨立的副本，更新不會套用到它——該命令只會重新整理主要副本。請移除這份副本，然後重新安裝技能，這個位置才會跟隨主要副本。"
         },
         "SkillFreshnessUpdateDialog": {
           "title": "更新 skill",
@@ -3758,7 +3773,9 @@ const zhTW = {
         "SkillFreshnessStatusPill": {
           "updateAvailable": "有可用更新",
           "upToDate": "已是最新",
-          "installed": "已安裝"
+          "installed": "已安裝",
+          "details": "詳細資訊",
+          "needsAttention": "需要注意"
         }
       },
       "sidebar": {
@@ -4305,7 +4322,9 @@ const zhTW = {
           "automationCreated": "由自動化建立",
           "branchIdentity": "分支",
           "branchFolderPathIdentity": "分支或資料夾路徑",
-          "ef18787206": "已排入刪除佇列"
+          "ef18787206": "已排入刪除佇列",
+          "runtimeHostDisconnectedNamed": "{{hostName}} 已中斷連線",
+          "runtimeHostProjectNamed": "{{hostName}} 上的專案"
         },
         "WorktreeCardAgents": {
           "1b0a156717": "Agent"
@@ -4470,7 +4489,23 @@ const zhTW = {
           "0bed8727db": "它可能已被移動或刪除。請重新整理工作區，或將其從 Orca 中移除。",
           "3921d3d9a5": "找不到工作區資料夾。",
           "f387af445b": "工作區路徑不是有效的本機路徑。",
-          "3ec372b664": "檔案管理員"
+          "3ec372b664": "檔案管理員",
+          "localOnly": "僅限本機",
+          "remoteSsh": "遠端 SSH",
+          "remoteRuntimeUnsupported": "無法在本機應用程式中開啟此路徑。",
+          "remoteRuntimeUnsupportedDetail": "請切換到本機或 SSH 工作區後再試一次。",
+          "sshTargetNotFound": "SSH 主機已無法使用。",
+          "sshTargetNotFoundDetail": "請重新整理工作區或重新連線主機，然後再試一次。",
+          "sshTargetInvalid": "SSH 主機設定不完整。",
+          "sshTargetInvalidDetail": "請編輯或重新連線 SSH 主機，然後再試一次。",
+          "sshAliasRequired": "VS Code 需要此主機的 SSH 設定別名。",
+          "sshAliasRequiredDetail": "請在本機 SSH 設定中為 {{host}}:{{port}} 加入 Host 別名，重新連線工作區後再試一次。",
+          "remoteEditorUnsupported": "此應用程式無法開啟 SSH 工作區。",
+          "remoteEditorUnsupportedDetail": "請選擇 VS Code，或在本機使用此應用程式。",
+          "remotePathInvalid": "此路徑對該 SSH 主機無效。",
+          "remotePathInvalidDetail": "請先重新整理工作區再試一次。",
+          "remoteLaunchFailed": "無法在 VS Code 中開啟此路徑。",
+          "remoteLaunchFailedDetail": "請檢查這台機器上設定的 VS Code 命令。"
         },
         "WorktreeTitleInlineRename": {
           "2f42ae024f": "未讀：",
@@ -4566,7 +4601,14 @@ const zhTW = {
           "worktree": {
             "flow": {
               "c460fecc4a": "無法讓部分工作區進入睡眠",
-              "8bc3fc0671": "無法讓工作區進入睡眠"
+              "8bc3fc0671": "無法讓工作區進入睡眠",
+              "legacy": {
+                "unverified": "較舊版的主機執行環境無法確認終端機已關閉。工作區維持開啟；請更新主機後再試一次。"
+              },
+              "host": {
+                "unverified": "主機無法確認終端機已關閉。工作區維持開啟；請檢查連線後再試一次。"
+              },
+              "retry": "工作區維持開啟。請再試一次；若問題持續，請檢查主機連線。"
             }
           }
         },
@@ -4833,7 +4875,8 @@ const zhTW = {
           "sshImportSynced": "已同步 {{value0}} 個主機。",
           "sshImportFailed": "匯入 SSH 設定失敗。",
           "importing": "正在匯入…",
-          "importSshConfig": "匯入 ~/.ssh/config"
+          "importSshConfig": "匯入 ~/.ssh/config",
+          "advanced": "進階"
         },
         "ForgetSshWorkspaceDialog": {
           "reconnectFailed": "重新連線失敗",
@@ -5030,7 +5073,10 @@ const zhTW = {
           "remoteEmptyClaudeAccounts": "{{value0}} 上沒有受管理的 Claude 帳號。它會使用系統預設的 Claude 登入；請在該伺服器上新增帳號。",
           "remoteEmptyCodexAccounts": "{{value0}} 上沒有受管理的 Codex 帳號。它會使用系統預設的 Codex 登入；請在該伺服器上新增帳號。",
           "codexSystemDefaultCustomProvider": "自訂供應商 — 不追蹤使用量。",
-          "codexSystemDefaultNeedsSignIn": "找不到 {{value0}} 的 Codex 登入資訊。"
+          "codexSystemDefaultNeedsSignIn": "找不到 {{value0}} 的 Codex 登入資訊。",
+          "codexConfigSyncMissingSource": "Codex 仍在使用上次同步的設定，因為找不到 {{value0}}。請還原該檔案以恢復同步。",
+          "codexConfigSyncBlankSource": "Codex 仍在使用上次同步的設定，因為 {{value0}} 是空的。同步資料夾尚未下載完成時屬正常現象。",
+          "codexConfigSyncUnreadableSource": "Codex 仍在使用上次同步的設定，因為無法讀取 {{value0}}。請檢查該檔案的權限。"
         },
         "AdvancedPane": {
           "40b29e0bf3": "重新啟動",
@@ -5113,7 +5159,11 @@ const zhTW = {
           "3f1bdf3cb4": "環境文字過大，無法安全解析。",
           "codexSessionSource": "要匯入的 Codex 主目錄",
           "codexSessionSourceInfo": "關於匯入 Codex 歷史記錄",
-          "codexSessionSourceTooltip": "Orca 會在隔離的主目錄中執行 Codex。將此項指向你現有的 Codex 主目錄以匯入該工作階段歷史記錄。留空則使用 ~/.codex。"
+          "codexSessionSourceTooltip": "Orca 會在隔離的主目錄中執行 Codex。將此項指向你現有的 Codex 主目錄以匯入該工作階段歷史記錄。留空則使用 ~/.codex。",
+          "03e1a5081a": "於 {{value0}}",
+          "25a41a9aad": "重新偵測作用中伺服器上已安裝的 Agent",
+          "remoteDetectionFailed": "無法偵測已安裝的 Agent。請檢查主機連線後再試一次。",
+          "retryDetection": "重試"
         },
         "AppIconSelector": {
           "d5a112dc9b": "下一個圖示",
@@ -5522,9 +5572,14 @@ const zhTW = {
           },
           "agentDashboard": {
             "title": "Agent 儀表板",
-            "description": "用於跨 Worktree 監視 Agent 的彈出式看板。",
-            "copy": "在左側邊欄新增 Agent 儀表板專案。開啟後可在獨立視窗中監視需要注意、執行中與閒置的 Agent，並跳至它們的即時終端機。",
-            "toggleLabel": "切換 Agent 儀表板"
+            "description": "用於跨 Worktree 監視 Agent 的看板，可內嵌於視窗或彈出顯示。",
+            "copy": "在左側邊欄新增 Agent 儀表板項目。開啟後可監視需要注意、執行中與閒置的 Agent，並跳至它們的即時終端機。",
+            "toggleLabel": "切換 Agent 儀表板",
+            "modeLabel": "開啟方式",
+            "modeCopy": "將儀表板顯示為側邊欄旁的視窗內看板，或獨立的彈出視窗。",
+            "modeAriaLabel": "Agent 儀表板開啟模式",
+            "modeInWindow": "視窗內",
+            "modePopout": "彈出視窗"
           }
         },
         "FloatingWorkspacePane": {
@@ -6356,7 +6411,8 @@ const zhTW = {
           "projectRuntimeDescription": "選擇此專案要在 Windows 還是 WSL 上執行。",
           "hostStateDisconnected": "已中斷連線",
           "hostStateUnknown": "不明",
-          "nestedHostLabel": "{{value0}}（透過 {{value1}}）"
+          "nestedHostLabel": "{{value0}}（透過 {{value1}}）",
+          "hostSetupConnectionRequired": "請先連線此主機，再匯入或 clone 專案"
         },
         "RepositorySourceControlAiActionRows": {
           "548a6e1281": "命令範本",
@@ -6494,7 +6550,10 @@ const zhTW = {
           "versionUnavailable": "無法取得 Orca 版本",
           "updateServer": "更新",
           "reviewServerUpdates": "伺服器更新",
-          "orcaVersion": "Orca v{{value0}}"
+          "orcaVersion": "Orca v{{value0}}",
+          "removeActiveServerBlocked": "移除此伺服器前，請先在「進階」中選擇另一個作用中伺服器。",
+          "removeActiveServerDescription": "移除此伺服器前，請先在「進階」中選擇另一個作用中伺服器。既有的主機工作階段不受影響。",
+          "updatingServers": "正在更新伺服器…"
         },
         "RuntimePairingGeneratedUrlRows": {
           "0495f68959": "複製 {{value0}}"
@@ -7747,7 +7806,7 @@ const zhTW = {
             },
             "agentDashboard": {
               "title": "Agent 儀表板",
-              "description": "用於跨 Worktree 監視 Agent 的彈出式看板。"
+              "description": "用於跨 Worktree 監視 Agent 的看板，可內嵌於視窗或彈出顯示。"
             }
           }
         },
@@ -9367,6 +9426,11 @@ const zhTW = {
           "serviceManagerHelp": "請透過啟動此伺服器的服務管理員來更新 Orca。",
           "unpackedHelp": "開發版建置必須從其原始碼 checkout 更新。",
           "legacyHelp": "請先手動更新此伺服器一次，之後才能使用遠端更新。"
+        },
+        "BranchPrefixFeedback": {
+          "6c40c0908f": "前綴不可包含空格或 ~ ^ : ? * [ \\ 等特殊字元",
+          "64d70b156a": "分支將命名為 {{example}}",
+          "808f9a726e": "不會套用任何前綴"
         }
       },
       "right": {
@@ -13762,7 +13826,10 @@ const zhTW = {
       "closed": "沒有使用中的終端機 — 此 Agent 的窗格已關閉。",
       "focusWorktree": "聚焦 Worktree",
       "close": "關閉"
-    }
+    },
+    "close": "關閉儀表板",
+    "settings": "Agent 儀表板設定",
+    "settingsTooltip": "看板設定"
   },
   "dashboard": {
     "sidebar": {
