@@ -89,6 +89,7 @@ function createPatcher(label, filePath) {
   let code = fs.readFileSync(filePath, 'utf8');
   const ok = [];
   const failed = [];
+  const warned = [];
   return {
     label,
     /**
@@ -104,9 +105,25 @@ function createPatcher(label, filePath) {
       if (code === before || !done(code)) failed.push(name);
       else ok.push(name);
     },
+    /**
+     * 加值型修補：錨點找不到只警告，不讓整個安裝失敗。
+     *
+     * 語言切換與字典注入是核心，錨點壞了就必須中止——否則使用者會裝到一個
+     * 「看起來成功但沒效果」的語系包。但原生選單、快速鍵名稱、斜線命令說明
+     * 這些是額外的本地化，Orca 改了結構時頂多那部分維持英文，
+     * 不該連帶讓整包裝不起來。
+     */
+    patchOptional(name, done, find, repl) {
+      if (done(code)) { ok.push(`${name}（已存在）`); return; }
+      const before = code;
+      code = code.replace(find, repl);
+      if (code === before || !done(code)) warned.push(name);
+      else ok.push(name);
+    },
     save() { fs.writeFileSync(filePath, code); },
     get ok() { return ok; },
     get failed() { return failed; },
+    get warned() { return warned; },
   };
 }
 
@@ -182,7 +199,7 @@ const KEYBINDING_GROUP_SLUGS = {
 };
 
 function patchKeybindingTitles(p, translateFn) {
-  p.patch('快速鍵名稱與群組改走 i18n',
+  p.patchOptional('快速鍵名稱與群組改走 i18n',
     c => c.includes('keybindingGroup.'),
     // id 緊接 title、group、scope 是 keybinding 定義獨有的形狀。
     // 不能只比對 group:"…"——built-in／imported 等其他結構也有 group 欄位。
@@ -225,7 +242,7 @@ const OPTION_LABELS = {
 };
 
 function patchOptionLabels(p, translateFn) {
-  p.patch('選項清單標籤改走 i18n',
+  p.patchOptional('選項清單標籤改走 i18n',
     c => c.includes('optionLabel.in-progress'),
     /\{(\s*)id: "([a-z0-9-]+)",(\s*)label: "([^"]{1,40})"/g,
     (m, s0, id, s1, label) => {
@@ -236,27 +253,52 @@ function patchOptionLabels(p, translateFn) {
     });
 }
 
+// ── Agent 斜線命令說明本地化 ───────────────────────────────────────────
+// 在 Agent composer 輸入 / 時列出的命令清單，description 是 Orca 自己寫的
+// 說明文字，寫死在 COMMON_COMMANDS／CLAUDE_COMMANDS／CODEX_COMMANDS 裡。
+// name 是真的要送給 CLI 的命令，絕對不能動。
+//
+// 鍵用英文原文的 slug 而不是命令名：/clear、/compact、/init 在不同 agent
+// 有不同說明（Claude 的 /clear 是「Clear conversation history」，
+// Codex 的是「Clear the terminal and start a new chat」），
+// 用命令名當鍵會撞在一起。
+const slashKey = en => 'slashCommand.' + en
+  .replace(/[^A-Za-z0-9 ]/g, '')
+  .split(/\s+/)
+  .filter(Boolean)
+  .map((w, i) => i === 0 ? w.toLowerCase() : w[0].toUpperCase() + w.slice(1).toLowerCase())
+  .join('');
+
+function patchSlashCommands(p, translateFn) {
+  p.patchOptional('Agent 斜線命令說明改走 i18n',
+    c => c.includes('slashCommand.'),
+    /\{(\s*)name: "([a-z][a-z0-9:-]*)",(\s*)description: "((?:[^"\\]|\\.){2,80})"(\s*)\}/g,
+    (m, s0, name, s1, en, s2) =>
+      `{${s0}name: ${JSON.stringify(name)},${s1}get description() { `
+      + `return ${translateFn}(${JSON.stringify(slashKey(en))}, ${JSON.stringify(en)}); }${s2}}`);
+}
+
 function patchNativeMenus(p) {
-  p.patch('原生選單：為無 label 的 role 注入譯文',
+  p.patchOptional('原生選單：為無 label 的 role 注入譯文',
     c => c.includes('nativeMenu.selectAll'),
     /\{\s*role:\s*"([A-Za-z]+)"\s*\}/g,
     (m, role) => MENU_ROLE_LABELS[role]
       ? `{ role: "${role}", label: ${t(role, MENU_ROLE_LABELS[role])} }`
       : m);
 
-  p.patch('原生選單：Markdown 命令項改走 i18n',
+  p.patchOptional('原生選單：Markdown 命令項改走 i18n',
     c => c.includes('nativeMenu.addLink'),
     /markdownCommandItem\("([^"]+)"/g,
     (m, label) => MENU_MD_ITEMS[label]
       ? `markdownCommandItem(${t(MENU_MD_ITEMS[label], label)}`
       : m);
 
-  p.patch('原生選單：子選單標題改走 i18n',
+  p.patchOptional('原生選單：子選單標題改走 i18n',
     c => c.includes('nativeMenu.format'),
     /label:\s*"(Format|Paragraph|Insert)"/g,
     (m, label) => `label: ${t(MENU_SUBMENU_LABELS[label], label)}`);
 
-  p.patch('原生選單：貼上項改走 i18n',
+  p.patchOptional('原生選單：貼上項改走 i18n',
     c => c.includes('nativeMenu.pasteAsPlainText'),
     /editableContextPasteItem\("([^"]+)"/g,
     (m, label) => MENU_PASTE_ITEMS[label]
@@ -363,6 +405,24 @@ async function patch() {
     patchOptionLabels(rp, 'translate');
     rp.save();
 
+    // Agent 斜線命令的說明在另一個 chunk。檔名帶 hash（index-DlEnJ7xL.js），
+    // 每次 Orca 建置都會變，所以靠內容找而不是靠檔名。
+    // 那個 chunk 有 import { t as translate }，模組層可直接呼叫。
+    const slashFile = fs.readdirSync(assetsDir)
+      .filter(f => f.endsWith('.js'))
+      .map(f => path.join(assetsDir, f))
+      .find(f => {
+        try { return fs.readFileSync(f, 'utf8').includes('CODEX_COMMANDS'); } catch { return false; }
+      });
+    let sp = null;
+    if (slashFile) {
+      sp = createPatcher('slash commands', slashFile);
+      patchSlashCommands(sp, 'translate');
+      sp.save();
+    } else {
+      console.log('   ⚠️ 找不到含 CODEX_COMMANDS 的 chunk，斜線命令說明將維持英文。');
+    }
+
     console.log('📂 4/6 正在植入繁體中文字典 (ESM + CJS 兩種格式)...');
     const esmDict = path.join(__dirname, 'zh-TW-nested.js');
     const cjsDict = path.join(__dirname, 'zh-TW-nested.cjs.js');
@@ -374,12 +434,15 @@ async function patch() {
     fs.copyFileSync(cjsDict, path.join(chunksDir, 'zh-TW-nested.js'));
 
     console.log('🔎 5/6 正在驗證所有注入點...');
-    const allFailed = [
-      ...mp.failed.map(n => `[main] ${n}`),
-      ...rp.failed.map(n => `[renderer] ${n}`),
-    ];
-    for (const p of [mp, rp]) {
+    const patchers = sp ? [mp, rp, sp] : [mp, rp];
+    const allFailed = patchers.flatMap(p => p.failed.map(n => `[${p.label}] ${n}`));
+    const allWarned = patchers.flatMap(p => p.warned.map(n => `[${p.label}] ${n}`));
+    for (const p of patchers) {
       for (const n of p.ok) console.log(`   ✅ [${p.label}] ${n}`);
+    }
+    // 加值型修補失敗只警告——那部分維持英文，但語言切換與字典照樣生效。
+    for (const n of allWarned) {
+      console.log(`   ⚠️ ${n}（錨點已變，該部分維持英文，其餘不受影響）`);
     }
     if (allFailed.length) {
       for (const n of allFailed) console.error(`   ❌ ${n}`);
@@ -397,10 +460,12 @@ async function patch() {
     // node --check 會以 CommonJS 解析而誤判失敗。複製成 .mjs 再檢查。
     const probeDir = fs.mkdtempSync(path.join(os.tmpdir(), 'orca-zh-tw-check-'));
     try {
-      for (const [label, file, ext] of [
+      const toCheck = [
         ['main process', mainFile, '.js'],
         ['renderer', rendererFile, '.mjs'],
-      ]) {
+      ];
+      if (slashFile) toCheck.push(['slash commands', slashFile, '.mjs']);
+      for (const [label, file, ext] of toCheck) {
         const probe = path.join(probeDir, 'probe' + ext);
         fs.copyFileSync(file, probe);
         try {
