@@ -14187,7 +14187,7 @@ const zhTW = {
     "theFirstUserRequestThatCreated": "建立此 Orca 工作區的第一個使用者請求。",
     "fixCiAndCommitTheResult": "修好 CI 並提交結果",
     "theInitialAgentResponseWhenOrca": "Agent 的初始回應（若 Orca 有取得的話）。",
-    "iWillInspectTheFailingCheck": "我會檢查失敗的檢查項、修補問題，然後執行測試。"
+    "iWillInspectTheFailingCheck": "我會查看失敗的檢查、修補問題，然後執行測試。"
   }
 };
 exports.default = zhTW;
