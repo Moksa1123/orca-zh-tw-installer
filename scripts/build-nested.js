@@ -62,6 +62,29 @@ fs.writeFileSync(CJS_OUT,
   fs.rmSync(tmp, { recursive: true, force: true });
 }
 
+// scripts/ 底下的腳本也檢查控制字元。
+// 我兩次用 regex 修補腳本時寫進了不可見字元：一次是 U+2028 直接寫進正則字面值
+// 把該檔案自己弄壞，一次是把分隔空格寫成 U+0000，害例外清單永遠比對不到
+// 而完全無聲。node --check 不會抱怨 NUL 在字串裡，只有這種掃描抓得到。
+{
+  const dir = __dirname;
+  const bad = [];
+  for (const f of fs.readdirSync(dir).filter(x => x.endsWith('.js'))) {
+    const src = fs.readFileSync(path.join(dir, f), 'utf8');
+    for (let i = 0; i < src.length; i++) {
+      const c = src.codePointAt(i);
+      if ((c < 0x20 && c !== 0x0a && c !== 0x0d && c !== 0x09) || c === 0x2028 || c === 0x2029) {
+        bad.push(`${f} 位移 ${i}：U+${c.toString(16).padStart(4, '0').toUpperCase()}`);
+      }
+    }
+  }
+  if (bad.length) {
+    console.error('❌ 腳本含不可見控制字元，已中止：');
+    bad.slice(0, 10).forEach(x => console.error('   ' + x));
+    process.exit(1);
+  }
+}
+
 const n = Object.keys(flat).length;
 console.log(`✅ ${path.basename(OUT)}（ESM／renderer）已產生（${n} 條字串，語法驗證通過）`);
 console.log(`✅ ${path.basename(CJS_OUT)}（CJS／main process）已產生`);
