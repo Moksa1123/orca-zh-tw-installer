@@ -19,7 +19,9 @@
     "ref:all": "node scripts/extract-reference-locale.js es > .ref-es.json && node scripts/extract-reference-locale.js ja > .ref-ja.json && node scripts/extract-reference-locale.js ko > .ref-ko.json",
     "audit:plural": "npm run ref:all && node scripts/audit-plural-placeholder.js --dir .",
     "show": "node scripts/show-multilang.js",
-    "audit:consistency": "npm run ref:all && node scripts/audit-consistency.js"
+    "audit:consistency": "npm run ref:all && node scripts/audit-consistency.js",
+    "audit:classify": "npm run ref:all && node scripts/audit-consistency-classify.js",
+    "unify:phrasing": "node scripts/unify-phrasing.js"
   },
   "keywords": [
     "orca",
