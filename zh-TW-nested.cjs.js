@@ -1864,7 +1864,7 @@ const zhTW = {
         "17412483da": "準備安裝",
         "47126bcf57": "手動下載",
         "3553a8672f": "最後一個錯誤",
-        "90559b14e3": "這會在重新啟動後啟用整個行程範圍的 Electron 網路開關。適用於拒絕 HTTP/2 更新下載的企業 VPN 或 Agent 伺服器。",
+        "90559b14e3": "這會在重新啟動後啟用整個行程範圍的 Electron 網路開關。適用於拒絕 HTTP/2 更新下載的企業 VPN 或代理伺服器。",
         "6e45bfa2e0": "正在下載…",
         "558842597d": "正在下載更新",
         "f58b5c57a6": "新增：",
@@ -5082,13 +5082,13 @@ const zhTW = {
           "40b29e0bf3": "重新啟動",
           "87a2cb2ac8": "Orca 會在啟動時套用此網路模式。",
           "89958d7edf": "需要重新啟動",
-          "b3ad629640": "僅在企業 VPN 或 Agent 伺服器因 HTTP/2 通訊協定錯誤而中斷更新下載時使用。重新啟動後，它會影響所有 Electron 網路連線。",
+          "b3ad629640": "僅在企業 VPN 或代理伺服器因 HTTP/2 通訊協定錯誤而中斷更新下載時使用。重新啟動後，它會影響所有 Electron 網路連線。",
           "6627e75c92": "說明 HTTP/1.1 相容性",
           "e9506d3377": "HTTP/1.1 相容性",
           "8b7a8df299": "供技術支援疑難排解使用的低階解決方法。",
           "8d8d8ac599": "相容性",
           "network": "網路",
-          "networkDescription": "適用於 Agent 伺服器與企業環境的應用程式層級網路路由。"
+          "networkDescription": "適用於代理伺服器與企業環境的應用程式層級網路路由。"
         },
         "AgentLocationSetting": {
           "92f4238f1a": "WSL 預設",
@@ -5229,7 +5229,7 @@ const zhTW = {
           "statusBarDescription": "選擇要顯示在狀態列中的指示器。",
           "showPinnedWorktreesInGroups": {
             "title": "也在原始清單中顯示已釘選的 Worktree",
-            "description": "已釘選的 Worktree 會保留在「已釘選」中，同時也會出現在「全部」、「專案」、「狀態」與「PR」中。"
+            "description": "已釘選的 Worktree 會保留在「已釘選」中，同時也會出現在「全部」、「專案」、「狀態」與 PR 清單中。"
           }
         },
         "AutoRenameBranchFromWorkSetting": {
@@ -5302,7 +5302,7 @@ const zhTW = {
         "BrowserPane": {
           "81ff774667": "取消",
           "7d4c0a2aa4": "設定檔名稱",
-          "612f7f6861": "建立設定檔失敗",
+          "612f7f6861": "建立設定檔失敗。",
           "8f22b7580d": "已建立設定檔「{{value0}}」。",
           "8481ee0331": "新增瀏覽器設定檔",
           "c0f85056d9": "此 Orca 伺服器上的瀏覽器設定檔。",
@@ -5433,7 +5433,7 @@ const zhTW = {
           "775a4cfbb8": "WSL shell 命令註冊無法使用",
           "c47127f222": "WSL 預設",
           "0c9f3cf9da": "選擇 Orca 檢查並安裝全域 Agent 技能的位置。",
-          "f00d6aa9b5": "此電腦無法使用 WSL。",
+          "f00d6aa9b5": "此機器上無法使用 WSL。",
           "7c776ff9d8": "wsl",
           "fc0fcf72fd": "請先註冊 WSL shell 命令，再進行技能設定。",
           "windowsPathUnknown": "無法檢查 WSL shell 命令的 PATH"
@@ -5447,7 +5447,7 @@ const zhTW = {
           "b125eabffa": "提交後在瀏覽器中開啟建立的託管審查。",
           "7662715213": "建立後開啟託管審查",
           "b27b0809f3": "開啟編輯器時執行一次託管審查詳細資訊產生。",
-          "d5f0de6309": "開啟 Create PR 時產生詳細資訊",
+          "d5f0de6309": "開啟「建立 PR」時產生詳細資訊",
           "6278c0ce43": "未設定描述時，優先使用存放庫的 PR 範本。",
           "d8b6764d79": "可用時使用審查範本",
           "e001734396": "除非在編輯器中變更，否則將託管審查建立為草稿。",
@@ -5540,7 +5540,7 @@ const zhTW = {
           "88b7613afb": "終端機響鈴與 Agent 完成事件的持續窗格醒目提示。",
           "0277901cf7": "在左側邊欄新增 Agent 項目，提供已完成 Agent、待回答的阻塞問題、未讀狀態與 Worktree 建立事件的串接 Worktree 動態。實驗性——事件模型與 UI 可能會變動。",
           "a05bcdaf57": "Agent 檢視",
-          "f63ea281e3": "用於 Agent 完成與阻塞狀態的串接左側邊欄動態。",
+          "f63ea281e3": "顯示 Agent 完成與阻塞狀態的討論串式左側邊欄動態訊息。",
           "agentHibernation": {
             "copy": "在設定的閒置時間後停止閒置的背景 Agent 終端機，並在你再次開啟時還原支援的工作階段。Agent 睡眠會保留由 Orca 啟動的 Agent 的啟動選項。手動啟動的 Agent 可能會以你目前的 Orca 預設值還原。此功能在我們調整安全模型期間仍為實驗性。",
             "description": "在設定的閒置時間後停止閒置的背景 Agent 終端機，並在你再次開啟時還原支援的工作階段。",
@@ -5626,7 +5626,7 @@ const zhTW = {
           "8112cd6dcf": "Orca 在你上次編輯後自動儲存前等待的時間。首次啟動預設為",
           "d6cf227ca0": "自動儲存延遲",
           "1bec6d8318": "Orca 在你上次編輯後自動儲存前等待的時間。",
-          "70bb30feb1": "短暫暫停後自動儲存編輯器與可編輯 diff 的變更。",
+          "70bb30feb1": "短暫暫停後自動儲存編輯器與可編輯差異的變更。",
           "0df2e4fd12": "自動儲存檔案",
           "d21136d9ef": "設定 Orca 如何儲存檔案編輯。",
           "45c6e85c4d": "編輯器",
@@ -5635,23 +5635,23 @@ const zhTW = {
           "bf16ef0af2": "關",
           "3f6892f307": "開",
           "b82f86d7d2": "Rich Markdown 拼字檢查",
-          "5195f0b9ef": "在編輯 rich Markdown 時顯示瀏覽器的拼字底線與建議。",
+          "5195f0b9ef": "在編輯 Rich Markdown 時顯示瀏覽器的拼字底線與建議。",
           "7ddd66fede": "編輯器自動換行",
           "9b18de6eea": "在檔案編輯器中自動換行過長的行，不需水平捲動。"
         },
         "AdvancedNetworkSettingsSection": {
           "3e431564b5": "localhost, 127.0.0.1, *.internal",
           "33ee3ca3af": "選填。以逗號、分號或換行分隔主機。",
-          "f6d76cc8f4": "Agent 伺服器略過規則",
-          "fb7130dcb9": "應略過所設定 HTTP Agent 伺服器的主機。",
+          "f6d76cc8f4": "代理伺服器略過規則",
+          "fb7130dcb9": "應略過所設定 HTTP 代理伺服器的主機。",
           "0adfce9fa7": "支援 http、https、socks、socks4 與 socks5 URL。",
           "476f302aca": "http://proxy.example.com:8080",
-          "1e214e265a": "留空以使用系統 Agent 伺服器設定與繼承的 Agent 環境變數。",
-          "f00daf6324": "HTTP Agent 伺服器",
-          "823e0f15b1": "用於 Orca 網路請求與本機終端機子程式的 Agent 伺服器 URL。",
+          "1e214e265a": "留空以使用系統代理伺服器設定與繼承的代理伺服器環境變數。",
+          "f00daf6324": "HTTP 代理伺服器",
+          "823e0f15b1": "用於 Orca 網路請求與本機終端機子程式的代理伺服器 URL。",
           "d93c7cd531": "設定應用程式層級的網路路由。",
           "c46cdbbd4e": "網路",
-          "configureProxy": "設定 Agent 伺服器"
+          "configureProxy": "設定代理伺服器"
         },
         "GeneralPane": {
           "d58fccfd84": "導覽",
@@ -5982,7 +5982,7 @@ const zhTW = {
           "c7f3fe0a6e": "常用模擬器命令",
           "d94ca6a623": "讓 Agent 能使用 Orca CLI 命令，包括行動裝置模擬器控制。",
           "67e19ee03c": "Orca CLI 技能",
-          "aaf62a3dd2": "安裝於",
+          "aaf62a3dd2": "已安裝於",
           "2fef055608": "註冊 Orca CLI 命令，讓 Agent 可以從其 shell 控制作用中的模擬器。",
           "4f2205f3b6": "啟用 Orca CLI",
           "ff4b7e65d6": "讓程式開發 Agent 使用 Orca CLI 命令控制作用中的行動裝置模擬器。",
@@ -6876,7 +6876,7 @@ const zhTW = {
           "b2ab248ded": "跳板主機",
           "3b01ca44a0": "選填。用於通道連線（例如 Cloudflare Access、ProxyCommand）。",
           "f42d844544": "例如 cloudflared access ssh --hostname %h",
-          "c7d0e18ecb": "Agent 命令",
+          "c7d0e18ecb": "代理伺服器命令",
           "cb91f6375c": "選填。預設使用 SSH agent。",
           "d6a5f2ee5c": "~/.ssh/id_ed25519（留空則使用 SSH agent）",
           "63c0c145c1": "身分檔案",
@@ -6892,7 +6892,7 @@ const zhTW = {
           "29af933cd5": "新增 SSH 目標",
           "f2331ce599": "編輯 SSH 目標",
           "4a342f44c1": "進階連線",
-          "e9609ddca6": "Agent、跳板主機與連線重用",
+          "e9609ddca6": "代理伺服器、跳板主機與連線重用",
           "8c922dffba": "重用 SSH 連線以加快設定",
           "53e9aabfc0": "可用時使用 OpenSSH 多工。若主機有自訂 SSH 限制，請關閉此項。"
         },
@@ -7299,7 +7299,7 @@ const zhTW = {
             "6576fce4d2": "疑難排解",
             "79e0947e95": "支援",
             "4383251647": "VPN",
-            "f98a60af11": "Agent",
+            "f98a60af11": "代理伺服器",
             "65bf6af262": "相容性",
             "621233008b": "http/1.1",
             "f8ff125ebe": "http1",
@@ -7309,7 +7309,7 @@ const zhTW = {
             "4d44352eea": "網路",
             "2b4d26d11e": "網路連線",
             "e04e9db503": "進階",
-            "585f56fae0": "當 HTTP/2 在 Agent 後方失敗時，改用 HTTP/1.1 進行 Electron 網路連線。",
+            "585f56fae0": "當 HTTP/2 在代理伺服器後方失敗時，改用 HTTP/1.1 進行 Electron 網路連線。",
             "11eea3da72": "HTTP/1.1 相容性"
           }
         },
@@ -7505,8 +7505,8 @@ const zhTW = {
               "detailed": "詳細"
             },
             "showPinnedWorktreesInGroups": {
-              "title": "同時在原始清單中顯示已釘選的 Worktree",
-              "description": "已釘選的 Worktree 會保留在「釘選」中，同時也會出現在「全部」、「專案」、「狀態」和 PR 中。"
+              "title": "也在原始清單中顯示已釘選的 Worktree",
+              "description": "已釘選的 Worktree 會保留在「已釘選」中，同時也會出現在「全部」、「專案」、「狀態」與 PR 清單中。"
             },
             "antigravityUsageTitle": "Antigravity 使用量",
             "antigravityUsageDescription": "在狀態列顯示 Antigravity 訂閱使用量。",
@@ -7908,35 +7908,35 @@ const zhTW = {
             "0a02059549": "檔案樹",
             "2f42852568": "樹狀圖",
             "3b5733573e": "diff",
-            "dec71988f0": "開啟合併 diff 檢視時顯示或隱藏檔案樹。",
-            "adec13f2ef": "預設 Diff 檔案樹",
+            "dec71988f0": "開啟合併差異檢視時顯示或隱藏檔案樹。",
+            "adec13f2ef": "預設差異檔案樹",
             "be24c7cd67": "分割",
             "233f7e2f37": "並排",
             "0a5fa65926": "行內",
             "2b463f0bf9": "檢視",
             "ecb9415c80": "預設顯示 git diff 的偏好呈現格式。",
-            "2760c9933f": "預設 Diff 檢視",
+            "2760c9933f": "預設差異檢視",
             "b2799ba622": "毫秒",
             "146728ac2c": "延遲",
             "86f54575c7": "自動儲存",
             "8ea61ad55c": "Orca 在你最後一次編輯後等待多久才自動儲存。",
             "14e46c745b": "自動儲存延遲",
             "4469b6fa4e": "儲存",
-            "e9d948d3c3": "短暫停頓後自動儲存編輯器與可編輯 diff 的變更。",
+            "e9d948d3c3": "短暫暫停後自動儲存編輯器與可編輯差異的變更。",
             "ae21e806ce": "自動儲存檔案",
             "c56cb6f1c2": "網路",
             "3566fce83f": "localhost",
             "91a46caafc": "no_proxy",
             "3a73054565": "繞過",
-            "20b711ac9e": "Agent",
-            "eb8946b2c9": "應繞過所設定 HTTP Agent 的主機。",
-            "8436ff6f8e": "Agent 繞過規則",
+            "20b711ac9e": "代理伺服器",
+            "eb8946b2c9": "應略過所設定 HTTP 代理伺服器的主機。",
+            "8436ff6f8e": "代理伺服器略過規則",
             "e55d62dfa4": "Launchpad",
             "9da6c875e5": "Dock",
             "b9096a44cf": "https_proxy",
             "8f03d44672": "http_proxy",
-            "e3b1d42f95": "供 Orca 網路請求與本機終端機子程式使用的 Agent URL。",
-            "c29f23ab57": "HTTP Agent",
+            "e3b1d42f95": "供 Orca 網路請求與本機終端機子程式使用的代理伺服器 URL。",
+            "c29f23ab57": "HTTP 代理伺服器",
             "6c2ce8457c": "檔案總管",
             "c9d9636f24": "Finder",
             "68d03d9980": "VS Code",
@@ -7971,10 +7971,10 @@ const zhTW = {
             "8e593f04fc": "關閉釘選的分頁前顯示確認對話方塊。",
             "defaultProjectRuntime": "預設專案執行環境",
             "defaultProjectRuntimeDescription": "選擇本機 Windows 專案繼承的執行環境。",
-            "d2d2d929c0": "豐富 Markdown 拼字檢查",
-            "4497e2e2bb": "編輯豐富 Markdown 時顯示瀏覽器的拼字底線與建議。",
+            "d2d2d929c0": "Rich Markdown 拼字檢查",
+            "4497e2e2bb": "在編輯 Rich Markdown 時顯示瀏覽器的拼字底線與建議。",
             "e61157e926": "編輯器自動換行",
-            "005be5c699": "在檔案編輯器中自動換行過長的行，而非需要水平捲動。",
+            "005be5c699": "在檔案編輯器中自動換行過長的行，不需水平捲動。",
             "editorFontFamily": "編輯器字型",
             "editorFontFamilyDesc": "檔案編輯器與 diff 檢視所使用的字型。留空則沿用終端機字型。"
           }
@@ -8433,7 +8433,7 @@ const zhTW = {
             "6469de5368": "專案",
             "3067595d82": "刪除",
             "c86478c3d8": "從 Orca 中刪除該專案。",
-            "c5266c2c9d": "刪除專案",
+            "c5266c2c9d": "移除專案",
             "4b9a18a56d": "單一存放庫",
             "4e2529722c": "目錄",
             "1ff4f12c0c": "目錄",
@@ -9126,7 +9126,7 @@ const zhTW = {
           "loadingWsl": "正在載入 WSL",
           "selectDistro": "選擇發行版",
           "windowsDescription": "對於未覆蓋執行時的專案，在 Windows 上偵測並啟動 Agent。",
-          "wslUnavailable": "此機器上不可用 WSL。",
+          "wslUnavailable": "此機器上無法使用 WSL。",
           "distroRequired": "在專案可繼承 WSL 之前，請選擇一個 WSL 發行版。",
           "wslDescription": "對於未覆蓋執行時的專案，透過 WSL 在 {{value0}} 中偵測並啟動 Agent。"
         },
@@ -9461,7 +9461,7 @@ const zhTW = {
             "7f4489f370": "重新整理",
             "5c88c6db07": "開啟於 {{value0}}",
             "7fad8509fe": "用 AI 修復",
-            "71026ca2cb": "重新整理中…",
+            "71026ca2cb": "正在重新整理…",
             "889cdfba04": "建立 {{value0}}",
             "98f4c37b33": "推送並建立 {{value0}}",
             "b6ce28da5b": "{{value0}} #{{value1}} 已開啟",
@@ -11282,7 +11282,7 @@ const zhTW = {
             "d6b563ae24": "正在載入編輯器…",
             "8b14ba6c17": "新增瀏覽器分頁",
             "b085fb58b5": "這個檔案有未儲存的變更。",
-            "5ddc688c52": "「{{value0}}」有未儲存的變更。你想在關閉前儲存嗎？",
+            "5ddc688c52": "「{{value0}}」有未儲存的變更。要在關閉前儲存嗎？",
             "25d7817f79": "終端機"
           },
           "FloatingTerminalToggleButton": {
@@ -12693,8 +12693,8 @@ const zhTW = {
             "e52a955e6f": "你始終可以在「設定」>「瀏覽器」中找到它。",
             "4f5ffaa6a1": "匯入瀏覽器資料",
             "b24fef25be": "匯入",
-            "02e89014c5": "從 {{value1}}{{value2}} 匯入 {{value0}} cookie。",
-            "d40d584769": "已從檔案匯入 {{value0}} 個 Cookie。"
+            "02e89014c5": "已從 {{value1}}{{value2}} 匯入 {{value0}} 個 cookie。",
+            "d40d584769": "已從檔案匯入 {{value0}} 個 cookie。"
           },
           "BrowserMobileDriverOverlay": {
             "a6914ee43f": "收回",
@@ -12790,8 +12790,8 @@ const zhTW = {
           },
           "BrowserToolbarMenu": {
             "429ef481f9": "取消",
-            "64f448fb6e": "個人資料名稱",
-            "67e9b9fcd6": "新的瀏覽器設定檔",
+            "64f448fb6e": "設定檔名稱",
+            "67e9b9fcd6": "新增瀏覽器設定檔",
             "58f2c81542": "切換",
             "a38f217b46": "切換設定檔將重新載入此頁面。任何未儲存的表單資料都將丟失。",
             "fe683eb3b4": "開關設定檔",
@@ -12803,15 +12803,15 @@ const zhTW = {
             "2293adf620": "匯入 Cookie",
             "cf7cdc67ef": "新檔案…",
             "7b838540c7": "瀏覽器選單",
-            "6aa42813e4": "從 {{value1}}{{value2}} 匯入 {{value0}} cookie。",
+            "6aa42813e4": "已從 {{value1}}{{value2}} 匯入 {{value0}} 個 cookie。",
             "a7a86702b3": "建立並切換到 {{value0}} 設定檔",
-            "4d2f9f13a7": "建立個人資料失敗。",
+            "4d2f9f13a7": "建立設定檔失敗。",
             "3ccd29d771": "切換到 {{value0}} 設定檔",
             "569bce8eb1": "建立",
             "bf648471c5": "建立中…",
-            "53bbe3dab4": "已從檔案匯入 {{value0}} 個 Cookie。",
-            "c5f0e4d3b2a1": "已從 {{value1}} ({{value2}}) 匯入 {{value0}} 個 Cookie。",
-            "d6a1f5e4c3b2": "已從 {{value1}} 匯入 {{value0}} 個 Cookie。"
+            "53bbe3dab4": "已從檔案匯入 {{value0}} 個 cookie。",
+            "c5f0e4d3b2a1": "已從 {{value1}}（{{value2}}）匯入 {{value0}} 個 cookie。",
+            "d6a1f5e4c3b2": "已從 {{value1}} 匯入 {{value0}} 個 cookie。"
           },
           "GrabConfirmationSheet": {
             "314a0aaa5b": "附加到 AI",
@@ -13031,7 +13031,7 @@ const zhTW = {
           "a21f6c33ad": "自動化來源已重新整理。",
           "53f06f0ad5": "重試來源",
           "pendingAutomationMissing": "自動化已不再可用。",
-          "pendingAutomationRunMissing": "執行歷史已不可用。"
+          "pendingAutomationRunMissing": "執行紀錄已不再可用。"
         },
         "CreateFromPicker": {
           "f061f49e3f": "搜尋存放庫分支…",
@@ -13039,7 +13039,7 @@ const zhTW = {
           "ef6d762538": "專案預設",
           "e53d306056": "{{value0}}（預設）",
           "79512f22a7": "沒有找到分支。",
-          "9ce96621f4": "搜尋分支…"
+          "9ce96621f4": "正在搜尋分支…"
         },
         "ExternalAutomationManagers": {
           "e02f970595": "未找到外部自動化經理。",
@@ -13152,7 +13152,7 @@ const zhTW = {
           "986f946354": "空白 CLI",
           "579c768bde": "沒有 Agent 符合你的搜尋。",
           "48c6a5a9b4": "搜尋 Agent…",
-          "9c6b59fe58": "設定為預設值",
+          "9c6b59fe58": "設為預設",
           "1b0d6965fa": "目前預設值"
         },
         "AgentSettingsDialog": {
@@ -13833,7 +13833,7 @@ const zhTW = {
   },
   "dashboard": {
     "sidebar": {
-      "label": "Agent Dashboard"
+      "label": "Agent 儀表板"
     }
   }
 };
