@@ -71,7 +71,19 @@ if (files.includes(esmPath)) {
     const obj = JSON.parse(esm.trim().replace(/^export default\s*/, '').replace(/;$/, ''));
     let n = 0;
     (function w(o) { for (const k in o) typeof o[k] === 'string' ? n++ : w(o[k]); })(obj);
-    check(`ESM 字串數 = 11020（實際 ${n}）`, n === 11020);
+    // 期望值不可寫死。原本寫 11020，字典成長到 11157 之後這項就一直誤報失敗，
+    // 而已安裝的字典其實完全正確。改為從來源 JSON 推算，字典再增減都不會失效。
+    // 找不到來源 JSON（只裝了 npm 套件、沒有專案）時就只回報數量，不判定成敗。
+    let expected = null;
+    try {
+      const srcJson = path.join(__dirname, '..', 'orca_zh_TW_translation.json');
+      expected = Object.keys(JSON.parse(fs.readFileSync(srcJson, 'utf8'))).length;
+    } catch { /* 沒有來源檔，跳過比對 */ }
+    if (expected === null) {
+      console.log(`  ℹ️ ESM 字串數 = ${n}（找不到來源 JSON，略過比對）`);
+    } else {
+      check(`ESM 字串數 = ${n}（來源 ${expected}）`, n === expected);
+    }
     check('抽樣：menu.openWorktreePalette = 「開啟 Worktree 面板」',
       obj.menu && obj.menu.openWorktreePalette === '開啟 Worktree 面板');
     check('抽樣：無「儲存函式程式庫」殘留', !esm.includes('儲存函式程式庫'));
