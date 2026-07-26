@@ -13874,5 +13874,154 @@ export default {
     "divider": "分隔線",
     "paste": "貼上",
     "pasteAsPlainText": "貼上為純文字"
+  },
+  "keybindingGroup": {
+    "global": "全域",
+    "tabs": "分頁",
+    "tabNavigation": "分頁導覽",
+    "quickCommands": "快速命令",
+    "browser": "瀏覽器",
+    "editors": "編輯器",
+    "fileExplorer": "檔案總管",
+    "settings": "設定",
+    "terminalPanes": "終端機窗格",
+    "agents": "Agent"
+  },
+  "keybinding": {
+    "worktree": {
+      "quickOpen": "前往檔案",
+      "palette": "切換 Worktree",
+      "navigateUp": "上一個 Worktree",
+      "navigateDown": "下一個 Worktree",
+      "history": {
+        "back": "Worktree 歷程返回",
+        "forward": "Worktree 歷程前進"
+      }
+    },
+    "app": {
+      "settings": "開啟設定",
+      "forceReload": "強制重新載入"
+    },
+    "workspace": {
+      "create": "建立 Worktree",
+      "rename": "重新命名 Worktree",
+      "delete": "刪除工作區",
+      "openBoard": "開啟工作區看板",
+      "selectByIndex": "選擇工作區 1–9"
+    },
+    "voice": {
+      "dictation": "語音聽寫"
+    },
+    "view": {
+      "tasks": "開啟任務"
+    },
+    "sidebar": {
+      "left": {
+        "toggle": "切換側邊欄"
+      },
+      "right": {
+        "toggle": "切換右側邊欄"
+      },
+      "explorer": {
+        "toggle": "顯示檔案總管"
+      },
+      "search": {
+        "toggle": "顯示搜尋"
+      },
+      "sourceControl": {
+        "toggle": "顯示原始碼控制"
+      },
+      "checks": {
+        "toggle": "顯示檢查"
+      },
+      "ports": {
+        "toggle": "顯示連接埠"
+      },
+      "sleepingWorkspaces": {
+        "toggle": "切換睡眠中的工作區"
+      },
+      "focusWorktreeList": "聚焦 Worktree 清單"
+    },
+    "floatingTerminal": {
+      "toggle": "切換浮動終端機"
+    },
+    "floatingWorkspace": {
+      "maximize": "最大化浮動工作區面板",
+      "minimize": "最小化浮動工作區面板"
+    },
+    "zoom": {
+      "in": "放大",
+      "out": "縮小",
+      "reset": "重設大小"
+    },
+    "sourceControl": {
+      "sendReviewNotes": "將審查筆記傳送給 Agent"
+    },
+    "tab": {
+      "newTerminal": "新增終端機分頁",
+      "newAgent": "新增 Agent 分頁（預設 Agent）",
+      "newBrowser": "新增瀏覽器分頁",
+      "newSimulator": "新增行動裝置模擬器分頁",
+      "newMarkdown": "新增 Markdown 分頁",
+      "openMarkdown": "開啟 Markdown 分頁",
+      "close": "關閉使用中的分頁",
+      "closeAll": "關閉所有編輯器分頁",
+      "rename": "重新命名使用中的分頁",
+      "reopenClosed": "重新開啟已關閉的分頁",
+      "nextSameType": "下一個分頁（同類型）",
+      "previousSameType": "上一個分頁（同類型）",
+      "nextAllTypes": "下一個分頁（所有類型）",
+      "previousAllTypes": "上一個分頁（所有類型）",
+      "previousRecent": "上一個最近使用的分頁",
+      "nextTerminal": "下一個終端機分頁",
+      "previousTerminal": "上一個終端機分頁",
+      "selectByIndex": "選擇分頁 1–9",
+      "openQuickCommandsMenu": "切換快速命令選單"
+    },
+    "browser": {
+      "find": "在瀏覽器中尋找",
+      "back": "在瀏覽器中返回",
+      "forward": "在瀏覽器中前進",
+      "reload": "重新載入瀏覽器頁面",
+      "hardReload": "強制重新載入瀏覽器頁面",
+      "focusAddressBar": "聚焦瀏覽器網址列",
+      "grabElement": "擷取頁面元素"
+    },
+    "editor": {
+      "find": "在編輯器中尋找",
+      "replace": "在編輯器中取代",
+      "save": "儲存檔案",
+      "markdownPreview": "顯示 Markdown 預覽",
+      "copyContext": "複製上下文",
+      "previousChange": "前往上一個變更",
+      "nextChange": "前往下一個變更",
+      "addReviewNote": "新增審查筆記"
+    },
+    "fileExplorer": {
+      "undo": "復原檔案操作",
+      "redo": "重做檔案操作",
+      "copyPath": "複製檔案路徑",
+      "copyRelativePath": "複製相對檔案路徑",
+      "delete": "刪除檔案"
+    },
+    "settings": {
+      "search": "搜尋設定"
+    },
+    "terminal": {
+      "copySelection": "複製終端機選取內容",
+      "paste": "貼上到終端機",
+      "search": "搜尋使用中的窗格",
+      "clear": "清除使用中的窗格",
+      "focusNextPane": "聚焦下一個窗格",
+      "focusPreviousPane": "聚焦上一個窗格",
+      "equalizePaneSizes": "平均分配窗格大小",
+      "expandPane": "展開／摺疊窗格",
+      "setTitle": "設定標題…",
+      "clearPaneTitle": "清除窗格標題",
+      "closePane": "關閉使用中的窗格",
+      "splitRight": "向右分割終端機",
+      "splitDown": "向下分割終端機",
+      "switchInputSource": "切換輸入來源／語言（原生）"
+    }
   }
 };

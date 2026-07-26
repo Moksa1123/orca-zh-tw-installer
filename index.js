@@ -166,6 +166,37 @@ const MENU_PASTE_ITEMS = { 'Paste': 'paste', 'Paste as plain text': 'pasteAsPlai
 
 const t = (key, en) => `translateMain("nativeMenu.${key}", ${JSON.stringify(en)})`;
 
+// ── 快速鍵名稱本地化 ───────────────────────────────────────────────────
+// 「設定 → 快速鍵」列出的 85 個命令名稱與 9 個群組標題，都是寫死在
+// KEYBINDING_DEFINITIONS 陣列裡的英文字面值，沒有對應的語系鍵。
+//
+// 改成 getter 而不是直接呼叫 translate()：這個陣列在模組載入時就求值，
+// 那時 i18n 還沒載入 zh-TW 資源，直接呼叫只會拿到英文 fallback 並永久固定。
+// getter 是讀取時才求值，所以拿得到翻譯。展開（{...definition}）也會
+// 觸發 getter 並複製出字串，不影響既有邏輯。
+const KEYBINDING_GROUP_SLUGS = {
+  'Global': 'global', 'Tabs': 'tabs', 'Tab Navigation': 'tabNavigation',
+  'Quick Commands': 'quickCommands', 'Browser': 'browser', 'Editors': 'editors',
+  'File Explorer': 'fileExplorer', 'Settings': 'settings', 'Terminal Panes': 'terminalPanes',
+  'Agents': 'agents',
+};
+
+function patchKeybindingTitles(p, translateFn) {
+  p.patch('快速鍵名稱與群組改走 i18n',
+    c => c.includes('keybindingGroup.'),
+    // id 緊接 title、group、scope 是 keybinding 定義獨有的形狀。
+    // 不能只比對 group:"…"——built-in／imported 等其他結構也有 group 欄位。
+    /id: "([^"]+)",(\s*)title: "([^"]+)",(\s*)group: "([^"]+)",(\s*)scope:/g,
+    (m, id, s1, title, s2, group, s3) => {
+      const slug = KEYBINDING_GROUP_SLUGS[group];
+      if (!slug) return m;   // 未知群組就整段不動，寧可留英文也不要改壞
+      const tTitle = `${translateFn}("keybinding.${id}", ${JSON.stringify(title)})`;
+      const tGroup = `${translateFn}("keybindingGroup.${slug}", ${JSON.stringify(group)})`;
+      return `id: ${JSON.stringify(id)},${s1}get title() { return ${tTitle}; },`
+        + `${s2}get group() { return ${tGroup}; },${s3}scope:`;
+    });
+}
+
 function patchNativeMenus(p) {
   p.patch('原生選單：為無 label 的 role 注入譯文',
     c => c.includes('nativeMenu.selectAll'),
@@ -287,6 +318,9 @@ async function patch() {
       /ko: \(\) => __vitePreload\(\(\) => import\("\.\/ko-[a-zA-Z0-9_-]+\.js"\), [^,]+, import\.meta\.url\),/,
       '$& \n  "zh-TW": () => __vitePreload(() => import("./zh-TW-nested.js"), true ? [] : void 0, import.meta.url),');
     patchLocaleGate(rp);
+    // 「設定 → 快速鍵」顯示的是 renderer 這份定義，所以只改這裡。
+    // main process 也有一份，但那份不用於顯示，動它只增加風險。
+    patchKeybindingTitles(rp, 'translate');
     rp.save();
 
     console.log('📂 4/6 正在植入繁體中文字典 (ESM + CJS 兩種格式)...');
