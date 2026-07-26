@@ -28,6 +28,9 @@ if (!fs.existsSync(refPath)) {
   process.exit(1);
 }
 const es = JSON.parse(fs.readFileSync(refPath, 'utf8'));
+// 西文常把兩個英文詞合併（Inicio＝Start/Home），只看西文會把正確譯法報成不一致。
+// 日文分得較細，要求兩者都相同才算同一句原文。詳見 audit-consistency-classify.js。
+const ja = JSON.parse(fs.readFileSync(path.join(DIR, '.ref-ja.json'), 'utf8'));
 const zh = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'orca_zh_TW_translation.json'), 'utf8'));
 
 const groups = new Map();
@@ -35,8 +38,9 @@ for (const [k, v] of Object.entries(zh)) {
   if (typeof v !== 'string' || typeof es[k] !== 'string') continue;
   if (PREFIX && !k.includes(PREFIX)) continue;
   if (!es[k].trim()) continue;
-  if (!groups.has(es[k])) groups.set(es[k], new Map());
-  const m = groups.get(es[k]);
+  const sig = `${es[k]} ${ja[k] ?? ''}`;
+  if (!groups.has(sig)) groups.set(sig, new Map());
+  const m = groups.get(sig);
   m.set(v, (m.get(v) || 0) + 1);
 }
 

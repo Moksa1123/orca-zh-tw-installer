@@ -3661,9 +3661,9 @@ const zhTW = {
       },
       "sparse": {
         "SparseCheckoutPresetSelect": {
-          "c4ac80151d": "新預設",
+          "c4ac80151d": "新增預設",
           "7c3275d307": "編輯 {{value0}}",
-          "c7f9b3f0c1": "關閉",
+          "c7f9b3f0c1": "關",
           "8b12c0850a": "儲存",
           "de8fce5854": "取消",
           "ddbcaef7be": "src/renderer packages/ui",
@@ -3711,7 +3711,7 @@ const zhTW = {
           "ab5b777350": "已檢查本機家目錄、存放庫、內建與外掛技能資料夾。",
           "08a321a984": "調整搜尋或篩選條件。",
           "4acd6d68ec": "找不到本機技能",
-          "6a62a0168c": "沒有相符專案",
+          "6a62a0168c": "沒有符合項",
           "cd7893fbc1": "正在掃描技能",
           "35b9a724a0": "可用",
           "0c74e7ff34": "本機"
@@ -3755,7 +3755,7 @@ const zhTW = {
           "skippedReasonDuplicate": "這是獨立的副本，更新不會套用到它——該命令只會重新整理主要副本。請移除這份副本，然後重新安裝技能，這個位置才會跟隨主要副本。"
         },
         "SkillFreshnessUpdateDialog": {
-          "title": "更新 skill",
+          "title": "更新技能",
           "checking": "正在檢查已安裝的 Orca skill…",
           "none": "找不到已安裝的 Orca skill。",
           "updateOne": "可安全更新 1 個 skill",
@@ -3869,7 +3869,7 @@ const zhTW = {
           "44637f43bd": "SSH 目標",
           "80557be85a": "選擇一個已連線的 SSH 目標，並輸入 Git 存放庫的路徑。",
           "91b93a90a4": "在 SSH 主機上開啟專案",
-          "007651bdf9": "瀏覽至某個目錄，然後按一下「選擇」以選取它。",
+          "007651bdf9": "瀏覽到某個目錄，然後按一下「選擇」來選定它。",
           "dd3ff65486": "瀏覽遠端檔案系統",
           "36d427bb66": "在 SSH 主機上新增專案",
           "35831a7312": "新增中…",
@@ -3947,7 +3947,7 @@ const zhTW = {
         "DeleteWorktreeDialog": {
           "ff2a74ac0e": "和",
           "91492c9ad6": "移除",
-          "4f6750ca7b": "刪除工作區失敗",
+          "4f6750ca7b": "無法刪除工作區",
           "42e610d6cf": "強制刪除失敗",
           "5cc1a6701c": "開啟設定",
           "2b56b35f53": "你可以在「設定」中變更此項。",
@@ -4112,12 +4112,12 @@ const zhTW = {
           "139877b384": "全選",
           "5f7085a077": "專案",
           "e5cb32a898": "隱藏預設分支",
-          "638a2d221d": "隱藏休眠中",
+          "638a2d221d": "隱藏休眠項",
           "f506a1262a": "篩選工作區",
           "75405270ed": "編輯篩選條件（已啟用 {{value0}} 個）",
           "489d1c8c9f": "搜尋專案…",
           "ee240a39eb": "編輯篩選條件",
-          "automationCreated": "隱藏自動化建立的"
+          "automationCreated": "隱藏自動化建立的項目"
         },
         "SidebarHeader": {
           "25a95899c9": "新增專案",
@@ -4180,7 +4180,7 @@ const zhTW = {
           "c3fa13dc2e": "隱藏預設分支",
           "ed1611b65b": "隱藏休眠項",
           "82594419ba": "篩選",
-          "automationCreated": "隱藏自動化建立的專案"
+          "automationCreated": "隱藏自動化建立的項目"
         },
         "sidebarHostOptions": {
           "3e102f111c": "所有主機",
@@ -4852,7 +4852,7 @@ const zhTW = {
           "serverDescription": "與另一臺電腦上執行的 Orca 配對。",
           "sshDescription": "新增一臺可透過 SSH 登入並持久儲存的機器。",
           "cancel": "取消",
-          "saving": "正在儲存…",
+          "saving": "儲存中…",
           "save": "儲存",
           "label": "標籤",
           "sshLabelPlaceholder": "開發機",
@@ -5128,7 +5128,7 @@ const zhTW = {
           "385212c7a1": "預設 Agent",
           "f9f127d664": "覆寫二進位檔的路徑或名稱，並編輯此 Agent 的預設啟動引數或環境。",
           "f95b5c79b8": "安裝",
-          "fe4d630c94": "檔案",
+          "fe4d630c94": "文件",
           "8dc0192e48": "已停用",
           "df123171d1": "未安裝",
           "c8794e622e": "已偵測",
@@ -5413,7 +5413,7 @@ const zhTW = {
           "9a5f8a4568": "移除",
           "b0fca411a0": "註冊中…",
           "4c7e3e4c5f": "安裝",
-          "068552b191": "移除中…",
+          "068552b191": "正在刪除…",
           "8d96213669": "移除",
           "aa6536977e": "Orca 會註冊 {{value0}}，讓該命令可以在你的終端機執行。",
           "a030816e3e": "這會移除 shell 命令的符號連結。Orca 本身仍保持安裝。",
@@ -5632,8 +5632,8 @@ const zhTW = {
           "45c6e85c4d": "編輯器",
           "8f1afdfbd8": "Diff 自動換行",
           "4aa4d9fb73": "在 diff 編輯器中自動換行過長的行，不需水平捲動。",
-          "bf16ef0af2": "關閉",
-          "3f6892f307": "開啟",
+          "bf16ef0af2": "關",
+          "3f6892f307": "開",
           "b82f86d7d2": "Rich Markdown 拼字檢查",
           "5195f0b9ef": "在編輯 rich Markdown 時顯示瀏覽器的拼字底線與建議。",
           "7ddd66fede": "編輯器自動換行",
@@ -6432,8 +6432,8 @@ const zhTW = {
           "f9941f0caf": "例如 ollama run llama3.1 {prompt}"
         },
         "RepositorySourceControlAiEnablement": {
-          "84233d1bb3": "關閉",
-          "bea897eec2": "開啟",
+          "84233d1bb3": "關",
+          "bea897eec2": "開",
           "62511a575d": "使用全域設定",
           "30ae6dcce8": "全域預設為",
           "cf5959c834": "已啟用原始碼控制 AI",
@@ -6443,8 +6443,8 @@ const zhTW = {
           "visibilityHelper": "控制是否為此存放庫顯示原始碼控制 AI 按鈕。個別功能使用的產生會依照那些功能各自的設定。全域預設為 {{value0}}。"
         },
         "RepositorySourceControlAiHostedReviewDefaults": {
-          "053ccfbf52": "關閉",
-          "777443bf89": "開啟",
+          "053ccfbf52": "關",
+          "777443bf89": "開",
           "ffc3b26b26": "使用全域設定",
           "a68849a859": "全域預設為",
           "aa6ee4b7d6": "託管審查建立預設值",
@@ -6963,7 +6963,7 @@ const zhTW = {
           "4263e940e0": "按 JIS 日圓（¥）鍵時會改為送出反斜線（\\\\）。",
           "19f4935159": "JIS 日圓（¥）轉反斜線（\\\\）",
           "1c337bef4a": "控制按 JIS 日圓（¥）鍵時是否改為送出反斜線（\\\\）。",
-          "3fe1c5bfe0": "關閉",
+          "3fe1c5bfe0": "關",
           "c73d510938": "右",
           "e7aec1fd60": "左",
           "badb1219fc": "兩者",
@@ -7226,7 +7226,7 @@ const zhTW = {
           "f951f85196": "移除",
           "4c4a9178a3": "註冊中…",
           "41a1480d3e": "安裝",
-          "4598b18464": "移除中…",
+          "4598b18464": "刪除中…",
           "7c3bb36706": "移除",
           "7ee4e52b99": "Orca 會註冊 {{value0}}，讓該命令能從 WSL 終端機使用。",
           "d8216eb22e": "這會移除 WSL shell 命令。Orca 本身仍安裝在 Windows 上。",
@@ -9043,7 +9043,7 @@ const zhTW = {
           "modeLabel": "Fork 同步模式",
           "ask": "詢問",
           "safeAuto": "安全自動",
-          "off": "關閉"
+          "off": "關"
         },
         "DefaultWindowsProjectRuntimeSetting": {
           "defaultRuntime": "預設專案執行時",
@@ -9320,7 +9320,7 @@ const zhTW = {
           "connecting": "連線中",
           "available": "可用",
           "reconnecting": "正在重新連線",
-          "unavailable": "不可用",
+          "unavailable": "無法使用",
           "pathGroup": "手機存取此電腦的方式",
           "anywhereTitle": "Orca Relay",
           "anywhereDescription": "手機可透過蜂窩網路或任意 Wi‑Fi 連線。需要登入。",
@@ -9786,7 +9786,7 @@ const zhTW = {
             "c35baf2f1e": "搜尋檔案…",
             "2fe2a67580": "更多筆記動作",
             "eae2d051af": "複製所有筆記",
-            "cc474e0b8c": "筆記",
+            "cc474e0b8c": "備註",
             "e131cd7128": "原始碼控制僅適用於 Git 存放庫",
             "c07b236287": "選擇一個工作區以檢視變更",
             "dc5a6465fc": "{{value0}}（例如 {{value1}}{{value2}}）",
@@ -10889,7 +10889,7 @@ const zhTW = {
           "6558d50c69": "想要一次匯入多個存放庫？選擇父資料夾。",
           "831524961f": "選擇任何本機目錄，無論是否為 git 存放庫。",
           "f4e9c8dcf8": "瀏覽資料夾",
-          "e8214aa632": "作為資料夾開啟",
+          "e8214aa632": "以資料夾開啟",
           "3863747c56": "新增 Git 專案",
           "2ebbc26343": "/home/user/project",
           "466108ab89": "輸入執行時伺服器上存在的路徑。",
@@ -11019,7 +11019,7 @@ const zhTW = {
             "placeholderSmartGitLabLinear": "輸入名稱、#1234、GitHub/GitLab 或 Linear URL",
             "placeholderSmartWithBranchGitLab": "輸入名稱、#1234、分支、GitHub 或 GitLab URL",
             "placeholderSmartGitLab": "輸入名稱、#1234、GitHub 或 GitLab URL",
-            "unavailable": "不可用",
+            "unavailable": "無法使用",
             "searchGitHub": "搜尋 GitHub PR 和 Issue",
             "searchGitLab": "搜尋 GitLab MR 和 Issue",
             "searchBranches": "搜尋分支",
@@ -11133,7 +11133,7 @@ const zhTW = {
             "a7d9e2c44d": "7 天",
             "a3d5476811": "5 小時",
             "8a350a4784": "帳號使用情況",
-            "e27fdaee51": "新工作區",
+            "e27fdaee51": "新增工作區",
             "4405f3c440": "配對桌面",
             "0b00c98506": "快速操作",
             "0bad5b07c8": "GitHub 和 Linear",
@@ -12749,7 +12749,7 @@ const zhTW = {
             "d2a7092e6e": "註解留言",
             "b472c5fe03": "新增瀏覽器註解",
             "b5ba6085de": "疑問",
-            "143204e423": "改變",
+            "143204e423": "變更",
             "e7ca5a098c": "成功",
             "d51ef37351": "複製",
             "6f4ab3592b": "已複製",
@@ -12792,7 +12792,7 @@ const zhTW = {
             "429ef481f9": "取消",
             "64f448fb6e": "個人資料名稱",
             "67e9b9fcd6": "新的瀏覽器設定檔",
-            "58f2c81542": "轉變",
+            "58f2c81542": "切換",
             "a38f217b46": "切換設定檔將重新載入此頁面。任何未儲存的表單資料都將丟失。",
             "fe683eb3b4": "開關設定檔",
             "a771c2b6c8": "瀏覽器設定…",
@@ -12871,7 +12871,7 @@ const zhTW = {
           "de0fedac06": "每次執行新的",
           "51a470b966": "SSH",
           "b09b2384fd": "已暫停",
-          "eaa02014f8": "啟用",
+          "eaa02014f8": "已啟用",
           "29baf8f4c2": "來源"
         },
         "AutomationEditorDialog": {
@@ -13001,7 +13001,7 @@ const zhTW = {
           "a1bdb57008": "自動化執行排隊。",
           "8a3226f172": "開啟設定",
           "d2a01b0b6f": "你可以在「設定」中變更此設定。",
-          "690b94da54": "下次我們將跳過此確認。",
+          "690b94da54": "下次我們會略過此確認。",
           "b11170a008": "無法儲存自動化。",
           "2a20596d6b": "自動化已儲存。",
           "244727e655": "自動化已更新。",
@@ -13030,7 +13030,7 @@ const zhTW = {
           "5918020edc": "執行",
           "a21f6c33ad": "自動化來源已重新整理。",
           "53f06f0ad5": "重試來源",
-          "pendingAutomationMissing": "自動化已不可用。",
+          "pendingAutomationMissing": "自動化已不再可用。",
           "pendingAutomationRunMissing": "執行歷史已不可用。"
         },
         "CreateFromPicker": {
@@ -13292,7 +13292,7 @@ const zhTW = {
             "passing": "通過",
             "draftOrNoChecks": "草稿 / 無檢查",
             "noPr": "無 PR",
-            "unavailable": "不可用"
+            "unavailable": "無法使用"
           }
         }
       },
@@ -13671,7 +13671,7 @@ const zhTW = {
         "model": "模型",
         "effort": "推理強度",
         "fastMode": "快速模式",
-        "thinking": "思考",
+        "thinking": "推理",
         "options": "選項",
         "sessionOptions": "工作階段選項",
         "chooseInAgentPicker": "在 Agent 選擇器中選擇…",
