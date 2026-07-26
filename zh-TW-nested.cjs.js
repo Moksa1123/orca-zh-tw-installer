@@ -2018,7 +2018,7 @@ const zhTW = {
             "9cb1a0c984": "新增文字",
             "2e26a06c70": "新增標籤",
             "36341ffc66": "指派",
-            "e369bf4fec": "選擇",
+            "e369bf4fec": "選取",
             "ffeff79861": "PULL_REQUEST"
           },
           "ProjectGroupHeader": {
@@ -2193,7 +2193,7 @@ const zhTW = {
                 "34973d4695": "GitHub API 額度無法使用。",
                 "d12d3d6f33": "重新整理 GitHub API 額度",
                 "d5e5de9070": "Orca 透過 GitHub CLI 使用 REST、搜尋和 GraphQL。",
-                "58c5f88216": "GitHub API 額度",
+                "58c5f88216": "GitHub API 預算",
                 "6da1858354": "剩餘 · 重設於",
                 "f42790d150": "/",
                 "01f7323e58": "GraphQL API",
@@ -2288,7 +2288,7 @@ const zhTW = {
               "3be47aed6f": "優先順序",
               "f5ef24cf46": "健康度",
               "9ddb58edbd": "狀態",
-              "0a6a5a7dd6": "最新更新",
+              "0a6a5a7dd6": "最後更新",
               "c8db98b73b": "資源",
               "bb1405eff8": "里程碑",
               "5d99315fb8": "規劃",
@@ -2752,11 +2752,11 @@ const zhTW = {
             "disconnected": "此終端機正在等待 {{value0}}。請連線以繼續此 SSH 工作階段。",
             "connectFailed": "SSH 連線錯誤",
             "title": "需要 SSH 連線",
-            "connectingButton": "連線中…",
+            "connectingButton": "正在連線…",
             "connectButton": "連線",
             "removedTitle": "SSH 主機已移除",
             "removedBody": "此工作區的 SSH 主機已被移除，因此無法再連線。請移除工作區以清除它 — 遠端檔案不會受到影響。",
-            "removeWorkspaceButton": "移除工作區"
+            "removeWorkspaceButton": "刪除工作區"
           },
           "TerminalRemoteRuntimeReconnectBanner": {
             "retryingTitle": "正在重新連線至遠端執行環境",
@@ -4409,7 +4409,7 @@ const zhTW = {
           "8dacff1fe0": "標記為已讀",
           "3baa7d6507": "釘選",
           "697d0f6e1b": "取消釘選",
-          "250de158fd": "移除工作區",
+          "250de158fd": "刪除工作區",
           "changeParentWorkspace": "變更上層 Worktree…",
           "setParentWorkspace": "設定上層 Worktree…",
           "workspaceSection": "工作區",
@@ -4638,7 +4638,7 @@ const zhTW = {
             "cb387159f6": "進行中",
             "6c1efa2cf8": "審查中",
             "6b8285b8dd": "完成",
-            "93ac840dcb": "已阻擋",
+            "93ac840dcb": "已封鎖",
             "2c19d1db33": "播放",
             "111db162bf": "已暫停",
             "642da473f2": "警示",
@@ -5280,7 +5280,7 @@ const zhTW = {
           "ade9a5bb03": ") 以限定結果範圍。",
           "b468f46726": "upstream/main",
           "80f7c82303": ") 或完整的 ref (例如",
-          "915ad97875": "upstream",
+          "915ad97875": "上游",
           "a5c16712c1": "偵測到多個遠端。輸入遠端名稱（例如",
           "9a14ec7400": "在下方選擇基礎分支",
           "086ce7f369": "正在跟隨主分支（{{value0}}）",
@@ -6014,7 +6014,7 @@ const zhTW = {
           "6593c9ddd3": "行動裝置模擬器",
           "a4f1c82d90": "已停用",
           "b5e2d93e01": "檢查中…",
-          "c6f3ea4f12": "已就緒",
+          "c6f3ea4f12": "就緒",
           "d704fb5023": "需要設定",
           "06b06429c6": "正在檢查 Android SDK 與 iOS 模擬器支援。",
           "6d1483d4a0": "偵測到 1 個模擬器裝置。",
@@ -6950,7 +6950,7 @@ const zhTW = {
           "4415beb958": "已停用",
           "4e7d41a9f0": "已啟用",
           "e90afcc44f": "關閉",
-          "16c471ee03": "開啟",
+          "16c471ee03": "開",
           "typographyAdvanced": "排版",
           "dimUnfocusedPanes": "將未焦點的窗格變暗。"
         },
@@ -8180,7 +8180,7 @@ const zhTW = {
               "fadcbfdd99": "符合",
               "ad08035c5f": "手機",
               "6cd2bfdb0e": "還原",
-              "b34ad5b3a7": "CLI",
+              "b34ad5b3a7": "終端機",
               "6db86f445f": "行動裝置",
               "707fc78052": "選擇關閉應用程式或切換離開後，你在手機裝置上檢視的 CLI 會發生什麼情況。",
               "1e711aca11": "當你離開手機應用程式時",
@@ -8262,7 +8262,7 @@ const zhTW = {
             "96562a72c6": "專注時抑制",
             "a2ab73b325": "注意力",
             "ae0487f8fd": "鈴聲",
-            "c638ae989d": "CLI",
+            "c638ae989d": "終端機",
             "d3f1c48677": "當後臺 CLI 發出響鈴字元時發出通知。",
             "a5edee1d99": "CLI 響鈴",
             "193e1f107c": "任務",
@@ -8345,7 +8345,7 @@ const zhTW = {
               "8bf43c2dad": "全域",
               "a26ecdb77b": "片段",
               "d07d130849": "捷徑",
-              "0073cf8ce9": "CLI",
+              "0073cf8ce9": "終端機",
               "cfffa6cdb6": "命令",
               "fecb031823": "命令",
               "236d4cfac8": "快的",
@@ -8503,7 +8503,7 @@ const zhTW = {
             "0f8cb15582": "Agent",
             "f1adebbe8c": "Shell",
             "7f1b38f59a": "推送",
-            "7e3fc707aa": "CLI",
+            "7e3fc707aa": "終端機",
             "0ecba9aa5f": "鍵盤",
             "ebd7d81e1d": "選擇當快速鍵重疊時 Orca 或焦點 CLI 是否獲勝。",
             "f052906167": "CLI 中的快速鍵"
@@ -8624,7 +8624,7 @@ const zhTW = {
             "d4daf4f612": "解除凍結",
             "88561b3499": "凍結",
             "0a05629060": "還原",
-            "f66a7cf715": "CLI",
+            "f66a7cf715": "終端機",
             "6892fb1019": "重新啟動",
             "cde233f5da": "還原",
             "3982d88725": "歷史",
@@ -8777,7 +8777,7 @@ const zhTW = {
               "fcfa53920b": "貼上",
               "e55186fe2b": "右鍵按一下",
               "28ff08ed35": "Windows",
-              "e7d2793b03": "CLI",
+              "e7d2793b03": "終端機",
               "8ba875c132": "右鍵按一下將剪貼簿貼上到 CLI 中。使用 Ctrl+右鍵按一下開啟快顯選單。",
               "f0b8448570": "右鍵按一下貼上",
               "04994f6929": "預設",
@@ -9141,7 +9141,7 @@ const zhTW = {
           "18925b082d": "定位 SDK 資料夾",
           "8c52684db8": "清除",
           "76eb88b88e": "iOS 模擬器 (Xcode)",
-          "c6f3ea4f12": "已就緒",
+          "c6f3ea4f12": "就緒",
           "e4f14b50d7": "請安裝 Xcode 並新增 iOS 模擬器執行時。",
           "63fe73a1ea": "無法更新 Android SDK 資料夾。"
         },
@@ -9258,7 +9258,7 @@ const zhTW = {
                   "copiedCommand": "命令已複製。",
                   "copyFailed": "複製命令失敗。",
                   "skillLabel": "Agent 技能：",
-                  "checking": "檢查中…",
+                  "checking": "正在驗證…",
                   "installed": "已安裝",
                   "notInstalled": "未安裝",
                   "recheck": "重新檢查",
@@ -9316,7 +9316,7 @@ const zhTW = {
           "standby": "待機 — 無 Relay 裝置"
         },
         "MobilePairingConnectionOptions": {
-          "ready": "已就緒",
+          "ready": "就緒",
           "connecting": "連線中",
           "available": "可用",
           "reconnecting": "正在重新連線",
@@ -9671,7 +9671,7 @@ const zhTW = {
             "4db4b5e435": "其他工作區",
             "38b16cfbef": "未偵測到連接埠",
             "0d63d94db3": "正在掃描…",
-            "935dda7718": "活躍的工作區",
+            "935dda7718": "使用中的工作區",
             "740aca88ab": "工作區連接埠掃描失敗。",
             "5be4f7f727": "連接埠 {{value0}} 選單",
             "7550998473": "複製",
@@ -10459,7 +10459,7 @@ const zhTW = {
             "32cd9fd991": "無法開啟符號連結目標"
           },
           "useFileExplorerImport": {
-            "25919b2050": "跳過 {{value0}} {{value1}}。",
+            "25919b2050": "已略過 {{value0}} {{value1}}。",
             "132fd0e1e9": "無法匯入 {{value0}} {{value1}}。"
           },
           "useFileExplorerKeys": {
@@ -10711,7 +10711,7 @@ const zhTW = {
       },
       "repo": {
         "NestedRepoChecklist": {
-          "f7e1170567": "已選擇",
+          "f7e1170567": "已選取",
           "ea54c7bf8f": "的",
           "91b5bcadb6": "全選",
           "929734aea5": "取消全選"
@@ -11190,7 +11190,7 @@ const zhTW = {
           },
           "WorktreeListSlide": {
             "357a519567": "目前",
-            "79a24ff530": "已固定",
+            "79a24ff530": "已釘選",
             "22971156df": "存放庫",
             "17f9e0d226": "最近",
             "0e3e809a4b": "篩選",
@@ -11532,7 +11532,7 @@ const zhTW = {
             "633a91e358": "思維…",
             "932c4b3a97": ">",
             "ca2cfbf188": "向下分割 CLI",
-            "e370fa8c2b": "向右分割 CLI",
+            "e370fa8c2b": "向右分割終端機",
             "b85eab49dd": "src/auth/session.ts",
             "99f5224f1e": "編輯",
             "0d93c298a7": "Glob src/auth",
@@ -12377,11 +12377,11 @@ const zhTW = {
           }
         },
         "useContextualCopySetup": {
-          "059bfb0d94": "上下文已複製"
+          "059bfb0d94": "已複製上下文"
         },
         "useLocalImagePick": {
           "175cb8b8ce": "插入圖片失敗。",
-          "91d835dc88": "Worktree 路徑不可用。"
+          "91d835dc88": "Worktree 路徑無法使用。"
         },
         "useRichMarkdownReviewData": {
           "f9d2acd6b0": "所有未傳送的筆記"
@@ -13551,11 +13551,11 @@ const zhTW = {
       "linear-issue-attribute-filter-dropdowns": {
         "removeFilter": "移除 {{value0}} 篩選器",
         "teamRequired": "選擇一個團隊以載入此工作區的狀態、指派對象和標籤。",
-        "filters": "篩選器",
+        "filters": "篩選",
         "allWorkspacesTitle": "選擇一個工作區",
         "allWorkspacesBody": "狀態、指派對象和標籤篩選器使用單個 Linear 工作區的 ID。請選擇一個工作區以按這些屬性進行篩選。",
         "optionsFromTeam": "來自 {{team}} 的選項",
-        "clearAll": "清除所有篩選器"
+        "clearAll": "清除所有篩選條件"
       },
       "linear-issue-attribute-filter-sections": {
         "status": "狀態",
