@@ -23,6 +23,8 @@ if (!fs.existsSync(orcaPath)) {
   process.exit(1);
 }
 
+// 除錯用：允許以環境變數指定 Orca 路徑，方便在副本上重現問題而不影響正在用的 Orca
+if (process.env.ORCA_PATH_OVERRIDE) orcaPath = process.env.ORCA_PATH_OVERRIDE;
 const asar = require('@electron/asar');
 // 判斷 app.asar 是否已含補丁的標記。--restore 也要用，故定義在旗標處理之前。
 const MARK = 'UI_LANGUAGE_TRADITIONAL_CHINESE = "zh-TW"';
@@ -31,6 +33,11 @@ const MARK = 'UI_LANGUAGE_TRADITIONAL_CHINESE = "zh-TW"';
 const DRY_RUN = process.argv.includes('--dry-run');
 // --force：略過「Orca 是否執行中」的檢查。不建議使用，見 countRunningOrca 的說明。
 const FORCE = process.argv.includes('--force');
+// --minimal：只套用核心（語言切換＋字典），跳過全部加值本地化補丁。
+// 加值補丁會改寫 Orca 的資料結構（把字面值換成 getter 或 translate 呼叫），
+// 萬一某個 Orca 版本因此在 renderer 出問題，這個旗標可以立刻排除它們，
+// 同時保留 11,000 多句的核心翻譯。
+const MINIMAL = process.argv.includes('--minimal');
 
 // --verify：檢查已安裝的 app.asar 是否含全部補丁與字典。
 // 透過 npx 安裝的人沒有專案目錄，無法用 npm run verify，故在此提供同一個入口。
@@ -46,6 +53,7 @@ if (process.argv.includes('--help') || process.argv.includes('-h')) {
   --dry-run    只檢查相容性，不改動 Orca。可在 Orca 執行中安全使用。
   --verify     檢查已安裝的 app.asar 是否含全部補丁與字典。
   --restore    還原成官方原版（從 app.asar.bak）。需先完全關閉 Orca。
+  --minimal    只套用核心翻譯，跳過選單／快速鍵／引導等加值本地化。
   --force      即使 Orca 執行中也強制套用（不建議）。
   --help       顯示這段說明。
 `);
@@ -674,7 +682,7 @@ async function patch() {
       c => c.includes('"zh-TW": () => Promise.resolve()'),
       /(zh: \(\) => Promise\.resolve\(\)\.then\(\(\) => require\("\.\/chunks\/zh-[A-Za-z0-9_-]+\.js"\)\))/,
       '$1,\n  "zh-TW": () => Promise.resolve().then(() => require("./chunks/zh-TW-nested.js"))');
-    patchNativeMenus(mp);
+    if (!MINIMAL) patchNativeMenus(mp);
     mp.save();
 
     console.log('🛠️ 3/6 正在修補渲染器 (renderer process) 語言限制...');
@@ -709,17 +717,19 @@ async function patch() {
     patchLocaleGate(rp);
     // 「設定 → 快速鍵」顯示的是 renderer 這份定義，所以只改這裡。
     // main process 也有一份，但那份不用於顯示，動它只增加風險。
-    patchKeybindingTitles(rp, 'translate');
-    patchOptionLabels(rp, 'translate');
-    patchJsxHardcoded(rp, 'I18nProvider');
-    patchOnboarding(rp, 'I18nProvider', 'translate');
-    patchVarInfo(rp, 'translate');
+    if (!MINIMAL) {
+      patchKeybindingTitles(rp, 'translate');
+      patchOptionLabels(rp, 'translate');
+      patchJsxHardcoded(rp, 'I18nProvider');
+      patchOnboarding(rp, 'I18nProvider', 'translate');
+      patchVarInfo(rp, 'translate');
+    }
     rp.save();
 
     // Agent 斜線命令的說明在另一個 chunk。檔名帶 hash（index-DlEnJ7xL.js），
     // 每次 Orca 建置都會變，所以靠內容找而不是靠檔名。
     // 那個 chunk 有 import { t as translate }，模組層可直接呼叫。
-    const slashFile = fs.readdirSync(assetsDir)
+    const slashFile = MINIMAL ? null : fs.readdirSync(assetsDir)
       .filter(f => f.endsWith('.js'))
       .map(f => path.join(assetsDir, f))
       .find(f => {
@@ -738,7 +748,7 @@ async function patch() {
     // 原始碼控制空狀態與自動化排程描述各在自己的 chunk。
     // 同樣靠內容找（檔名帶 hash），找不到就警告並繼續。
     const extraPatchers = [];
-    for (const [tag, marker] of [
+    for (const [tag, marker] of MINIMAL ? [] : [
       ['SourceControl', 'No changes on this branch'],
       ['AutomationsPage', 'Weekdays at '],
     ]) {
