@@ -4,7 +4,7 @@ export default {
       "rootTitle": "Orca 遇到渲染器錯誤。",
       "rootDescription": "應用程式外殼無法完成渲染。請重試以重新掛載，若錯誤持續發生，請重新啟動 Orca。",
       "webTitle": "Orca web 遇到渲染器錯誤。",
-      "webDescription": "請重試 web 使用者端，或重新連線到配對的執行環境。"
+      "webDescription": "請重試 web 用戶端，或重新連線到配對的執行環境。"
     }
   },
   "browser": {
@@ -176,14 +176,14 @@ export default {
       "web": {
         "preload": {
           "api": {
-            "31bfe8ae1a": "在 Web 使用者端中無法使用。",
-            "67ec964791": "Web 使用者端不支援 Cookie 匯入。",
-            "275a776357": "停留擷取在 Web 使用者端中無法使用。",
-            "8dfcb7a351": "選取範圍螢幕截圖在 Web 使用者端中無法使用。",
-            "31bea294d5": "擷取模式在 Web 使用者端中無法使用。",
-            "b8a1618172": "PR 詳細資訊產生功能在 Web 使用者端中無法使用。",
-            "e57c82d276": "commit 訊息模型探索在 Web 使用者端中無法使用。",
-            "9fc90740b6": "commit 訊息產生功能在 Web 使用者端中無法使用。",
+            "31bfe8ae1a": "在 Web 用戶端中無法使用。",
+            "67ec964791": "Web 用戶端不支援 Cookie 匯入。",
+            "275a776357": "停留擷取在 Web 用戶端中無法使用。",
+            "8dfcb7a351": "選取範圍螢幕截圖在 Web 用戶端中無法使用。",
+            "31bea294d5": "擷取模式在 Web 用戶端中無法使用。",
+            "b8a1618172": "PR 詳細資訊產生功能在 Web 用戶端中無法使用。",
+            "e57c82d276": "commit 訊息模型探索在 Web 用戶端中無法使用。",
+            "9fc90740b6": "commit 訊息產生功能在 Web 用戶端中無法使用。",
             "52bee9d8a0": "已忽略衝突的自訂快速鍵：{{value0}}。",
             "32f15bdb0f": "已忽略不明的平臺「{{value0}}」。",
             "0a69fcd8bc": "platforms 必須是包含 darwin、linux 或 win32 區段的物件。",
@@ -663,7 +663,8 @@ export default {
         "nativeDropTooManyPathsDescription": "每次最多拖放 {{value0}} 個檔案。",
         "nativeDropTooManyPaths": "拖放包含過多檔案。",
         "nativeDropPathsTooLargeDescription": "請減少拖放的檔案數量，或使用較短的路徑清單。",
-        "nativeDropPathsTooLarge": "拖放的路徑清單過大。"
+        "nativeDropPathsTooLarge": "拖放的路徑清單過大。",
+        "ownerChanged": "無法確認哪一台主機擁有此工作區。請等它重新連線後再試一次。"
       },
       "useIpcEvents": {
         "0e3cf53060": "找不到瀏覽器分頁 {{value0}}",
@@ -682,7 +683,7 @@ export default {
         "88214a785b": "工作區同步等待本機工作階段 hydration 時逾時",
         "4f78ba5885": "工作區已同步",
         "ef223fbb6b": "有裝置嘗試連線，但尚未配對",
-        "11992d0337": "如果這是你的手機或其他 Orca 使用者端，請從「設定」>「行動裝置」重新配對。",
+        "11992d0337": "如果這是你的手機或其他 Orca 用戶端，請從「設定」>「行動裝置」重新配對。",
         "6573cfe955": "開啟行動裝置設定"
       },
       "useSettingsNavigationMetadata": {
@@ -3326,6 +3327,16 @@ export default {
             "detailedTooltip": "完整用量，含長條圖、標籤與百分比",
             "compactTooltip": "精簡用量：僅顯示最吃緊的時段",
             "footerDetailAria": "用量頁尾詳細資訊"
+          },
+          "RemoteServerUpdateStatusSegment": {
+            "updating": "更新中 {{value0}}/{{value1}}",
+            "updatingTooltip": "遠端 Orca 伺服器更新進行中",
+            "failed": "{{value0}} 台伺服器更新失敗",
+            "failedTooltip": "開啟遠端 Orca 伺服器更新以檢視並重試",
+            "updated": "{{value0}} 台伺服器已更新",
+            "updatedTooltip": "遠端 Orca 伺服器更新已完成",
+            "failedOne": "1 台伺服器更新失敗",
+            "updatedOne": "1 台伺服器已更新"
           }
         }
       },
@@ -4668,7 +4679,7 @@ export default {
         },
         "HostSectionHeaderMenu": {
           "5b8b4b6a01": "需要更新伺服器",
-          "9b3c1d2e44": "需要更新使用者端",
+          "9b3c1d2e44": "需要更新用戶端",
           "2c29e2de68": "連線失敗",
           "bf07aee59e": "中斷連線失敗",
           "7f1a2b3c4d": "{{value0}} 可連線",
@@ -6340,7 +6351,10 @@ export default {
           "addPlannedHostToHost": "新增 {{host}}",
           "addPlannedHostConfirm": "這只是記錄此專案應可在此主機上使用。你可以稍後新增資料夾或 clone。",
           "projectRuntime": "專案執行環境",
-          "projectRuntimeDescription": "選擇此專案要在 Windows 還是 WSL 上執行。"
+          "projectRuntimeDescription": "選擇此專案要在 Windows 還是 WSL 上執行。",
+          "hostStateDisconnected": "已中斷連線",
+          "hostStateUnknown": "不明",
+          "nestedHostLabel": "{{value0}}（透過 {{value1}}）"
         },
         "RepositorySourceControlAiActionRows": {
           "548a6e1281": "命令範本",
@@ -6391,7 +6405,7 @@ export default {
           "e57dde9d93": "未儲存的變更"
         },
         "RuntimeAccessGrantList": {
-          "8b82879581": "任何擁有有效授權的人都可以連線，直到你復原為止。復原共用存取會立即中斷使用中的使用者端連線。",
+          "8b82879581": "任何擁有有效授權的人都可以連線，直到你復原為止。復原共用存取會立即中斷使用中的用戶端連線。",
           "68ec21309f": "復原存取權",
           "6f6d5188ed": "復原 {{value0}}",
           "87b16cd11d": "已建立",
@@ -6414,10 +6428,10 @@ export default {
           "0ef838094a": "通訊協定 {{value0}}",
           "9a91c4a0eb": "相容",
           "86ed75bec8": "更新伺服器",
-          "62ac182a27": "更新使用者端",
+          "62ac182a27": "更新用戶端",
           "c8791efc45": "狀態無法取得",
           "5120beaac6": "檢查中…",
-          "84b9b2be05": "建立可復原的存取授權，讓瀏覽器或其他 Orca 使用者端可以連線。",
+          "84b9b2be05": "建立可復原的存取授權，讓瀏覽器或其他 Orca 用戶端可以連線。",
           "6e1280ca55": "分享此 Orca 伺服器",
           "9a3758d983": "沒有已儲存的伺服器。",
           "9bee6bbeeb": "新增伺服器",
@@ -6448,7 +6462,7 @@ export default {
           "3595fd1948": "新連結",
           "54dee18f5c": "隱藏表單",
           "8cf8790697": "已儲存的伺服器會透過配對的 Orca 執行環境來路由此瀏覽器。",
-          "f75ce1c7a5": "本機會保留目前的桌面行為。已儲存的伺服器會透過遠端執行環境路由受支援的使用者端呼叫。",
+          "f75ce1c7a5": "本機會保留目前的桌面行為。已儲存的伺服器會透過遠端執行環境路由受支援的用戶端呼叫。",
           "d25f0688b1": "移除",
           "4b5c6d7e8f": "未回報任何功能",
           "hostModelCapabilityUnknown": "主機模型支援：正在檢查伺服器功能",
@@ -6471,16 +6485,22 @@ export default {
           "advanced": "進階",
           "serverDetails": "伺服器詳細資訊",
           "advertiseThisApp": "將這個應用程式公告為伺服器",
-          "advertiseThisAppHelp": "建立存取連結，讓瀏覽器、行動使用者端或另一個 Orca 使用者端連回這個正在執行的應用程式。",
-          "runtimeReachable": "可連線到 {{value0}}。"
+          "advertiseThisAppHelp": "建立存取連結，讓瀏覽器、行動用戶端或另一個 Orca 用戶端連回這個正在執行的應用程式。",
+          "runtimeReachable": "可連線到 {{value0}}。",
+          "updateAvailableOne": "有 1 項更新可用",
+          "updatesAvailable": "有 {{value0}} 項更新可用",
+          "versionUnavailable": "無法取得 Orca 版本",
+          "updateServer": "更新",
+          "reviewServerUpdates": "伺服器更新",
+          "orcaVersion": "Orca v{{value0}}"
         },
         "RuntimePairingGeneratedUrlRows": {
           "0495f68959": "複製 {{value0}}"
         },
         "RuntimePairingUrlGenerator": {
-          "849825e829": "將這個配對 URL 貼到另一個 Orca 使用者端。",
-          "2e5c4e3c93": "配對另一個 Orca 使用者端",
-          "f7cafdc9f3": "此版本中無法使用瀏覽器連結。配對 URL 仍可用於 Orca 使用者端。",
+          "849825e829": "將這個配對 URL 貼到另一個 Orca 用戶端。",
+          "2e5c4e3c93": "配對另一個 Orca 用戶端",
+          "f7cafdc9f3": "此版本中無法使用瀏覽器連結。配對 URL 仍可用於 Orca 用戶端。",
           "6b9ca3e69b": "在瀏覽器中開啟",
           "1ca2e5194d": "從可連線到所選位址的瀏覽器使用此 URL。",
           "8de0f84fff": "產生存取連結",
@@ -6490,17 +6510,17 @@ export default {
           "360c548cf3": "重新整理連線位址",
           "de6d5cff95": "這臺電腦（",
           "de77eb1b65": "連線位址",
-          "ff80904fc4": "為瀏覽器或桌面使用者端建立可復原的存取授權。",
+          "ff80904fc4": "為瀏覽器或桌面用戶端建立可復原的存取授權。",
           "f8500e134a": "分享這個 Orca 伺服器",
           "d6c081adf4": "複製 URL 失敗。",
           "df0aa45a86": "已複製配對 URL。",
-          "13704d635e": "已複製 Web 使用者端 URL。",
+          "13704d635e": "已複製 Web 用戶端 URL。",
           "e8d83f2b0f": "復原共用存取失敗。",
           "9f8e037c4a": "已復原共用存取。",
           "d797f516b1": "共用存取已被復原。",
           "2ed55c841a": "產生配對 URL 失敗。",
           "11d5248e62": "已產生配對 URL。",
-          "6dd594a507": "已產生 Web 使用者端 URL。",
+          "6dd594a507": "已產生 Web 用戶端 URL。",
           "2752126f3e": "執行環境配對無法使用。",
           "95b8be4cea": "重新整理網路介面失敗。",
           "1b4e0bbcc5": "載入共用存取授權失敗。",
@@ -8055,7 +8075,7 @@ export default {
               "bbe4267416": "模擬器類型",
               "64494f03c3": "模擬器附加",
               "6f728f1456": "模擬器抽頭",
-              "f8b871d655": "Agent 使用者端",
+              "f8b871d655": "Agent 用戶端",
               "2e0b45b2ba": "使用 Orca CLI 命令列出、附加、點選和輸入手機模擬器。",
               "ea3eac39bb": "Agent CLI 控制",
               "8ef0f08d36": "執行時",
@@ -8399,14 +8419,14 @@ export default {
               "45501ff2c3": "雲",
               "2bd988d041": "配對碼",
               "5cd7dca3b8": "遠端",
-              "d760866285": "使用者端",
+              "d760866285": "用戶端",
               "09568ccc65": "伺服器",
               "ebd5369acf": "環境",
               "d198440ce3": "執行時",
               "baec27aa8f": "將此瀏覽器連線到已儲存的 Orca 伺服器。",
               "3517fb2ec0": "活動伺服器",
               "c6e5a03aa0": "開發盒",
-              "f1575f1e09": "網路使用者端",
+              "f1575f1e09": "網路用戶端",
               "81444c4102": "配對網址",
               "104f4d7dbd": "配對",
               "4575341c77": "選擇本機桌面、新增已儲存的遠端 Orca 伺服器或產生配對 URL。"
@@ -8778,10 +8798,10 @@ export default {
           }
         },
         "WorkspaceDirectorySetting": {
-          "1a2b3c4d5e": "使用者端預設值",
+          "1a2b3c4d5e": "用戶端預設值",
           "2b3c4d5e6f": "套用於",
-          "3c4d5e6f7a": "覆蓋使用者端預設值",
-          "4d5e6f7a8b": "繼承使用者端預設值",
+          "3c4d5e6f7a": "覆蓋用戶端預設值",
+          "4d5e6f7a8b": "繼承用戶端預設值",
           "5e6f7a8b9c": "重設",
           "6f7a8b9cad": "使用相對路徑（例如 .orca/worktrees）可讓每個專案使用各自的位置，使用絕對路徑則所有專案共用一個資料夾。"
         },
@@ -8920,22 +8940,22 @@ export default {
           "remoteServer": "遠端伺服器：{{value0}}",
           "remoteServerCredentials": "此供應商的認證和帳號檢查由該遠端伺服器擁有。使用「設定 > 遠端 Orca 伺服器 > 高階」編輯另一個預設執行時範圍。",
           "localMac": "本機 Mac",
-          "localCredentials": "此供應商的認證和帳號檢查由該桌面使用者端擁有。使用「設定 > 遠端 Orca 伺服器 > 高階」編輯伺服器擁有的認證。",
+          "localCredentials": "此供應商的認證和帳號檢查由該桌面用戶端擁有。使用「設定 > 遠端 Orca 伺服器 > 高階」編輯伺服器擁有的認證。",
           "remoteServerRateLimit": "{{value0}} API 預算從此遠端伺服器上的 CLI 取得。使用「設定 > 遠端 Orca 伺服器 > 高階」檢視另一個預設執行時預算。",
-          "localRateLimit": "{{value0}} API 預算從此桌面使用者端上的 CLI 取得。使用「設定 > 遠端 Orca 伺服器 > 高階」檢視伺服器擁有的預算。"
+          "localRateLimit": "{{value0}} API 預算從此桌面用戶端上的 CLI 取得。使用「設定 > 遠端 Orca 伺服器 > 高階」檢視伺服器擁有的預算。"
         },
         "settingOwnership": {
-          "clientDefault": "使用者端預設",
-          "sourceControlAiDefaults": "方案、提示和託管審查預設值由此使用者端共用；模型選擇和發現則限定在 Agent 執行的主機內。",
+          "clientDefault": "用戶端預設",
+          "sourceControlAiDefaults": "方案、提示和託管審查預設值由此用戶端共用；模型選擇和發現則限定在 Agent 執行的主機內。",
           "projectOnThisHost": "此主機上的專案",
-          "repositorySourceControlAi": "這些覆蓋項套用於此專案設定，並繼承使用者端的原始碼控制 AI 預設值，直至自訂。",
-          "agentLaunchDefaults": "預設 Agent、命令覆蓋、CLI 引數和啟動環境是使用者端偏好。SSH 和遠端伺服器啟動仍會在執行時驗證主機可用性。",
-          "clientDefaultProjectScopes": "使用者端預設 + 專案範圍",
-          "terminalQuickCommands": "命令儲存在此使用者端，然後限定為全域或某專案設定，以便從所選 CLI 上下文執行。",
+          "repositorySourceControlAi": "這些覆蓋項套用於此專案設定，並繼承用戶端的原始碼控制 AI 預設值，直至自訂。",
+          "agentLaunchDefaults": "預設 Agent、命令覆蓋、CLI 引數和啟動環境是用戶端偏好。SSH 和遠端伺服器啟動仍會在執行時驗證主機可用性。",
+          "clientDefaultProjectScopes": "用戶端預設 + 專案範圍",
+          "terminalQuickCommands": "命令儲存在此用戶端，然後限定為全域或某專案設定，以便從所選 CLI 上下文執行。",
           "hostOverride": "主機覆蓋",
-          "workspaceDirectory": "在主機需要自己的 Worktree 目錄之前，繼承使用者端預設值。",
+          "workspaceDirectory": "在主機需要自己的 Worktree 目錄之前，繼承用戶端預設值。",
           "providerHost": "供應商主機",
-          "providerAccounts": "認證和帳號檢查歸屬於本機使用者端或擁有該供應商整合的所選遠端伺服器。"
+          "providerAccounts": "認證和帳號檢查歸屬於本機用戶端或擁有該供應商整合的所選遠端伺服器。"
         },
         "RepositoryForkSyncSection": {
           "defaultBranch": "預設分支",
@@ -9294,6 +9314,57 @@ export default {
           "title": "編輯器字型系列",
           "description": "檔案編輯器與差異檢視使用的字型。留空則沿用終端機字型。",
           "placeholder": "與終端機字型相同"
+        },
+        "GeneralRemoteServerUpdates": {
+          "serverCount": "{{value0}} 台已配對的伺服器",
+          "availableCount": "{{value0}} 台可更新",
+          "currentCount": "{{value0}} 台已是最新",
+          "manualCount": "{{value0}} 台需手動更新",
+          "offlineCount": "{{value0}} 台離線",
+          "title": "遠端 Orca 伺服器",
+          "description": "從這個 Orca 用戶端檢查並更新已配對的 Orca 伺服器。",
+          "updating": "正在更新伺服器…",
+          "reviewUpdates": "有 {{value0}} 項更新可用",
+          "reviewServers": "伺服器更新",
+          "serverCountOne": "1 台已配對的伺服器",
+          "reviewUpdateOne": "有 1 項更新可用"
+        },
+        "RemoteServerUpdateDialog": {
+          "versionUnavailable": "無法取得版本",
+          "restartingHelp": "正在等待替換後的伺服器以新版本重新連線。",
+          "retry": "重試",
+          "update": "更新",
+          "title": "更新遠端 Orca 伺服器",
+          "description": "檢視已配對的伺服器，並從這個 Orca 用戶端更新支援的安裝。",
+          "restartWarning": "更新會重新啟動這些伺服器。{{value0}} 個使用中的分頁與 {{value1}} 個終端機窗格可能會短暫斷線。",
+          "checking": "正在檢查已配對的伺服器…",
+          "empty": "沒有已配對的遠端 Orca 伺服器。",
+          "checkAgain": "重新檢查",
+          "updating": "正在更新伺服器…",
+          "updateAll": "更新 {{value0}} 台伺服器",
+          "noUpdates": "沒有可用的更新",
+          "updateOne": "更新伺服器",
+          "downloadProgress": "{{value0}} 下載進度",
+          "liveTabOne": "1 個使用中的分頁",
+          "liveTabs": "{{value0}} 個使用中的分頁",
+          "livePaneOne": "1 個使用中的窗格",
+          "livePanes": "{{value0}} 個使用中的窗格"
+        },
+        "RemoteServerUpdateStatus": {
+          "checking": "檢查中…",
+          "available": "有更新可用",
+          "current": "已是最新",
+          "manual": "手動更新",
+          "offline": "離線",
+          "queued": "已排入佇列",
+          "checkingUpdate": "正在檢查更新…",
+          "downloading": "下載中…",
+          "restarting": "重新啟動中…",
+          "updated": "已更新",
+          "failed": "更新失敗",
+          "serviceManagerHelp": "請透過啟動此伺服器的服務管理員來更新 Orca。",
+          "unpackedHelp": "開發版建置必須從其原始碼 checkout 更新。",
+          "legacyHelp": "請先手動更新此伺服器一次，之後才能使用遠端更新。"
         }
       },
       "right": {
@@ -9793,7 +9864,11 @@ export default {
               "834cb3f23d": "用 AI 修復",
               "783a808870": "關閉"
             },
-            "97e7124eac": "無法重新整理原始碼控制。請重試。"
+            "97e7124eac": "無法重新整理原始碼控制。請重試。",
+            "b8c2e1a904": "{{value0}} → {{value1}}",
+            "a4e93c21d7": "目前分支：{{value0}}",
+            "c7d4e2f801": "切換基礎參考：{{value0}}",
+            "f3a1b8c204": "上游"
           },
           "SourceControlAgentActionDialog": {
             "8e856842d1": "無法啟動所選的 Agent。",
@@ -12884,7 +12959,7 @@ export default {
           "36f71740a7": "所選的工作區",
           "cd8397cc32": "每次執行新工作區",
           "dd0bc7a1ba": "每次執行新的",
-          "7b2e285552": "SSH 連線在此使用者端中不可用。",
+          "7b2e285552": "SSH 連線在此用戶端中不可用。",
           "d441032f7e": "暫停",
           "5918020edc": "執行",
           "a21f6c33ad": "自動化來源已重新整理。",
@@ -13479,6 +13554,17 @@ export default {
     "runtime": {
       "webRuntimeSession": {
         "remoteHostDisconnected": "此工作區未連線到遠端 Orca 主機。"
+      },
+      "remoteServerUpdateErrors": {
+        "manualRequired": "此伺服器必須透過其服務管理員手動更新。",
+        "notAvailable": "伺服器已不再回報有可用的更新。請重新檢查。",
+        "notDownloaded": "伺服器更新尚未下載完成。",
+        "legacyServer": "請先手動更新此伺服器一次，之後才能使用遠端更新。",
+        "updaterTimeout": "等待伺服器更新程式逾時。",
+        "requestedVersionUnavailable": "伺服器更新程式未提供所要求的 Orca 版本。",
+        "updateUnavailable": "伺服器未回報有可用的更新。",
+        "downloadIncomplete": "伺服器更新未下載完成。",
+        "reconnectTimeout": "伺服器未以更新後的版本重新連線。"
       }
     }
   },
