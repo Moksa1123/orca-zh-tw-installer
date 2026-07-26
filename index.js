@@ -341,6 +341,104 @@ function patchJsxHardcoded(p, chunkTag) {
   }
 }
 
+
+// ── 新手引導／功能提示本地化 ───────────────────────────────────────────
+// FEATURE_TIPS、CONTEXTUAL_TOURS、FEATURE_WALL_SETUP_STEPS 三個陣列裡的
+// title／body／description／eyebrow／ctaLabel／name／subtitle 全是寫死的英文，
+// 完全沒有經過 translate()——語系檔裡根本沒有這些鍵。
+//
+// 兩個標記必須原樣保留：
+//   <shortcut>              會被換成平台正確的 <kbd> 按鍵元素
+//   {terminal.splitRight}   快速鍵參照，渲染時換成實際按鍵
+//
+const ONBOARDING_STRINGS = [
+  ["I18nProvider", "title", "Let agents drive Orca with the Orca CLI"],
+  ["I18nProvider", "title", "Jump to a worktree with <shortcut>"],
+  ["I18nProvider", "title", "Voice Dictation is here"],
+  ["I18nProvider", "title", "Plan work on the board"],
+  ["I18nProvider", "title", "Move work through lanes"],
+  ["I18nProvider", "title", "Split a terminal pane"],
+  ["I18nProvider", "title", "Start another task in parallel"],
+  ["I18nProvider", "title", "Grab page context for agents"],
+  ["I18nProvider", "title", "Mark design feedback in place"],
+  ["I18nProvider", "title", "Stay logged in"],
+  ["I18nProvider", "title", "Choose the work source"],
+  ["I18nProvider", "title", "Filter to the work you need"],
+  ["I18nProvider", "title", "Start from work items"],
+  ["I18nProvider", "title", "What is an automation?"],
+  ["I18nProvider", "title", "Find the results"],
+  ["I18nProvider", "title", "Run an agent across every repo"],
+  ["I18nProvider", "title", "Or use it as a scratchpad"],
+  ["I18nProvider", "title", "Pick a project"],
+  ["I18nProvider", "title", "Name it, or start from existing work"],
+  ["I18nProvider", "title", "Choose what agent starts the work"],
+  ["I18nProvider", "body", "Use the board when you want to see workspaces by status instead of by project."],
+  ["I18nProvider", "body", "Drag workspaces between lanes as their status changes."],
+  ["I18nProvider", "body", "Open a second terminal pane with {terminal.splitRight}, or right-click the pane for split options."],
+  ["I18nProvider", "body", "Each worktree gets its own branch, so parallel work stays separate."],
+  ["I18nProvider", "body", "Use the grab tool to copy a page element's context for agents."],
+  ["I18nProvider", "body", "Annotate elements and send those notes to an agent."],
+  ["I18nProvider", "body", "Bring your existing logins into Orca to stay signed in immediately."],
+  ["I18nProvider", "body", "Switch between connected providers and project filters without changing pages."],
+  ["I18nProvider", "body", "Use presets and search to narrow issues, reviews, merge requests, or tasks."],
+  ["I18nProvider", "body", "Use Start or Open on a task, issue, review, or merge request to bring its context into a workspace."],
+  ["I18nProvider", "body", "Automations run agent work on a schedule. Add an automation by clicking this button."],
+  ["I18nProvider", "body", "Runs show when automations executed, what happened, and where to inspect their output."],
+  ["I18nProvider", "body", "Agents here run in any folder you choose. Point one at the directory above your services to work across all your repos at once."],
+  ["I18nProvider", "body", "Open agents, scratch terminals, notes, and browser tabs without cluttering the worktree you’re focused on."],
+  ["I18nProvider", "body", "Orca isolates each task in its own worktree, branched off your base."],
+  ["I18nProvider", "body", "Start from a linked task for a short issue or PR name. Or leave it blank to auto-name it from your first agent message."],
+  ["I18nProvider", "body", "Pick the agent that should be opened when this worktree is created."],
+  ["I18nProvider", "description", "Enable agents to coordinate child worktrees and communicate between worktrees."],
+  ["I18nProvider", "description", "Search worktrees, switch tabs, tweak settings, or spin up a new worktree, all without leaving the keyboard."],
+  ["I18nProvider", "description", "Speak into any focused pane and Orca will transcribe it. Press the dictation shortcut to start and stop."],
+  ["I18nProvider", "ctaLabel", "Install CLI & Skills"],
+  ["I18nProvider", "ctaLabel", "Got it"],
+  ["I18nProvider", "ctaLabel", "Set Up Voice"],
+  ["I18nProvider", "label", "Split terminal"],
+  ["index", "description", "Work in 2 different worktrees at once. Each one is isolated (even in the same project). Perfect for working on 2 features at once."],
+  ["index", "description", "Browse your web app without leaving Orca. Grab any element and send its exact source and styles to an agent with one click."],
+  ["index", "description", "Know the moment an agent finishes, needs attention, or gets blocked."],
+  ["index", "description", "Start new work faster with your preferred agent already selected."],
+  ["index", "description", "Register the Orca shell command and install agent skills for browser, computer, and orchestration workflows."],
+  ["index", "description", "Start an agent from a task in one click and keep PR status in view."],
+  ["index", "description", "Run install and setup commands automatically so every new worktree is ready for agents."],
+  ["index", "description", "Bring your key repos into Orca so you can start agent work without hunting for folders."],
+  ["index", "name", "Use Orca's browser"],
+  ["index", "name", "Turn on notifications"],
+  ["index", "name", "Choose your default agent"],
+  ["index", "name", "Enable Orca CLI"],
+  ["index", "name", "Connect integrations"],
+  ["index", "name", "Automate workspace setup"],
+  ["index", "name", "Start work in multiple repos"],
+  ["index", "subtitle", "Use Orca's browser"],
+  ["index", "subtitle", "Turn on notifications"],
+  ["index", "subtitle", "Choose your default agent"],
+  ["index", "subtitle", "Enable Orca CLI"],
+  ["index", "subtitle", "Connect integrations"],
+  ["index", "subtitle", "Automate workspace setup"],
+  ["index", "subtitle", "Start work in multiple repos"],
+];
+
+// 每個 (欄位, 英文) 組合逐一取代。用全域正則而非字串，因為同一句可能出現多次
+// （name 與 subtitle 常是同一個值，eyebrow: "Tip" 出現三次）。
+function patchOnboarding(p, chunkTag, translateFn) {
+  const slug = en => en.replace(/[^A-Za-z0-9 ]/g, '').split(/\s+/).filter(Boolean).slice(0, 6)
+    .map((w, i) => i === 0 ? w.toLowerCase() : w[0].toUpperCase() + w.slice(1).toLowerCase()).join('');
+  // 用具名替換而非 '\\$&'——$& 在字串替換裡是「匹配到的內容」，
+  // 之前用產生器寫入這行時被外層 replace 吃掉，導致 esc 產生垃圾。
+  const esc = x => x.replace(/[.*+?^${}()|[\]\\]/g, m => '\\' + m);
+  for (const [tag, field, en] of ONBOARDING_STRINGS) {
+    if (tag !== chunkTag) continue;
+    const key = 'onboarding.' + slug(en);
+    const repl = `${field}: ${translateFn}(${JSON.stringify(key)}, ${JSON.stringify(en)})`;
+    p.patchOptional(`引導文案改走 i18n：${en.slice(0, 24)}`,
+      c => c.includes(repl),
+      new RegExp(`${field}: "${esc(en)}"`, 'g'),
+      repl);
+  }
+}
+
 function patchNativeMenus(p) {
   p.patchOptional('原生選單：為無 label 的 role 注入譯文',
     c => c.includes('nativeMenu.selectAll'),
@@ -467,6 +565,7 @@ async function patch() {
     patchKeybindingTitles(rp, 'translate');
     patchOptionLabels(rp, 'translate');
     patchJsxHardcoded(rp, 'I18nProvider');
+    patchOnboarding(rp, 'I18nProvider', 'translate');
     rp.save();
 
     // Agent 斜線命令的說明在另一個 chunk。檔名帶 hash（index-DlEnJ7xL.js），
@@ -482,6 +581,7 @@ async function patch() {
     if (slashFile) {
       sp = createPatcher('slash commands', slashFile);
       patchSlashCommands(sp, 'translate');
+      patchOnboarding(sp, 'index', 'translate');
       sp.save();
     } else {
       console.log('   ⚠️ 找不到含 CODEX_COMMANDS 的 chunk，斜線命令說明將維持英文。');
