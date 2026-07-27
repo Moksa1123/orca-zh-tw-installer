@@ -2675,6 +2675,15 @@ const zhTW = {
                   "7cf51f74fd": "在終端機設定中啟用 TUI 剪貼簿寫入，即可從 SSH、tmux、Neovim、fzf 或 Grok 複製。",
                   "89eaa3e80b": "終端機剪貼簿寫入已封鎖"
                 }
+              },
+              "default": {
+                "on": {
+                  "notice": {
+                    "title": "TUI 終端機剪貼簿寫入已預設為啟用",
+                    "description": "Zellij、tmux、Neovim 等終端機程式現在可以複製到你的剪貼簿。可在「終端機」設定中關閉。",
+                    "action": "開啟設定"
+                  }
+                }
               }
             }
           },
@@ -3678,15 +3687,6 @@ const zhTW = {
           "bd6cec2056": "新增"
         }
       },
-      "source": {
-        "control": {
-          "SourceControlActionVariableChips": {
-            "1b77798d5f": "變數",
-            "6b921a0ac2": "範例",
-            "4bf6d88039": "（空）"
-          }
-        }
-      },
       "skills": {
         "SkillsPage": {
           "cb142070b4": "重新整理",
@@ -4117,7 +4117,9 @@ const zhTW = {
           "75405270ed": "編輯篩選條件（已啟用 {{value0}} 個）",
           "489d1c8c9f": "搜尋專案…",
           "ee240a39eb": "編輯篩選條件",
-          "automationCreated": "隱藏自動化建立的項目"
+          "automationCreated": "隱藏自動化建立的項目",
+          "cliCreated": "隱藏 CLI 建立的",
+          "detachedHead": "隱藏已分離的 HEAD"
         },
         "SidebarHeader": {
           "25a95899c9": "新增專案",
@@ -4180,7 +4182,9 @@ const zhTW = {
           "c3fa13dc2e": "隱藏預設分支",
           "ed1611b65b": "隱藏休眠項",
           "82594419ba": "篩選",
-          "automationCreated": "隱藏自動化建立的項目"
+          "automationCreated": "隱藏自動化建立的項目",
+          "cliCreated": "隱藏 CLI 建立的",
+          "detachedHead": "隱藏已分離的 HEAD"
         },
         "sidebarHostOptions": {
           "3e102f111c": "所有主機",
@@ -4243,7 +4247,8 @@ const zhTW = {
           "2d74665a56": "連接埠",
           "65a9820bd1": "Agent 狀態",
           "219ebf1961": "分支名稱",
-          "folderPathIdentity": "分支 / 資料夾路徑"
+          "folderPathIdentity": "分支 / 資料夾路徑",
+          "cli": "Orca CLI"
         },
         "SshDisconnectedDialog": {
           "ca4a7892af": "正在連線…",
@@ -4364,7 +4369,12 @@ const zhTW = {
           "checkingAutomationAvailability": "正在檢查自動化可用性…",
           "automationMissing": "自動化已不再可用。",
           "automationRunMissing": "執行紀錄已不再可用。",
-          "automationAvailabilityUnavailable": "無法檢查自動化可用性。"
+          "automationAvailabilityUnavailable": "無法檢查自動化可用性。",
+          "cliHeader": "Orca CLI",
+          "cliCreatedFromAgent": "由代理人透過 `orca worktree create` 建立",
+          "cliCreatedFromShell": "透過 `orca worktree create` 建立",
+          "cliStartupAgent": "使用 {{value0}} 啟動",
+          "cliCreated": "由 Orca CLI 建立"
         },
         "WorktreeCardMetadataStatusBadges": {
           "fe188062a1": "狀態：開啟",
@@ -5076,7 +5086,10 @@ const zhTW = {
           "codexSystemDefaultNeedsSignIn": "找不到 {{value0}} 的 Codex 登入資訊。",
           "codexConfigSyncMissingSource": "Codex 仍在使用上次同步的設定，因為找不到 {{value0}}。請還原該檔案以恢復同步。",
           "codexConfigSyncBlankSource": "Codex 仍在使用上次同步的設定，因為 {{value0}} 是空的。同步資料夾尚未下載完成時屬正常現象。",
-          "codexConfigSyncUnreadableSource": "Codex 仍在使用上次同步的設定，因為無法讀取 {{value0}}。請檢查該檔案的權限。"
+          "codexConfigSyncUnreadableSource": "Codex 仍在使用上次同步的設定，因為無法讀取 {{value0}}。請檢查該檔案的權限。",
+          "accountScopePrefix": "帳戶範圍",
+          "accountScopeRemoteServerUnnamed": "遠端伺服器",
+          "remoteScopeLocalAccountsKept": "在此桌面管理的帳戶不會改變。將預設執行階段改回「本機桌面」以查看。"
         },
         "AdvancedPane": {
           "40b29e0bf3": "重新啟動",
@@ -6509,7 +6522,6 @@ const zhTW = {
           "b5b5114cb0": "已移除 {{value0}}。",
           "6cb6eae14f": "無法儲存執行環境。",
           "7b5986c8df": "已儲存 {{value0}}。準備好後可使用「使用中伺服器」來切換。",
-          "a5b58465b6": "已連線至 {{value0}}。",
           "5ef712f407": "名為「{{value0}}」的伺服器已存在。",
           "0c55a47480": "需要名稱和配對碼。",
           "e6410d72c3": "無法載入執行環境。",
@@ -7733,7 +7745,8 @@ const zhTW = {
               "2270ccff3f": "隱私權",
               "a98aa11a9c": "權限",
               "bc8ac95310": "從終端機啟動的開發者工具的 macOS 權限。",
-              "e92cb0896d": "開發者權限"
+              "e92cb0896d": "開發者權限",
+              "87620e6416": "LAN"
             }
           }
         },
@@ -8640,7 +8653,6 @@ const zhTW = {
             "10f9fb6fea": "設定",
             "2ade3ea490": "設定",
             "fd752b3cac": "匯入",
-            "82b63d07fe": "Ghostty",
             "73e9422f19": "一次性匯入受支援的 Ghostty 終端機設定。",
             "a979df0083": "從 Ghostty 匯入",
             "warp_import": {
@@ -9912,7 +9924,6 @@ const zhTW = {
             "b715ef615b": "領先 {{value1}} {{value0}} 個提交",
             "c1a8f3e204": "落後 {{value0}} 1 個提交",
             "d2b9g4f315": "落後 {{value1}} {{value0}} 個提交",
-            "e9c2a5d416": "與 {{value0}} 同步",
             "4b4a7de138": "在瀏覽器中開啟審查頁面",
             "createPrIntentCommitBlockedSummary": "提交被阻止：{{value0}} 修復問題後重試建立 PR。",
             "pushRecovery": {
@@ -13754,7 +13765,16 @@ const zhTW = {
       "bar": {
         "SortableTabContextMenu": {
           "switchToTerminalView": "切換到終端機檢視",
-          "switchToChatView": "切換到聊天檢視"
+          "switchToChatView": "切換到聊天檢視",
+          "closeTabsToLeft": "關閉左邊的標籤"
+        },
+        "BrowserTab": {
+          "closeOthers": "關閉其他標籤",
+          "closeTabsToLeft": "關閉左邊的標籤"
+        },
+        "EditorFileTabContextMenu": {
+          "closeOthers": "關閉其他標籤",
+          "closeTabsToLeft": "關閉左邊的標籤"
         }
       }
     },
@@ -13835,359 +13855,6 @@ const zhTW = {
     "sidebar": {
       "label": "Agent 儀表板"
     }
-  },
-  "nativeMenu": {
-    "undo": "復原",
-    "redo": "重做",
-    "cut": "剪下",
-    "copy": "複製",
-    "selectAll": "全選",
-    "minimize": "最小化",
-    "zoom": "縮放",
-    "togglefullscreen": "切換全螢幕",
-    "toggleDevTools": "切換開發者工具",
-    "about": "關於",
-    "services": "服務",
-    "hide": "隱藏",
-    "hideOthers": "隱藏其他",
-    "unhide": "全部顯示",
-    "quit": "結束",
-    "addLink": "新增連結",
-    "format": "格式",
-    "bold": "粗體",
-    "italic": "斜體",
-    "strike": "刪除線",
-    "inlineCode": "行內程式碼",
-    "codeBlock": "程式碼區塊",
-    "quote": "引用",
-    "paragraph": "段落",
-    "bodyText": "本文",
-    "heading1": "標題 1",
-    "heading2": "標題 2",
-    "heading3": "標題 3",
-    "heading4": "標題 4",
-    "heading5": "標題 5",
-    "bulletList": "項目符號清單",
-    "numberedList": "編號清單",
-    "checklist": "核取清單",
-    "insert": "插入",
-    "link": "連結",
-    "image": "圖片",
-    "divider": "分隔線",
-    "paste": "貼上",
-    "pasteAsPlainText": "貼上為純文字"
-  },
-  "keybindingGroup": {
-    "global": "全域",
-    "tabs": "分頁",
-    "tabNavigation": "分頁導覽",
-    "quickCommands": "快速命令",
-    "browser": "瀏覽器",
-    "editors": "編輯器",
-    "fileExplorer": "檔案總管",
-    "settings": "設定",
-    "terminalPanes": "終端機窗格",
-    "agents": "Agent"
-  },
-  "keybinding": {
-    "worktree": {
-      "quickOpen": "前往檔案",
-      "palette": "切換 Worktree",
-      "navigateUp": "上一個 Worktree",
-      "navigateDown": "下一個 Worktree",
-      "history": {
-        "back": "Worktree 歷程返回",
-        "forward": "Worktree 歷程前進"
-      }
-    },
-    "app": {
-      "settings": "開啟設定",
-      "forceReload": "強制重新載入"
-    },
-    "workspace": {
-      "create": "建立 Worktree",
-      "rename": "重新命名 Worktree",
-      "delete": "刪除工作區",
-      "openBoard": "開啟工作區看板",
-      "selectByIndex": "選擇工作區 1–9"
-    },
-    "voice": {
-      "dictation": "語音聽寫"
-    },
-    "view": {
-      "tasks": "開啟任務"
-    },
-    "sidebar": {
-      "left": {
-        "toggle": "切換側邊欄"
-      },
-      "right": {
-        "toggle": "切換右側邊欄"
-      },
-      "explorer": {
-        "toggle": "顯示檔案總管"
-      },
-      "search": {
-        "toggle": "顯示搜尋"
-      },
-      "sourceControl": {
-        "toggle": "顯示原始碼控制"
-      },
-      "checks": {
-        "toggle": "顯示檢查"
-      },
-      "ports": {
-        "toggle": "顯示連接埠"
-      },
-      "sleepingWorkspaces": {
-        "toggle": "切換睡眠中的工作區"
-      },
-      "focusWorktreeList": "聚焦 Worktree 清單"
-    },
-    "floatingTerminal": {
-      "toggle": "切換浮動終端機"
-    },
-    "floatingWorkspace": {
-      "maximize": "最大化浮動工作區面板",
-      "minimize": "最小化浮動工作區面板"
-    },
-    "zoom": {
-      "in": "放大",
-      "out": "縮小",
-      "reset": "重設大小"
-    },
-    "sourceControl": {
-      "sendReviewNotes": "將審查筆記傳送給 Agent"
-    },
-    "tab": {
-      "newTerminal": "新增終端機分頁",
-      "newAgent": "新增 Agent 分頁（預設 Agent）",
-      "newBrowser": "新增瀏覽器分頁",
-      "newSimulator": "新增行動裝置模擬器分頁",
-      "newMarkdown": "新增 Markdown 分頁",
-      "openMarkdown": "開啟 Markdown 分頁",
-      "close": "關閉使用中的分頁",
-      "closeAll": "關閉所有編輯器分頁",
-      "rename": "重新命名使用中的分頁",
-      "reopenClosed": "重新開啟已關閉的分頁",
-      "nextSameType": "下一個分頁（同類型）",
-      "previousSameType": "上一個分頁（同類型）",
-      "nextAllTypes": "下一個分頁（所有類型）",
-      "previousAllTypes": "上一個分頁（所有類型）",
-      "previousRecent": "上一個最近使用的分頁",
-      "nextTerminal": "下一個終端機分頁",
-      "previousTerminal": "上一個終端機分頁",
-      "selectByIndex": "選擇分頁 1–9",
-      "openQuickCommandsMenu": "切換快速命令選單"
-    },
-    "browser": {
-      "find": "在瀏覽器中尋找",
-      "back": "在瀏覽器中返回",
-      "forward": "在瀏覽器中前進",
-      "reload": "重新載入瀏覽器頁面",
-      "hardReload": "強制重新載入瀏覽器頁面",
-      "focusAddressBar": "聚焦瀏覽器網址列",
-      "grabElement": "擷取頁面元素"
-    },
-    "editor": {
-      "find": "在編輯器中尋找",
-      "replace": "在編輯器中取代",
-      "save": "儲存檔案",
-      "markdownPreview": "顯示 Markdown 預覽",
-      "copyContext": "複製上下文",
-      "previousChange": "前往上一個變更",
-      "nextChange": "前往下一個變更",
-      "addReviewNote": "新增審查筆記"
-    },
-    "fileExplorer": {
-      "undo": "復原檔案操作",
-      "redo": "重做檔案操作",
-      "copyPath": "複製檔案路徑",
-      "copyRelativePath": "複製相對檔案路徑",
-      "delete": "刪除檔案"
-    },
-    "settings": {
-      "search": "搜尋設定"
-    },
-    "terminal": {
-      "copySelection": "複製終端機選取內容",
-      "paste": "貼上到終端機",
-      "search": "搜尋使用中的窗格",
-      "clear": "清除使用中的窗格",
-      "focusNextPane": "聚焦下一個窗格",
-      "focusPreviousPane": "聚焦上一個窗格",
-      "equalizePaneSizes": "平均分配窗格大小",
-      "expandPane": "展開／摺疊窗格",
-      "setTitle": "設定標題…",
-      "clearPaneTitle": "清除窗格標題",
-      "closePane": "關閉使用中的窗格",
-      "splitRight": "向右分割終端機",
-      "splitDown": "向下分割終端機",
-      "switchInputSource": "切換輸入來源／語言（原生）"
-    }
-  },
-  "optionLabel": {
-    "todo": "待處理",
-    "in-progress": "進行中",
-    "in-review": "待審查",
-    "completed": "已完成",
-    "low": "低",
-    "medium": "中",
-    "high": "高",
-    "xhigh": "極高",
-    "max": "最大",
-    "off": "關",
-    "on": "開",
-    "auto": "自動",
-    "default": "設定檔預設"
-  },
-  "slashCommand": {
-    "clearTheConversation": "清除對話",
-    "showAvailableCommands": "顯示可用命令",
-    "clearConversationHistory": "清除對話記錄",
-    "summarizeAndCompactTheConversation": "摘要並壓縮對話",
-    "initializeAClaudemd": "初始化 CLAUDE.md",
-    "reviewTheCurrentChanges": "審查目前的變更",
-    "chooseTheModelAndReasoningEffort": "選擇模型與推理強度",
-    "includeIdeContext": "納入 IDE 上下文",
-    "chooseWhatCodexIsAllowedToDo": "選擇 Codex 的權限範圍",
-    "remapTuiShortcuts": "重新對應 TUI 快速鍵",
-    "toggleVimMode": "切換 Vim 模式",
-    "toggleExperimentalFeatures": "切換實驗性功能",
-    "approveOneAutoreviewRetry": "核准一次自動審查重試",
-    "configureMemoryUse": "設定記憶體使用",
-    "manageAndUseSkills": "管理與使用技能",
-    "importSetupFromClaudeCode": "從 Claude Code 匯入設定",
-    "viewLifecycleHooks": "檢視生命週期掛鉤",
-    "renameTheCurrentThread": "重新命名目前的討論串",
-    "startANewChat": "開始新的聊天",
-    "archiveThisSessionAndExit": "封存此工作階段並結束",
-    "deleteThisSessionAndExit": "刪除此工作階段並結束",
-    "resumeASavedChat": "繼續已儲存的聊天",
-    "forkTheCurrentChat": "分支目前的聊天",
-    "continueInCodexDesktop": "在 Codex Desktop 中繼續",
-    "createAnAgentsmdFile": "建立 AGENTS.md 檔案",
-    "compactTheConversation": "壓縮對話",
-    "switchToPlanMode": "切換到計畫模式",
-    "setOrViewTheGoal": "設定或檢視目標",
-    "switchTheActiveAgentThread": "切換使用中的 Agent 討論串",
-    "startASideConversation": "開始側邊對話",
-    "copyTheLastResponseAsMarkdown": "以 Markdown 複製最後一則回應",
-    "toggleRawScrollbackMode": "切換原始回捲模式",
-    "showTheWorkingDiff": "顯示工作區差異",
-    "mentionAFile": "提及一個檔案",
-    "showSessionConfigurationAndUsage": "顯示工作階段設定與使用量",
-    "viewAccountUsage": "檢視帳號使用量",
-    "configureTheTerminalTitle": "設定終端機標題",
-    "configureTheStatusLine": "設定狀態列",
-    "chooseASyntaxHighlightingTheme": "選擇語法突顯主題",
-    "chooseOrHideTheTerminalPet": "選擇或隱藏終端機寵物",
-    "listConfiguredMcpTools": "列出已設定的 MCP 工具",
-    "browsePlugins": "瀏覽外掛",
-    "logOutOfCodex": "登出 Codex",
-    "exitCodex": "結束 Codex",
-    "sendLogsToMaintainers": "將記錄檔傳送給維護者",
-    "listBackgroundTerminals": "列出背景終端機",
-    "stopAllBackgroundTerminals": "停止所有背景終端機",
-    "clearTheTerminalAndStartANewChat": "清除終端機並開始新的聊天",
-    "chooseACommunicationStyle": "選擇溝通風格"
-  },
-  "sourceControl": {
-    "noChangesHeading": "此分支沒有變更",
-    "noChangesDetail": "此工作區是乾淨的，且此分支沒有領先 {{base}} 的變更",
-    "noMatchingFilesHeading": "沒有符合的檔案",
-    "noChangedFilesMatch": "沒有變更的檔案符合「{{query}}」",
-    "operationInProgress": "操作進行中…",
-    "abortConflictOperation": "中止進行中的 {{operation}}",
-    "abortConfirm": "中止 {{label}}"
-  },
-  "automation": {
-    "scheduleHourly": "每小時於 :{{minute}}",
-    "scheduleDaily": "每天於 {{time}}",
-    "scheduleWeekdays": "平日於 {{time}}"
-  },
-  "tab": {
-    "newAgentTab": "新增 {{agent}} 分頁"
-  },
-  "onboarding": {
-    "letAgentsDriveOrcaWithThe": "讓 Agent 透過 Orca CLI 操作 Orca",
-    "jumpToAWorktreeWithShortcut": "用 <shortcut> 跳到 Worktree",
-    "voiceDictationIsHere": "語音聽寫來了",
-    "planWorkOnTheBoard": "在看板上規劃工作",
-    "moveWorkThroughLanes": "在泳道之間移動工作",
-    "splitATerminalPane": "分割終端機窗格",
-    "startAnotherTaskInParallel": "並行開始另一項任務",
-    "grabPageContextForAgents": "為 Agent 擷取頁面上下文",
-    "markDesignFeedbackInPlace": "就地標註設計意見",
-    "stayLoggedIn": "保持登入狀態",
-    "chooseTheWorkSource": "選擇工作來源",
-    "filterToTheWorkYouNeed": "篩選出你需要的工作",
-    "startFromWorkItems": "從工作項目開始",
-    "whatIsAnAutomation": "什麼是自動化？",
-    "findTheResults": "找到執行結果",
-    "runAnAgentAcrossEveryRepo": "讓 Agent 跨所有存放庫執行",
-    "orUseItAsAScratchpad": "也可以當成暫存區使用",
-    "pickAProject": "選擇一個專案",
-    "nameItOrStartFromExisting": "命名，或從既有的工作開始",
-    "chooseWhatAgentStartsTheWork": "選擇由哪個 Agent 開始工作",
-    "useTheBoardWhenYouWant": "想依狀態而非依專案檢視工作區時，就用看板。",
-    "dragWorkspacesBetweenLanesAsTheir": "狀態變更時，把工作區拖到對應的泳道。",
-    "openASecondTerminalPaneWith": "用 {terminal.splitRight} 開啟第二個終端機窗格，或在窗格上按右鍵查看分割選項。",
-    "eachWorktreeGetsItsOwnBranch": "每個 Worktree 都有自己的分支，並行的工作彼此隔離。",
-    "useTheGrabToolToCopy": "用擷取工具複製頁面元素的上下文給 Agent。",
-    "annotateElementsAndSendThoseNotes": "標註元素並把筆記傳給 Agent。",
-    "bringYourExistingLoginsIntoOrca": "把既有的登入資訊帶進 Orca，立即保持登入。",
-    "switchBetweenConnectedProvidersAndProject": "不用換頁就能切換已連線的提供者與專案篩選條件。",
-    "usePresetsAndSearchToNarrow": "用預設條件與搜尋縮小 Issue、審查、Merge Request 或任務的範圍。",
-    "useStartOrOpenOnA": "對任務、Issue、審查或 Merge Request 使用「開始」或「開啟」，把它的上下文帶進工作區。",
-    "automationsRunAgentWorkOnA": "自動化會依排程執行 Agent 工作。按這個按鈕新增自動化。",
-    "runsShowWhenAutomationsExecutedWhat": "執行紀錄會顯示自動化何時執行、發生了什麼，以及去哪裡檢視輸出。",
-    "agentsHereRunInAnyFolder": "這裡的 Agent 可以在你選的任何資料夾中執行。把它指向服務所在目錄的上一層，就能一次跨所有存放庫工作。",
-    "openAgentsScratchTerminalsNotesAnd": "開啟 Agent、臨時終端機、筆記與瀏覽器分頁，不會弄亂你正在專注的 Worktree。",
-    "orcaIsolatesEachTaskInIts": "Orca 會把每項任務隔離在各自的 Worktree 中，從你的基準分支切出。",
-    "startFromALinkedTaskFor": "從已連結的任務開始，會取得簡短的 Issue 或 PR 名稱。留空則會用你給 Agent 的第一則訊息自動命名。",
-    "pickTheAgentThatShouldBe": "選擇建立這個 Worktree 時要開啟的 Agent。",
-    "enableAgentsToCoordinateChildWorktrees": "讓 Agent 能協調子 Worktree 並在 Worktree 之間通訊。",
-    "searchWorktreesSwitchTabsTweakSettings": "搜尋 Worktree、切換分頁、調整設定或建立新的 Worktree，全程不用離開鍵盤。",
-    "speakIntoAnyFocusedPaneAnd": "對任何聚焦的窗格說話，Orca 就會轉成文字。按聽寫快速鍵開始與停止。",
-    "installCliSkills": "安裝 CLI 與技能",
-    "gotIt": "知道了",
-    "setUpVoice": "設定語音",
-    "splitTerminal": "分割終端機",
-    "workIn2DifferentWorktreesAt": "同時在 2 個不同的 Worktree 中工作。每個都是隔離的（即使在同一個專案裡）。非常適合同時開發 2 個功能。",
-    "browseYourWebAppWithoutLeaving": "不用離開 Orca 就能瀏覽你的 Web 應用程式。擷取任何元素，一鍵把它確切的原始碼與樣式傳給 Agent。",
-    "knowTheMomentAnAgentFinishes": "Agent 完成、需要注意或被阻塞的那一刻你就會知道。",
-    "startNewWorkFasterWithYour": "偏好的 Agent 已預先選好，開始新工作更快。",
-    "registerTheOrcaShellCommandAnd": "註冊 Orca shell 命令，並安裝瀏覽器、電腦操作與編排工作流程的 Agent 技能。",
-    "startAnAgentFromATask": "一鍵從任務啟動 Agent，並持續看得到 PR 狀態。",
-    "runInstallAndSetupCommandsAutomatically": "自動執行安裝與設定命令，讓每個新的 Worktree 都準備好給 Agent 用。",
-    "bringYourKeyReposIntoOrca": "把主要的存放庫帶進 Orca，開始 Agent 工作時不必到處找資料夾。",
-    "useOrcasBrowser": "使用 Orca 的瀏覽器",
-    "turnOnNotifications": "開啟通知",
-    "chooseYourDefaultAgent": "選擇預設 Agent",
-    "enableOrcaCli": "啟用 Orca CLI",
-    "connectIntegrations": "連線整合",
-    "automateWorkspaceSetup": "自動化工作區設定",
-    "startWorkInMultipleRepos": "在多個存放庫中開始工作"
-  },
-  "scVariable": {
-    "orcasBuiltinPromptForThisAction": "Orca 為此動作內建的提示詞，包含 Orca 知道如何安全蒐集的上下文。",
-    "commitMessagesIncludeStagedDiffGuidance": "commit 訊息包含已暫存差異的指引；PR 詳細資訊包含分支比較的指引；修復動作包含失敗摘要。",
-    "theCurrentSourcecontrolBranchName": "目前原始碼控制的分支名稱。",
-    "aNewlineseparatedListOfStagedFiles": "以換行分隔的已暫存檔案清單，用於產生 commit 訊息。",
-    "theStagedGitPatchUsedFor": "用於產生 commit 訊息的已暫存 git patch。",
-    "theTargetBranchSelectedInThe": "在「建立 PR」編寫區中選擇的目標分支。",
-    "thePrTitleCurrentlyTypedIn": "開始產生前，你在編寫區中已輸入的 PR 標題。",
-    "improveSourceControlAiCustomization": "改善原始碼控制 AI 的自訂能力",
-    "thePrDescriptionCurrentlyTypedIn": "開始產生前，你在編寫區中已輸入的 PR 描述。",
-    "addsConfigurableAgentsAndCommandTemplates": "為原始碼控制動作加入可設定的 Agent 與命令範本。",
-    "aNewlineseparatedListOfCommitsOn": "以換行分隔的清單，列出此分支相對於基準分支的 commit。",
-    "aSummaryOfFilesChangedBetween": "此分支與基準分支之間變更檔案的摘要。",
-    "theBranchDiffAgainstTheBase": "用於產生 PR 詳細資訊的分支差異（相對於基準分支）。",
-    "theFirstUserRequestThatCreated": "建立此 Orca 工作區的第一個使用者請求。",
-    "fixCiAndCommitTheResult": "修好 CI 並提交結果",
-    "theInitialAgentResponseWhenOrca": "Agent 的初始回應（若 Orca 有取得的話）。",
-    "iWillInspectTheFailingCheck": "我會查看失敗的檢查、修補問題，然後執行測試。"
   }
 };
 exports.default = zhTW;
@@ -14201,13 +13868,3 @@ exports.auto = zhTW.auto;
 exports.components = zhTW.components;
 exports.dashboardPopout = zhTW.dashboardPopout;
 exports.dashboard = zhTW.dashboard;
-exports.nativeMenu = zhTW.nativeMenu;
-exports.keybindingGroup = zhTW.keybindingGroup;
-exports.keybinding = zhTW.keybinding;
-exports.optionLabel = zhTW.optionLabel;
-exports.slashCommand = zhTW.slashCommand;
-exports.sourceControl = zhTW.sourceControl;
-exports.automation = zhTW.automation;
-exports.tab = zhTW.tab;
-exports.onboarding = zhTW.onboarding;
-exports.scVariable = zhTW.scVariable;
