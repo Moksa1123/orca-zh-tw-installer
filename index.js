@@ -865,7 +865,6 @@ async function patch() {
     if (wantExtra('labels')) patchOptionLabels(rp, 'translate');
     if (wantExtra('jsx')) patchJsxHardcoded(rp, 'I18nProvider');
     if (wantExtra('onboarding')) patchOnboarding(rp, 'I18nProvider', 'translate');
-    if (wantExtra('varinfo')) patchVarInfo(rp, 'translate');
     rp.save();
 
     // Agent 斜線命令的說明在另一個 chunk。檔名帶 hash（index-DlEnJ7xL.js），
@@ -885,6 +884,30 @@ async function patch() {
       sp.save();
     } else {
       console.log('   ⚠️ 找不到含 CODEX_COMMANDS 的 chunk，斜線命令說明將維持英文。');
+    }
+
+    // 原始碼控制 AI 動作的變數說明原本內嵌在 I18nProvider chunk，
+    // Orca 把「Source Control AI recipe」功能拆成獨立的 lazy chunk 後，
+    // SOURCE_CONTROL_ACTION_VARIABLE_INFO 也跟著搬過去了（檔名帶 hash，
+    // 靠內容找）。這個 chunk 是 import { t as translate } 進來的，
+    // translate 本身在別的 chunk 已初始化完畢，沒有 rp 那份的 TDZ 疑慮，
+    // 但沿用 getter 寫法維持一致，反正 assertLazyTranslate 也認這個形狀。
+    let vp = null;
+    let varInfoFile = null;
+    if (wantExtra('varinfo')) {
+      varInfoFile = fs.readdirSync(assetsDir)
+        .filter(f => f.endsWith('.js'))
+        .map(f => path.join(assetsDir, f))
+        .find(f => {
+          try { return fs.readFileSync(f, 'utf8').includes('SOURCE_CONTROL_ACTION_VARIABLE_INFO'); } catch { return false; }
+        });
+      if (varInfoFile) {
+        vp = createPatcher('source control 變數說明', varInfoFile);
+        patchVarInfo(vp, 'translate');
+        vp.save();
+      } else {
+        console.log('   ⚠️ 找不到含 SOURCE_CONTROL_ACTION_VARIABLE_INFO 的 chunk，變數說明將維持英文。');
+      }
     }
 
     // 原始碼控制空狀態與自動化排程描述各在自己的 chunk。
@@ -921,7 +944,7 @@ async function patch() {
     fs.copyFileSync(cjsDict, path.join(chunksDir, 'zh-TW-nested.js'));
 
     console.log('🔎 5/6 正在驗證所有注入點...');
-    const patchers = [mp, rp, ...(sp ? [sp] : []), ...extraPatchers.map(x => x.p)];
+    const patchers = [mp, rp, ...(sp ? [sp] : []), ...(vp ? [vp] : []), ...extraPatchers.map(x => x.p)];
     const allFailed = patchers.flatMap(p => p.failed.map(n => `[${p.label}] ${n}`));
     const allWarned = patchers.flatMap(p => p.warned.map(n => `[${p.label}] ${n}`));
     // 逐條列出注入點對安裝者沒有意義——他要的是「成了沒」。
@@ -960,6 +983,7 @@ async function patch() {
         ['renderer', rendererFile, '.mjs'],
       ];
       if (slashFile) toCheck.push(['slash commands', slashFile, '.mjs']);
+      if (vp) toCheck.push([vp.label, varInfoFile, '.mjs']);
       for (const x of extraPatchers) toCheck.push([x.p.label, x.file, '.mjs']);
       for (const [label, file, ext] of toCheck) {
         const probe = path.join(probeDir, 'probe' + ext);
