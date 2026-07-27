@@ -11170,5 +11170,6 @@
   "auto.components.settings.AccountsPane.accountScopePrefix": "帳戶範圍",
   "auto.components.settings.AccountsPane.accountScopeRemoteServerUnnamed": "遠端伺服器",
   "auto.components.settings.AccountsPane.remoteScopeLocalAccountsKept": "在此桌面管理的帳戶不會改變。將預設執行階段改回「本機桌面」以查看。",
-  "auto.components.settings.developer.permissions.search.87620e6416": "LAN"
+  "auto.components.settings.developer.permissions.search.87620e6416": "LAN",
+  "settings.appearance.language.traditionalChinese": "中文（繁體）"
 }
