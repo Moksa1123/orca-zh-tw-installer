@@ -1,6 +1,6 @@
 {
   "name": "orca-zh-tw-installer",
-  "version": "2.13.3",
+  "version": "2.13.4",
   "description": "Orca AI IDE 台灣繁體中文 (zh-TW) 一鍵安裝包",
   "main": "index.js",
   "bin": {
