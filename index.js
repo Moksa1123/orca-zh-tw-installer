@@ -311,10 +311,10 @@ function patchLocaleGate(p) {
     'const SUPPORTED_UI_LOCALES = [\n\t"en",\n\t"zh",\n\t"zh-TW",\n\t"ko",\n\t"ja",\n\t"es"\n];');
 
   p.patch('解除 zh-tw/zh-hk/zh-hant 退回英文',
-    c => c.includes('if (tag.startsWith("zh-tw") || tag.startsWith("zh-hk") || tag.startsWith("zh-hant")) return "zh-TW";'),
+    c => c.includes('if (tag.startsWith("zh-tw") || tag.startsWith("zh-hk") || tag.startsWith("zh-hant")) return "zh-TW";') && c.includes('return "zh";'),
     // Orca 1.4.161 返回 "en"（單行格式，兩個 tab）
-    '\t\tif (tag.startsWith("zh-tw") || tag.startsWith("zh-hk") || tag.startsWith("zh-hant")) return "en";',
-    '\t\tif (tag.startsWith("zh-tw") || tag.startsWith("zh-hk") || tag.startsWith("zh-hant")) return "zh-TW";');
+    '\t\tif (tag.startsWith("zh-tw") || tag.startsWith("zh-hk") || tag.startsWith("zh-hant")) return "en";\n\t\treturn "zh";',
+    '\t\tif (tag.startsWith("zh-tw") || tag.startsWith("zh-hk") || tag.startsWith("zh-hant")) return "zh-TW";\n\t\treturn "zh";');
 
   p.patch('resolveUiLocale 加入 zh-TW 分支',
     c => c.includes('if (language === "zh-TW") return "zh-TW";'),
