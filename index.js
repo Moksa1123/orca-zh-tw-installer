@@ -298,6 +298,17 @@ function createPatcher(label, filePath) {
   };
 }
 
+// 有些 chunk（plugin-manifest、feature-education-telemetry）沒有從
+// jsx-runtime import translate，因為它們原本不需要 i18n。要在裡面安全呼叫
+// translate() 之前，得先把這行 import 插進去——插在檔案最前面，確保後面
+// 任何一處用到 translate 的 patch 都已經看得到這個綁定。
+function patchTranslateImport(p, jsxRuntimeBasename) {
+  p.patch('注入 translate import',
+    c => new RegExp(`import \\{[^}]*\\bi as translate\\b[^}]*\\} from "\\./${jsxRuntimeBasename.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`).test(c),
+    /^/,
+    `import { i as translate } from "./${jsxRuntimeBasename}";\n`);
+}
+
 // ── 共用修補：三處新版 Orca 才有的 zh-TW 阻擋點 ──────────────────────────
 // A. locale 白名單沒有 zh-TW
 // B. normalizeSupportedUiLocale() 明確把 zh-tw / zh-hk / zh-hant 打回英文
@@ -500,10 +511,21 @@ const JSX_HARDCODED = [
   ['AutomationsPage', '`Weekdays at ${time}`',
     'translate("automation.scheduleWeekdays", "Weekdays at {{time}}", { time })'],
 
-  // ── 新增 Agent 分頁的標題 ──
-  ['I18nProvider', '`New ${TUI_AGENT_DISPLAY_NAMES[agent]} tab`',
-    'translate("tab.newAgentTab", "New {{agent}} tab", { agent: TUI_AGENT_DISPLAY_NAMES[agent] })'],
 ];
+
+// 「新增 Agent 分頁」的標題（New ${agent} tab）曾經在 I18nProvider 的 render 樹裡，
+// 靠 JSX_HARDCODED 那套直接替換值就安全。Orca 1.4.161 把它搬進
+// buildAgentTabKeybindingDefinitions()，而這個函式是在模組層的陣列字面值裡
+// 直接展開呼叫（`...buildAgentTabKeybindingDefinitions()`），不再是 render-scoped。
+// 沿用 JSX_HARDCODED 的直接替換會重蹈 patchVarInfo 當初的覆轍（TDZ 白畫面），
+// 所以獨立出來、一律用 getter。
+function patchNewAgentTabTitle(p, translateFn) {
+  p.patch('新增 Agent 分頁標題改走 i18n',
+    c => c.includes(`get title() { return ${translateFn}("tab.newAgentTab"`),
+    'title: `New ${TUI_AGENT_DISPLAY_NAMES[agent]} tab`,',
+    `get title() { return ${translateFn}("tab.newAgentTab", "New {{agent}} tab", `
+    + '{ agent: TUI_AGENT_DISPLAY_NAMES[agent] }); },');
+}
 
 function patchJsxHardcoded(p, chunkTag) {
   const items = JSX_HARDCODED.filter(x => x[0] === chunkTag);
@@ -820,10 +842,14 @@ async function patch() {
       c => c.includes(MARK),
       'const UI_LANGUAGE_CHINESE = "zh";',
       'const UI_LANGUAGE_CHINESE = "zh";\nconst UI_LANGUAGE_TRADITIONAL_CHINESE = "zh-TW";');
-    mp.patchOptional('加入語言列舉白名單',
-      c => c.includes('UI_LANGUAGE_TRADITIONAL_CHINESE,'),
-      'UI_LANGUAGE_CHINESE,\n  UI_LANGUAGE_KOREAN',
-      'UI_LANGUAGE_CHINESE,\n  UI_LANGUAGE_TRADITIONAL_CHINESE,\n  UI_LANGUAGE_KOREAN');
+    // main process 的 normalizeUiLanguage() 靠這個 Set 驗證使用者存的 uiLanguage
+    // 設定值，沒在裡面就會被打回 UI_LANGUAGE_SYSTEM——即使前面的 locale gate
+    // 都修好了，設定值本身存不進去，等於白修。Orca 1.4.161 改成字面值而非
+    // UI_LANGUAGE_CHINESE 這類具名常數，錨點要跟著改。
+    mp.patch('加入語言列舉白名單',
+      c => c.includes('var UI_LANGUAGE_VALUES = new Set([\n\tUI_LANGUAGE_SYSTEM,\n\t"en",\n\t"zh",\n\t"zh-TW",'),
+      'var UI_LANGUAGE_VALUES = new Set([\n\tUI_LANGUAGE_SYSTEM,\n\t"en",\n\t"zh",\n\t"ko",\n\t"ja",\n\t"es"\n]);',
+      'var UI_LANGUAGE_VALUES = new Set([\n\tUI_LANGUAGE_SYSTEM,\n\t"en",\n\t"zh",\n\t"zh-TW",\n\t"ko",\n\t"ja",\n\t"es"\n]);');
     patchLocaleGate(mp);
     // main process 有自己的 LAZY_LOCALE_LOADERS（CJS require），需另外注入
     mp.patch('注入 main process 字典 loader',
@@ -844,28 +870,9 @@ async function patch() {
 
     const rendererFile = path.join(assetsDir, i18nFile);
     const rp = createPatcher('renderer', rendererFile);
-
-    // I18nProvider 這些是 optional
-    rp.patchOptional('注入 zh-TW 常數',
-      c => c.includes(MARK),
-      'const UI_LANGUAGE_CHINESE = "zh";',
-      'const UI_LANGUAGE_CHINESE = "zh";\nconst UI_LANGUAGE_TRADITIONAL_CHINESE = "zh-TW";');
-    rp.patchOptional('加入語言列舉白名單',
-      c => c.includes('UI_LANGUAGE_TRADITIONAL_CHINESE,'),
-      'UI_LANGUAGE_CHINESE,\n  UI_LANGUAGE_KOREAN',
-      'UI_LANGUAGE_CHINESE,\n  UI_LANGUAGE_TRADITIONAL_CHINESE,\n  UI_LANGUAGE_KOREAN');
-    rp.patchOptional('加入語言下拉選單項目',
-      c => c.includes('labelKey: "settings.appearance.language.traditionalChinese"'),
-      '{ value: UI_LANGUAGE_CHINESE, labelKey: "settings.appearance.language.chinese" },',
-      '{ value: UI_LANGUAGE_CHINESE, labelKey: "settings.appearance.language.chinese" },\n  { value: UI_LANGUAGE_TRADITIONAL_CHINESE, labelKey: "settings.appearance.language.traditionalChinese" },');
-    rp.patchOptional('加入語言名稱 fallback',
-      c => c.includes('[UI_LANGUAGE_TRADITIONAL_CHINESE]:'),
-      '[UI_LANGUAGE_CHINESE]: "中文（简体）",',
-      '[UI_LANGUAGE_CHINESE]: "中文（简体）",\n  [UI_LANGUAGE_TRADITIONAL_CHINESE]: "中文（繁體）",');
-    rp.patchOptional('注入 renderer 字典 loader',
-      c => c.includes('"zh-TW": () => __vitePreload'),
-      /ko: \(\) => __vitePreload\(\(\) => import\("\.\/ko-[a-zA-Z0-9_-]+\.js"\), [^,]+, import\.meta\.url\),/,
-      '$& \n  "zh-TW": () => __vitePreload(() => import("./zh-TW-nested.js"), true ? [] : void 0, import.meta.url),');
+    // 語言常數／列舉／下拉選單／字典 loader 在 Orca 1.4.161 全部搬到了
+    // jsx-runtime chunk（用字面值 "zh-TW" 而非 UI_LANGUAGE_CHINESE 這類具名
+    // 常數），I18nProvider 早就不含這些內容。實際補丁見下方 jp 區塊。
 
     // 補丁 JSX runtime chunk - 在 assetsDir 找出所有檔案並逐個檢查
     const jsxRuntimeFiles = fs.readdirSync(assetsDir)
@@ -876,8 +883,10 @@ async function patch() {
         try { return fs.readFileSync(f, 'utf8').includes('var UI_LANGUAGE_VALUES = new Set'); } catch { return false; }
       });
 
+    const extraPatchersEarly = [];
+    let jp = null;
     if (jsxRuntimeFile) {
-      const jp = createPatcher('jsx-runtime', jsxRuntimeFile);
+      jp = createPatcher('jsx-runtime', jsxRuntimeFile);
 
       // 補丁語言列舉
       jp.patch('renderer 語言列舉加入 zh-TW',
@@ -897,33 +906,92 @@ async function patch() {
         /(\["zh"\]: "中文（简体）",\n\t)/,
         '$1["zh-TW"]: "中文（繁體）",\n\t');
 
+      // renderer 端的繁中字典 loader（NON_DEFAULT_LOCALE_LOADERS）也在這個 chunk，
+      // 不在 I18nProvider。少了這個，選了 zh-TW 也不會真的載入 zh-TW-nested.js。
+      // zh 是這個物件字面值的最後一個屬性，沒有結尾逗號，補丁要自己加上去。
+      jp.patch('注入 renderer 字典 loader',
+        c => c.includes('"zh-TW": () => __vitePreload'),
+        /zh: \(\) => __vitePreload\(\(\) => import\("\.\/zh-[a-zA-Z0-9_-]+\.js"\), \[\], import\.meta\.url\)(?=\n\};)/,
+        '$&,\n\t"zh-TW": () => __vitePreload(() => import("./zh-TW-nested.js"), [], import.meta.url)');
+
       patchLocaleGate(jp);
       jp.save();
     }
-
-    if (wantExtra('keybindings')) patchKeybindingTitles(rp, 'translate');
-    if (wantExtra('labels')) patchOptionLabels(rp, 'translate');
-    if (wantExtra('jsx')) patchJsxHardcoded(rp, 'I18nProvider');
-    if (wantExtra('onboarding')) patchOnboarding(rp, 'I18nProvider', 'translate');
+    // I18nProvider 沒有任何加值字串了（keybindings／labels／onboarding／
+    // New-agent-tab 全被 Orca 1.4.161 搬到別的 chunk，見下方）。
     rp.save();
+
+    const jsxRuntimeBasename = jsxRuntimeFile ? path.basename(jsxRuntimeFile) : null;
+    const allAssetFiles = fs.readdirSync(assetsDir)
+      .filter(f => f.endsWith('.js'))
+      .map(f => path.join(assetsDir, f));
+    const findAssetFile = marker => allAssetFiles.find(f => {
+      try { return fs.readFileSync(f, 'utf8').includes(marker); } catch { return false; }
+    });
+
+    // 快速鍵定義（含「New Agent 分頁」標題）搬到了 plugin-manifest chunk，
+    // 這個 chunk 原本沒有 i18n 需求，沒 import translate，要先補上。
+    if (wantExtra('keybindings') || wantExtra('jsx')) {
+      const pluginManifestFile = findAssetFile('buildAgentTabKeybindingDefinitions');
+      if (pluginManifestFile) {
+        const pmp = createPatcher('plugin-manifest', pluginManifestFile);
+        if (jsxRuntimeBasename) patchTranslateImport(pmp, jsxRuntimeBasename);
+        if (wantExtra('keybindings')) patchKeybindingTitles(pmp, 'translate');
+        if (wantExtra('jsx')) patchNewAgentTabTitle(pmp, 'translate');
+        pmp.save();
+        extraPatchersEarly.push({ p: pmp, file: pluginManifestFile });
+      } else {
+        console.log('   ⚠️ 找不到含快速鍵定義的 chunk，快速鍵名稱與新分頁標題將維持英文。');
+      }
+    }
+
+    // 選項清單標籤與「I18nProvider 版」新手引導文案搬到了 store chunk，
+    // 這個 chunk 本來就 import 了 translate，不用另外注入。
+    if (wantExtra('labels') || wantExtra('onboarding')) {
+      const storeFile = findAssetFile('title: "Let agents drive Orca with the Orca CLI"');
+      if (storeFile) {
+        const storeP = createPatcher('store', storeFile);
+        if (wantExtra('labels')) patchOptionLabels(storeP, 'translate');
+        if (wantExtra('onboarding')) patchOnboarding(storeP, 'I18nProvider', 'translate');
+        storeP.save();
+        extraPatchersEarly.push({ p: storeP, file: storeFile });
+      } else {
+        console.log('   ⚠️ 找不到含選項標籤／引導文案的 store chunk，該部分將維持英文。');
+      }
+    }
+
+    // 「index 版」新手引導文案（安裝 CLI、通知等首頁提示卡）搬到了
+    // feature-education-telemetry chunk，同樣沒有 import translate。
+    if (wantExtra('onboarding')) {
+      const featTelemetryFile = findAssetFile('Work in 2 different worktrees at once');
+      if (featTelemetryFile) {
+        const featP = createPatcher('feature-education', featTelemetryFile);
+        if (jsxRuntimeBasename) patchTranslateImport(featP, jsxRuntimeBasename);
+        patchOnboarding(featP, 'index', 'translate');
+        featP.save();
+        extraPatchersEarly.push({ p: featP, file: featTelemetryFile });
+      } else {
+        console.log('   ⚠️ 找不到含首頁引導卡片的 chunk，該部分將維持英文。');
+      }
+    }
 
     // Agent 斜線命令的說明在另一個 chunk。檔名帶 hash（index-DlEnJ7xL.js），
     // 每次 Orca 建置都會變，所以靠內容找而不是靠檔名。
     // 那個 chunk 有 import { t as translate }，模組層可直接呼叫。
-    const slashFile = (wantExtra('slash') || wantExtra('onboarding')) ? fs.readdirSync(assetsDir)
-      .filter(f => f.endsWith('.js'))
-      .map(f => path.join(assetsDir, f))
-      .find(f => {
-        try { return fs.readFileSync(f, 'utf8').includes('CODEX_COMMANDS'); } catch { return false; }
-      }) : null;
+    // 標記字串因 agent 種類而異（Codex／Claude 各自的指令清單），三選一命中即可。
+    // 「index 版」新手引導文案已經在上面併入 feature-education-telemetry 處理，
+    // 這裡不用再嘗試——slash commands chunk 從沒真的含過這些字串，
+    // 之前那行只是每次都白跑一輪「0/22 未對上」的警告。
+    const slashFile = wantExtra('slash')
+      ? (findAssetFile('CODEX_COMMANDS') || findAssetFile('CLAUDE_COMMANDS') || findAssetFile('COMMON_COMMANDS'))
+      : null;
     let sp = null;
     if (slashFile) {
       sp = createPatcher('slash commands', slashFile);
-      if (wantExtra('slash')) patchSlashCommands(sp, 'translate');
-      if (wantExtra('onboarding')) patchOnboarding(sp, 'index', 'translate');
+      patchSlashCommands(sp, 'translate');
       sp.save();
     } else {
-      console.log('   ⚠️ 找不到含 CODEX_COMMANDS 的 chunk，斜線命令說明將維持英文。');
+      if (wantExtra('slash')) console.log('   ⚠️ 找不到含斜線命令清單的 chunk，斜線命令說明將維持英文。');
     }
 
     // 原始碼控制 AI 動作的變數說明原本內嵌在 I18nProvider chunk，
@@ -984,7 +1052,8 @@ async function patch() {
     fs.copyFileSync(cjsDict, path.join(chunksDir, 'zh-TW-nested.js'));
 
     console.log('🔎 5/6 正在驗證所有注入點...');
-    const patchers = [mp, rp, ...(sp ? [sp] : []), ...(vp ? [vp] : []), ...extraPatchers.map(x => x.p)];
+    const patchers = [mp, rp, ...(jp ? [jp] : []), ...(sp ? [sp] : []), ...(vp ? [vp] : []),
+      ...extraPatchersEarly.map(x => x.p), ...extraPatchers.map(x => x.p)];
     const allFailed = patchers.flatMap(p => p.failed.map(n => `[${p.label}] ${n}`));
     const allWarned = patchers.flatMap(p => p.warned.map(n => `[${p.label}] ${n}`));
     // 逐條列出注入點對安裝者沒有意義——他要的是「成了沒」。
@@ -1022,8 +1091,10 @@ async function patch() {
         ['main process', mainFile, '.js'],
         ['renderer', rendererFile, '.mjs'],
       ];
+      if (jp) toCheck.push(['jsx-runtime', jsxRuntimeFile, '.mjs']);
       if (slashFile) toCheck.push(['slash commands', slashFile, '.mjs']);
       if (vp) toCheck.push([vp.label, varInfoFile, '.mjs']);
+      for (const x of extraPatchersEarly) toCheck.push([x.p.label, x.file, '.mjs']);
       for (const x of extraPatchers) toCheck.push([x.p.label, x.file, '.mjs']);
       for (const [label, file, ext] of toCheck) {
         const probe = path.join(probeDir, 'probe' + ext);
