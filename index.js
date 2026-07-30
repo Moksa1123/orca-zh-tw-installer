@@ -300,23 +300,27 @@ function createPatcher(label, filePath) {
 
 // ── 共用修補：三處新版 Orca 才有的 zh-TW 阻擋點 ──────────────────────────
 // A. locale 白名單沒有 zh-TW
-// B. normalizeSupportedUiLocale() 明確把 zh-tw / zh-hk / zh-hant 打回 DEFAULT_UI_LOCALE("en")
+// B. normalizeSupportedUiLocale() 明確把 zh-tw / zh-hk / zh-hant 打回英文
 // C. resolveUiLocale() 沒有 zh-TW 分支，選了繁中會掉出 if 鏈變成 "en"
 function patchLocaleGate(p) {
+  // Orca 1.4.161 改成多行格式（TAB 縮排）
   p.patch('locale 白名單加入 zh-TW',
-    c => c.includes('const SUPPORTED_UI_LOCALES = ["en", "zh", "zh-TW", "ko", "ja", "es"]'),
-    'const SUPPORTED_UI_LOCALES = ["en", "zh", "ko", "ja", "es"];',
-    'const SUPPORTED_UI_LOCALES = ["en", "zh", "zh-TW", "ko", "ja", "es"];');
+    c => c.includes('const SUPPORTED_UI_LOCALES = [\n\t"en",\n\t"zh",\n\t"zh-TW",\n\t"ko",\n\t"ja",\n\t"es"\n];'),
+    // 匹配多行格式（用 \n 和 \t 字面量）
+    'const SUPPORTED_UI_LOCALES = [\n\t"en",\n\t"zh",\n\t"ko",\n\t"ja",\n\t"es"\n];',
+    'const SUPPORTED_UI_LOCALES = [\n\t"en",\n\t"zh",\n\t"zh-TW",\n\t"ko",\n\t"ja",\n\t"es"\n];');
 
   p.patch('解除 zh-tw/zh-hk/zh-hant 退回英文',
-    c => /tag\.startsWith\("zh-hant"\)\)\s*\{\s*return "zh-TW";/.test(c),
-    /(if \(tag\.startsWith\("zh-tw"\) \|\| tag\.startsWith\("zh-hk"\) \|\| tag\.startsWith\("zh-hant"\)\) \{\s*)return DEFAULT_UI_LOCALE;/,
-    '$1return "zh-TW";');
+    c => c.includes('if (tag.startsWith("zh-tw") || tag.startsWith("zh-hk") || tag.startsWith("zh-hant")) return "zh-TW";'),
+    // Orca 1.4.161 返回 "en"（單行格式，兩個 tab）
+    '\t\tif (tag.startsWith("zh-tw") || tag.startsWith("zh-hk") || tag.startsWith("zh-hant")) return "en";',
+    '\t\tif (tag.startsWith("zh-tw") || tag.startsWith("zh-hk") || tag.startsWith("zh-hant")) return "zh-TW";');
 
   p.patch('resolveUiLocale 加入 zh-TW 分支',
-    c => c.includes('if (language === "zh-TW") {'),
-    /(if \(language === UI_LANGUAGE_CHINESE\) \{\s*return "zh";\s*\})/,
-    '$1\n  if (language === "zh-TW") {\n    return "zh-TW";\n  }');
+    c => c.includes('if (language === "zh-TW") return "zh-TW";'),
+    // 適配新版本結構：在最後一個 if 後面插入 zh-TW 分支
+    'if (language === "es") return "es";',
+    'if (language === "es") return "es";\n\tif (language === "zh-TW") return "zh-TW";');
 }
 
 // ── 原生選單本地化 ─────────────────────────────────────────────────────
@@ -816,7 +820,7 @@ async function patch() {
       c => c.includes(MARK),
       'const UI_LANGUAGE_CHINESE = "zh";',
       'const UI_LANGUAGE_CHINESE = "zh";\nconst UI_LANGUAGE_TRADITIONAL_CHINESE = "zh-TW";');
-    mp.patch('加入語言列舉白名單',
+    mp.patchOptional('加入語言列舉白名單',
       c => c.includes('UI_LANGUAGE_TRADITIONAL_CHINESE,'),
       'UI_LANGUAGE_CHINESE,\n  UI_LANGUAGE_KOREAN',
       'UI_LANGUAGE_CHINESE,\n  UI_LANGUAGE_TRADITIONAL_CHINESE,\n  UI_LANGUAGE_KOREAN');
@@ -831,34 +835,73 @@ async function patch() {
 
     console.log('🛠️ 3/6 正在修補渲染器 (renderer process) 語言限制...');
     const assetsDir = path.join(unpackedDir, 'out', 'renderer', 'assets');
+
+    // 在 Orca 1.4.161，JSX runtime chunk 才包含語言配置，不在 I18nProvider
+    const jsxRuntimeFile = fs.readdirSync(assetsDir)
+      .find(f => f.startsWith('jsx-runtime-') && f.endsWith('.js'));
+
+    // 同時也找 I18nProvider 用於其他補丁
     const i18nFile = fs.readdirSync(assetsDir)
       .find(f => f.startsWith('I18nProvider-') && f.endsWith('.js'));
     if (!i18nFile) {
       throw new Error('找不到 I18nProvider 檔案，Orca 可能已大幅更改架構！');
     }
+
+    // 先用 I18nProvider 做基礎補丁
     const rendererFile = path.join(assetsDir, i18nFile);
     const rp = createPatcher('renderer', rendererFile);
-    rp.patch('注入 zh-TW 常數',
+
+    // 這些補丁改成 optional，因為語言常數實際上在 jsx-runtime chunk 而非 I18nProvider
+    rp.patchOptional('注入 zh-TW 常數',
       c => c.includes(MARK),
       'const UI_LANGUAGE_CHINESE = "zh";',
       'const UI_LANGUAGE_CHINESE = "zh";\nconst UI_LANGUAGE_TRADITIONAL_CHINESE = "zh-TW";');
-    rp.patch('加入語言列舉白名單',
+    rp.patchOptional('加入語言列舉白名單',
       c => c.includes('UI_LANGUAGE_TRADITIONAL_CHINESE,'),
       'UI_LANGUAGE_CHINESE,\n  UI_LANGUAGE_KOREAN',
       'UI_LANGUAGE_CHINESE,\n  UI_LANGUAGE_TRADITIONAL_CHINESE,\n  UI_LANGUAGE_KOREAN');
-    rp.patch('加入語言下拉選單項目',
+    rp.patchOptional('加入語言下拉選單項目',
       c => c.includes('labelKey: "settings.appearance.language.traditionalChinese"'),
       '{ value: UI_LANGUAGE_CHINESE, labelKey: "settings.appearance.language.chinese" },',
       '{ value: UI_LANGUAGE_CHINESE, labelKey: "settings.appearance.language.chinese" },\n  { value: UI_LANGUAGE_TRADITIONAL_CHINESE, labelKey: "settings.appearance.language.traditionalChinese" },');
-    rp.patch('加入語言名稱 fallback',
+    rp.patchOptional('加入語言名稱 fallback',
       c => c.includes('[UI_LANGUAGE_TRADITIONAL_CHINESE]:'),
       '[UI_LANGUAGE_CHINESE]: "中文（简体）",',
       '[UI_LANGUAGE_CHINESE]: "中文（简体）",\n  [UI_LANGUAGE_TRADITIONAL_CHINESE]: "中文（繁體）",');
-    rp.patch('注入 renderer 字典 loader',
+    rp.patchOptional('注入 renderer 字典 loader',
       c => c.includes('"zh-TW": () => __vitePreload'),
       /ko: \(\) => __vitePreload\(\(\) => import\("\.\/ko-[a-zA-Z0-9_-]+\.js"\), [^,]+, import\.meta\.url\),/,
       '$& \n  "zh-TW": () => __vitePreload(() => import("./zh-TW-nested.js"), true ? [] : void 0, import.meta.url),');
-    patchLocaleGate(rp);
+
+    // 嘗試補丁 JSX runtime chunk（才是真正的語言配置）
+    if (jsxRuntimeFile) {
+      const jsxRuntimePath = path.join(assetsDir, jsxRuntimeFile);
+      const jp = createPatcher('jsx-runtime', jsxRuntimePath);
+
+      // 在 UI_LANGUAGE_VALUES set 中加入 "zh-TW"
+      jp.patchOptional('renderer 語言列舉加入 zh-TW',
+        c => /UI_LANGUAGE_VALUES[\s\n]*=[\s\n]*new Set\([^)]*"zh-TW"/.test(c),
+        /(\bvar UI_LANGUAGE_VALUES = new Set\(\[\s*UI_LANGUAGE_SYSTEM,[\s\n]*"en",[\s\n]*"zh",)(\s*"ko",)/s,
+        '$1\n\t"zh-TW",$2');
+
+      // 在 UI_LANGUAGE_CHOICES 中加入繁中選項
+      jp.patchOptional('renderer 語言下拉選單加入繁中',
+        c => /value: "zh-TW",[\s\n]*labelKey:[\s\n]*"settings\.appearance\.language\.traditionalChinese"/.test(c),
+        /(value: "zh",[\s\n]*labelKey: "settings\.appearance\.language\.chinese"\s*\},)/,
+        '$1\n\t{\n\t\tvalue: "zh-TW",\n\t\tlabelKey: "settings.appearance.language.traditionalChinese"\n\t},');
+
+      // 在 fallbacks 中加入繁中名稱
+      jp.patchOptional('renderer 語言名稱 fallback 加入繁中',
+        c => /\["zh-TW"\]:\s*"中文（繁體）"/.test(c),
+        /(zh: "中文（简体）",)/,
+        '$1\n\t"zh-TW": "中文（繁體）",');
+
+      // JSX runtime 包含 SUPPORTED_UI_LOCALES 和 resolveUiLocale，用它來補丁
+      patchLocaleGate(jp);
+      jp.save();
+    }
+
+    // 不對 I18nProvider 套用 patchLocaleGate（那裡沒有這些常數）
     // 「設定 → 快速鍵」顯示的是 renderer 這份定義，所以只改這裡。
     // main process 也有一份，但那份不用於顯示，動它只增加風險。
     if (wantExtra('keybindings')) patchKeybindingTitles(rp, 'translate');
