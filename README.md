@@ -13,7 +13,7 @@
 [![license](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](LICENSE)
 [![stars](https://img.shields.io/github/stars/Moksa1123/orca-zh-tw-installer?style=flat-square)](https://star-history.com/#Moksa1123/orca-zh-tw-installer&Date)
 
-[快速開始](#快速開始) | [功能特色](#功能特色) | [支援系統](#支援的作業系統)
+[快速開始](#快速開始) | [功能特色](#功能特色) | [支援版本](#支援版本) | [支援系統](#支援的作業系統)
 
 </div>
 
@@ -22,6 +22,29 @@
 ## 關於專案
 
 官方 Orca 內建的語言系統具有白名單限制，若強制選擇繁體中文會被退回預設語言（System）或簡體中文。本專案透過跨平臺自動化腳本，解除官方白名單限制，並注入超過 11,000 句針對台灣軟體工程師習慣精修的在地化翻譯。
+
+---
+
+## 支援版本
+
+| 項目 | 版本 |
+|---|---|
+| **語系包** | v2.13.10 |
+| **已測試相容的 Orca 版本** | 1.4.161、1.4.162 |
+
+Orca 更新頻繁，且每次更新都可能改動內部程式碼結構（變數命名、chunk 檔案切分方式等），
+導致本包的修補錨點失效。**版本號不代表保證相容未來所有 Orca 更新**——只代表列出的
+版本經過實際安裝與 `--dry-run` 驗證過。
+
+安裝前建議先確認相容性，尤其是 Orca 剛更新完的情況：
+
+```bash
+npx orca-zh-tw-installer --dry-run
+```
+
+若輸出全部是 ✅（零 ⚠️、零 ❌），代表跟你目前的 Orca 版本相容，可以放心正式安裝。
+若看到 ❌ 或大量 ⚠️，代表 Orca 更新後改了程式碼結構，需要等本包更新或
+[回報 Issue](https://github.com/Moksa1123/orca-zh-tw-installer/issues)。
 
 ---
 
