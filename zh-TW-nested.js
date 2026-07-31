@@ -13749,11 +13749,20 @@ export default {
   "dashboardPopout": {
     "bucket": {
       "attention": "需要你處理",
+      "done": "已完成",
       "empty": "無",
       "idle": "閒置",
       "working": "執行中"
     },
     "card": {
+      "review": {
+        "closed": "已關閉",
+        "draft": "草稿",
+        "merged": "已合併",
+        "open": "開啟中"
+      },
+      "subagents_one": "1 個子 Agent",
+      "subagents_other": "{{count}} 個子 Agent",
       "time": {
         "days": "{{count}} 天",
         "hours": "{{count}} 小時",
@@ -13763,6 +13772,24 @@ export default {
       "you": "你"
     },
     "close": "關閉儀表板",
+    "filters": {
+      "active": "篩選",
+      "clear": "清除",
+      "clearAll": "清除所有篩選條件",
+      "label": "篩選",
+      "project": "專案",
+      "remove": "移除篩選條件 {{label}}",
+      "review": {
+        "closed": "已關閉",
+        "draft": "草稿",
+        "merged": "已合併",
+        "none": "無審查",
+        "open": "開啟中"
+      },
+      "reviewChip": "審查：{{state}}",
+      "reviewStatus": "PR／MR 狀態",
+      "workspaceStatus": "工作區狀態"
+    },
     "placeholder": {
       "description": "你的所有 Agent 都會集中顯示在這裡。看板功能即將推出",
       "title": "Agent 儀表板"
@@ -13771,7 +13798,17 @@ export default {
       "description": "儀表板無法完成渲染。重試以重新掛載，或重新開啟。",
       "title": "Orca 儀表板發生錯誤。"
     },
-    "settings": "Agent 儀表板設定",
+    "search": {
+      "clear": "清除搜尋",
+      "label": "搜尋 Agent",
+      "placeholder": "搜尋 Worktree、專案或 Agent…",
+      "results": "顯示 {{shown}} / {{total}} 筆"
+    },
+    "settings": {
+      "showIdle": "顯示閒置的 Agent",
+      "showIdleCopy": "包含已閒置超過 30 分鐘、卻未回報完成的 Agent。預設為隱藏。"
+    },
+    "settingsLabel": "Agent 儀表板設定",
     "settingsTooltip": "看板設定",
     "terminal": {
       "close": "關閉",
@@ -14075,6 +14112,22 @@ export default {
     "on": "開",
     "todo": "待處理",
     "xhigh": "極高"
+  },
+  "runtimeRpc": {
+    "startupFailure": {
+      "continueButton": "不使用 CLI，繼續",
+      "detail": "Orca 仍可正常運作，但本次工作階段無法使用 orca status、orca terminal 等命令與流程協調功能。\n\n{{guidance}}\n\n原因：{{cause}}",
+      "guidance": {
+        "addressInUse": "可能有其他程式占用了連接埠。請重新啟動 Orca 再試一次。",
+        "invalidPath": "Orca 的資料夾可能遺失、被移動，或路徑過長。請還原資料夾或改用較短的路徑，然後重新啟動 Orca。",
+        "permissionDenied": "Orca 無法寫入執行階段檔案。請檢查 Orca 資料夾的權限，然後重新啟動。",
+        "storageUnavailable": "你的磁碟可能已滿或為唯讀。請清出空間，然後重新啟動 Orca。",
+        "unknown": "請重新啟動 Orca 再試一次。"
+      },
+      "message": "Orca 無法啟動本機命令傳輸功能。",
+      "title": "Orca CLI 無法使用",
+      "unknownCause": "沒有其他可用的錯誤詳細資訊。"
+    }
   },
   "scVariable": {
     "aNewlineseparatedListOfCommitsOn": "此分支相較於基準分支的 commit 清單，以換行分隔。",
