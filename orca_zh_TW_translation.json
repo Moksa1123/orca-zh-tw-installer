@@ -11135,7 +11135,6 @@
   "dashboardPopout.search.label": "搜尋 Agent",
   "dashboardPopout.search.placeholder": "搜尋 Worktree、專案或 Agent…",
   "dashboardPopout.search.results": "顯示 {{shown}} / {{total}} 筆",
-  "dashboardPopout.settings": "Agent 儀表板設定",
   "dashboardPopout.settings.showIdle": "顯示閒置的 Agent",
   "dashboardPopout.settings.showIdleCopy": "包含已閒置超過 30 分鐘、卻未回報完成的 Agent。預設為隱藏。",
   "dashboardPopout.settingsLabel": "Agent 儀表板設定",

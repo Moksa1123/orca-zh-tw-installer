@@ -13,6 +13,26 @@ const OUT = process.argv[3] || path.join(__dirname, '..', 'zh-TW-nested.js');
 const raw = fs.readFileSync(SRC, 'utf8');
 const flat = JSON.parse(raw);
 
+// 防呆：同一個 key 若既是葉節點字串、又是別的 key 的前綴（例如同時存在
+// "a.b" 與 "a.b.c"），轉巢狀時 "a.b" 會先被寫成字串，處理到 "a.b.c" 時
+// 發現 "a.b" 不是物件就直接覆蓋成 {}，字串值會被silently吃掉——
+// 扁平 key 數與最終葉節點數就會對不上，且不會有任何錯誤訊息。
+// 這正是 dashboardPopout.settings 曾經被 dashboardPopout.settings.showIdle
+// 悄悄蓋掉的原因，所以在這裡先擋，而不是事後靠算術對不上才發現。
+{
+  // 排序後，k 的所有子鍵（k. 開頭）必定緊接在 k 後面（"." 的 code point
+  // 比任何英數字都小），所以只要比對相鄰兩個字串就能抓到衝突，
+  // 不必兩兩比對全部 key（11000+ 條字串跑 O(n²) 會很有感）。
+  const sorted = Object.keys(flat).sort();
+  const collisions = sorted.filter((k, i) => i + 1 < sorted.length && sorted[i + 1].startsWith(k + '.'));
+  if (collisions.length) {
+    console.error('❌ 字典鍵衝突：以下 key 同時是字串又是別的 key 的前綴，轉巢狀時字串值會被吃掉：');
+    collisions.forEach(k => console.error(`   ${k} = ${JSON.stringify(flat[k])}`));
+    console.error('   請移除該扁平字串 key，或把它改名（例如 X → X.label），避免跟子鍵撞名。');
+    process.exit(1);
+  }
+}
+
 const nested = {};
 for (const [key, val] of Object.entries(flat)) {
   const parts = key.split('.');
