@@ -14077,7 +14077,7 @@ const zhTW = {
     "registerTheOrcaShellCommandAnd": "註冊 Orca 的 shell 命令，並安裝用於瀏覽器、電腦操作與流程協調的 Agent 技能。",
     "runAnAgentAcrossEveryRepo": "在每個 repo 都執行一個 Agent",
     "runInstallAndSetupCommandsAutomatically": "自動執行安裝與設定命令，讓每個新 Worktree 都能立即供 Agent 使用。",
-    "runsShowWhenAutomationsExecutedWhat": "執行記錄會顯示自動化何時執行、發生了什麼事，以及去哪裡查看輸出結果。",
+    "runsShowWhenAutomationsRanWhat": "執行記錄會顯示自動化何時執行、發生了什麼事，以及去哪裡查看輸出結果。",
     "searchWorktreesSwitchTabsTweakSettings": "搜尋 Worktree、切換分頁、調整設定，或建立新的 Worktree，全程不必離開鍵盤。",
     "setUpVoiceDictation": "設定語音輸入",
     "splitATerminalPane": "分割終端機窗格",

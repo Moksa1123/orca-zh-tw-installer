@@ -584,7 +584,7 @@ const ONBOARDING_STRINGS = [
   ["I18nProvider", "body", "Use presets and search to narrow issues, reviews, merge requests, or tasks."],
   ["I18nProvider", "body", "Use Start or Open on a task, issue, review, or merge request to bring its context into a workspace."],
   ["I18nProvider", "body", "Automations run agent work on a schedule. Add an automation by clicking this button."],
-  ["I18nProvider", "body", "Runs show when automations executed, what happened, and where to inspect their output."],
+  ["I18nProvider", "body", "Runs show when automations ran, what happened, and where to inspect their output."],
   ["I18nProvider", "body", "Agents here run in any folder you choose. Point one at the directory above your services to work across all your repos at once."],
   ["I18nProvider", "body", "Open agents, scratch terminals, notes, and browser tabs without cluttering the worktree you’re focused on."],
   ["I18nProvider", "body", "Orca isolates each task in its own worktree, branched off your base."],
