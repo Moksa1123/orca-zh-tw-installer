@@ -13676,7 +13676,7 @@ const zhTW = {
         "next": "下一步",
         "other": "其他…",
         "otherPlaceholder": "輸入你的回答",
-        "send": "傳送回答",
+        "send": "傳送",
         "sending": "正在傳送…",
         "skip": "跳過",
         "step": "步驟 {{value0}}"
@@ -13792,6 +13792,24 @@ const zhTW = {
       "reviewStatus": "PR／MR 狀態",
       "workspaceStatus": "工作區狀態"
     },
+    "map": {
+      "agentCount": "{{count}} 個 Agent",
+      "canvasLabel": "專案、工作區與 Agent 的巢狀地圖",
+      "empty": "沒有 Agent 符合目前的篩選條件。",
+      "fit": "符合畫面",
+      "host": {
+        "all": "所有主機",
+        "local": "本機",
+        "remote": "遠端",
+        "ssh": "SSH",
+        "wsl": "WSL"
+      },
+      "hostFilter": "主機篩選",
+      "liveContainmentMap": "即時巢狀地圖",
+      "projectCount": "{{agents}} 個 Agent · {{workspaces}} 個工作區",
+      "zoomIn": "放大",
+      "zoomOut": "縮小"
+    },
     "placeholder": {
       "description": "你的所有 Agent 都會集中顯示在這裡。看板功能即將推出",
       "title": "Agent 儀表板"
@@ -13815,10 +13833,15 @@ const zhTW = {
     "terminal": {
       "close": "關閉",
       "closed": "沒有使用中的終端機 — 此 Agent 的窗格已關閉。",
-      "focusWorktree": "聚焦 Worktree"
+      "focusWorktree": "開啟 Worktree"
     },
     "title": "Agent",
-    "total": "共 {{count}} 個"
+    "total": "共 {{count}} 個",
+    "view": {
+      "board": "看板",
+      "label": "檢視模式",
+      "map": "Agent 地圖"
+    }
   },
   "keybinding": {
     "app": {
