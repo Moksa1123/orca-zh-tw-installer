@@ -229,6 +229,26 @@ function assertLazyTranslate(repl, where, renderScoped) {
 }
 
 /**
+ * getter 本體統一包一層 try/catch。
+ *
+ * 用途是 TDZ 安全（見上），但 getter 讀取時機也可能撞上另一種問題：
+ * Orca 的 I18nProvider 有兩個 useEffect 都依賴 pluginLanguagePacks，
+ * 一個呼叫 setRendererPluginLanguagePacks()（改動 i18next 內部的
+ * ResourceStore），一個呼叫 i18n.changeLanguage()——外掛語言包非同步
+ * 載入完成、Settings 頁剛掛載時兩者幾乎同時觸發，i18next 內部狀態可能
+ * 短暫不一致。translate() 若剛好在那個瞬間被呼叫，i18next 內部的
+ * ResourceStore.addResourceBundle 曾經因此丟出例外，把整個 Settings
+ * 頁面的 render 炸掉（RecoverableRenderErrorBoundary 接住，但畫面
+ * 短暫白掉）。這是 Orca 自己 effect 時序的競態，我們修不了，但我們的
+ * getter 一次讀取就有 80～200 個（快速鍵、引導文案等），撞上那個時間窗
+ * 的機率遠高於 Orca 原生程式碼，所以退一步：翻譯失敗就顯示英文原文，
+ * 不要讓例外往上炸。
+ */
+function safeGetterExpr(callExpr, fallbackExpr) {
+  return `(() => { try { return ${callExpr}; } catch { return ${fallbackExpr}; } })()`;
+}
+
+/**
  * 修補器：每個修補都要宣告「如何判斷已完成」。
  * 若錨點找不到且尚未完成，就記為失敗——絕不靜默略過。
  */
@@ -393,8 +413,10 @@ function patchKeybindingTitles(p, translateFn) {
     (m, id, s1, title, s2, group, s3) => {
       const slug = KEYBINDING_GROUP_SLUGS[group];
       if (!slug) return m;   // 未知群組就整段不動，寧可留英文也不要改壞
-      const tTitle = `${translateFn}("keybinding.${id}", ${JSON.stringify(title)})`;
-      const tGroup = `${translateFn}("keybindingGroup.${slug}", ${JSON.stringify(group)})`;
+      const titleFallback = JSON.stringify(title);
+      const groupFallback = JSON.stringify(group);
+      const tTitle = safeGetterExpr(`${translateFn}("keybinding.${id}", ${titleFallback})`, titleFallback);
+      const tGroup = safeGetterExpr(`${translateFn}("keybindingGroup.${slug}", ${groupFallback})`, groupFallback);
       return `id: ${JSON.stringify(id)},${s1}get title() { return ${tTitle}; },`
         + `${s2}get group() { return ${tGroup}; },${s3}scope:`;
     });
@@ -434,8 +456,9 @@ function patchOptionLabels(p, translateFn) {
     (m, s0, id, s1, label) => {
       const en = OPTION_LABELS[`${id}|${label}`];
       if (!en) return m;   // 不在白名單就整段不動
+      const fallback = JSON.stringify(label);
       return `{${s0}id: ${JSON.stringify(id)},${s1}get label() { `
-        + `return ${translateFn}("optionLabel.${id}", ${JSON.stringify(label)}); }`;
+        + `return ${safeGetterExpr(`${translateFn}("optionLabel.${id}", ${fallback})`, fallback)}; }`;
     });
 }
 
@@ -459,9 +482,11 @@ function patchSlashCommands(p, translateFn) {
   p.patchOptional('Agent 斜線命令說明改走 i18n',
     c => c.includes('slashCommand.'),
     /\{(\s*)name: "([a-z][a-z0-9:-]*)",(\s*)description: "((?:[^"\\]|\\.){2,80})"(\s*)\}/g,
-    (m, s0, name, s1, en, s2) =>
-      `{${s0}name: ${JSON.stringify(name)},${s1}get description() { `
-      + `return ${translateFn}(${JSON.stringify(slashKey(en))}, ${JSON.stringify(en)}); }${s2}}`);
+    (m, s0, name, s1, en, s2) => {
+      const fallback = JSON.stringify(en);
+      return `{${s0}name: ${JSON.stringify(name)},${s1}get description() { `
+        + `return ${safeGetterExpr(`${translateFn}(${JSON.stringify(slashKey(en))}, ${fallback})`, fallback)}; }${s2}}`;
+    });
 }
 
 // ── JSX 屬性裡寫死的字串 ───────────────────────────────────────────────
@@ -520,11 +545,14 @@ const JSX_HARDCODED = [
 // 沿用 JSX_HARDCODED 的直接替換會重蹈 patchVarInfo 當初的覆轍（TDZ 白畫面），
 // 所以獨立出來、一律用 getter。
 function patchNewAgentTabTitle(p, translateFn) {
+  const fallback = '`New ${TUI_AGENT_DISPLAY_NAMES[agent]} tab`';
+  const callExpr = `${translateFn}("tab.newAgentTab", "New {{agent}} tab", `
+    + '{ agent: TUI_AGENT_DISPLAY_NAMES[agent] })';
+  const getterBody = safeGetterExpr(callExpr, fallback);
   p.patch('新增 Agent 分頁標題改走 i18n',
-    c => c.includes(`get title() { return ${translateFn}("tab.newAgentTab"`),
+    c => c.includes(`get title() { return ${getterBody}`),
     'title: `New ${TUI_AGENT_DISPLAY_NAMES[agent]} tab`,',
-    `get title() { return ${translateFn}("tab.newAgentTab", "New {{agent}} tab", `
-    + '{ agent: TUI_AGENT_DISPLAY_NAMES[agent] }); },');
+    `get title() { return ${getterBody}; },`);
 }
 
 function patchJsxHardcoded(p, chunkTag) {
@@ -636,7 +664,8 @@ function patchOnboarding(p, chunkTag, translateFn) {
     // 這些引導字串目前是在函式內建立的物件，直接呼叫剛好沒事——但那是運氣，
     // Orca 哪天把它提到模組層就會變成白畫面，而且靜態檢查抓不到。
     // getter 在兩種情境都安全，沒有理由不用。
-    const repl = `get ${field}() { return ${translateFn}("onboarding.${slug(en)}", ${JSON.stringify(en)}); }`;
+    const fallback = JSON.stringify(en);
+    const repl = `get ${field}() { return ${safeGetterExpr(`${translateFn}("onboarding.${slug(en)}", ${fallback})`, fallback)}; }`;
     items.push({
       done: c => c.includes(repl),
       find: new RegExp(`${field}: "${esc(en)}"`, 'g'),
@@ -692,7 +721,8 @@ function patchVarInfo(p, translateFn) {
   // 這也是 keybindings／labels／slash 一開始就用 getter 的原因，
   // 只有這組當初漏掉——它們是三個獨立的補丁函式，沒有共用同一條規則。
   const items = VARINFO_STRINGS.map(([field, en]) => {
-    const repl = `get ${field}() { return ${translateFn}("scVariable.${slug(en)}", ${JSON.stringify(en)}); }`;
+    const fallback = JSON.stringify(en);
+    const repl = `get ${field}() { return ${safeGetterExpr(`${translateFn}("scVariable.${slug(en)}", ${fallback})`, fallback)}; }`;
     return {
       done: c => c.includes(repl),
       find: new RegExp(`${field}: "${esc(en)}"`, 'g'),
