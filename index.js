@@ -197,9 +197,9 @@ if (installedOrca && versionAtLeast(installedOrca, PLUGIN_MIN_ORCA) && !FORCE) {
   console.log(`ℹ️ 偵測到 Orca ${installedOrca}。這個版本起，繁體中文改用 Orca 官方外掛安裝，`);
   console.log('   不再修改 app.asar：Orca 自動更新不會洗掉它，也不必先關閉 Orca。\n');
   console.log('   安裝步驟（加入市集來源，之後可一鍵更新）：');
-  console.log('   1. Orca → Settings → Plugins → Manage sources → Add source');
-  console.log('   2. Git URL 填 https://github.com/Moksa1123/orca-zh-tw-installer');
-  console.log('      Ref 填 plugin');
+  console.log('   1. Orca → Settings → Plugins → Manage sources（或 Add marketplace，不是 Install）');
+  console.log('   2. Git URL 欄填 https://github.com/Moksa1123/orca-zh-tw-installer');
+  console.log('      Git ref 欄填 plugin，按 Add source');
   console.log('   3. 在市集找到「moksa.zh-tw」→ Install，檢視權限後啟用');
   console.log('      （這個外掛只含語言包，沒有可執行的程式碼）');
   console.log('   4. Settings → Appearance → Language → 選「zh-TW — moksa.zh-tw」');

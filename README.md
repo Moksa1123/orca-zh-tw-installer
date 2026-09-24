@@ -35,11 +35,12 @@
 
 ### 方法一：加入市集來源（建議，之後可一鍵更新）
 
-1. Orca → **Settings → Plugins** → **Manage sources** → **Add source**
-2. 填入：
-   - Git URL：`https://github.com/Moksa1123/orca-zh-tw-installer`
-   - Ref：`plugin`
-3. 回到市集，找到「moksa.zh-tw」→ Install，檢視權限後啟用
+1. Orca → **Settings → Plugins** → 市集區塊的 **Manage sources**
+   （還沒加過來源時按鈕叫 **Add marketplace**）。注意不是「Install」那個按鈕。
+2. 在「Marketplace sources」視窗分兩格填：
+   - **Git URL**：`https://github.com/Moksa1123/orca-zh-tw-installer`
+   - **Git ref**：`plugin`
+3. 按 **Add source** → **Done**，市集清單會出現「moksa.zh-tw」→ Install，檢視權限後啟用
 4. **Settings → Appearance → Language** → 選 `zh-TW — moksa.zh-tw`
 
 之後有新版，Plugins 頁面會直接出現更新提示。
