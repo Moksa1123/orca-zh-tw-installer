@@ -80,7 +80,8 @@ if (process.argv.includes('--verify')) {
 if (process.argv.includes('--help') || process.argv.includes('-h')) {
   console.log(`用法： npx orca-zh-tw-installer [選項]
 
-  （無選項）    套用完整繁體中文語系包。需先完全關閉 Orca。
+  （無選項）    Orca 1.4.206 以上：顯示官方外掛安裝步驟。
+               更舊的 Orca：套用繁體中文語系包（需先完全關閉 Orca）。
   --dry-run    只檢查相容性，不改動 Orca。可在 Orca 執行中安全使用。
   --verify     檢查已安裝的 app.asar 是否含全部補丁與字典。
   --restore    還原成官方原版（從 app.asar.bak）。需先完全關閉 Orca。
@@ -160,6 +161,54 @@ if (process.argv.includes('--restore')) {
   console.log('   備份檔保留未刪，之後想再套用繁中直接執行 npx orca-zh-tw-installer。');
   return;
 }
+// Orca 1.4.206 起：改用官方外掛安裝，不再修補 app.asar。
+//
+// 這版開始 Orca 有外掛系統，外掛可以用 contributes.languagePacks 提供語系，
+// 同一份字典由 Orca 自己載入。而同一時間 main process 改成壓縮輸出，
+// 識別字全被改名，修補 app.asar 的核心錨點全部失效——就算重寫錨點，
+// 每次 Orca 改版都可能再壞一次，自動更新還會把補丁整個洗掉。
+// 外掛則會被保留，也不必關閉 Orca，所以支援外掛的版本一律導向外掛。
+//
+// 舊版 Orca（不支援外掛語言包）照走下方原本的修補流程。
+const PLUGIN_MIN_ORCA = [1, 4, 206];
+const PLUGIN_GIT_URL = 'https://github.com/Moksa1123/orca-zh-tw-installer#plugin-v'
+  + require('./package.json').version;
+
+function orcaVersion(asarPath) {
+  try {
+    return JSON.parse(asar.extractFile(asarPath, 'package.json').toString('utf8')).version || null;
+  } catch { return null; }
+}
+function versionAtLeast(v, min) {
+  const p = String(v).split(/[.-]/).map(n => parseInt(n, 10) || 0);
+  for (let i = 0; i < min.length; i++) {
+    if ((p[i] || 0) !== min[i]) return (p[i] || 0) > min[i];
+  }
+  return true;
+}
+
+const installedOrca = orcaVersion(orcaPath);
+if (installedOrca && versionAtLeast(installedOrca, PLUGIN_MIN_ORCA) && !FORCE) {
+  const patched = (() => {
+    try {
+      return asar.extractFile(orcaPath, path.join('out', 'main', 'index.js')).toString('utf8').includes(MARK);
+    } catch { return false; }
+  })();
+  console.log(`ℹ️ 偵測到 Orca ${installedOrca}。這個版本起，繁體中文改用 Orca 官方外掛安裝，`);
+  console.log('   不再修改 app.asar：Orca 自動更新不會洗掉它，也不必先關閉 Orca。\n');
+  console.log('   安裝步驟：');
+  console.log('   1. Orca → Settings → Plugins → Install');
+  console.log('   2. 選「Git URL」，貼上：');
+  console.log(`\n      ${PLUGIN_GIT_URL}\n`);
+  console.log('   3. 檢視權限後啟用（這個外掛只含語言包，沒有可執行的程式碼）');
+  console.log('   4. Settings → Appearance → Language → 選「zh-TW — moksa.zh-tw」');
+  if (patched) {
+    console.log('\n⚠️ 目前的 app.asar 還留著舊版補丁。建議先還原官方版本，避免兩者互相干擾：');
+    console.log('     npx orca-zh-tw-installer@latest --restore');
+  }
+  return;
+}
+
 const workDir = path.join(os.tmpdir(), DRY_RUN ? 'orca-zh-tw-patcher-dry' : 'orca-zh-tw-patcher');
 const unpackedDir = path.join(workDir, 'app.asar.unpacked');
 

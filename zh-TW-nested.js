@@ -1,4 +1,19 @@
 export default {
+  "agentsSidebarIntro": {
+    "migrated": {
+      "action": "開啟 Agent",
+      "description": "Agent 檢視現在是專屬的側邊欄分頁，你的活動與篩選條件都會保留。",
+      "dismiss": "知道了",
+      "title": "Agent 更容易找到了"
+    },
+    "new": {
+      "action": "試用 Agent",
+      "description": "查看你的 Agent 正在處理什麼、哪些已完成，以及哪裡需要你介入。",
+      "hiddenToast": "Agent 分頁已隱藏。可在「設定 → 實驗性」中重新啟用。",
+      "hide": "隱藏 Agent",
+      "title": "認識 Agent 分頁"
+    }
+  },
   "app": {
     "recoverableError": {
       "rootDescription": "應用程式外殼無法完成渲染。請重試以重新掛載，若錯誤持續發生，請重新啟動 Orca。",
@@ -55,16 +70,38 @@ export default {
       "ed6b168d00": "右側邊欄遇到錯誤。",
       "f02d37278a": "新手引導遇到錯誤。",
       "f7aa73e785": "前進（{{value0}}）",
-      "fe21e8f6f5": "返回（{{value0}}）"
+      "fe21e8f6f5": "返回（{{value0}}）",
+      "pluginCommandFailed": "無法執行外掛命令。"
     },
     "components": {
+      "BrowserCookieImportDisclosure": {
+        "description": "請直接在 Orca 中登入 Google。",
+        "title": "不會匯入 Google 登入資訊"
+      },
+      "BrowserPane": {
+        "streamCapabilityUnsupported": "所選的執行環境不支援遠端瀏覽器串流。",
+        "streamConnectionLost": "與遠端伺服器的連線中斷。",
+        "streamConnectionUnreachable": "無法連線到遠端伺服器。",
+        "streamRestartFailed": "無法重新啟動遠端瀏覽器串流。"
+      },
       "CodexRestartChip": {
+        "3ea91b5c07": "此 Codex 工作階段使用的是過時的設定",
         "6133594b12": "保留舊帳號",
+        "7b1d20f4c8": "保留目前的工作階段",
+        "8f0d5c92a1": "Codex 設定已變更",
         "9263e75f49": "Codex 正在使用先前的帳號",
         "9375620cc3": "重新啟動此工作階段以使用 {{value0}}。在此之前它會維持使用先前的帳號。",
         "a4c8e1b2f7": "Codex 仍以 {{value0}} 身分登入",
         "c72a5fb234": "重新啟動",
-        "d3e8a1f4b2": "帳號已切換"
+        "d3e8a1f4b2": "帳號已切換",
+        "e6b7139d2a": "重新啟動此工作階段以載入目前的 Codex 設定。"
+      },
+      "ComposerParentWorktreePicker": {
+        "description": "在側邊欄中將此工作區巢狀置於另一個工作區之下。不會變更基礎分支。",
+        "label": "上層 Worktree",
+        "noMatches": "沒有相符項目。",
+        "noParent": "無上層",
+        "searchPlaceholder": "搜尋工作區…"
       },
       "FirstLaunchBanner": {
         "94cc673726": "知道了",
@@ -77,6 +114,7 @@ export default {
       },
       "GitHubItemDialog": {
         "00ccdf9b5a": "狀態",
+        "00f55cc17b": "無法存取此 Pull Request 的存放庫。",
         "038b3d39b1": "已複製",
         "03d7216d62": "{{value0}} PR #{{value1}}？",
         "03e542fcfe": "無法為失敗的檢查啟動 AI Agent：{{value0}}",
@@ -86,6 +124,7 @@ export default {
         "080d071d48": "回覆 @{{value0}}",
         "082515176a": "新增留言失敗",
         "08d072664d": "工作",
+        "09d67a0f9b": "無法關閉 Pull Request",
         "0a73f59e85": "傳送留言",
         "0ab4664a8b": "從 Issue 啟動工作區",
         "0ae387d8ca": "由",
@@ -132,6 +171,7 @@ export default {
         "474c59b4b3": "關閉 · Esc",
         "4812814bc8": "已開始",
         "485609c4f2": "檢查 #",
+        "4aecf121e7": "關閉",
         "4b390bd50d": "已停用自動合併",
         "4ba0132f37": "編輯標籤",
         "4bd1f5b055": "檢查",
@@ -168,8 +208,12 @@ export default {
         "829674460a": "因缺少 PR commit SHA，無法顯示 diff。",
         "83ac703dda": "指派對象",
         "84855fedd0": "開啟 Issue 附帶的工作區",
+        "85a2b66f54": "在 GitHub 上開啟檔案",
+        "86d84a17ca": "新增審查留言",
         "86f809e2ce": "在此審查討論串中回覆",
+        "8812225174": "重新開啟",
         "886a64b081": "尚無",
+        "88809e79db": "無法重新開啟 Pull Request",
         "88fd82474d": "頁面",
         "8b15a5e91c": "移除審查者 {{value0}}",
         "8c45901789": "要求審查者 {{value0}}",
@@ -222,6 +266,7 @@ export default {
         "ce360fc318": "無法停用自動合併",
         "ce8a85d209": "預設",
         "checkActionRequiredHint": "此檢查需要先在 GitHub 上手動操作（例如核准工作流程執行），才能解除封鎖以進行合併。",
+        "checkOpenInBrowser": "在瀏覽器中開啟",
         "checksNeedActionChip": "{{value0}} 需要處理",
         "commentTooLarge": "留言過長，無法安全提交。",
         "d00a0a7f8f": "全部摺疊",
@@ -230,16 +275,20 @@ export default {
         "d1fa2cf888": "缺少 PR head SHA，無法留言。",
         "d23bbb6416": "{{value0}} 已略過",
         "d43736d09c": "程式碼上下文控制項",
+        "d9fa90b625": "無法載入差異。",
         "db61d76cd5": "正在載入程式碼上下文…",
         "dbe5e2448e": "Pull Request 已合併",
         "dc1ca081a8": "開啟",
         "dc8a092c57": "審查者",
+        "dcb3c546fe": "重試",
         "ddafe851e1": "已要求重新執行檢查",
         "de45fedf7b": "這會關閉 GitHub 上的 Pull Request。",
+        "e15a8b77ef": "此檢查沒有可用的行內詳細資訊。",
         "e2bf3e41a9": "留言",
         "e30a5470c9": "對話",
         "e31651a224": "重新執行失敗的檢查",
         "e3243d9376": "最近編輯過這些檔案",
+        "e45324fbed": "無法載入檢查詳細資訊。",
         "e463ec935f": "已要求重新執行檢查",
         "e517b4d641": "已關閉",
         "e52bed9264": "尚未回報任何檢查",
@@ -462,7 +511,14 @@ export default {
         "f63ef94ea8": "Issue",
         "f6c6381593": "複製提示詞",
         "f9d4ef9807": "專案已更新",
-        "fabbd3f974": "更新了 Issue ·"
+        "fabbd3f974": "更新了 Issue ·",
+        "moreWorkspaceActions": "更多 Issue 工作區操作",
+        "noWorkspaceYet": "尚無",
+        "openAttachedWorkspace": "開啟 Issue 附帶的工作區",
+        "openOnLinear": "在 Linear 中開啟",
+        "openWorkspace": "開啟工作區",
+        "startNewWorkspace": "啟動新工作區",
+        "workspaceSection": "工作區"
       },
       "LinearItemDrawer": {
         "0190b760c1": "在 Linear 中開啟",
@@ -494,7 +550,22 @@ export default {
         "dd304de85a": "屬性",
         "fbb90300e2": "自訂估點",
         "fda549766e": "{{value0}} 以留言",
-        "fde849b2b6": "留言"
+        "fde849b2b6": "留言",
+        "moreWorkspaceActions": "更多 Issue 工作區操作",
+        "openAttachedWorkspace": "開啟 Issue 附帶的工作區",
+        "openWorkspace": "開啟工作區",
+        "startNewWorkspace": "啟動新工作區"
+      },
+      "LinuxPackageInstallRecoveryCard": {
+        "53c4b8e148": "沒有可用的驗證代理程式回應此特權安裝要求。",
+        "53e1559f99": "需要手動安裝",
+        "55c86654b7": "複製安裝命令",
+        "82c6dbea00": "複製命令、結束 Orca，然後在安裝 Orca 的電腦上於系統終端機中執行。完成後再重新開啟 Orca。",
+        "a7ac6ec78b": "Orca 已下載系統套件。請先結束 Orca，再從終端機完成更新。",
+        "aa57fa4f80": "命令已複製。請結束 Orca，在系統終端機中執行以安裝 {{value0}}，然後重新開啟 Orca。",
+        "b7e7c5bc95": "Orca 會在產生此命令的當下，依據發行中繼資料檢查下載的檔案。系統套件本身不會經過簽章檢查，且在那之後 Orca 無法擔保該檔案。",
+        "c732bcbf8f": "正在檢查套件…",
+        "e3de29c86a": "顯示套件"
       },
       "NewWorkspaceComposerCard": {
         "01d1e8f601": "Agent",
@@ -565,6 +636,9 @@ export default {
         "reuseExistingBranch": "重用分支",
         "reuseExistingBranchHint": "checkout 現有分支，而不是從它建立新分支。",
         "runOn": "執行於",
+        "setLocation": "設定專案位置",
+        "setLocationOnHost": "設定 {{host}} 上的專案位置",
+        "setLocationTooltip": "選擇資料夾，或將此專案 clone 到 {{host}}。",
         "setupHostExistingFolderHelp": "連結該處已存在的 checkout，然後在該主機上建立此工作區。",
         "setupHostExistingFolderPlaceholder": "/path/to/project/on/host",
         "setupHostExistingFolderTitle": "設定 {{value0}}",
@@ -614,6 +688,7 @@ export default {
         "2b4fdb880c": "取消標記已檢視",
         "2c1d93da43": "已移除審查者",
         "2e528e1c2d": "已檢視",
+        "2f5195c6a0": "重新開啟",
         "319cf2d54b": "顯示檔案樹",
         "31a7b202f2": "回覆 @{{value0}}",
         "345b68254c": "討論串",
@@ -632,6 +707,7 @@ export default {
         "42c36d9166": "{{value0}} {{value1}} 個回應",
         "45877f5089": "找不到檢查",
         "4a337ac05f": "儲存",
+        "4b8ae7303f": "無法載入差異。",
         "4b960e5978": "正在載入程式碼上下文…",
         "4d18310d55": "已變更的檔案",
         "50b8fb290f": "標記為已檢視",
@@ -648,6 +724,7 @@ export default {
         "5a65651096": "這會關閉 GitHub 上的 Pull Request。",
         "5ad00c7a0e": "沒有相符的審查者。",
         "5d0f42766d": "重新整理檢查",
+        "5df7c41d2a": "重試",
         "5edbe7eefa": "已啟用自動合併",
         "5f3e293517": "重設程式碼上下文",
         "61452f2143": "從 Issue 啟動工作區",
@@ -659,12 +736,14 @@ export default {
         "68605516dd": "重新執行失敗的檢查",
         "6885c619e7": "沒有存放庫路徑就無法回覆。",
         "6ad2c1ab9c": "沒有變更任何檔案。",
+        "6b1d5ee3e4": "此檢查沒有可用的行內詳細資訊。",
         "710e47aa06": "Pull Request 已重新開啟",
         "71a3c0f9d2": "啟動工作區",
         "74660bd80b": "因缺少 PR commit SHA，無法顯示 diff。",
         "76551b1161": "已開始",
         "76b2a0ac5b": "已解決",
         "7720c9c3f5": "工作",
+        "77482513f8": "關閉",
         "778683ec84": "描述",
         "77d9388fb0": "不明",
         "788a782bb0": "無法重新執行檢查",
@@ -723,6 +802,7 @@ export default {
         "c9e7094a7b": "繼續工作區",
         "checkActionRequiredHint": "此檢查需要先在 GitHub 上手動操作（例如核准工作流程執行），才能解除封鎖以進行合併。",
         "checksNeedActionChip": "{{value0}} 需要處理",
+        "closePullRequestFailed": "無法關閉 Pull Request",
         "commentTooLarge": "留言過長，無法安全提交。",
         "d10b6d5209": "尚未要求任何審查者。",
         "d2030fc8cd": "新增留言…",
@@ -738,7 +818,9 @@ export default {
         "dd5d9a4f17": "{{value0}} 更新",
         "dd94111c18": "全部摺疊",
         "ddfd42f460": "啟動 Agent 前請檢視並編輯完整提示詞。",
+        "diffLoadTimedOut": "載入此差異逾時。",
         "e01e34f5fa": "留言",
+        "e04c027d98": "無法載入檢查詳細資訊。",
         "e0b15c793f": "複製 GitHub 連結失敗",
         "e1f3641bfd": "從",
         "e295a78c11": "在上方顯示更多 {{value0}} 行",
@@ -755,7 +837,8 @@ export default {
         "f4fe47c2bb": "已解決",
         "ff84e1f54c": "切換 {{value1}}（{{value0}}）的已檢視狀態",
         "filesRetry": "重試",
-        "filesUnavailable": "無法載入變更的檔案。"
+        "filesUnavailable": "無法載入變更的檔案。",
+        "reopenPullRequestFailed": "無法重新開啟 Pull Request"
       },
       "QuickOpen": {
         "1cb6ef47b7": "前往檔案…",
@@ -1105,13 +1188,25 @@ export default {
         "ff53631e6f": "重新整理 GitHub 工作",
         "ff69a30681": "取消",
         "ff90d0abc7": "從 {{value0}} 啟動工作區",
+        "jiraLinkSourceUnavailable": "無法連結此 Jira Issue。請重新連線 Jira 或選擇相符的網站，然後再試一次。",
         "jiraSortAscending": "遞增",
         "jiraSortBy": "排序方式",
         "jiraSortDescending": "遞減",
         "jiraToggleSortDirection": "{{value0}} 排序",
         "linearEmptyAttributeFilter": "沒有符合所選篩選條件的 Issue。請清除篩選條件或嘗試其他條件。",
+        "linearEmptyHasWorktree": "目前還沒有 Linear 工單連結到 Orca 工作區。從 Linear Issue 開始工作後，就會顯示在這裡。",
         "linearEmptyUnfilteredScope": "此工作區範圍內沒有 Issue。請嘗試搜尋或調整團隊。",
         "linearFetchMore": "載入更多",
+        "linearHasWorktreeLoadFailed": "無法載入連結到 Orca 工作區的 Linear Issue。",
+        "linearHasWorktreePartialLoadFailed": "部分連結到 Orca 工作區的 Linear Issue 無法載入。請重新整理再試一次。",
+        "linearHasWorktreeSearchPlaceholder": "篩選連結到 Orca 工作區的 Issue…",
+        "linearModeHasWorktree": "有工作區",
+        "linearModeHasWorktreeTooltip": "連結到 Orca 工作區的 Linear 工單",
+        "linearOpenAttachedWorkspace": "開啟 {{value0}} 附帶的工作區",
+        "linearWorktreesColumn": "工作區",
+        "loadPageFailed": "無法從 GitHub 載入第 {{value0}} 頁。",
+        "loadPageNoMoreResults": "第 {{value0}} 頁沒有更多結果。",
+        "loadPageUnreachable": "第 {{value0}} 頁超出 GitHub 搜尋可傳回的範圍。",
         "noGithubSourceDetected": "找不到 GitHub 來源：",
         "noGithubSourceDetectedHint": "它可能沒有 GitHub 遠端，或無法解析來源。",
         "noMatchingIssuesLoaded": "未載入符合的 Issue。",
@@ -1139,6 +1234,7 @@ export default {
       },
       "TerminalSearch": {
         "0f3066256e": "上一個結果",
+        "10e039b591": "沒有結果",
         "42e466b9f1": "正規表示式",
         "7cb40c04eb": "下一個相符項",
         "90c61387d9": "區分大小寫",
@@ -1154,6 +1250,7 @@ export default {
         "2c2d3e03ca": "重試",
         "318d3b4bc7": "忽略更新",
         "3553a8672f": "最後一個錯誤",
+        "37d45c9ec1": "選擇其他建置版本",
         "44324ef542": "發行說明",
         "47126bcf57": "手動下載",
         "48565a32bc": "重試下載",
@@ -1170,17 +1267,21 @@ export default {
         "7ffc08506e": "檢查",
         "8acbdd3961": "縮小至狀態列",
         "8bc9e17d8f": "顯示詳細資訊",
+        "8cf17b10af": "本機建置版本錯誤",
         "90559b14e3": "這會在重新啟動後啟用整個行程範圍的 Electron 網路開關。適用於拒絕 HTTP/2 更新下載的企業 VPN 或代理伺服器。",
         "933c6fdf5b": "啟用並重新啟動",
         "93794ea932": "Orca v{{value0}} 正在下載。",
         "9abc59f814": "有可用更新",
         "a05992a26b": "簽章檢查無法執行——通常是因為防毒軟體將其封鎖。請重試下載，或從我們的官方發行版本取得安裝程式。",
+        "a4650b0dc4": "無法使用本機建置版本",
         "a726967bd3": "關閉",
         "aad383aecc": "閱讀完整發行說明",
         "b1d867f4fb": "更新期間你的終端機工作階段不會中斷。",
+        "b1e390250d": "無法完成切換至本機建置版本。",
         "ba5ffc949c": "正在檢查更新…",
         "c9ff9b9ec2": "檢視官方發行版本",
         "ccd8b0a793": "自你上次更新以來還有更多內容",
+        "d29740d175": "無法使用所選的建置版本。",
         "d5253b54af": "錯誤",
         "e944c2de43": "更新驗證遭封鎖",
         "ea2a41adbe": "你已是最新版本。",
@@ -1188,11 +1289,18 @@ export default {
         "f58b5c57a6": "新增：",
         "fdd4a364fa": "工作階段不會中斷。"
       },
+      "WorktreeBaseFallbackDialog": {
+        "description": "遠端追蹤參照「{{value0}}」無法使用，因此 Orca 改用本機的「{{value1}}」。此工作區可能未包含最新的遠端變更。",
+        "dismiss": "知道了",
+        "title": "工作區已從本機基礎建立"
+      },
       "WorktreeJumpPalette": {
         "088d66d980": "動作與設定",
         "1628fd7dfa": "沒有使用中的 Worktree、設定、動作或已開啟的分頁",
         "1ebe225fee": "搜尋 Worktree、設定、分頁和動作…",
         "20af998bff": "有 {{value0}} 個項目可用",
+        "2770f02910": "搜尋聊天、終端機、Worktree、設定和動作",
+        "27f10cca63": "搜尋聊天、終端機、Worktree、設定和動作…",
         "2c38630a01": "工作區已不存在",
         "34c8fbb46e": "SSH 遠端",
         "45def60329": "開啟",
@@ -1221,9 +1329,12 @@ export default {
         "f65d992a11": "Enter",
         "f7fda8d562": "在 Orca 中建立 Worktree 或開啟分頁即可開始。",
         "ff908adfe9": "正在載入跳轉目標",
+        "lastActiveTime": "{{value0}} 前使用過",
         "paletteHostBadge": "主機：{{value0}}",
+        "pluginCommandFailed": "無法執行外掛命令。",
         "projectBadge": "專案",
         "projectsGroupsHeader": "專案與群組",
+        "recentChatsTerminalsHeader": "最近的聊天與終端機",
         "recentWorktreesHeader": "最近的 Worktree",
         "repoGroupBadge": "存放庫群組",
         "settingsBadge": "設定",
@@ -1248,15 +1359,44 @@ export default {
           "8de7c5beaa": "終端機不可用",
           "a2b4437bfb": "{{value0}} 活動",
           "a472a14700": "更多選擇",
+          "activityOptions": "活動選項",
           "afdc2139a8": "Agent 終端機關閉。在此工作區中開啟一個新終端機以繼續。",
           "b29191b3e0": "Worktree",
           "beb2c19173": "未讀",
           "cf780197a1": "選擇一個 Agent 以檢視其活動",
+          "clearCompleted": "清除已完成",
           "d1a88df9a8": "僅顯示未讀主題",
           "db8a1878b5": "討論串清單選項",
           "e3db9892f6": "還沒有活動。",
           "f6396e1f85": "Agent",
-          "f70e4bec47": "緊湊模式"
+          "f70e4bec47": "緊湊模式",
+          "filtersSection": "篩選條件",
+          "interrupted": "已中斷",
+          "markThreadRead": "將討論串標記為已讀",
+          "none": "無",
+          "search": "搜尋",
+          "showChildAgents": "顯示子 Agent",
+          "showSearch": "顯示搜尋",
+          "showUnreadOnly": "僅顯示未讀",
+          "state": {
+            "blocked": "已受阻",
+            "done": "完成",
+            "failed": "失敗",
+            "idle": "閒置",
+            "monitoring": "正在監看背景工作",
+            "permission": "需要注意",
+            "unverifiable": "近期沒有更新",
+            "waiting": "等待輸入",
+            "working": "處理中"
+          },
+          "threadListOptionsFiltered": "討論串清單選項（已套用篩選條件）",
+          "viewSection": "檢視"
+        },
+        "ActivityScopeFilterControls": {
+          "resetScope": "顯示所有主機與專案"
+        },
+        "ActivityThreadRow": {
+          "clearNotification": "清除通知"
         },
         "ActivityTitlebarControls": {
           "d6a8de3934": "Agent",
@@ -1278,12 +1418,132 @@ export default {
           "fc0268e4ed": "Agent"
         }
       },
+      "artifacts": {
+        "ArtifactActions": {
+          "more": "更多 Artifact 操作"
+        },
+        "ArtifactCollection": {
+          "loadMore": "載入更多",
+          "noMatches": "沒有相符項目"
+        },
+        "ArtifactDetailDrawer": {
+          "description": "預覽並管理此共用的 Artifact。"
+        },
+        "ArtifactDetailHeader": {
+          "close": "關閉",
+          "publicLink": "任何擁有此連結的人都能檢視"
+        },
+        "ArtifactListSearchField": {
+          "clear": "清除搜尋",
+          "label": "搜尋 Artifact",
+          "placeholder": "搜尋…"
+        },
+        "ArtifactListTableHeader": {
+          "actions": "動作",
+          "expires": "到期",
+          "name": "名稱",
+          "size": "大小",
+          "type": "類型",
+          "updated": "更新時間"
+        },
+        "ArtifactPublishButton": {
+          "a4a49da6af": "分享為 Artifact",
+          "accountDescription": "登入以建立並管理此連結。",
+          "accountTitle": "Orca 帳號",
+          "checkFailed": "無法檢查是否已有連結。",
+          "checkingLink": "正在檢查是否已有連結…",
+          "confirmDescription": "這會將目前的檔案發布到一個連結，任何擁有該網址的人都能檢視。",
+          "confirmTitle": "分享為 Artifact",
+          "openSettings": "開啟 Artifact 設定",
+          "publishedDescription": "任何擁有此連結的人都能檢視共用的檔案。",
+          "publishingOffDescription": "在「設定」中了解公開連結並啟用分享。",
+          "publishingOffTitle": "Artifact 分享已關閉",
+          "sharePublicLink": "產生連結",
+          "sharing": "分享中…",
+          "signIn": "登入",
+          "signInAgain": "重新登入",
+          "tryAgain": "再試一次"
+        },
+        "ArtifactPublishedLinkPanel": {
+          "copyLink": "複製連結",
+          "openLink": "開啟連結",
+          "update": "更新共用內容",
+          "updating": "更新中…"
+        },
+        "ArtifactsPage": {
+          "delete": "刪除",
+          "deleteArtifact": "刪除 Artifact",
+          "deleteDescription": "「{{name}}」將無法再透過其公開連結存取。",
+          "deleteFailed": "無法刪除 Artifact。",
+          "deleteTitle": "要刪除 Artifact 嗎？",
+          "empty": "沒有共用的 Artifact",
+          "emptyCopy": "開啟 HTML 或 Markdown 檔案並選取「分享為 Artifact」，或請你的 Agent 分享。",
+          "loadFailed": "無法載入 Artifact。",
+          "loadMoreFailed": "無法載入更多 Artifact。",
+          "moreAvailable": "還有更多 Artifact",
+          "moreAvailableCopy": "載入下一頁以繼續。",
+          "openAccountSettings": "開啟帳號設定",
+          "openArtifact": "開啟 Artifact",
+          "openArtifactsSettings": "開啟「設定 → Artifact」",
+          "publishingOff": "發布已關閉",
+          "publishingOffCopy": "此裝置目前還無法建立公開的 Artifact 連結。請在「設定 → Artifact」中允許發布，然後從已開啟的 HTML 或 Markdown 檔案分享，或請你的 Agent 分享。",
+          "reconnectCopy": "重新登入以檢視並管理透過你的帳號分享的 Artifact。",
+          "reconnectHeading": "重新登入 Orca",
+          "refresh": "重新整理",
+          "retry": "重試",
+          "signIn": "登入 Orca",
+          "signInAgain": "重新登入 Orca 以載入 Artifact。",
+          "signInAgainAction": "重新登入",
+          "signInCopy": "使用你的 Orca 帳號上傳 Artifact 並管理其公開連結。",
+          "signInHeading": "登入以分享 Artifact",
+          "title": "Artifact",
+          "unconfiguredCopy": "此電腦尚未設定 Orca 帳號登入。"
+        },
+        "ArtifactsPageSkeleton": {
+          "loading": "正在載入 Artifact"
+        },
+        "actions": "Artifact 動作",
+        "artifact-publish-flow": {
+          "29a406be09": "Artifact 必須包含文字。",
+          "2fc727c831": "Artifact 已更新",
+          "430019efd0": "Artifact 已分享",
+          "54b1805328": "無法分享 Artifact",
+          "5cb4f5ec36": "複製連結",
+          "6112db5a1c": "此 Artifact 太大，無法分享。",
+          "6d475e9b25": "只有本機的 HTML 與 Markdown 檔案可以分享為 Artifact。",
+          "9a078a0c65": "無法使用 Artifact 分享",
+          "bba20daa6d": "請登入 Orca 後再試一次。",
+          "e2ed5acd8c": "Orca 無法讀取此檔案。請從工作區開啟後再試一次。",
+          "fbb5018602": "此檔案是空的。"
+        },
+        "copyFailed": "無法複製 Artifact 連結",
+        "copyLink": "複製連結",
+        "copySuccess": "已複製 Artifact 連結",
+        "expired": "連結已過期",
+        "expiredCompact": "已過期",
+        "expires": "連結將於 {{when}} 到期",
+        "expiryUnknown": "到期時間不明",
+        "openInBrowser": "在瀏覽器中開啟",
+        "preview": "Artifact 預覽",
+        "previewUnavailable": "無法預覽",
+        "previewUnavailableDescription": "請在瀏覽器中開啟此 Artifact 以檢視。",
+        "typeHtml": "HTML",
+        "typeMarkdown": "Markdown",
+        "updatedAt": "更新於 {{when}}",
+        "updatedRecently": "最近"
+      },
       "automations": {
         "AutomationCustomCronPanel": {
+          "0e1de0358b": "月",
+          "2d82246d23": "日",
           "3e3b2c369f": "cron",
+          "77e96bded6": "星期",
           "968e66d686": "輸入一個五欄位 cron。",
+          "a226dbdd40": "分鐘",
           "cadb7b0bc9": "無效",
-          "e81a02d61b": "儲存前輸入有效的五欄位 cron。"
+          "e81a02d61b": "儲存前輸入有效的五欄位 cron。",
+          "ec9c1e35df": "小時",
+          "f6ca30da23": "有效的自訂 cron"
         },
         "AutomationDetail": {
           "007c8ad874": "提示詞",
@@ -1310,7 +1570,8 @@ export default {
           "dbef8dc110": "此 SSH 自動化僅在 Orca 可以到達 SSH 遠端主機時執行。如果重新連線需要互動式認證或主機不可用，則執行將記錄為已跳過。",
           "de0fedac06": "每次執行新的",
           "e353ab9516": "預檢查",
-          "eaa02014f8": "已啟用"
+          "eaa02014f8": "已啟用",
+          "host": "主機"
         },
         "AutomationEditorDialog": {
           "02d351877e": "專案",
@@ -1329,6 +1590,7 @@ export default {
           "b28b140eaf": "工作區",
           "c4b19094c2": "日程",
           "e46c1aa9ad": "建立",
+          "e8c2a14f70": "儲存後會自動執行，直到暫停為止。",
           "fb1896a5e7": "取消",
           "ff5db28639": "現存的"
         },
@@ -1339,9 +1601,43 @@ export default {
           "1d9826933e": "工作日存放庫稽核",
           "31f9253920": "使用範本",
           "4133d33862": "建立自動化",
+          "4c8e1a72b9": "週期性的 Agent 工作",
           "58f56b73d9": "自動化名稱",
           "6f309eef8d": "Orca",
           "7e35393632": "Hermes"
+        },
+        "AutomationEditorPromptSection": {
+          "a7c3e91b04": "編輯名稱"
+        },
+        "AutomationListFilterMenu": {
+          "491043ee45": "沒有符合搜尋的 Agent。",
+          "926e785e4d": "搜尋 Agent…",
+          "agent": "Agent",
+          "all": "全部",
+          "clear": "清除篩選條件",
+          "failed": "失敗",
+          "filters": "篩選條件",
+          "lastRun": "上次執行",
+          "neverRan": "從未執行",
+          "removeFilter": "移除 {{value0}} 篩選條件",
+          "succeeded": "成功"
+        },
+        "AutomationListLocalRows": {
+          "c92c9463c6": "自動化動作"
+        },
+        "AutomationListSearchField": {
+          "clear": "清除搜尋",
+          "label": "搜尋自動化",
+          "placeholder": "搜尋…",
+          "tooLong": "搜尋文字過長，清單未套用篩選",
+          "tooLongShort": "過長"
+        },
+        "AutomationListSortHeader": {
+          "sortedAscending": "{{value0}}，遞增排序",
+          "sortedDescending": "{{value0}}，遞減排序"
+        },
+        "AutomationListToolbar": {
+          "runs": "執行紀錄"
         },
         "AutomationMissedRunGraceField": {
           "0f4459e91d": "48 小時",
@@ -1372,6 +1668,10 @@ export default {
           "empty": "沒有符合搜尋的專案/資料夾。",
           "search": "搜尋專案/資料夾…"
         },
+        "AutomationPromptDisclosure": {
+          "showLess": "顯示較少",
+          "showMore": "顯示更多"
+        },
         "AutomationRunHistory": {
           "13988187b3": "Token",
           "149c0b49c7": "工作區",
@@ -1387,16 +1687,43 @@ export default {
           "33741dd973": "返回執行",
           "40a511bed4": "執行上下文"
         },
+        "AutomationRunsDashboard": {
+          "automation": "自動化",
+          "emptyDescription": "自動化觸發後，執行紀錄會顯示在這裡。",
+          "failed24h": "失敗 · 24 小時",
+          "failed7d": "失敗 · 7 天",
+          "filters": "篩選條件",
+          "historyUnavailableMany": "{{count}} 個自動化的執行紀錄無法使用。統計僅包含可用的紀錄。",
+          "historyUnavailableOne": "1 個自動化的執行紀錄無法使用。統計僅包含可用的紀錄。",
+          "host": "主機",
+          "loading": "正在載入執行紀錄…",
+          "local": "本機",
+          "noRuns": "尚無執行紀錄",
+          "refresh": "重新整理執行紀錄",
+          "remote": "遠端",
+          "runs": "執行紀錄",
+          "search": "搜尋執行紀錄…",
+          "status": "狀態",
+          "successful24h": "成功 · 24 小時",
+          "successful7d": "成功 · 7 天",
+          "trigger": "觸發方式",
+          "triggered": "觸發時間"
+        },
         "AutomationSchedulePicker": {
           "22359b186a": "上午或下午",
           "233b8c94b6": "節奏",
+          "55b2ef82a4": "每小時",
+          "57e83307d0": "工作日",
           "6b802ecc99": "小時",
           "6b914c5fbb": "天",
+          "837d902bba": "每週",
           "8cc026fd73": "每週",
           "9e677335b0": "分鐘",
           "b08ccb4d06": "每小時",
           "c3e39e17cf": "風俗",
-          "d90981f766": "時間"
+          "d90981f766": "時間",
+          "ddba78647e": "自訂 cron",
+          "f0202f3a89": "每天"
         },
         "AutomationSessionField": {
           "4bdce31f37": "工作階段重用說明",
@@ -1409,6 +1736,11 @@ export default {
           "18f000ad4e": "進階",
           "5a7863909c": "為每個新工作區執行設定",
           "874b72195b": "當此自動化建立工作區時，使用與手動建立 Worktree 相同的方式準備——執行專案的設定並開啟其終端機分頁。"
+        },
+        "AutomationTimeField": {
+          "32a5e4e35e": "分鐘",
+          "39ec1383f6": "上午或下午",
+          "aa593eb5e2": "小時"
         },
         "AutomationsPage": {
           "2695883141": "刪除",
@@ -1468,9 +1800,11 @@ export default {
           "b11170a008": "無法儲存自動化。",
           "b264564427": "及其執行歷史記錄。先前執行建立的工作區不會被刪除。",
           "b457436d6a": "暫停",
+          "backToList": "所有自動化",
           "bb1b2cd31e": "概述",
           "c3a28c9793": "選擇一個自動化來檢視執行。",
           "cd8397cc32": "每次執行新工作區",
+          "createFromBaseRef": "從 {{baseRef}} 建立",
           "d207ab4c25": "從範本開始",
           "d2a01b0b6f": "你可以在「設定」中變更此設定。",
           "d441032f7e": "暫停",
@@ -1480,8 +1814,39 @@ export default {
           "e431bb85d4": "選擇與此 Hermes 自動化位於同一主機上的工作區。",
           "f4612e3f78": "編輯",
           "f93ed7a6f8": "正在連線…",
+          "latestSavedOutput": "最新儲存的輸出",
+          "missingWorkspace": "缺少工作區",
+          "moveOriginalKept": "已在 {host} 上建立，但無法刪除原本的自動化。請在先前的主機上將其刪除。",
+          "moveOriginalUnverified": "已在 {host} 上建立，但無法確認原本的自動化是否已刪除。重試前請先檢查先前的主機。",
+          "moved": "自動化已移至 {host}。",
+          "newAutomation": "新增自動化",
+          "noListMatches": "沒有相符的自動化。",
+          "noRunUsageYet": "尚無執行用量",
+          "noSearchMatches": "沒有符合搜尋的自動化。",
+          "noWorkspace": "無工作區",
+          "paused": "已暫停",
           "pendingAutomationMissing": "自動化已不再可用。",
-          "pendingAutomationRunMissing": "執行紀錄已不再可用。"
+          "pendingAutomationRunMissing": "執行紀錄已不再可用。",
+          "projectDefaultBaseRef": "專案預設",
+          "rowActions": "自動化動作",
+          "runCount": "{{count}} 次執行",
+          "runCount_one": "{{count}} 次執行",
+          "runCount_other": "{{count}} 次執行",
+          "runUsageSummary": "預估 {{cost}} · {{tokens}} 個 Token",
+          "tableActions": "動作",
+          "tableHost": "主機",
+          "tableLastRun": "上次執行",
+          "tableName": "名稱",
+          "tableProject": "專案",
+          "tableStatus": "狀態",
+          "usageUnavailable": "無法取得用量"
+        },
+        "AutomationsPageBreadcrumb": {
+          "ariaLabel": "自動化階層導覽",
+          "runDetails": "執行詳細資訊"
+        },
+        "AutomationsPageSkeleton": {
+          "55527b7bcf": "正在載入自動化"
         },
         "CreateFromPicker": {
           "79512f22a7": "沒有找到分支。",
@@ -1543,6 +1908,24 @@ export default {
           "ee5b280eba": "未找到工作區。"
         },
         "automation": {
+          "list": {
+            "last": {
+              "run": {
+                "done": "完成",
+                "failed": "失敗"
+              }
+            }
+          },
+          "schedule": {
+            "label": {
+              "086a5a9fe2": "無效的排程",
+              "280ccd2701": "每天 {{time}}",
+              "3f1422adc1": "工作日 {{time}}",
+              "a95afb7483": "每小時的 :{{minute}}",
+              "ba20c92073": "自訂排程",
+              "cc71e252ba": "每 {{day}} {{time}}"
+            }
+          },
           "templates": {
             "37571fcb16": "查詢卡住的工作、陳舊的產生檔案以及失敗的本機驗證。",
             "39ed39280a": "釋出準備情況",
@@ -1574,6 +1957,19 @@ export default {
             }
           }
         },
+        "createDestination": {
+          "label": "主機",
+          "move": "儲存後會在 {host} 上建立此自動化，並刪除原本的自動化及其執行紀錄。",
+          "noProjects": "{host} 上尚未設定任何專案。請在該主機上新增專案，或選擇其他主機。",
+          "orphan": "沒有主機的自動化無法容納新的自動化。請選擇要在哪個主機上建立此自動化。",
+          "placeholder": "選擇主機",
+          "projectMismatch": "該專案不在 {host} 上。請選擇該主機上的專案，或選擇其他主機。",
+          "stale": "此表單開啟期間 {host} 已變更。儲存前請重新選擇專案。",
+          "storedOn": "由 {authority} 儲存與排程。",
+          "unavailable": "儲存前請在此主機上選擇可用的專案。",
+          "unselected": "選擇負責儲存與排程此自動化的主機。",
+          "updateRequired": "請更新 {hosts} 上的 Orca 伺服器，才能在該處儲存自動化。"
+        },
         "external": {
           "automation": {
             "schedule": {
@@ -1585,6 +1981,12 @@ export default {
         }
       },
       "browser-pane": {
+        "grab": {
+          "errorAlreadyActive": "元素選取已在進行中。",
+          "errorInjectionFailed": "無法在此頁面上啟動元素選取。",
+          "errorNotAuthorized": "瀏覽器存取遭拒。",
+          "errorNotReady": "此頁面尚未準備好進行元素選取。"
+        },
         "markup": {
           "cancel": "取消",
           "clear": "全部清除",
@@ -1639,6 +2041,7 @@ export default {
           },
           "BrowserMobileDriverOverlay": {
             "20539eca03": "手機裝置正在推動該瀏覽器的發展",
+            "7c31b0da94": "無法收回此分頁。請檢查手機工作階段，然後再試一次。",
             "a6914ee43f": "收回",
             "d9768ec642": "瀏覽器輸入已暫停",
             "f4ecd61552": "該分頁由你的手機控制。收回來在桌面上使用它。"
@@ -1692,6 +2095,7 @@ export default {
             "93be92f8d1": "複製位址",
             "95af781091": "向 Agent 傳送反饋",
             "9f6f2e8c19": "下載檔案路徑不可用。",
+            "a1f3c2e4b5": "強制重新載入",
             "a2164a6e5a": "{{value0}} 條註解已準備好。請選擇另一個元素或複製所有反饋。",
             "a3508d7e6e": "{{value0}} 註解準備就緒。選擇另一個元素或複製所有反饋。",
             "a5dcd0fd1d": "確認",
@@ -1703,7 +2107,9 @@ export default {
             "b472c5fe03": "新增瀏覽器註解",
             "b5b87d6cbb": "在 Orca 瀏覽器中開啟連結",
             "b5ba6085de": "疑問",
+            "b71dc3d930": "重新連線",
             "b733a91bd9": "為所選元素新增反饋。",
+            "b7e4d9c1a2": "停止",
             "bbe8f15e83": "該窗格是從使用中的執行環境伺服器呈現的。",
             "c13693fe27": "{{value0}} 條註解",
             "c2ef0359b9": "複製內容",
@@ -1770,6 +2176,21 @@ export default {
             "effd75e330": "附近的環境",
             "f3575229df": "擷取"
           },
+          "annotate": {
+            "use": {
+              "browser": {
+                "page": {
+                  "grab": {
+                    "annotations": {
+                      "0c7b9b2b7a": "已複製",
+                      "1f5cb19034": "已新增註解",
+                      "c937229f19": "已截圖"
+                    }
+                  }
+                }
+              }
+            }
+          },
           "browser": {
             "address": {
               "bar": {
@@ -1778,6 +2199,39 @@ export default {
                 }
               }
             }
+          },
+          "navigate": {
+            "use": {
+              "browser": {
+                "page": {
+                  "navigation": {
+                    "downloads": {
+                      "22272f2784": "請將檔案拖放到瀏覽器頁面上，而非工具列。",
+                      "8683b84b9e": "瀏覽器頁面尚未準備好接收拖放的檔案。"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "profile": {
+          "user": {
+            "agent": {
+              "option": {
+                "04af3dc12b": "使用未修改的使用者代理程式",
+                "5bf47a3c91": "可能改善 Google 登入，但會降低與具有機器人防護網站的相容性。"
+              }
+            }
+          }
+        },
+        "webauthn": {
+          "account": {
+            "cancel": "取消",
+            "description": "選擇要搭配此安全金鑰使用的帳號。",
+            "fallback": "密碼金鑰",
+            "site": "網站",
+            "title": "選擇密碼金鑰"
           }
         }
       },
@@ -1790,6 +2244,10 @@ export default {
                 "repoGroup": "存放庫群組"
               }
             }
+          },
+          "pluginQuickActions": {
+            "description": "{{value0}} 外掛命令",
+            "keyword": "外掛命令"
           },
           "quick": {
             "actions": {
@@ -1836,7 +2294,16 @@ export default {
       "confirmation": {
         "dialog": {
           "56f5c60e0c": "取消",
-          "8490e5d36a": "確認"
+          "8490e5d36a": "確認",
+          "92bac3217e": "不要再問"
+        },
+        "skip": {
+          "openSettings": "開啟設定",
+          "preference": {
+            "0b0cb6e3f9": "無法儲存確認偏好設定。"
+          },
+          "saved": "下次我們會略過此確認。",
+          "savedDescription": "你可以在「設定」中變更此設定。"
         }
       },
       "contextual": {
@@ -1849,6 +2316,7 @@ export default {
           "ContextualTourOverlaySurface": {
             "4a9568f773": "返回",
             "4f86e2a10b": "跳過導覽",
+            "complete": "完成",
             "d974f32a83": "關閉導覽",
             "ffa4412b66": "下一步"
           },
@@ -1860,7 +2328,17 @@ export default {
             "tour": {
               "overlay": {
                 "measurement": {
-                  "38b3155418": "下一步"
+                  "38b3155418": "下一步",
+                  "automations": {
+                    "intro": {
+                      "body": "自動化會依排程執行 Agent 工作。按一下此按鈕即可新增自動化。",
+                      "title": "什麼是自動化？"
+                    },
+                    "results": {
+                      "body": "執行紀錄會顯示自動化何時執行、發生了什麼事，以及在哪裡檢查其輸出。",
+                      "title": "查看結果"
+                    }
+                  }
                 }
               }
             }
@@ -1928,7 +2406,17 @@ export default {
           "5d2c3e7ae3": "未偵測到語音。",
           "7afff43472": "聽寫完成，但沒有焦點文字欄位。",
           "bb7f599ee7": "開啟設定",
-          "de136f1199": "語音錯誤：{{value0}}"
+          "de136f1199": "語音錯誤：{{value0}}",
+          "micDisconnected": "麥克風已中斷連線，聽寫已停止。",
+          "micFallback": "無法使用所選的麥克風，改用系統預設。"
+        },
+        "DictationIndicator": {
+          "25f2b7a6a5": "說話中",
+          "335e1bc6cb": "停止聽寫",
+          "3de5a129e7": "聆聽中",
+          "4977162383": "音量過大",
+          "7f3660a7ba": "正在啟動麥克風…",
+          "f082d0cb9d": "處理中…"
         }
       },
       "diff": {
@@ -2013,7 +2501,8 @@ export default {
           "cd0e0ed79e": "搜尋差異檔案",
           "d5ac717d65": "未提交",
           "eafe1aeb53": "重設篩選條件",
-          "f984289373": "沒有檔案與目前篩選條件符合。"
+          "f984289373": "沒有檔案與目前篩選條件符合。",
+          "resizeFileTree": "調整檔案樹大小"
         },
         "CombinedDiffViewer": {
           "0f806a2ab1": "取消",
@@ -2047,7 +2536,10 @@ export default {
           "eb5f40e49c": "此差異檢視排除了未解決的衝突，因為普通的雙向差異管道不是衝突安全的。",
           "ec5053c7f5": "並排",
           "f786fd54e1": "行內",
-          "fd8892b120": "沒有顯示任何變更"
+          "fd8892b120": "沒有顯示任何變更",
+          "skippedConflictsExcluded": "已從此差異檢視中排除 {{count}} 個未解決的衝突。",
+          "skippedConflictsExcluded_one": "已從此差異檢視中排除 {{count}} 個未解決的衝突。",
+          "skippedConflictsExcluded_other": "已從此差異檢視中排除 {{count}} 個未解決的衝突。"
         },
         "ConflictComponents": {
           "28e7db4a90": "原始碼控制",
@@ -2409,6 +2901,20 @@ export default {
           "82c6816ff8": "找不到區塊",
           "dbdd2ad15f": "搜尋區塊…",
           "e2e12b0e98": "成分"
+        },
+        "RichMarkdownTableControls": {
+          "addColumn": "新增欄",
+          "addRow": "新增列",
+          "columnActions": "欄動作",
+          "deleteColumn": "刪除欄",
+          "deleteRow": "刪除列",
+          "deleteTable": "刪除表格",
+          "insertColumnLeft": "在左側插入欄",
+          "insertColumnRight": "在右側插入欄",
+          "insertRowAbove": "在上方插入列",
+          "insertRowBelow": "在下方插入列",
+          "rowActions": "列動作",
+          "tableActions": "表格動作"
         },
         "RichMarkdownToolbar": {
           "0bea19a988": "刪除線",
@@ -3063,7 +3569,10 @@ export default {
             "orchestration": {
               "OrchestrationPage": {
                 "30b509a467": "2 名兒童",
-                "862605d066": "2 個子工作區"
+                "862605d066": "2 個子工作區",
+                "childPr1Name": "PR 1/2：遷移 users.sql",
+                "childPr2Name": "PR 2/2：withSession 中介軟體",
+                "coordinatorName": "重新設計驗證流程"
               },
               "StatusesPage": {
                 "139e3d7458": "已更新",
@@ -3097,6 +3606,20 @@ export default {
                 "cards": {
                   "da6f1f97c9": "處理中"
                 }
+              },
+              "steps": {
+                "description": "讓 Agent 管理並協調 Orca 工作區，以執行更大型的任務。",
+                "name": "協調調度",
+                "subtitle": "協調調度"
+              },
+              "types": {
+                "claudeBeat1": "正在接上 withSession 中介軟體…",
+                "claudeInitial": "正在草擬 withSession 中介軟體…",
+                "codexBeat1": "正在新增 email_verified 欄位…",
+                "codexInitial": "正在撰寫 users 資料表的遷移…",
+                "coordinatorBeat1": "PR 1/2 已就緒",
+                "coordinatorBeat2": "PR 2/2 已就緒",
+                "coordinatorInitial": "正在將驗證改寫分割為 2 個 PR…"
               }
             }
           },
@@ -3112,6 +3635,30 @@ export default {
           },
           "feature": {
             "wall": {
+              "setup": {
+                "checklist": {
+                  "localized": {
+                    "copy": {
+                      "06fe30fdb0": "一鍵從任務啟動 Agent，並隨時掌握 PR 狀態。",
+                      "29aa2c2077": "開啟通知",
+                      "2cf795433b": "在多個存放庫中開始工作",
+                      "42525ba8a4": "將你的主要存放庫加入 Orca，不必到處找資料夾就能開始 Agent 工作。",
+                      "43781563c3": "不必離開 Orca 就能瀏覽你的 Web 應用程式。擷取任何元素，一鍵將其確切的原始碼與樣式傳送給 Agent。",
+                      "46db810da8": "選擇你的預設 Agent",
+                      "56049b74c2": "自動執行安裝與設定命令，讓每個新的 Worktree 都能讓 Agent 立即使用。",
+                      "62bac8f43c": "同時在 2 個不同的 Worktree 中工作。每個 Worktree 彼此隔離（即使在同一個專案中），非常適合同時開發 2 個功能。",
+                      "71bd9a8c95": "在 Agent 完成、需要注意或受阻時立即得知。",
+                      "7bcb4097fa": "註冊 Orca shell 命令，並安裝用於瀏覽器、電腦與協調調度工作流程的 Agent 技能。",
+                      "908898c3ee": "使用 Orca 的瀏覽器",
+                      "ad342dd4c6": "連線整合服務",
+                      "b8e5bae17f": "預先選好偏好的 Agent，更快開始新工作。",
+                      "ec0a363633": "多工處理",
+                      "eddc532e58": "自動化工作區設定",
+                      "fee5557b02": "啟用 Orca CLI"
+                    }
+                  }
+                }
+              },
               "usage": {
                 "tracking": {
                   "00087eecb2": "已連線 · {{value0}}",
@@ -3215,6 +3762,11 @@ export default {
       "github": {
         "CloseReasonDropdown": {
           "e1f2a3b4c5": "選擇關閉原因"
+        },
+        "CommentReactions": {
+          "addNamedReaction": "新增 {{value0}} 回應",
+          "addReaction": "新增回應",
+          "removeNamedReaction": "移除 {{value0}} 回應"
         },
         "GitHubIssueCommentComposer": {
           "082515176a": "新增留言失敗",
@@ -3460,6 +4012,10 @@ export default {
             "989f81dc2a": "欄位",
             "eddfc7a794": "依 {{value0}} 排序",
             "f949f5b2b7": "設定欄位"
+          },
+          "ProjectViewStates": {
+            "3b9c1d5e47": "此檢視目前沒有任何項目。",
+            "7e4a2f80c6": "最近新增的項目可能需要一段時間才會顯示。"
           },
           "ProjectViewWrapper": {
             "030de75bc5": "此項目符合多個選取的存放庫。",
@@ -3726,6 +4282,7 @@ export default {
       "mobile": {
         "CustomNetworkAddressDialog": {
           "cancel": "取消",
+          "confirmationError": "此位址無法產生可掃描的配對碼。請檢查位址後再試一次。",
           "description": "指定當手機不在同一 Wi-Fi 時可以存取的位址，例如 Tailscale 主機名或靜態 IP。",
           "hint": "請輸入 IP 位址或主機名（Tailscale MagicDNS 名稱、DDNS 域名或 LAN 主機名），選填擇附加 :連接埠。",
           "label": "位址",
@@ -3760,6 +4317,9 @@ export default {
           "a8fb43cf1c": "繼續",
           "aa97420ba4": "複製安裝連結",
           "ac1eb64952": "Android",
+          "androidHelp": {
+            "guide": "安裝指南"
+          },
           "b4ccce5cb7": "從你的手機控制 Orca。當你離開辦公桌時，檢查 Agent、檢視變更並啟動任務。",
           "b622eba64d": "返回",
           "bb0074ce11": "配對 QR Code",
@@ -3774,11 +4334,23 @@ export default {
           "d1495e5e64": "開啟 Orca 手機端，點選",
           "da1d5e5ed0": "可用於",
           "dfd2aa9d5d": "網路",
+          "directAddressDisclosure": "同時使用更快的區域網路路徑",
+          "directAddressHint": "選填。選擇手機在附近時應使用的 Wi‑Fi 或 Tailscale 位址，通常比 Relay 更快。你不在附近時，Relay 仍可使用。",
           "e59a252eca": "重新產生程式碼",
           "e75647ace0": "使用手機掃描 QR Code 或開啟安裝連結以取得 Orca 手機端。",
           "ec0607bf66": "支援的手機平臺",
           "f9cbf4bb53": "撤銷裝置",
           "ff48d9d520": "與另一臺裝置配對",
+          "noPairingCode": "沒有可用的配對碼",
+          "noRelayCode": "沒有可用的配對碼",
+          "pairThisComputer": "配對這台電腦。",
+          "pairThisMac": "配對這台 Mac。",
+          "pairThisPc": "配對這台 PC。",
+          "pairingCodeReady": "配對碼已就緒",
+          "pairingQrError": "此配對碼無法轉為 QR Code，請改為將其複製到 Orca Mobile。",
+          "qrGeneratePrompt": "產生配對碼以繼續",
+          "qrRenderFailed": "無法顯示 QR Code，請複製下方的配對碼",
+          "qrSignInRequired": "登入以建立 Relay 配對碼",
           "relayDegradedNotice": "無法連線到 Relay — 此配對碼僅在你的本機網路內有效。"
         },
         "MobilePage": {
@@ -3791,6 +4363,8 @@ export default {
           "b353e18de1": "WebSocket 傳輸未執行",
           "baea63c445": "複製連結失敗",
           "c5909374cf": "簡介",
+          "diagnosticsCopied": "已複製診斷資訊",
+          "diagnosticsCopyFailed": "複製診斷資訊失敗",
           "e17393c6a3": "手機預覽",
           "fad833de8d": "安裝連結已複製"
         },
@@ -3804,9 +4378,24 @@ export default {
           "f3d8e5b71a": "將捷徑新增回左側邊欄。",
           "fb5f28330e": "在側邊欄中顯示"
         },
+        "MobileRelayMintFailureNotice": {
+          "body": "請重試，或改用 LAN 透過 Tailscale 或同一個 Wi‑Fi 配對。",
+          "copyDiagnostics": "複製診斷資訊",
+          "retry": "重試 Relay",
+          "retrying": "正在重試…",
+          "retryingBody": "正在建立新的配對碼。透過遠端連線可能需要一些時間。",
+          "retryingTitle": "正在重試 Orca Relay…",
+          "title": "無法建立 Relay 配對碼。",
+          "unavailableBody": "請使用 LAN 透過 Tailscale 或同一個 Wi‑Fi 配對。",
+          "unavailableTitle": "此桌面電腦無法使用 Orca Relay。",
+          "useLan": "使用 LAN"
+        },
         "NetworkInterfacePicker": {
           "add-custom": "新增自訂位址…",
           "custom-option": "{{address}}（自訂）",
+          "custom-section": "自訂",
+          "no-address-selected": "未選取位址",
+          "remove-custom": "移除 {{address}}",
           "trigger-label": "要公布的網路位址"
         },
         "PhoneCarousel": {
@@ -3823,6 +4412,7 @@ export default {
           "open-settings": "開啟網路設定",
           "public-description": "請先將此受信任的 Wi-Fi 網路變更為專用網路，然後再允許 Orca Mobile 連線。",
           "public-title": "Windows 將此網路標記為公用",
+          "relay-note": "仍可透過 Orca Relay 配對，允許此項只是額外加上更快的本機連線。",
           "repair": "修復防火牆存取權限",
           "repair-failed": "無法更新 Windows 防火牆規則",
           "repair-success": "Windows 防火牆現已允許 Orca Mobile 在專用網路上通訊",
@@ -3924,12 +4514,30 @@ export default {
         "workspace": {
           "ProjectCombobox": {
             "addProject": "Add a new project",
+            "browse": "瀏覽專案",
             "empty": "沒有符合搜尋條件的專案。",
+            "label": "專案",
+            "listLabel": "專案",
+            "noProjects": "尚無專案。",
             "search": "搜尋專案…"
           },
           "ProjectHostSetupCombobox": {
             "empty": "此專案沒有已就緒的主機。",
             "placeholder": "選擇主機"
+          },
+          "RunTargetCombobox": {
+            "browse": "瀏覽執行目標",
+            "label": "執行於",
+            "listLabel": "執行目標"
+          },
+          "SetProjectLocationDialog": {
+            "browseFolder": "瀏覽資料夾",
+            "browseFolderHelp": "使用此主機上現有的 checkout 或資料夾。",
+            "cloneFromUrl": "從網址 clone",
+            "cloneFromUrlHelp": "將此存放庫 clone 到 {{host}}。",
+            "description": "選擇 {{project}} 在 {{host}} 上的位置。",
+            "saveLocation": "設定位置",
+            "title": "設定專案位置"
           },
           "SmartWorkspaceNameField": {
             "0a180280bd": "GitHub",
@@ -3959,20 +4567,34 @@ export default {
             "ad188067ae": "GitHub URL 指向",
             "b1a7d679ba": "使用",
             "b3c60c2b7c": "智慧",
+            "chooseJiraAccount": "選擇 Jira 帳號",
             "currentTaskSource": "目前任務來源",
             "differentTaskSource": "，與所選任務來源不同。",
             "e57c53727c": "新增專案…",
             "eadf877af5": "保持",
+            "emoji": "表情符號",
             "fda67f0b61": "目前專案",
+            "jiraDisconnected": "請在設定中連線 Jira 以連結此 Issue",
+            "jiraLoaded": "已載入 Jira Issue",
+            "jiraMode": "Jira",
+            "jiraReadFailed": "無法載入此 Jira Issue",
+            "jiraRuntimeUpdate": "請更新遠端執行環境以連結 Jira",
+            "jiraSelectBindFailed": "無法連結此 Jira Issue。請選擇相符的網站或重新連線 Jira，然後再試一次。",
+            "jiraSiteNotConnected": "此 Jira 網站尚未連線",
+            "loadingJira": "正在載入 Jira Issue…",
+            "loadingLinearIssue": "正在載入 Linear Issue…",
+            "openSettings": "設定",
             "placeholderNameOrLinearUrl": "輸入名稱或 Linear URL",
             "placeholderSmartGitLab": "輸入名稱、#1234、GitHub 或 GitLab URL",
             "placeholderSmartGitLabLinear": "輸入名稱、#1234、GitHub/GitLab 或 Linear URL",
             "placeholderSmartWithBranchGitLab": "輸入名稱、#1234、分支、GitHub 或 GitLab URL",
             "placeholderSmartWithBranchGitLabLinear": "輸入名稱、#1234、分支、GitHub/GitLab 或 Linear URL",
             "placeholderWorkspaceName": "輸入工作區名稱",
+            "retryJira": "重試",
             "searchBranches": "搜尋分支",
             "searchGitHub": "搜尋 GitHub PR 和 Issue",
             "searchGitLab": "搜尋 GitLab MR 和 Issue",
+            "searchJira": "搜尋 Jira Issue 或貼上 Issue 網址",
             "searchLinear": "搜尋 Linear Issue",
             "switchTaskSourceTitle": "切換任務來源？",
             "unavailable": "無法使用",
@@ -4378,6 +5000,23 @@ export default {
           }
         }
       },
+      "pluginCatalog": {
+        "PluginCatalogLayout": {
+          "all": "全部",
+          "filter": "外掛篩選",
+          "installed": "已安裝",
+          "searchLabel": "搜尋外掛",
+          "searchPlaceholder": "搜尋外掛、類別或發行者",
+          "title": "外掛"
+        }
+      },
+      "pr-check-counts": {
+        "failingChip": "{{value0}} 項失敗",
+        "needsActionChip": "{{value0}} 項需要處理",
+        "passingChip": "{{value0}} 項通過",
+        "pendingChip": "{{value0}} 項待處理",
+        "unresolvedChip": "{{value0}} 項未定"
+      },
       "repo": {
         "NestedRepoChecklist": {
           "91b5bcadb6": "全選",
@@ -4433,6 +5072,7 @@ export default {
             "localWorkspacesOnly": "從歷史記錄繼續僅適用於本機工作區。",
             "logPath": "記錄檔路徑",
             "noAgentSessionsFound": "未找到 Agent 工作階段",
+            "noAgentsSelected": "未選取任何 Agent",
             "noSessionsMatchFilters": "沒有工作階段符合目前篩選條件",
             "openSupportedWorkspace": "繼續工作階段前請先開啟一個工作區。",
             "openWorkspaceBeforeResuming": "繼續工作階段前請先開啟一個工作區。",
@@ -4443,6 +5083,8 @@ export default {
             "resumeCommandCopied": "繼續命令已複製",
             "resumePastSessions": "繼續過往工作階段",
             "searchSessions": "搜尋工作階段",
+            "sessionDeleteFailed": "無法刪除工作階段",
+            "sessionDeleted": "已刪除工作階段",
             "sessionHistory": "Agent 工作階段歷史",
             "sessionHostMismatchUnsupported": "此工作階段屬於其他主機。請開啟同一主機上的工作區以繼續它。",
             "sessionId": "工作階段 ID",
@@ -4459,6 +5101,7 @@ export default {
             "allScope": "全部",
             "allSessions": "所有工作階段",
             "allSessionsLower": "所有工作階段",
+            "clearAgents": "清除",
             "created": "建立時間",
             "currentProjectLower": "目前專案",
             "currentWorkspace": "目前工作區",
@@ -4477,6 +5120,7 @@ export default {
             "scanningSessions": "正在掃描工作階段",
             "scope": "範圍",
             "scopeAriaLabel": "工作階段歷史範圍：{{value0}}",
+            "selectAllAgents": "全選",
             "sort": "排序",
             "thisScope": "目前",
             "viewOptions": "檢視選項",
@@ -4484,35 +5128,52 @@ export default {
             "workspaceScope": "工作區",
             "worktreeScope": "Worktree"
           },
+          "AiVaultSessionDeleteDialog": {
+            "confirm": "刪除",
+            "description": "「{{value0}}」將被刪除。刪除後，也無法再從 {{value1}} 自己的命令列繼續此工作階段。",
+            "title": "要刪除此工作階段嗎？"
+          },
           "AiVaultSessionDetails": {
             "agentRole": "Agent",
             "assistant": "助理",
             "branch": "分支",
             "conversationNotSaved": "對話未儲存",
+            "copied": "已複製",
+            "copy": "複製",
             "copyDetailValue": "複製 {{value0}}",
+            "copyFirstPrompt": "複製第一則提示詞",
             "copyLogPath": "複製記錄檔路徑",
+            "copyPrompt": "複製提示詞",
+            "copyRecentPrompt": "複製最近的提示詞",
             "copyResumeCommand": "複製繼續命令",
             "copySessionId": "複製工作階段 ID",
             "created": "建立時間",
             "daysAgo": "{{value0}} 天前",
             "emptyConversationDetail": "此工作階段沒有已儲存的對話，無法繼續。",
+            "firstPrompt": "第一則提示詞",
+            "firstPromptCopied": "已複製第一則提示詞",
             "hoursAgo": "{{value0}} 小時前",
             "jumpToOriginalPane": "跳轉到原始窗格",
             "jumpToWorktree": "跳轉到 Worktree",
             "justNow": "剛剛",
             "latestLog": "最新記錄檔",
             "latestTurns": "最近輪次",
+            "loadingFirstPrompt": "正在載入第一則提示詞…",
             "log": "記錄檔",
             "messageCount": "{{value0}} 條訊息",
             "minutesAgo": "{{value0}} 分鐘前",
             "model": "模型",
             "monthsAgo": "{{value0}} 個月前",
+            "noFirstPromptAvailable": "沒有可用的第一則提示詞",
             "noPreviewAvailable": "沒有可用的對話預覽",
             "noReadablePreview": "此記錄中沒有可讀的訊息預覽。",
             "openLog": "開啟記錄檔",
             "openWorkingDirectory": "開啟工作目錄",
             "originalAsk": "原始請求",
+            "prompt": "提示詞",
             "queuedMessages": "{{value0}} 條排隊訊息",
+            "recentPrompt": "最近的提示詞",
+            "recentPromptCopied": "已複製最近的提示詞",
             "recoverableEmptyDetail": "此工作階段沒有已儲存的對話，但仍有 {{value0}} 個可還原項。",
             "recoverableEmptyOpenLogHint": "開啟記錄檔以還原它們。",
             "resumeCommand": "繼續命令",
@@ -4542,11 +5203,23 @@ export default {
             "worktree": "Worktree",
             "yearsAgo": "{{value0}} 年前"
           },
+          "AiVaultSessionLimitMenu": {
+            "historyDepth": "歷史記錄深度：{{value0}}",
+            "mayBeSlower": "可能較慢",
+            "performanceWarning": "歷史記錄越多，整個應用程式可能越慢，在遠端主機上尤其明顯。「無限制」會掃描所有可用的歷史記錄。",
+            "recommended": "建議",
+            "slowest": "最慢",
+            "unlimited": "無限制"
+          },
           "AiVaultSessionRow": {
             "agentRole": "Agent",
             "copyLogPath": "複製記錄檔路徑",
             "copyResumeCommand": "複製繼續命令",
             "copySessionId": "複製工作階段 ID",
+            "delete": "刪除",
+            "deleteReasonNonLocalHost": "只能刪除此裝置上的工作階段。",
+            "deleteReasonSyntheticPath": "無法從 Orca 刪除此工作階段。",
+            "deleteReasonUnsupportedAgent": "無法從 Orca 刪除 {{value0}} 工作階段。",
             "dragToResume": "拖曳以在新分頁中繼續",
             "hideDetails": "隱藏詳細資訊",
             "jumpToOriginalPane": "跳轉到原始窗格",
@@ -4601,16 +5274,19 @@ export default {
             "34464d00b9": "已更新",
             "3b203c62f8": "這將從 PR 中永久刪除該留言。",
             "3c3ad3a1d2": "已啟動 Agent。所選的留言中沒有可在託管平臺上標記為已解決的留言。",
+            "430f1a62d4": "無法在主機上解決所選的討論串。",
             "495b2f8c4b": "已啟動 Agent，但無法將所選的留言標記為已解決。",
             "4ede779461": "使用 AI 解決審查衝突",
             "5594400d73": "沒有需要修復的失敗檢查。",
             "5788d1059d": "無法更新留言串。檢查 GitHub API 預算。",
             "5c88c6db07": "開啟於 {{value0}}",
+            "5eb2163b6b": "啟動 Agent 前請檢查提示詞。提示詞送出後，Orca 會解決主機上所選的討論串，並回覆無法解決的留言。",
             "653c105ecc": "更多 PR 操作",
             "6633c7a1fb": "發布分支",
             "71026ca2cb": "正在重新整理…",
             "7202f4a40a": "取消 PR 連結",
             "786e3c143f": "刪除",
+            "7e4b2a19c0": "找不到要回覆的 GitHub PR。",
             "7f4489f370": "重新整理",
             "7fad8509fe": "用 AI 修復",
             "889cdfba04": "建立 {{value0}}",
@@ -4639,10 +5315,22 @@ export default {
             "sync": {
               "branch": "同步分支",
               "pending": "同步中…"
-            }
+            },
+            "updateReactionFailed": "更新回應表情失敗。"
+          },
+          "CreateHostedReviewBasePicker": {
+            "205ef284fa": "基礎分支",
+            "5a9315b61a": "沒有符合「{{value0}}」的分支。按 Enter 仍要使用。",
+            "bb4b41d563": "來自 {{value0}}",
+            "da4d57c9c2": "留空則使用 {{value0}}。"
           },
           "CreateHostedReviewComposer": {
             "741ff8a0d2": "推送並建立 {{value0}}"
+          },
+          "CreateHostedReviewComposerFields": {
+            "29732f2fb0": "新 PR",
+            "90cabf6cfc": "將此 PR 堆疊在 #{{value0}} 之上",
+            "ff81473a57": "建立 GitHub Stack，或延伸父項現有的堆疊。"
           },
           "CreatePullRequestDialog": {
             "02b2ce911f": "描述（選填）",
@@ -4712,6 +5400,7 @@ export default {
             "b5d436aa30": "複製路徑",
             "bce4d4e44f": "下載「{{value0}}」",
             "c2112579f6": "下載",
+            "clipboardStagingUnavailable": "無法複製檔案，因為 Orca 的暫存儲存空間無法使用",
             "d6a25618aa": "摺疊資料夾",
             "d87a4c42e1": "開啟 Markdown 預覽",
             "dd112c81d2": "在 Orca 瀏覽器中開啟",
@@ -4772,22 +5461,52 @@ export default {
             "2f9c41ab07": "顯示提交 {{value0}} 中的檔案：{{value1}}",
             "4a8d9e0c1f": "隱藏提交 {{value0}} 中的檔案：{{value1}}"
           },
+          "GitHubPRStackMap": {
+            "3511405914": "已關閉",
+            "0c1645ebd0": "展開堆疊 #{{value0}}",
+            "316039b5db": "檢查待處理",
+            "4b1e5ee9d3": "已要求變更",
+            "525259fa17": "暫時無法取得堆疊詳細資訊。",
+            "568c647ccd": "草稿",
+            "7737bd66be": "摺疊堆疊 #{{value0}}",
+            "838aadf512": "檢查失敗",
+            "8a9bdc36c0": "已合併",
+            "9a17b5255c": "需要審查",
+            "bea9ade223": "有衝突",
+            "cb440931b7": "第 {{value0}} 個，共 {{value1}} 個 · {{value2}}",
+            "d3d97cf3f2": "已核准",
+            "e3ee2daa32": "堆疊 #{{value0}}",
+            "e6cb964305": "開啟中"
+          },
           "HostedReviewActions": {
             "2bfaf4379c": "更多 {{value0}} 操作",
             "377269db6f": "{{value0}} 重新開啟",
+            "38a1bccb14": "排入佇列至 #{{pr}} · {{count}} 個 PR",
             "3ce211ece6": "重新開啟 {{value0}}",
+            "3de88351c5": "GitHub 會將此 Pull Request 及其下方的所有 Pull Request 加入合併佇列。",
             "4d5fb5a284": "關閉",
             "59b4dccf70": "destructive",
             "6645ac7dd1": "重新開啟…",
+            "73e0e1819d": "正在將堆疊排入佇列…",
             "78f5ff294c": "這將重新開啟 {{value0}}。",
             "9845a71e17": "更多操作",
+            "9a41a687b7": "排入佇列至 #{{pr}} · {{count}} 個 PR",
+            "a32fe6dba6": "GitHub 會合併此 Pull Request 及堆疊中其下方的所有 Pull Request。",
             "a3d572a4de": "這將關閉 {{value0}}。",
             "b25f63edd7": "開啟",
+            "closedToast": "{{value0}} 已關閉",
             "d2ca293f3d": "處理中…",
             "e4aca40024": "刪除工作區",
+            "e555a41d32": "正在合併堆疊…",
             "eefd50457e": "正在刪除…",
             "ef064cb7c3": "預設",
             "fa3ee9a515": "已關閉"
+          },
+          "PluginPanel": {
+            "loadFailed": "無法載入外掛面板。",
+            "loading": "正在載入外掛面板…",
+            "unavailable": "此外掛面板已無法使用。",
+            "unresponsive": "此外掛面板停止回應，已被暫停。"
           },
           "PortsPanel": {
             "04efd3dad4": "轉發連接埠以存取本機電腦上的遠端服務。",
@@ -5011,6 +5730,8 @@ export default {
             "bd0151ef7b": "我們刪除",
             "bf5082de46": "已複製 {{value0}}",
             "bfe9011a0e": "暫存資料夾",
+            "branchFilesChangedVsBaseOne": "與 {{ref}} 相比有 1 個檔案變更",
+            "branchFilesChangedVsBaseOther": "與 {{ref}} 相比有 {{count}} 個檔案變更",
             "c03d7c952f": "對方新增",
             "c05fe04839": "推送到 {{value0}} 的 fork（非 origin）",
             "c06193ef57": "無法複製 {{value0}}",
@@ -5030,6 +5751,10 @@ export default {
             "cc199ccc5f": "更多提交和遠端操作",
             "cc474e0b8c": "備註",
             "ce41708855": "全部捨棄",
+            "compareBaseCommitsAheadOne": "領先 {{ref}} 1 個提交",
+            "compareBaseCommitsAheadOther": "領先 {{ref}} {{count}} 個提交",
+            "compareBaseCommitsBehindOne": "落後 {{ref}} 1 個提交",
+            "compareBaseCommitsBehindOther": "落後 {{ref}} {{count}} 個提交",
             "conflictsSection": "衝突",
             "createPrIntentBranchChangedDuringDetails": "產生審查詳細資訊時分支已變更。請重試建立 PR。",
             "createPrIntentBranchNotReady": "分支尚未準備好建立審查。",
@@ -5039,6 +5764,7 @@ export default {
             "createPrIntentCreatingReview": "正在建立審查…",
             "createPrIntentFastForwarding": "正在更新分支…",
             "createPrIntentForcePushing": "正在使用 lease 強制推送…",
+            "createPrIntentGenerateDetailsFailed": "無法產生審查詳細資訊。請重試「建立 PR」。",
             "createPrIntentGenerateFailed": "無法產生提交資訊。請新增一條資訊後重試。",
             "createPrIntentGeneratingDetails": "正在產生審查詳細資訊…",
             "createPrIntentNeedsSync": "建立審查前請先同步此分支。",
@@ -5171,6 +5897,9 @@ export default {
               }
             }
           },
+          "activityBar": {
+            "error": "錯誤"
+          },
           "aiVaultSessionLogOpen": {
             "alreadyEditable": "記錄檔已處於編輯狀態。",
             "notAuthorized": "無法開啟記錄檔 — 路徑未授權。",
@@ -5252,13 +5981,17 @@ export default {
                 "c3a8e5d710": "需稽核 · {{value0}}",
                 "cbcc4ab3db": "顯示前 100 項檢查",
                 "cdbfda4dec": "註解",
+                "checksUnresolvedChip": "未定",
+                "checksUnresolvedStripHint": "這些檢查已結束，但沒有通過或失敗的結果。",
                 "d098e5529a": "輸出",
                 "d3923d18fe": "前往留言",
                 "d713f500b2": "記錄檔尾部（最後 200 行）",
                 "d7a2f9c401": "傳送未解決的 {{value0}} 留言",
                 "d91f2a6c39": "傳送 {{value0}} 條已排隊留言給 AI",
+                "dcb3c546fe": "重試",
                 "df137989b3": "顯示前 20 個註解",
                 "e15a8b77ef": "此檢查沒有可用的行內詳細資訊。",
+                "e45324fbed": "無法載入檢查詳細資訊。",
                 "e4e3af15ee": "檢視完整詳細資訊",
                 "e87fb3d929": "複製可合併性重新整理命令",
                 "e8b4c1a903": "已解決 · {{value0}}",
@@ -5426,6 +6159,17 @@ export default {
             }
           },
           "create": {
+            "hosted": {
+              "review": {
+                "button": {
+                  "label": {
+                    "8df1a05952": "在堆疊中建立 PR",
+                    "8e8149a0bf": "在堆疊中建立草稿 PR",
+                    "96ae7358e0": "推送並在堆疊中建立 PR"
+                  }
+                }
+              }
+            },
             "pull": {
               "request": {
                 "review": {
@@ -5440,6 +6184,34 @@ export default {
             "unresolved": "無法確定哪個主機擁有此工作區。請檢查連線後重試。"
           },
           "github": {
+            "pr": {
+              "stack": {
+                "confirmation": {
+                  "1feef35ca4": "要合併至 #{{pr}} 嗎？",
+                  "369aba4b32": "{{included}}GitHub 會以 {{method}} 一次合併 {{count}} 個 Pull Request。只要有任何一個無法合併，就全部不會合併。",
+                  "478a527b15": "將 {{count}} 個 PR 排入佇列",
+                  "4809f55cdb": "{{included}}GitHub 會將 {{count}} 個 Pull Request 一起加入合併佇列。佇列會決定合併方式，並可能分批合併。",
+                  "493c78f521": "合併 {{count}} 個 PR",
+                  "541984b2eb": "要排入佇列至 #{{pr}} 嗎？",
+                  "84f6f5b9eb": "包含：{{numbers}}。",
+                  "92ca033e72": "將 {{count}} 個 PR 排入佇列",
+                  "be8f2621be": "{{included}}GitHub 會將 {{count}} 個 Pull Request 一起加入合併佇列。佇列會決定合併方式，並可能分批合併。",
+                  "c3e036c99f": "{{included}}GitHub 會以 {{method}} 一次合併 {{count}} 個 Pull Request。若無法合併，則不會合併任何內容。",
+                  "eb7051d268": "合併 {{count}} 個 PR"
+                },
+                "merge": {
+                  "189d0ec614": "#{{pr}} 仍是草稿。",
+                  "2bb21fc326": "#{{pr}} 仍需審查核准。",
+                  "46ffcbda75": "#{{pr}} 有合併衝突。",
+                  "55ae29b907": "合併至 #{{pr}} · {{count}} 個 PR",
+                  "640fb50d9c": "#{{pr}} 已關閉。",
+                  "6dabefd63e": "#{{pr}} 已被要求變更。",
+                  "b8446f6ec2": "合併至 #{{pr}} · {{count}} 個 PR",
+                  "c23faf74df": "#{{pr}} 必須更新。",
+                  "f561e80968": "#{{pr}} 已被封鎖。"
+                }
+              }
+            },
             "refresh": {
               "error": {
                 "copy": {
@@ -5461,19 +6233,36 @@ export default {
             "mr": {
               "merge": {
                 "state": {
+                  "01ab632a21": "未解決的討論串",
+                  "049ea91a82": "管道仍在執行",
                   "04a3015a12": "可以合併",
+                  "195917574e": "檢查中",
                   "22b7e50621": "GitLab 報告合併衝突",
                   "2388413f28": "此 Merge Request 已關閉",
+                  "2c61100b3a": "合併前請先更新分支",
+                  "37d8637c70": "GitLab 要求管道成功後此 MR 才能合併",
+                  "382c70faeb": "落後",
+                  "4191fdfcec": "GitLab 要求先解決未解決的討論才能合併",
+                  "46dc85711b": "GitLab 要求核准後此 MR 才能合併",
                   "49ac4fec10": "檢查失敗",
+                  "4ecc0d90ee": "已封鎖",
+                  "5105b0e584": "需要核准",
                   "53c6d3b7e9": "GitLab 表示該 MR 可以合併，但管道仍在執行",
                   "65c847ad1e": "檢查待處理",
+                  "804ecf93e8": "GitLab 尚未回報最終合併狀態",
                   "88d044c42f": "已關閉",
+                  "893a999c8c": "已要求變更",
                   "96b05e374c": "衝突",
+                  "a0f3de7023": "GitLab 回報此 Merge Request 已被封鎖",
+                  "a5c049afe4": "GitLab 表示此 MR 可以合併",
                   "b2715092c6": "草稿",
                   "b41fbc180c": "GitLab 表示這個 MR 可以合併，但一些管道作業失敗了",
+                  "bf628700f6": "檢查必須通過",
+                  "c65408a99d": "審查者已對此 Merge Request 要求變更",
                   "d63bb6f76e": "此 Merge Request 仍是草稿",
                   "ee482a2bad": "該 Merge Request 已被合併",
-                  "fae95ae20d": "已合併"
+                  "fae95ae20d": "已合併",
+                  "ff6db2db63": "GitLab 仍在計算此 Merge Request 的狀態"
                 }
               }
             }
@@ -5580,6 +6369,72 @@ export default {
                   }
                 }
               },
+              "branch": {
+                "line": {
+                  "total": {
+                    "chip": {
+                      "3d7e9b1042": "非產生",
+                      "4c1f70ba92": "{{value0}} — 測試程式碼：新增 {{value1}} 行，刪除 {{value2}} 行",
+                      "52c366d88d": "刪除 {{value0}} 行",
+                      "6b2d0f14a7": "測試",
+                      "7a04c6f8b3": "產生",
+                      "7f3e1a9c24": "{{value0}} — 產生的程式碼：新增 {{value1}} 行，刪除 {{value2}} 行",
+                      "8a9b97b666": "新增 {{value0}} 行",
+                      "9e4a3c5081": "非測試",
+                      "a1b2c3d4e5": "程式碼分析",
+                      "b2c3d4e5f6": "程式碼行數",
+                      "c8d5b21e07": "原始碼",
+                      "daa8e8e59b": "新增 {{value0}} 行，刪除 {{value1}} 行"
+                    }
+                  }
+                }
+              },
+              "commit": {
+                "area": {
+                  "0904be2505": "清除訊息即可重新產生。",
+                  "1ea9ba37aa": "請在「設定 -> Git -> 原始碼控制 AI」中選擇 Agent。",
+                  "4cbd0cd9d2": "正在提交…",
+                  "cc5739bd1d": "正在產生提交訊息…",
+                  "e7876a2bde": "請至少暫存一個檔案以產生訊息。"
+                }
+              },
+              "compare": {
+                "summary": {
+                  "dd72a6fd37": "比 {{value2}} 領先 {{value0}} 個提交"
+                }
+              },
+              "conflict": {
+                "status": {
+                  "cards": {
+                    "35eb76d323": "操作進行中",
+                    "5302a1ddba": "合併衝突",
+                    "5c3707aa44": "重定基底進行中",
+                    "6a8e9ad490": "揀選衝突",
+                    "7f3af87549": "重定基底衝突",
+                    "bdf8772106": "衝突",
+                    "edc2d82a2b": "合併進行中",
+                    "ffe53a1da6": "揀選進行中"
+                  }
+                }
+              },
+              "content": {
+                "status": {
+                  "00c07771b7": "沒有符合「{{value0}}」的已變更檔案",
+                  "0bce43409f": "請使用較短的檔案篩選條件。",
+                  "1b6caf533d": "沒有符合的檔案",
+                  "3f425c239c": "此分支沒有變更",
+                  "640f6fdb36": "此工作區沒有未提交的變更，且此分支沒有領先 {{value0}} 的變更",
+                  "8deb86bbec": "基礎",
+                  "978eba351e": "搜尋文字過長"
+                }
+              },
+              "diff": {
+                "comments": {
+                  "list": {
+                    "cefacd0ec7": "整個檔案"
+                  }
+                }
+              },
               "discard": {
                 "confirmation": {
                   "1426c2efff": "這將還原對此檔案的所有變更。此操作無法復原。",
@@ -5667,6 +6522,11 @@ export default {
               "control": {
                 "ai": {
                   "cfafa92509": "沒有未解決的衝突需要傳送。"
+                },
+                "bulk": {
+                  "actions": {
+                    "2f67630884": "批次暫存/取消暫存失敗"
+                  }
                 }
               }
             }
@@ -5756,6 +6616,11 @@ export default {
             "reviewUnavailable": "審查狀態不可用",
             "unavailableWorktree": "此 Worktree 不可用"
           }
+        },
+        "pluginPanelBridgeHost": {
+          "actionsUnavailable": "此用戶端無法使用外掛動作。",
+          "messageTooLarge": "訊息超過大小上限。",
+          "tooManyRequests": "要求過多。"
         }
       },
       "settings": {
@@ -5861,6 +6726,7 @@ export default {
           "c2d2751587": "移除帳號",
           "cedfab35ab": "選用。Orca 可使用你平常的 Codex 登入；只有在你想於 Orca 中快速切換時才需新增帳號。",
           "codexConfigSyncBlankSource": "Codex 仍在使用上次同步的設定，因為 {{value0}} 是空的。同步資料夾尚未下載完成時屬正常現象。",
+          "codexConfigSyncManagedHomeUnavailable": "Orca 目前無法讀取此帳號的 Codex 檔案，因此設定可能未同步。這通常會自行恢復，原因多半是防毒軟體或備份工具暫時鎖定了這些檔案。",
           "codexConfigSyncMissingSource": "Codex 仍在使用上次同步的設定，因為找不到 {{value0}}。請還原該檔案以恢復同步。",
           "codexConfigSyncUnreadableSource": "Codex 仍在使用上次同步的設定，因為無法讀取 {{value0}}。請檢查該檔案的權限。",
           "codexSystemDefaultCustomProvider": "自訂供應商 — 不追蹤使用量。",
@@ -5917,6 +6783,11 @@ export default {
           "network": "網路",
           "networkDescription": "適用於代理伺服器與企業環境的應用程式層級網路路由。"
         },
+        "AgentAwakeSetting": {
+          "auto": "Agent",
+          "off": "關閉",
+          "on": "開啟"
+        },
         "AgentCacheTimerSection": {
           "05de84a104": "1 小時",
           "487b176240": "在 Claude Agent 進入閒置後，於側邊欄顯示倒數計時。",
@@ -5963,7 +6834,12 @@ export default {
           "copyCommandAria": "複製命令",
           "ed197f59a2": "複製命令",
           "failedToCopyCommand": "複製命令失敗。",
-          "runCommandDescription": "按 Enter 執行命令。"
+          "installLabel": "安裝",
+          "retrySetup": "重試",
+          "runCommandDescription": "按 Enter 執行命令。",
+          "setupCommandFailed": "設定命令已結束，結束碼為 {{value0}}。重試成功後此錯誤就會清除。",
+          "setupFailed": "設定失敗",
+          "updateLabel": "更新"
         },
         "AgentsPane": {
           "024bd95089": "Agent",
@@ -6011,8 +6887,10 @@ export default {
           "f95b5c79b8": "安裝",
           "f9f127d664": "覆寫二進位檔的路徑或名稱，並編輯此 Agent 的預設啟動引數或環境。",
           "fe4d630c94": "文件",
+          "noAgentsDetected": "未偵測到任何 Agent。如果已經安裝，可能是偵測逾時。",
           "remoteDetectionFailed": "無法偵測已安裝的 Agent。請檢查主機連線後再試一次。",
-          "retryDetection": "重試"
+          "retryDetection": "重試",
+          "storedDefaultUndetected": "已儲存為預設，但目前未偵測到"
         },
         "AppIconSelector": {
           "415fa76f64": "所選的應用程式圖示",
@@ -6160,6 +7038,16 @@ export default {
           "c6cbd1c105": "首頁已儲存。",
           "d4ddcd0056": "儲存"
         },
+        "BrowserLinkRoutingModifierSetting": {
+          "descriptionOrca": "連結會在系統瀏覽器中開啟。啟用後，{{chord}}+按一下會改在 Orca 的內建瀏覽器中開啟。",
+          "descriptionSystem": "連結會在 Orca 中開啟，因此 {{chord}}+按一下會改為傳送到系統瀏覽器。",
+          "titleOrca": "按住 Shift 以在 Orca 中開啟",
+          "titleSystem": "按住 Shift 以在網頁瀏覽器中開啟"
+        },
+        "BrowserLinkRoutingSetting": {
+          "description": "在 Orca 的內建瀏覽器中開啟 http(s) 連結，適用於終端機、Markdown 與編輯器。{{shortcut}} 一律使用系統瀏覽器。",
+          "descriptionBase": "在 Orca 的內建瀏覽器中開啟 http(s) 連結，適用於終端機、Markdown 與編輯器。"
+        },
         "BrowserLocalhostWorktreeLabelsSetting": {
           "1db3c8b983": "將 Worktree 連接埠開啟為特定於 Worktree 的 Orca localhost URL，便於區分瀏覽器分頁。",
           "8ac8c3ad19": "localhost Worktree 標籤"
@@ -6197,11 +7085,16 @@ export default {
           "a3f8c2d1e0b4": "已將 {{value0}} 個 cookie 從 {{value1}}（{{value2}}）匯入 {{value3}}。",
           "b4c167764d": "已將 {{value0}} 個 cookie 從檔案匯入 {{value1}}。",
           "b4e9d3f2a1c5": "已將 {{value0}} 個 cookie 從 {{value1}} 匯入 {{value2}}。",
+          "b5c0479e21": "未修改 User Agent",
           "c29648fe5b": "使用中",
           "c5a273a809": "從 {{value0}}",
           "cdec84552f": "匯入 Cookie",
           "d420c43729": "已將 {{value0}} 個 cookie 從 {{value1}}{{value2}} 匯入 {{value3}}。",
           "ebb78dfd6f": "從檔案…"
+        },
+        "BrowserTerminalLinkActionsSetting": {
+          "description": "按一下終端機中的連結時顯示可用的動作。停用後需要 {{modifier}}+按一下。",
+          "title": "按一下終端機網址"
         },
         "BrowserUseComputerUseNotice": {
           "15b5e680ba": "開啟 Computer Use",
@@ -6267,6 +7160,7 @@ export default {
           "5dae812f50": "重新整理",
           "6053cf736c": "CLI 技能",
           "6930feda9e": "從終端機使用 Orca 開啟應用程式、管理 Worktree 並與 Orca 終端機互動。",
+          "6f894ef9c2": "在 Finder 中顯示",
           "7baec27029": "無法載入 CLI 狀態。",
           "7f2747f7dd": "目前在此 shell 的 PATH 中看不到。",
           "8671e406f0": "取消",
@@ -6274,6 +7168,7 @@ export default {
           "8d96213669": "移除",
           "9a5f8a4568": "移除",
           "9cbcd31338": "已在 PATH 中註冊 `{{value0}}`。",
+          "9fd4023db0": "在檔案管理員中顯示",
           "a030816e3e": "這會移除 shell 命令的符號連結。Orca 本身仍保持安裝。",
           "a2b13efa94": "無法在 PATH 中註冊 `{{value0}}`。",
           "a4aafe46e3": "目標路徑：",
@@ -6282,13 +7177,16 @@ export default {
           "b0c310ab46": "現有啟動器目標：",
           "b0fca411a0": "註冊中…",
           "c5c0f2641d": "Orca CLI",
+          "cbe55e4d48": "在檔案總管中顯示",
           "cliSkillTerminalAria": "CLI 技能安裝 CLI",
           "cliSkillTerminalTitle": "CLI 技能設定",
           "d00df2e397": "註冊",
           "d363e5929b": "正在檢查 CLI 註冊…",
           "d77352f2df": "無法從 PATH 移除 `{{value0}}`。",
           "e8012c03a1": "讓 Agent 能使用 Orca 工作區、終端機與進度命令。",
-          "fa87db3d6e": "要在 PATH 中註冊 `{{value0}}` 嗎？"
+          "fa87db3d6e": "要在 PATH 中註冊 `{{value0}}` 嗎？",
+          "installFailureConflictRemedy": "如果不再需要 {{value0}}，請將它移除後再重新註冊。",
+          "installFailureUnknownReason": "Orca 無法完成 CLI 註冊，且未回報原因。"
         },
         "CliSkillRuntimeSetup": {
           "04325573f8": "WSL",
@@ -6301,7 +7199,15 @@ export default {
           "c47127f222": "WSL 預設",
           "f00d6aa9b5": "此機器上無法使用 WSL。",
           "fc0fcf72fd": "請先註冊 WSL shell 命令，再進行技能設定。",
+          "refreshCliRegistration": "請重新整理 CLI 註冊狀態，然後再試一次。",
           "windowsPathUnknown": "無法檢查 WSL shell 命令的 PATH"
+        },
+        "CloudVmSetupGuide": {
+          "createWorkspace": "建立工作區，並在「執行於」下選擇該配方。",
+          "description": "Cloud VM 會在你建立工作區時，依據環境配方建立。",
+          "openSetup": "設定環境配方",
+          "setupRecipe": "為你的雲端供應商設定環境配方。",
+          "title": "建立 Cloud VM"
         },
         "CommitMessageAiPane": {
           "02bab6542c": "PR",
@@ -6365,7 +7271,10 @@ export default {
           "7801ac08ec": "Computer Use 權限僅在 macOS 上需要",
           "93255aaf18": "Computer Use 技能",
           "d95d1cfab8": "重新整理",
-          "f189f448a3": "重設 Computer Use 存取權"
+          "f189f448a3": "重設 Computer Use 存取權",
+          "statusGranted": "已授予",
+          "statusNotEnabled": "未啟用",
+          "statusUnsupported": "僅限 macOS"
         },
         "DefaultWindowsProjectRuntimeSetting": {
           "defaultRuntime": "預設專案執行環境",
@@ -6429,11 +7338,30 @@ export default {
           "7ca17b62c8": "當專案、Worktree 或符號連結檔案會存取 macOS 受保護資料夾時建議啟用。",
           "9f35980756": "按鍵注入、視窗控制與 UI 自動化工具。",
           "a552887288": "無法載入開發者權限",
+          "actionOpenSettings": "開啟設定",
+          "actionRequest": "要求",
+          "actionRequestAccess": "要求存取權",
+          "actionTriggerPrompt": "觸發提示",
           "b2210b1b4f": "藍芽",
           "bf51e4a542": "USB 裝置",
           "bfa3402305": "無法請求權限",
           "c566bca278": "完全磁碟存取權限",
           "cc8151d9fa": "語音輸入、轉錄、錄音，以及 sox、ffmpeg 和 Whisper CLI。",
+          "connectionTestAction": "測試連線",
+          "connectionTestDescription": "輸入區域網路中另一臺裝置上的服務。Orca 會測試終端機工具所使用的相同網路路徑。",
+          "connectionTestFailed": "無法完成連線測試。",
+          "connectionTestHost": "主機",
+          "connectionTestInvalidTarget": "請輸入主機名稱或私人區域網路 IP，以及 1 到 65535 之間的連接埠。",
+          "connectionTestLastVerified": "上次驗證",
+          "connectionTestNotYetVerified": "尚未儲存成功的測試。",
+          "connectionTestPort": "連接埠",
+          "connectionTestRefused": "主機有回應，但該連接埠拒絕連線。",
+          "connectionTestRunning": "測試中…",
+          "connectionTestTimeout": "連線逾時。請檢查目標、服務與 macOS 的「區域網路」設定。",
+          "connectionTestTitle": "測試連線",
+          "connectionTestUnreachable": "無法連線到目標。",
+          "connectionTestUnresolved": "無法解析主機名稱。",
+          "connectionTestUnsupported": "連線測試僅適用於 macOS 桌面應用程式。",
           "dac08ec03e": "處理中…",
           "dfbc12c8c8": "與 USB 裝置通訊的硬體偵錯與裝置工具。",
           "e119f0d66b": "自動化",
@@ -6441,12 +7369,32 @@ export default {
           "e7bb06007c": "LAN",
           "f24f31a884": "螢幕錄製",
           "f903bf20b5": "探索並存取你網路上的開發伺服器。",
-          "fa809e8ada": "已開啟 macOS 隱私權與安全性"
+          "fa809e8ada": "已開啟 macOS 隱私權與安全性",
+          "localNetworkOpenSettings": "開啟系統設定",
+          "localNetworkOpenSystemSettings": "開啟系統設定",
+          "localNetworkPromptCheck": "檢查 macOS 提示",
+          "localNetworkPromptGuidance": "若出現提示，請選擇「允許」。若沒有出現提示，請開啟系統設定，並在「隱私權與安全性 → 區域網路」中啟用 Orca。",
+          "openSettingsFailed": "無法開啟系統設定",
+          "statusCheckManually": "請手動檢查",
+          "statusDenied": "已拒絕",
+          "statusEntitled": "已具備授權",
+          "statusGranted": "已授予",
+          "statusManagedByMacOS": "由 macOS 管理",
+          "statusNotRequested": "尚未要求",
+          "statusRestricted": "受限制",
+          "statusUnsupported": "僅限 macOS"
         },
         "EditorFontFamilySetting": {
           "description": "檔案編輯器與差異檢視所使用的字型。留空則沿用終端機字型。",
           "placeholder": "與終端機字型相同",
           "title": "編輯器字型系列"
+        },
+        "EphemeralVmCleanupStopDialog": {
+          "cancel": "繼續清理",
+          "confirm": "停止清理",
+          "description": "VM 可能仍在執行並持續產生費用。你可以稍後再重試清理。",
+          "stopping": "正在停止…",
+          "title": "要停止清理嗎？"
         },
         "EphemeralVmRecipeRow": {
           "useInWorkspace": "在工作區中使用"
@@ -6458,6 +7406,15 @@ export default {
           "cleanupFailed": "清理失敗",
           "cleanupFailedToast": "無法清理臨時 VM 執行環境。",
           "cleanupRunning": "正在清理",
+          "cleanupStopped": "已停止清理",
+          "cloudVmCleaned": "已清理 Cloud VM 執行環境。",
+          "cloudVmCleanupFailedToast": "無法清理 Cloud VM 執行環境。",
+          "cloudVmEmptyWithSetup": "尚無 Cloud VM 執行環境。請從工作區使用環境配方建立。",
+          "cloudVmLoadFailed": "無法載入 Cloud VM 執行環境。",
+          "cloudVmLoading": "正在檢查 Cloud VM 執行環境…",
+          "cloudVmMarkedCleaned": "已將 Cloud VM 執行環境標記為已清理。",
+          "cloudVmRefresh": "重新整理 Cloud VM 執行環境",
+          "cloudVmTitle": "Cloud VM 執行環境",
           "copiedCleanupCommand": "已複製清理命令。",
           "copiedCleanupPayload": "已複製清理載荷。",
           "copyCleanup": "複製命令",
@@ -6471,10 +7428,17 @@ export default {
           "refresh": "重新整理臨時 VM 執行環境",
           "retry": "重試清理",
           "running": "執行中",
+          "stopCleanup": "停止清理",
+          "stopCleanupFailed": "無法停止 Cloud VM 清理。",
+          "stoppingCleanup": "正在停止…",
           "title": "臨時 VM 執行環境"
         },
         "EphemeralVmsPane": {
           "checking": "正在檢查環境範本…",
+          "cloudVmRefresh": "重新整理 Cloud VM 配方",
+          "cloudVmSkillTitle": "Cloud VM 設定技能",
+          "cloudVmTerminalAriaLabel": "Cloud VM 技能安裝終端機",
+          "cloudVmTerminalTitle": "Cloud VM 設定",
           "copied": "已複製",
           "copy": "複製",
           "copyError": "無法複製提示詞。",
@@ -6654,6 +7618,7 @@ export default {
           "008f92085f": "「開啟方式」應用程式",
           "0e9fc0eadc": "工作區目錄",
           "28bc3d085e": "從右鍵選單刪除工作區前先顯示確認。刪除失敗時仍會提供強制刪除的後備選項。",
+          "31e300af1c": "刪除 Artifact 前先詢問",
           "3d538a98f7": "選擇工作區「開啟方式」選單中可用的應用程式。",
           "4fbf910ded": "在以存放庫命名的子資料夾內建立工作區。",
           "5567191a6e": "瀏覽",
@@ -6663,9 +7628,15 @@ export default {
           "9f380934cf": "刪除工作區前先詢問",
           "a246f5ce6f": "建立工作區資料夾的根目錄。",
           "ba3480642f": "巢狀工作區",
+          "bf46474e33": "刪除共用的 Artifact 前先顯示確認。任何持有其公開連結的人都將失去存取權。",
           "d2dd2ca2e3": "刪除自動化流程及其執行紀錄前顯示確認對話方塊。",
           "e2955d9ccb": "設定新工作區的建立位置。",
-          "ea98373cd8": "刪除自動化流程前先詢問"
+          "ea98373cd8": "刪除自動化流程前先詢問",
+          "externalWorktrees": "外部 Worktree",
+          "externalWorktreesDescription": "選擇在此主機上預設顯示哪些在 Orca 之外建立的 Worktree。",
+          "fb29a73a17": "刪除共用的 Artifact 並使其公開連結失效前，先顯示確認對話方塊。",
+          "hide": "隱藏",
+          "show": "顯示"
         },
         "GhosttyImportModal": {
           "023a52c1f7": "正在載入預覽…",
@@ -6731,6 +7702,11 @@ export default {
           "stagedFirst": "已暫存優先",
           "untrackedFirst": "未追蹤優先"
         },
+        "GlobalWorktreeVisibilitySourcesSetting": {
+          "saveFailed": "無法儲存顯示預設值。",
+          "updateServer": "請更新此伺服器以設定來源預設值。",
+          "updateServerDefaults": "請更新此伺服器以設定顯示預設值。"
+        },
         "GrokAccountsSection": {
           "0d8e77bc40": "Grok CLI 檔案",
           "3325d996cb": "重新整理使用量",
@@ -6754,7 +7730,10 @@ export default {
           "1014ddbfaf": "目前沒有任何作用。保留作為隱藏實驗選項的第一個欄位。",
           "232cf83de8": "供內部測試的未列出切換開關。這裡的專案皆不受支援。",
           "3e9e827ca5": "隱藏實驗功能",
-          "d0f914a528": "佔位切換開關"
+          "7c4e18d2f6": "在此電腦上啟用粗體異常擷取手勢：{{samplingShortcut}} 開始連續取樣；{{captureShortcut}} 將窗格證據擷取到磁碟。",
+          "b09f24a51d": "終端機渲染診斷",
+          "d0f914a528": "佔位切換開關",
+          "f2c81d904a": "隱藏的實驗性設定"
         },
         "InputPane": {
           "ad31c3c5fb": "按滑鼠中鍵從選取內容貼上",
@@ -6858,6 +7837,32 @@ export default {
           "c5886a31cc": "無法開啟外部編輯器。",
           "cdf794f46d": "按鍵繫結檔案無法使用。",
           "dd532a01ce": "無法在 Orca 中開啟按鍵繫結。"
+        },
+        "LinearAgentSkillGuide": {
+          "addAccess": "新增存取權",
+          "manageKeys": "管理金鑰",
+          "noteKeysBody": "API 金鑰與工作區會儲存在使用中的執行環境。",
+          "noteKeysTitle": "金鑰跟隨執行環境",
+          "noteLinkedBody": "在從「任務」建立的 Worktree 中執行工單操作效果最好，這樣 Issue 會持續作為上下文連結。",
+          "noteLinkedTitle": "從 Linear Issue 開始",
+          "noteSlashBody": "在聊天中使用 /orca-linear（或用一般語言詢問），讓 Agent 在該輪載入此技能。",
+          "noteSlashTitle": "提及 /orca-linear",
+          "noteVisibilityBody": "在「任務來源」中隱藏 Linear 只會將它從選擇器移除，不會移除你的金鑰或技能。",
+          "noteVisibilityTitle": "隱藏 ≠ 中斷連線",
+          "notesIntro": "連線 Linear 並安裝技能後的快速提醒。",
+          "notesTitle": "注意事項",
+          "openTaskSources": "任務來源",
+          "setupBody": "完整的「任務 + Agent」流程需要以上三項。首次設定也可在「任務來源」中完成。",
+          "setupChecking": "檢查中…",
+          "setupConnectBody": "個人 API 金鑰，讓 Orca 能列出 Issue 並開啟已連結的工作區。",
+          "setupConnectTitle": "1. 連線 Linear",
+          "setupProgress": "已就緒 {{done}}/{{total}}",
+          "setupReady": "全部就緒",
+          "setupSkillBody": "為程式設計 Agent 提供 /orca-linear，用於讀取、更新、分類，以及附加 Pull Request 或 Merge Request。",
+          "setupSkillTitle": "2. 安裝 Agent 技能",
+          "setupTitle": "設定檢查清單",
+          "setupVisibleBody": "讓 Linear 保留在「任務」來源選擇器與側邊欄捷徑中。",
+          "setupVisibleTitle": "3. 在「任務」中顯示 Linear"
         },
         "LinearAgentSkillPane": {
           "description": "讓 Agent 具備讀取與更新你已連結的 Linear Issue 的能力。",
@@ -7006,6 +8011,7 @@ export default {
           "ready": "就緒",
           "reconnecting": "重新連線中",
           "relayUnavailable": "此版本不支援 Orca Relay。請使用本機網路。",
+          "retrying": "正在重試",
           "signIn": "登入",
           "signInAgain": "重新登入",
           "signInRequired": "請登入以使用 Orca Mobile Relay。",
@@ -7019,6 +8025,7 @@ export default {
           "step1Title": "連線方式",
           "step2LocalDescription": "手機必須能透過 Wi‑Fi 或 Tailscale 存取此位址。",
           "step2RelayDescription": "距離較近時用於快速直接連線。Relay 覆蓋遠端存取。",
+          "step2RelayDisclosure": "同時使用更快的本機路徑",
           "step2Title": "此電腦的位址",
           "title": "配對手機"
         },
@@ -7036,14 +8043,19 @@ export default {
           "aa1263e881": "保持手機尺寸（預設）",
           "c474aa09d8": "1 分鐘後",
           "cb9067c1c1": "WebSocket 傳輸未執行",
+          "copyPairingCode": "複製配對碼",
           "d4ba07d914": "5 分鐘後",
           "d714614dbf": "重新整理網路介面失敗",
           "d7ce676270": "已配對裝置",
           "dd3cd78d04": "使用 Orca Mobile 掃描",
+          "diagnosticsCopied": "已複製診斷資訊",
+          "diagnosticsCopyFailed": "複製診斷資訊失敗",
           "e3c427e020": "產生 QR code 失敗",
           "e778ecb209": "或將此程式碼貼到行動裝置 App 中：",
           "ee56f1c7e4": "當你離開行動裝置 App 時",
           "ff865419dc": "30 分鐘後",
+          "pairingCodeReady": "配對碼已就緒",
+          "pairingQrError": "無法將此配對碼轉為 QR Code。請改為複製到 Orca Mobile。",
           "relayDegradedNotice": "無法連線至 Relay — 此程式碼僅在你的本機網路上有效。請重新產生後再試一次。"
         },
         "MobileRelayBetaAvailability": {
@@ -7168,7 +8180,13 @@ export default {
         "OrchestrationSkillAgentCoverage": {
           "1e8f8d8fae": "就緒",
           "6dec5ce2d2": "Agent 覆蓋範圍",
-          "ffe13e36fb": "缺少"
+          "checking": "正在檢查已安裝的 Agent 與技能路徑…",
+          "ffe13e36fb": "缺少",
+          "fullCoverage_one": "偵測到的 1 個 Agent 都已具備此技能。",
+          "fullCoverage_other": "偵測到的 {{value0}} 個 Agent 都已具備此技能。",
+          "noAgents": "在 PATH 中未偵測到 Agent CLI。請在「設定 → Agent」中安裝 Agent，然後重新檢查。",
+          "noCoverage": "請安裝上方的技能，然後重新檢查。",
+          "partialCoverage": "偵測到的 {{value1}} 個 Agent 中有 {{value0}} 個具備此技能。"
         },
         "OrchestrationSkillPromptDialog": {
           "1bdce1911e": "複製編排技能安裝命令",
@@ -7178,6 +8196,234 @@ export default {
           "b99f375eb2": "在終端機中執行此命令，為你的 Agent 安裝編排技能。",
           "d3dc559225": "複製安裝命令失敗。",
           "f08d45293d": "複製命令"
+        },
+        "PluginConsentDialog": {
+          "capabilities": "此外掛可以",
+          "capability": {
+            "eventsSubscribe": "在建立或移除 Worktree，以及 Agent 狀態變更時收到通知",
+            "notificationsShow": "顯示標有外掛名稱的桌面通知",
+            "secrets": "在外掛專屬的加密保險庫中儲存及讀取機密",
+            "settingsOwn": "讀取及變更外掛本身的設定",
+            "storage": "將資料儲存在外掛專屬的儲存資料夾",
+            "terminalSend": "在你可見的終端機中輸入文字（一律為特定終端機）",
+            "workspaceRead": "讀取目前聚焦的 Worktree 名稱、分支與終端機清單"
+          },
+          "decisionFailed": "無法儲存權限決定。請再試一次。",
+          "declarativeTrust": "宣告式內容，不含外掛程式碼",
+          "declarativeWarning": "此外掛只提供經過驗證的內容，不會執行背景 Worker，也無法存取 Orca 的 API。",
+          "enable": "啟用外掛",
+          "instructionalTitle": "審查外掛內容",
+          "instructionalTrust": "指示型內容，稍後以使用者或 Agent 的權限執行",
+          "instructionalWarning": "此外掛沒有 Worker，但當你或 Agent 使用它時，其指示內容仍可能觸發動作。啟用前請審查下方的指示與命令。",
+          "keepDisabled": "保持停用",
+          "mixedTitle": "審查存取權與內容",
+          "panelTrust": "面板或主機整合內容，沒有 Worker",
+          "panelWarning": "這些權限會限制外掛使用 Orca API 的方式。此外掛沒有背景 Worker。",
+          "reconsent": "自你上次審查此外掛後，其權限、Worker 信任等級或指示內容已變更。請重新審查後才能執行。",
+          "reviewTitle": "審查外掛",
+          "subtitle": "{{value0}} v{{value1}} · {{value2}}",
+          "title": "審查權限",
+          "trustShortDeclarative": "宣告式",
+          "trustShortInstructional": "指示型",
+          "trustShortPanel": "面板",
+          "trustShortWorker": "Worker",
+          "warning": "這些權限會限制外掛使用 Orca API 的方式，但其 Worker 仍會以一般行程在你的電腦上執行，可完整存取你的檔案、網路與其他行程。",
+          "workerTrust": "背景 Worker，會執行自己的行程"
+        },
+        "PluginConsentProvenance": {
+          "bundled": "隨 Orca 內建",
+          "commit": "固定的提交",
+          "community": "社群",
+          "indexCommit": "索引提交",
+          "local": "本機資料夾",
+          "localCommit": "本機資料夾，無提交",
+          "official": "官方",
+          "source": "來源",
+          "sourceLabel": "來源"
+        },
+        "PluginDevelopmentSection": {
+          "add": "新增路徑",
+          "help": "開發期間直接從此電腦上的資料夾載入外掛。開發中的外掛仍需經過權限審查。Worker 在此桌面主機上執行；SSH 工作區的動作會經由 Orca 轉送，因此這裡的路徑是桌面電腦上的路徑。",
+          "pathLabel": "開發外掛資料夾路徑",
+          "pathRequired": "請輸入外掛資料夾路徑。",
+          "placeholder": "/Users/you/plugins/my-plugin 或 C:\\Users\\you\\plugins\\my-plugin",
+          "remove": "移除",
+          "saveFailed": "無法儲存開發外掛路徑。",
+          "title": "開發"
+        },
+        "PluginInstallDialog": {
+          "cancel": "取消",
+          "description": "安裝會將外掛複製到 Orca 並顯示其權限供你審查。在你啟用前，不會執行任何外掛程式碼。",
+          "gitHelp": "請附上明確的 #ref（標籤或提交），讓安裝版本固定。支援 GitHub、GitLab 及任何 Git 主機。",
+          "gitLabel": "含 #ref 的存放庫網址",
+          "gitPlaceholder": "https://git.example/acme/orca-notes#v0.1.0",
+          "gitRefRequired": "請加上明確的 #ref（標籤或提交）讓安裝版本固定，例如 #v0.1.0。",
+          "gitTab": "Git 網址",
+          "gitUrlInvalid": "請使用 HTTPS 或 SSH Git 網址。不允許可執行的 Git 輔助程式通訊協定。",
+          "gitUrlRequired": "請輸入存放庫網址。",
+          "install": "安裝",
+          "installFailed": "外掛安裝失敗。請檢查來源後再試一次。",
+          "installing": "正在安裝…",
+          "localHelp": "此電腦上包含 orca-plugin.json 的資料夾完整路徑。路徑會完全依照輸入內容使用。",
+          "localLabel": "外掛資料夾路徑",
+          "localPlaceholder": "/Users/you/plugins/my-plugin 或 C:\\Users\\you\\plugins\\my-plugin",
+          "localRequired": "請輸入外掛資料夾路徑。",
+          "localTab": "本機資料夾",
+          "source": "安裝來源",
+          "title": "安裝外掛"
+        },
+        "PluginKeybindingConsentPreview": {
+          "global": "在應用程式中執行，不需要使用中的工作區。",
+          "heading": "鍵盤快速鍵",
+          "shadows": "取代：{{value0}}",
+          "worktree": "只在有使用中的工作區時執行。"
+        },
+        "PluginMarketplaceBrowser": {
+          "addSource": "新增市集",
+          "clearSearch": "清除搜尋",
+          "empty": "已設定的市集中沒有列出任何外掛。",
+          "emptyTitle": "尚無列出項目",
+          "installFailed": "無法安裝此外掛。審查過的來源可能已變更。",
+          "loadFailed": "無法載入市集外掛。",
+          "loading": "正在載入市集外掛…",
+          "manageSources": "管理來源",
+          "noInstalled": "你安裝的外掛會顯示在這裡。",
+          "noInstalledTitle": "尚未安裝外掛",
+          "noResults": "沒有符合此搜尋的市集外掛。",
+          "noResultsTitle": "沒有符合的外掛",
+          "noSources": "新增官方、社群或私人 Git 市集以瀏覽外掛。",
+          "noSourcesTitle": "尚未設定市集",
+          "previewFailed": "無法準備此外掛以供審查。請重新整理市集後再試一次。",
+          "refresh": "重新整理",
+          "refreshFailed": "無法重新整理市集。快取的清單仍可使用。",
+          "refreshing": "正在重新整理…",
+          "tryAgain": "再試一次"
+        },
+        "PluginMarketplaceListingRow": {
+          "blocked": "已被 Orca 安全清單封鎖：{{value0}}",
+          "blockedAction": "已封鎖",
+          "checkUpdate": "檢查更新",
+          "install": "安裝",
+          "installed": "已安裝",
+          "noDescription": "未提供描述。",
+          "official": "官方"
+        },
+        "PluginMarketplacePreviewDialog": {
+          "blocked": "Orca 安全清單封鎖了此外掛：{{value0}}",
+          "cancel": "取消",
+          "capabilities": "要求的存取權限",
+          "close": "關閉",
+          "commands": "{{value0}} 個命令",
+          "commandsOne": "1 個命令",
+          "current": "已安裝完全相同的外掛內容。",
+          "events": "{{value0}} 個事件訂閱",
+          "eventsOne": "1 個事件訂閱",
+          "includes": "包含",
+          "install": "安裝外掛",
+          "keybindings": "{{value0}} 個鍵盤快速鍵",
+          "keybindingsOne": "1 個鍵盤快速鍵",
+          "languagePacks": "{{value0}} 個語言套件",
+          "languagePacksOne": "1 個語言套件",
+          "noContributions": "僅有資訊清單中繼資料",
+          "panels": "{{value0}} 個面板",
+          "panelsOne": "1 個面板",
+          "update": "更新外掛",
+          "versionLine": "v{{value0}} · {{value1}}",
+          "vmRecipes": "{{value0}} 個 VM recipe",
+          "vmRecipesOne": "1 個 VM recipe",
+          "worker": "背景工作行程",
+          "workerWarning": "功能權限會限制此外掛使用 Orca API 的方式，但其背景工作行程仍會以一般行程在這台電腦上執行，並可完整存取你的檔案、網路與其他行程。"
+        },
+        "PluginMarketplaceSourceDialog": {
+          "add": "新增來源",
+          "addFailed": "無法新增此市集。請檢查 Git URL、ref 與你的 Git 認證。",
+          "adding": "正在新增…",
+          "configured": "已設定的來源",
+          "description": "市集是固定版本的 Git 存放庫。對於私人存放庫，Orca 會使用你系統中現有的 Git 認證。",
+          "done": "完成",
+          "empty": "尚未設定市集來源。",
+          "official": "官方",
+          "owner": "擁有者：{{value0}}",
+          "pinnedCommit": "固定於 {{value0}}",
+          "refDescription": "選擇分支、標籤或提交。每次擷取的索引都會記錄在確切的提交上。",
+          "refLabel": "Git ref",
+          "refreshFailed": "無法重新整理此市集。其最後一份有效的快取索引仍可使用。",
+          "refreshLabel": "重新整理 {{value0}}",
+          "removeFailed": "無法移除此市集。",
+          "removeLabel": "移除 {{value0}}",
+          "stale": "重新整理失敗。正在瀏覽最後一份有效的快取索引。",
+          "title": "市集來源",
+          "urlDescription": "請使用包含 orca-marketplace.json 的 HTTPS 或 SSH 存放庫 URL。",
+          "urlLabel": "Git URL",
+          "urlPlaceholder": "https://git.example.com/team/plugins.git"
+        },
+        "PluginRemoveDialog": {
+          "cancel": "取消",
+          "description": "這會從這台電腦移除 {{value0}} 及其儲存的外掛資料。你之後可以再次安裝。",
+          "remove": "移除外掛",
+          "title": "要移除外掛嗎？"
+        },
+        "PluginRollbackDialog": {
+          "cancel": "取消",
+          "confirm": "回復外掛版本",
+          "description": "這會停用 {{value0}} 並還原其先前的不可變版本。若該版本要求不同的存取權限或指示內容，Orca 會要求再次審查。",
+          "title": "要回復外掛版本嗎？"
+        },
+        "PluginSettingsRow": {
+          "blocked": "已封鎖",
+          "bundled": "內建",
+          "dev": "開發",
+          "disableLabel": "停用 {{value0}}",
+          "disabled": "已停用",
+          "enableLabel": "啟用 {{value0}}",
+          "enabled": "已啟用",
+          "error": "錯誤",
+          "hideLogs": "隱藏記錄",
+          "invalid": "無效",
+          "invalidPluginError": "外掛資訊清單或已安裝的檔案無效。請修正外掛後重新整理。",
+          "killListMessage": "Orca 安全清單已停用此外掛：{{value0}}",
+          "loadingLogs": "正在載入記錄…",
+          "logCount": "最後 {{value0}} 行（最多保留 200 行）",
+          "moreActions": "{{value0}} 的更多動作",
+          "needsReview": "需要審查",
+          "noDescription": "未提供描述。",
+          "noLogs": "沒有任何記錄。",
+          "official": "官方",
+          "remove": "移除",
+          "restartCount": " · 已重新啟動 {{value0}} 次",
+          "restarting": "正在重新啟動",
+          "reviewAndEnable": "審查並啟用",
+          "rollback": "回復版本",
+          "running": "執行中",
+          "runtimeError": "外掛在啟用或背景工作行程發生錯誤後已停止。",
+          "viewAdvisory": "檢視安全公告",
+          "viewLogs": "檢視記錄"
+        },
+        "PluginVmRecipeConsentPreview": {
+          "commandLabel": "{{value0}} · {{value1}} 命令",
+          "create": "建立",
+          "destroy": "銷毀",
+          "heading": "VM recipe 命令",
+          "resume": "繼續",
+          "suspend": "暫停"
+        },
+        "PluginsSettingsSection": {
+          "description": "安裝並管理 Orca 外掛。即使是 SSH 工作區，外掛也會在這台電腦上執行。",
+          "empty": "瀏覽「全部」分頁，從市集安裝外掛。",
+          "emptyTitle": "尚未安裝任何外掛",
+          "experimental": "實驗性",
+          "featureOff": "開啟外掛系統以檢視並管理已安裝的外掛。系統關閉期間，已安裝的外掛仍會保留在磁碟上並維持停用。",
+          "install": "安裝外掛",
+          "loadFailed": "無法載入外掛。",
+          "loading": "正在載入外掛…",
+          "logsFailed": "無法載入外掛記錄。",
+          "noInstalledResults": "沒有符合此搜尋的已安裝外掛。",
+          "noInstalledResultsTitle": "沒有符合的外掛",
+          "rollbackFailed": "無法回復此外掛的版本。可能沒有可用的先前不可變版本。",
+          "settingsUpdateFailed": "無法儲存外掛設定。",
+          "systemDescription": "探索已安裝的外掛，並讓你個別啟用。在你審查並啟用之前，不會執行任何內容。背景工作行程一律在這台電腦上執行；SSH 工作區的動作會透過 Orca 轉送。",
+          "systemLabel": "外掛系統",
+          "title": "外掛"
         },
         "PrivacyDiagnosticBundleControls": {
           "19ec5e29b3": "將最近的應用程式活動與錯誤收集到一個已遮蔽的檔案中，供你在傳送前檢視。在你選擇傳送前不會上傳任何內容。",
@@ -7247,6 +8493,9 @@ export default {
           "change_host": "開啟遠端伺服器",
           "scope_label": "{{value0}}：{{value1}}"
         },
+        "QuickCommandsList": {
+          "noSearchMatches": "沒有符合此搜尋的命令。"
+        },
         "QuickCommandsPane": {
           "0252ddd578": "沒有命令文字",
           "2bb9e38e93": "未命名",
@@ -7256,24 +8505,58 @@ export default {
           "3edf3deaf8": "刪除「{{value0}}」？",
           "44923dd982": "destructive",
           "4ccc63da87": "Agent",
+          "53b17a4b1b": "無法複製",
           "5aacc8f7dc": "新增命令",
+          "601d6af51f": "正在載入命令…",
+          "69a1441a21": "沒有可複製的內容",
           "7784912ed6": "存放庫",
           "7d90fd5299": "編輯 {{value0}}",
+          "7ecfee5b8e": "重試",
           "8764c6e9e4": "移除 {{value0}}",
+          "89f7e57fcc": "儲存於",
           "8c877dec41": "全域",
+          "8d525e5f15": "已複製",
+          "923ba89646": "無法從此主機重新整理命令。正在顯示最後載入的命令。",
           "9b3e338d62": "Enter",
           "9fcfc29519": "插入",
+          "a9a564b7e7": "複製 {{value0}}",
           "c36912efd5": "從分頁列的「快速命令」按鈕執行它們，或在任何終端機內按右鍵。",
           "c6b155911b": "所有命令",
           "d1d0976320": "無",
+          "d59bd333c3": "請更新此 Orca 伺服器以管理其快速命令。",
           "ec1ed99e70": "刪除",
+          "f2bf411640": "無法從此主機載入命令。",
           "f91b649324": "已儲存的命令"
+        },
+        "QuickCommandsToolbar": {
+          "searchLabel": "搜尋命令"
         },
         "RecentTabOrderControl": {
           "3b17c81ede": "分頁列順序",
           "6e6a3fcc61": "最近使用",
           "7a546f2309": "分頁順序",
           "a867a0889f": "最近使用或分頁列。"
+        },
+        "ReleaseChannelSection": {
+          "adhocWarning": "臨時建置版本來自尚未合併的分支，且 Windows 版未經簽署。作者可能隨時停止維護這些版本，請隨時備妥一個穩定版本。",
+          "alreadyRunning": "這是你目前執行的建置版本。",
+          "channelAriaLabel": "更新管道",
+          "dailyWarning": "每日建置版本直接從 main 產生，未經測試驗證，且 Windows 版未經簽署。請隨時備妥一個穩定版本。",
+          "description": "切換更新管道，或跳至任何已發布的建置版本（包括較舊的版本）。允許降級，但未經驗證的建置版本可能無法正常運作。",
+          "devChannelUnsupported": "{{value0}} 建置版本僅提供給 {{value1}}。Linux 維持使用 Stable 或 RC。",
+          "devChannelUnsupportedAria": "{{value0}}（僅限 {{value1}}）",
+          "devOnly": "僅限開發",
+          "downloadInstaller": "下載安裝程式",
+          "hourlyWarning": "每小時建置版本直接從 main 產生，未經測試驗證，且 Windows 版未經簽署。請隨時備妥一個穩定版本。",
+          "loadingBuilds": "正在載入建置版本…",
+          "manualInstallHint": "{{value0}} 建置版本在 Windows 上未經簽署，因此應用程式內更新程式無法將其安裝在已簽署的版本上。請執行一次下載的安裝程式（Windows 會警告發行者不明），之後的每次切換（包括切回 Stable）都能在這裡完成。",
+          "noBuilds": "找不到建置版本",
+          "refresh": "重新整理建置版本清單",
+          "switchFailed": "無法切換至該建置版本。",
+          "switchTo": "切換至建置版本",
+          "title": "發行管道",
+          "webUnavailable": "只有桌面應用程式可以切換建置版本。",
+          "willSwitch": "{{value0}} → {{value1}}"
         },
         "RemoteServerUpdateDialog": {
           "checkAgain": "重新檢查",
@@ -7338,6 +8621,24 @@ export default {
           "upToDate": "Fork 已是最新",
           "upToDateDescription": "{{branch}} 已與 upstream 一致。",
           "upstreamMismatch": "upstream 遠端不再符合此 Fork。"
+        },
+        "RepositoryGitHubAccountSection": {
+          "ambient": "預設（環境中的 gh 登入）",
+          "capabilityBlocked": "在此執行環境的 GitHub CLI 支援 `gh auth token --user`（gh ≥ 2.40）之前，無法使用綁定。",
+          "capabilityUnknown": "無法判斷此執行環境的 GitHub CLI 是否支援帳號綁定。請重試。",
+          "capabilityUnknownHint": "無法判斷此執行環境的 GitHub CLI 是否支援帳號綁定。請清除綁定或重試。",
+          "description": "為此專案的 GitHub Issue 與 Pull Request 呼叫使用特定的 gh 登入。",
+          "envToken": "無法綁定環境變數權杖帳號。請使用鑰匙圈登入。",
+          "invalidBinding": "該 GitHub 帳號綁定無效。",
+          "longDescription": "Orca 會將所選鑰匙圈登入的短期權杖注入此專案的每次 gh 呼叫。專案檢視仍使用環境中的登入。",
+          "notEnforced": "已儲存，但此執行環境不會強制套用（主機版本混用）。",
+          "retry": "重試",
+          "saveFailed": "無法儲存 GitHub 帳號綁定。",
+          "selectLabel": "帳號",
+          "title": "GitHub 帳號",
+          "unavailable": "該 GitHub 帳號在此執行環境中無法使用。",
+          "unavailableOption": "{{user}} @ {{host}}（無法使用）",
+          "unsupported": "此執行環境的 GitHub CLI 版本過舊，無法綁定帳號（需要 gh ≥ 2.40）。"
         },
         "RepositoryHooksSection": {
           "022ba10cf2": "自動執行設定。",
@@ -7446,9 +8747,12 @@ export default {
           "b2d7fd2116": "圖示",
           "c490787d24": "表情符號",
           "cc1286e263": "網站圖示",
+          "currentEmojiSelection": "目前：{{value0}}",
           "d71df44587": "無法解析 GitHub 存放庫。",
+          "emojiTooLongForRepoIcon": "此表情符號無法用作存放庫圖示。",
           "f79972271a": "找不到此存放庫的 GitHub 遠端。",
-          "fde066a63b": "PNG 上傳檔案必須為 256KB 或更小。"
+          "fde066a63b": "PNG 上傳檔案必須為 256KB 或更小。",
+          "searchEmojiPlaceholder": "搜尋表情符號"
         },
         "RepositoryPane": {
           "0909e5d650": "移除專案",
@@ -7487,7 +8791,12 @@ export default {
           "e9bd57a336": "Worktree 位置",
           "ee5a290616": "以資料夾方式開啟。此工作區無法使用 Git 功能。",
           "existingFolder": "現有資料夾",
+          "externalWorktrees": "外部 Worktree",
+          "externalWorktreesDescription": "覆寫此專案是否顯示在 Orca 外部建立的 Worktree。",
+          "externalWorktreesGlobal": "全域預設：{{value0}}",
+          "externalWorktreesInherited": "使用全域設定：{{value0}}",
           "f88db4fece": "預設 Worktree 基底",
+          "hide": "隱藏",
           "hostAvailability": "主機可用性",
           "hostAvailabilityHelp": "在另一臺已連線的主機上新增此專案。",
           "hostSetupBlockedVersion": "Orca 伺服器版本不相容",
@@ -7501,6 +8810,8 @@ export default {
           "hostSetupStateUnsupported": "不支援",
           "hostStateDisconnected": "已中斷連線",
           "hostStateUnknown": "不明",
+          "hostStateWorkspaceWindowClosed": "工作區視窗已關閉",
+          "hostWorkspaceWindowClosedHelp": "伺服器可以連線，但其 Orca 視窗已關閉。請在 {{value0}} 上開啟 Orca 以使用此設定。",
           "nestedHostLabel": "{{value0}}（透過 {{value1}}）",
           "openSetup": "開啟",
           "otherWaysToAdd": "其他新增方式",
@@ -7519,6 +8830,8 @@ export default {
           "setupPathPending": "路徑待定",
           "setupProjectOnHost": "在其他主機上設定",
           "setupProjectOnHostHelp": "選擇一臺主機，然後匯入現有的 checkout、在該處 clone 存放庫，或追蹤稍後才佈建的設定。",
+          "show": "顯示",
+          "useGlobal": "使用全域設定",
           "viewingHost": "檢視主機"
         },
         "RepositorySourceControlAiActionRows": {
@@ -7627,9 +8940,13 @@ export default {
           "bb90dd6487": "移除伺服器",
           "c3d772c514": "orca://pair?code=...",
           "c8791efc45": "狀態無法取得",
+          "cloudVmWorkflow": "雲端 VM",
+          "cloudVmWorkflowHelp": "管理由 recipe 建立的雲端機器",
           "connect": "連線",
           "connectToRemoteServers": "連線到遠端伺服器",
           "connectToRemoteServersHelp": "配對另一個 Orca 執行環境，然後在此處連線或中斷連線。只有當你想變更預設主機時，才使用「進階 > 使用中伺服器」。",
+          "connectWorkflow": "連線到主機",
+          "connectWorkflowHelp": "此應用程式加入另一台機器",
           "d25f0688b1": "移除",
           "d2e00809e4": "切換",
           "d570c35a99": "切換伺服器",
@@ -7655,11 +8972,61 @@ export default {
           "serverConnected": "已連線",
           "serverDetails": "伺服器詳細資訊",
           "serverDisconnected": "已中斷連線",
+          "shareWorkflow": "分享此主機",
+          "shareWorkflowHelp": "其他裝置加入這台機器",
+          "sshTunnelRequired": "需要 SSH 通道",
+          "troubleshootDescription": "使用 127.0.0.1 的連結會指回開啟它的裝置，而不是建立它的電腦。",
+          "troubleshootStepAddress": "選擇「其他裝置」，並選取其 Tailscale 或 LAN 位址。",
+          "troubleshootStepRegenerate": "產生新的存取連結，並只在此處使用最新的連結。",
+          "troubleshootStepShare": "在另一台電腦上開啟「分享此主機」。",
+          "troubleshootTitle": "在另一台主機上建立新連結",
+          "troubleshootTunnel": "正在使用 SSH 本機轉送嗎？請返回「連線到主機」，貼上迴路連結，然後在「進階」中啟用「我正在使用 SSH 通道」。",
+          "troubleshootWorkflow": "連線疑難排解",
           "updateAvailableOne": "有 1 項更新可用",
           "updateServer": "更新",
           "updatesAvailable": "有 {{value0}} 項更新可用",
           "updatingServers": "正在更新伺服器…",
-          "versionUnavailable": "無法取得 Orca 版本"
+          "versionUnavailable": "無法取得 Orca 版本",
+          "workflow": "遠端伺服器工作流程"
+        },
+        "RuntimeHostAccessForm": {
+          "accessLink": "存取連結",
+          "accessLinkHelp": "Orca 會在連線前顯示目的地。認證會保持隱藏。",
+          "accessLinkPlaceholder": "orca://pair?code=...",
+          "addHost": "新增主機",
+          "addWithTunnel": "使用通道新增主機",
+          "advanced": "進階",
+          "cancel": "取消",
+          "connectionDetails": "連線詳細資訊",
+          "destination": "連結目的地",
+          "endpointKind": "端點類型",
+          "getLink": "從另一台主機取得存取連結",
+          "headlessHelp": "使用無介面的 orca serve？請在另一台電腦上執行 orca serve --pairing-address <reachable-host>。",
+          "identityMismatch": "連線到的 Orca 主機與此存取連結不符",
+          "identityMismatchHelp": "Orca 已連線到 {{endpoint}}，但該主機與此連結不符。請在另一台主機上產生新連結。",
+          "incompatible": "Orca 版本不相容",
+          "incompatibleHelp": "請更新此裝置與另一台主機上的 Orca，然後再試一次。",
+          "interrupted": "連線中斷",
+          "interruptedHelp": "連線在驗證期間中斷。請檢查網路或 SSH 通道後再試一次。",
+          "invalidLink": "此存取連結已失效",
+          "invalidLinkHelp": "請在另一台主機上產生新的存取連結，然後再試一次。",
+          "loopbackDescription": "它使用 {{endpoint}}，這會指回開啟連結的裝置，而不是建立它的另一台電腦。",
+          "loopbackRecovery": "在另一台電腦上，使用「其他裝置」建立新連結，並選擇其 Tailscale 或 LAN 位址。",
+          "loopbackTitle": "此連結指回這台裝置",
+          "name": "在 Orca 中的名稱",
+          "nameHelp": "這只會變更這台電腦在 Orca 中的顯示方式。",
+          "namePlaceholder": "Linux 工作站",
+          "networkConnection": "網路連線",
+          "notAttempted": "未嘗試",
+          "saveFailed": "無法儲存主機",
+          "saveFailedHelp": "主機已通過驗證，但 Orca 無法儲存。請檢查名稱與本機設定儲存空間，然後再試一次。",
+          "sshTunnel": "我正在使用連到此本機位址的 SSH 通道",
+          "sshTunnelHelp": "使用此連線時，請保持通道開啟。",
+          "stepChooseAddress": "選擇「其他裝置」，並選取可連線的位址。",
+          "stepCopyLink": "產生連結，然後複製「配對另一個 Orca 用戶端」連結。",
+          "stepOpenShare": "開啟「設定 → 遠端 Orca 伺服器 → 分享此主機」。",
+          "unavailable": "主機無法使用",
+          "unavailableHelp": "請確認另一台主機上的 Orca 正在執行，且網路或 SSH 通道可以連線到 {{endpoint}}。"
         },
         "RuntimePairingGeneratedUrlRows": {
           "0495f68959": "複製 {{value0}}"
@@ -7683,6 +9050,8 @@ export default {
           "95b8be4cea": "重新整理網路介面失敗。",
           "9f8e037c4a": "已撤銷共用存取。",
           "add-custom": "新增自訂位址…",
+          "anotherDevice": "其他裝置",
+          "anotherDeviceHelp": "Tailscale、LAN 或其他可連線的位址",
           "b91e36a986": "Web",
           "custom-cancel": "取消",
           "custom-description": "公告另一個裝置可連線到的位址：LAN 或 Tailscale 主機，或完整的 ws(s):// URL。",
@@ -7690,6 +9059,9 @@ export default {
           "custom-option": "{{address}}（自訂）",
           "custom-title": "自訂連線位址",
           "custom-use": "使用位址",
+          "customAddress": "自訂位址",
+          "customAddressHelp": "SSH 通道、反向代理伺服器或自訂主機名稱",
+          "customInvalid": "請輸入有效的主機、host:port、IPv6 位址或 ws(s):// URL。",
           "d6c081adf4": "複製 URL 失敗。",
           "d797f516b1": "共用存取已被撤銷。",
           "de6d5cff95": "這臺電腦（",
@@ -7698,7 +9070,15 @@ export default {
           "e8d83f2b0f": "撤銷共用存取失敗。",
           "f7cafdc9f3": "此版本中無法使用瀏覽器連結。配對 URL 仍可用於 Orca 用戶端。",
           "f8500e134a": "分享此 Orca 伺服器",
-          "ff80904fc4": "為瀏覽器或桌面用戶端建立可撤銷的存取授權。"
+          "ff80904fc4": "為瀏覽器或桌面用戶端建立可撤銷的存取授權。",
+          "intentQuestion": "這個連結會在哪裡開啟？",
+          "localLink": "僅限本機的連結",
+          "localLinkHelp": "此連結只能在這台電腦上執行的瀏覽器或 Orca 用戶端中使用。",
+          "localOnly": "僅限這台電腦",
+          "localOnlyHelp": "這台電腦上的瀏覽器或 Orca 用戶端",
+          "noExternalAddress": "找不到可供其他裝置使用的位址。請將這台電腦連上 LAN 或 Tailscale 後重新整理，或選擇「自訂位址」。",
+          "recommended": "建議",
+          "staleAddress": "連線位址已變更。請為 {{address}} 產生新連結。"
         },
         "Settings": {
           "00c3a7950d": "編排",
@@ -7775,7 +9155,8 @@ export default {
           "f9b77539fd": "工作區預設值、應用程式設定和維護。",
           "linearDescription": "讓 Agent 具備讀取與更新你已連結的 Linear Issue 的能力。",
           "linearTitle": "Linear",
-          "mobile_group": "行動裝置"
+          "mobile_group": "行動裝置",
+          "tasksDescription": "連線提供者、安裝 Linear 技能，並選擇要在「任務」中顯示的內容。"
         },
         "SettingsFormControls": {
           "3119c012a5": "字串",
@@ -7867,7 +9248,8 @@ export default {
           "cb02e00202": "終端機",
           "d8c988dab4": "~/.orca/keybindings.json",
           "dfa8ff612f": "也會在終端機或 TUI 取得鍵盤焦點時執行。",
-          "f0b35b0b2e": "當終端機或 TUI 取得鍵盤焦點時停用。"
+          "f0b35b0b2e": "當終端機或 TUI 取得鍵盤焦點時停用。",
+          "shortcutUnavailable": "此快速鍵已無法使用。"
         },
         "SkillUsageExampleDialog": {
           "copiedPrompt": "複製範例提示。",
@@ -8036,6 +9418,8 @@ export default {
           "92f80edbfd": "遠端終端機持久保留",
           "9518545cb6": "新增目標",
           "a62b4cb39a": "儲存變更",
+          "addDescription": "新增一台可透過 SSH 登入的常駐機器。",
+          "addTitle": "新增 SSH 主機",
           "b2ab248ded": "跳板主機",
           "b574994adc": "想要停止時，請使用「結束遠端終端機」或「重設中繼」。",
           "b8dab0aa7b": "我的伺服器",
@@ -8046,10 +9430,50 @@ export default {
           "d6a5f2ee5c": "~/.ssh/id_ed25519（留空則使用 SSH agent）",
           "dc1dc52aaa": "使用者名稱",
           "e9609ddca6": "代理伺服器、跳板主機與連線重用",
+          "editDescription": "更新此機器的連線詳細資訊。變更會在下次連線時套用。",
+          "editTitle": "編輯 SSH 主機",
+          "editingPrefix": "正在編輯",
           "f2331ce599": "編輯 SSH 目標",
           "f42d844544": "例如 cloudflared access ssh --hostname %h",
           "fea9cb402e": "取消",
           "feae1d1e69": "選填。等同於 ProxyJump / ssh -J。"
+        },
+        "TaskSourceLinearSetup": {
+          "addAccess": "新增 Linear 存取權",
+          "connectDescription": "新增個人 API 金鑰，讓 Orca 可以瀏覽 Issue 並以工單上下文開啟工作區。",
+          "connectTitle": "連線 Linear",
+          "connectedHint": "工作區與金鑰會為目前使用中的執行環境儲存。你可以隨時新增更多存取權。",
+          "manageAccess": "管理金鑰",
+          "recheck": "重新檢查連線",
+          "showDescription": "在「任務」頁面的來源選擇器與側邊欄捷徑中顯示 Linear。",
+          "skillBlocked": "請先連線 Linear，再為 Agent 安裝技能。",
+          "skillDescription": "讓 Agent 可使用 /orca-linear 讀取工單、張貼更新、移動狀態，以及附加 Pull Request 或 Merge Request。",
+          "skillPanelTitle": "Linear 技能",
+          "skillTitle": "安裝 Linear Agent 技能",
+          "terminalAriaLabel": "Linear 技能安裝終端機",
+          "terminalTitle": "Linear 技能設定"
+        },
+        "TaskSourceProviderCard": {
+          "collapseSetup": "摺疊 {{provider}} 設定步驟",
+          "expandSetup": "顯示 {{provider}} 設定步驟",
+          "statusChecking": "檢查中…",
+          "statusConnectRequired": "需要連線",
+          "statusHidden": "已從「任務」中隱藏",
+          "statusIncomplete": "需要設定",
+          "statusReady": "就緒",
+          "statusSkillRequired": "需要技能",
+          "statusUnavailable": "無法取得狀態"
+        },
+        "TaskSourceShowInTasksStep": {
+          "description": "在「任務」來源選擇器與側邊欄捷徑中顯示此提供者。",
+          "hide": "隱藏",
+          "hideProviderAction": "從「任務」中隱藏 {{provider}}",
+          "lastProviderAction": "{{provider}} 已顯示在「任務」中。至少須保留一個提供者可見。",
+          "lastProviderHint": "「任務」中至少須保留一個提供者可見。",
+          "show": "顯示",
+          "showProviderAction": "在「任務」中顯示 {{provider}}",
+          "shown": "已顯示",
+          "title": "在「任務」中顯示"
         },
         "TasksPane": {
           "09ae2d7c51": "Linear",
@@ -8060,10 +9484,37 @@ export default {
           "7c5d7fdc20": "GitLab",
           "8e1305fcc6": "在任務來源選擇器與側邊欄捷徑中顯示 Jira。",
           "93e72ef659": "任務來源",
+          "addJira": "新增 Jira 存取權",
+          "connectCodeHostDescription": "在「整合」中安裝 CLI 並完成驗證，讓 Orca 可以載入 Issue。",
+          "connectInIntegrations": "在「整合」中設定",
+          "connectJiraDescription": "使用 API 權杖或 PAT 新增 Jira Cloud 網站或自架執行個體。",
+          "connectJiraTitle": "連線 Jira",
+          "connectProviderTitle": "連線 {{provider}}",
+          "connectionCheckUnavailable": "Orca 無法檢查此連線。請再試一次，或開啟「整合」查看設定詳細資訊。",
           "dd67a1b6e1": "在任務來源選擇器與側邊欄捷徑中顯示 GitLab。",
           "e14063e727": "GitHub",
           "e4170c9615": "在任務來源選擇器與側邊欄捷徑中顯示 Linear。",
-          "f71d8a9dd3": "任務提供者"
+          "f71d8a9dd3": "任務提供者",
+          "githubDescription": "瀏覽 GitHub Issue，並從中建立工作區。",
+          "gitlabDescription": "瀏覽 GitLab Issue，並從中建立工作區。",
+          "incompleteBannerBody": "隱藏你不使用的提供者，或展開卡片完成其步驟。",
+          "incompleteBannerBodyWithLinear": "隱藏你不使用的提供者，或展開卡片完成其步驟。Linear 需要：API 存取權、Agent 技能，以及「在『任務』中顯示」。",
+          "incompleteBannerTitle": "部分可見的提供者仍需設定",
+          "integrationsHint": "所有提供者的認證也位於",
+          "integrationsLink": "整合",
+          "jiraDescription": "連線 Jira Cloud 或自架 Jira，並顯示在「任務」中。",
+          "linearDescription": "連線 Linear、安裝 Agent 技能，並顯示在「任務」中。",
+          "manageJira": "管理金鑰",
+          "openIntegrations": "整合",
+          "providersDescription": "每張卡片會逐步引導你完成連線（Linear 另含技能），以及是否顯示在「任務」中。",
+          "retryConnection": "再試一次",
+          "setupDescription": "在同一處完成每個提供者的連線與顯示設定。Linear 還需要 Agent 技能，讓程式設計 Agent 能讀取並更新工單。至少須保留一個提供者可見。",
+          "setupTitle": "任務管理設定",
+          "skillHint": "。Linear 連線後，使用範例會保留在「設定 → Linear」中。"
+        },
+        "TerminalAdvancedTypographyControls": {
+          "0e0d1ee15a": "與「字型粗細」分開調整。部分字型會將多個值對應到同一字重，若粗體看起來沒有改變，請降低「字型粗細」或改用其他字型。",
+          "f5fa1a08f1": "粗體字型粗細"
         },
         "TerminalAppearanceSection": {
           "04569feb07": "一律關閉，即使字型內建連字也一樣。",
@@ -8223,6 +9674,11 @@ export default {
           "d06664e889": "深色",
           "f8931d407d": "在預覽中顯示窗格分隔線"
         },
+        "TerminalTccAttributionNotice": {
+          "body": "終端機守護程式是由已不存在的 Orca 安裝所啟動，因此 macOS 無法將其命令歸屬於 Orca——輔助使用與自動化授權會被默默忽略（osascript 會失敗並回報錯誤 -25211）。重新啟動守護程式即可修正；執行中的終端機工作階段將會關閉。",
+          "openManageSessions": "開啟「管理工作階段」",
+          "title": "macOS 權限授權未傳遞至終端機"
+        },
         "TerminalThemeSections": {
           "5e0c24b5c8": "控制淺色模式下窗格之間的分割分隔線。",
           "7add204bd5": "選擇深色模式下使用的終端機主題。",
@@ -8320,6 +9776,14 @@ export default {
         },
         "UIZoomControl": {
           "c2c64b24d0": "重設"
+        },
+        "VoiceMicrophoneSetting": {
+          "accessHint": "允許存取麥克風以列出輸入裝置。",
+          "allowAccess": "允許存取",
+          "description": "用於語音聽寫的輸入裝置。「系統預設」會依照作業系統的麥克風設定。",
+          "label": "麥克風",
+          "systemDefault": "系統預設",
+          "unavailable": "無法使用"
         },
         "VoicePane": {
           "0121960365": "啟用語音聽寫",
@@ -8512,7 +9976,10 @@ export default {
         "agent-awake-copy": {
           "95d3031db2": "在 Agent 工作時保持此電腦和顯示器喚醒。合蓋行為遵循此裝置的電源設定。",
           "a42f6fbdd8": "在 Agent 工作時保持此電腦和顯示器喚醒。Orca 還會根據電源原則，在合蓋時請求此裝置保持喚醒。",
-          "e5995ce268": "Agent 工作時保持電腦喚醒"
+          "e5995ce268": "Agent 工作時保持電腦喚醒",
+          "modeDescriptionDefault": "選擇「開啟」、「Agent」或「關閉」。Agent 模式會在 Agent 工作時保持喚醒。Orca 也會在合上蓋子時要求此裝置保持喚醒，但須視其電源原則而定。",
+          "modeDescriptionWindows": "選擇「開啟」、「Agent」或「關閉」。Agent 模式會在 Agent 工作時保持喚醒；合上蓋子時的行為則依照此裝置的電源設定。",
+          "modeTitle": "防止電腦進入睡眠"
         },
         "agent-generated-tab-title-copy": {
           "19ad21615a": "自動產生分頁標題",
@@ -8728,6 +10195,40 @@ export default {
             }
           }
         },
+        "artifacts": {
+          "account": "Orca 帳號",
+          "allowPublishing": "允許發布公開的 Artifact 連結",
+          "allowPublishingDescription": "將 HTML 與 Markdown 檔案發布為任何擁有網址的人都能開啟的連結。現有連結會保留，直到你從 Artifacts 中刪除為止。",
+          "allowPublishingSearchDescription": "允許 Orca 將 HTML 與 Markdown 檔案發布為公開連結。",
+          "allowPublishingWebDescription": "僅限桌面版。請在主機裝置上開啟「設定 → Artifacts」以變更此設定。",
+          "connected": "已連線",
+          "description": "與團隊分享 HTML 與 Markdown 檔案，並管理其公開連結。",
+          "enable": "啟用 Artifacts",
+          "enableDescription": "將 Artifacts 新增至側邊欄，以開啟及刪除分享的檔案。",
+          "enableStepDescription": "開啟上方的「允許發布公開的 Artifact 連結」。",
+          "enableStepTitle": "啟用 Artifact 分享",
+          "enableStepWebDescription": "在主機裝置的 Orca 桌面應用程式中開啟「設定 → Artifacts」，並啟用發布。",
+          "howToDescription": "將 HTML 或 Markdown 檔案發布為公開連結，然後與團隊分享。",
+          "howToDescriptionDisabled": "在上方啟用 Artifact 分享，即可將 HTML 或 Markdown 檔案發布為公開連結。",
+          "howToTitle": "如何使用 Artifacts",
+          "linkStepDescription": "發布後，複製連結並傳送給你的團隊。",
+          "linkStepTitle": "複製公開連結",
+          "manageStepDescription": "從側邊欄開啟 Artifacts 以預覽或移除連結。",
+          "manageStepTitle": "在 Orca 中管理",
+          "openArtifacts": "開啟 Artifacts",
+          "openArtifactsDescription": "檢視並刪除透過你的帳號分享的連結。",
+          "openArtifactsDescriptionV2": "預覽、複製並管理透過你的帳號分享的連結。",
+          "shareStepDescription": "開啟 HTML 或 Markdown 檔案並選取「以 Artifact 分享」，或請 Agent 幫你分享。",
+          "shareStepTitle": "選擇要分享的檔案",
+          "showButton": "顯示 Artifacts 按鈕",
+          "showButtonDescription": "在側邊欄中顯示 Artifacts 捷徑。",
+          "signIn": "登入 Orca",
+          "signInAgain": "重新登入",
+          "signInDescription": "使用你的 Orca 帳號上傳 Artifact 並管理其公開連結。",
+          "signInRequired": "必須登入才能上傳及管理 Artifact。",
+          "signInTitle": "登入以分享 Artifact",
+          "title": "Artifacts"
+        },
         "auto": {
           "rename": {
             "branch": {
@@ -8751,6 +10252,67 @@ export default {
                 "f0acf64301": "生物名稱",
                 "f41833025e": "產生"
               }
+            }
+          }
+        },
+        "automations": {
+          "defineStepDescription": "選擇專案、Agent、提示詞與排程。",
+          "defineStepTitle": "描述工作內容",
+          "description": "排程 Agent 工作，並選擇是否在側邊欄顯示自動化。",
+          "howItWorksDescription": "只需排程一次 Agent 工作，Orca 就會建立每次執行並將結果集中存放。",
+          "howItWorksTitle": "自動化如何運作",
+          "openAutomations": "開啟自動化",
+          "openAutomationsDescription": "建立排程並檢視最近的執行。",
+          "reviewStepDescription": "檢視最近的執行，並隨時接續工作。",
+          "reviewStepTitle": "審查結果",
+          "runStepDescription": "排程時間到時，所選的 Agent 會取得一個全新的工作區。",
+          "runStepTitle": "Orca 啟動每次執行",
+          "showButton": "顯示自動化按鈕",
+          "showButtonDescription": "在側邊欄中顯示自動化捷徑。",
+          "title": "自動化"
+        },
+        "bitbucket": {
+          "credentials": {
+            "dialog": {
+              "accessToken": "存取權杖",
+              "accessTokenPlaceholder": "存放庫、專案或工作區存取權杖",
+              "apiToken": "API 權杖",
+              "apiTokenPlaceholder": "Atlassian API 權杖",
+              "authModeLabel": "Bitbucket 驗證方式",
+              "baseUrl": "API 基礎 URL（選填）",
+              "baseUrlPlaceholder": "https://api.bitbucket.org/2.0",
+              "basicHint": "為你的帳號建立 Atlassian API 權杖，然後搭配擁有該權杖的電子郵件帳號使用。",
+              "cancel": "取消",
+              "connect": "連線",
+              "connectFailed": "連線失敗",
+              "description": "使用 Bitbucket Cloud 認證來瀏覽 Pull Request 與建置狀態。Orca 會在儲存前進行驗證。",
+              "docsLink": "Bitbucket API 權杖文件",
+              "email": "Atlassian 帳號電子郵件",
+              "emailPlaceholder": "you@example.com",
+              "environmentManaged": "Bitbucket 已透過 ORCA_BITBUCKET_* 環境變數設定，且其優先順序較高。請取消設定這些變數，才能在 Orca 中儲存認證。",
+              "modeBasic": "電子郵件與 API 權杖",
+              "modeToken": "存取權杖",
+              "remoteRuntime": "儲存在這台機器上，而非目前使用中的遠端執行環境——請改在該處設定 ORCA_BITBUCKET_*。環境變數的優先順序一律高於你在此儲存的設定。",
+              "storageNote": "當作業系統鑰匙圈可用時，會以加密儲存方式儲存在這台機器上。ORCA_BITBUCKET_* 環境變數的優先順序一律高於你在此儲存的設定。",
+              "title": "連線 Bitbucket",
+              "tokenHint": "存放庫、專案與工作區存取權杖需從對應的 Bitbucket 設定頁面建立，且需要 Pull Request 的讀取權限。",
+              "verifying": "正在驗證…"
+            }
+          },
+          "integration": {
+            "card": {
+              "accountUnknown": "Bitbucket Cloud",
+              "authModeBasic": "電子郵件與 API 權杖",
+              "authModeToken": "存取權杖",
+              "connect": "連線",
+              "description": "Bitbucket Cloud 的 Pull Request 與建置狀態。",
+              "disconnect": "中斷 Bitbucket 連線",
+              "disconnectFailed": "無法移除已儲存的 Bitbucket 認證。",
+              "edit": "編輯認證",
+              "envManaged": "已透過環境變數設定。請取消設定 ORCA_BITBUCKET_* 變數，才能在 Orca 中管理此認證。",
+              "notConfigured": "使用 Atlassian API 權杖或存取權杖連線 Bitbucket Cloud 帳號。也可以使用 ORCA_BITBUCKET_* 環境變數，且其優先順序較高。",
+              "storedAuthFailed": "已儲存的 Bitbucket 認證無法通過驗證。請編輯認證，或確認權杖仍具有 Pull Request 存取權。",
+              "storedCredential": "已儲存在這台機器的 Orca 中。若有設定 ORCA_BITBUCKET_* 環境變數，則以環境變數為優先。"
             }
           }
         },
@@ -8805,7 +10367,21 @@ export default {
             "bea27bac4b": "連結",
             "c3903322d2": "預設首頁",
             "c3d89ed4d0": "套用至新開啟瀏覽器分頁的縮放層級。",
-            "e1c2a57f07": "kagi"
+            "e1c2a57f07": "kagi",
+            "linkRoutingModifier": {
+              "invert": "反轉",
+              "modifier": "輔助鍵",
+              "opposite": "相反",
+              "routing": "路由"
+            },
+            "terminalLinkActions": {
+              "actions": "動作",
+              "click": "按一下",
+              "disable": "停用",
+              "menu": "選單",
+              "popover": "快顯視窗",
+              "terminal": "終端機"
+            }
           },
           "use": {
             "search": {
@@ -8870,7 +10446,11 @@ export default {
                   "b4d900e7f1": "透過",
                   "b56fd5676a": "安裝 GitLab CLI 以啟用 Merge Request、Issue 和流水線。",
                   "d5b3be8ecd": "重新檢查",
-                  "faddeb763d": "此執行環境暫不支援 GitLab CLI 狀態。"
+                  "faddeb763d": "此執行環境暫不支援 GitLab CLI 狀態。",
+                  "statusConnected": "已連線",
+                  "statusNotAuthenticated": "未驗證",
+                  "statusNotInstalled": "未安裝",
+                  "statusUnavailable": "無法使用"
                 }
               }
             }
@@ -8936,6 +10516,8 @@ export default {
           "checkingDescription": "Orca 正在檢查電腦控制助理的 macOS 隱私權限。",
           "checkingTitle": "正在檢查電腦控制存取權限。",
           "permissionsRequired": "在 Agent 可操作應用程式視窗前需要 {{value0}} 項權限。",
+          "permissionsRequired_one": "Agent 操作應用程式視窗前需要 1 項權限。",
+          "permissionsRequired_other": "Agent 操作應用程式視窗前需要 {{value0}} 項權限。",
           "permissionsTitle": "完成設定以使用本機應用程式。",
           "readyDescription": "當你要求時，Agent 可以檢查並操作應用程式視窗。",
           "readyTitle": "電腦控制已就緒。",
@@ -8990,11 +10572,13 @@ export default {
         },
         "ephemeralVms": {
           "search": {
+            "cloudVmTitle": "雲端 VM",
             "description": "了解存放庫自帶的環境範本如何為每個工作區提供按需建立、可捨棄的獨立環境。",
             "title": "工作區專屬環境"
           }
         },
         "ephemeralVmsExperimentalSetting": {
+          "cloudVmToggleLabel": "切換雲端 VM",
           "description": "顯示存放庫自帶按需環境的設定控制項和工作區執行目標。",
           "toggleLabel": "切換工作區專屬環境"
         },
@@ -9029,6 +10613,7 @@ export default {
             "9e4ddf776d": "終端機提醒",
             "9f5609bfb8": "覆蓋層",
             "agentDashboard": {
+              "dashboard": "儀表板",
               "description": "用於跨 Worktree 監視 Agent 的看板，可內嵌於視窗或彈出顯示。",
               "title": "Agent 儀表板"
             },
@@ -9232,6 +10817,8 @@ export default {
             "ecb9415c80": "預設顯示 git diff 的偏好呈現格式。",
             "editorFontFamily": "編輯器字型系列",
             "editorFontFamilyDesc": "檔案編輯器與差異檢視所使用的字型。留空則沿用終端機字型。",
+            "externalWorktrees": "外部 Worktree",
+            "externalWorktreesDescription": "選擇是否預設顯示在 Orca 外部建立的 Worktree。",
             "f472e97440": "aider",
             "f89a94773c": "更新",
             "f8f0ac213a": "循序",
@@ -9338,11 +10925,13 @@ export default {
             "7166b9090c": "透過 gh CLI 進行 GitHub 驗證。",
             "7319e3015b": "linear",
             "7345b7c3e6": "atlassian",
+            "760e2446e0": "使用已儲存的 API 權杖或環境變數進行 Bitbucket Cloud 認證。",
             "76f6af7c57": "連線 Jira Cloud 或更新 Jira API Token 憑證。",
             "7b1f3984bb": "透過 Token 環境變數進行 Azure DevOps Repos 驗證。",
             "8c568d761c": "Pull Request",
             "a626990bd2": "中斷連線",
             "aab86d64e5": "Gitea 整合",
+            "af5ae87847": "存取權杖",
             "af6611fa6e": "Azure DevOps 整合",
             "b027b4b318": "Linear 整合",
             "b38b5d27f1": "azure devops",
@@ -9385,7 +10974,9 @@ export default {
               "d914d7ab70": "正在驗證…",
               "eaffa454e9": "更新",
               "efaab83c5d": "新增網站",
-              "fb854902d9": "連線中"
+              "fb854902d9": "連線中",
+              "statusConnected": "已連線",
+              "statusNotConnected": "未連線"
             }
           }
         },
@@ -9578,6 +11169,27 @@ export default {
             "fa60d8e4ab": "抑制"
           }
         },
+        "orcaAccount": {
+          "account": "Orca 帳號",
+          "artifactsDescription": "發布 HTML 和 Markdown 檔案，並在 Orca 中管理所有分享連結。",
+          "artifactsTitle": "Artifact 分享",
+          "benefitsTitle": "帳號包含的功能",
+          "checking": "正在檢查帳號狀態…",
+          "connected": "已連線",
+          "description": "即時分享工作成果，並隨時隨地透過 Orca 行動版連線到你的桌機。",
+          "reconnectRequired": "你的工作階段已過期。請重新登入以使用雲端功能。",
+          "relayDescription": "透過行動網路或任何 Wi-Fi 將 Orca 行動版連線到這台桌機。",
+          "relayTitle": "Orca Relay",
+          "searchDescription": "登入或登出 Artifact 與 Orca Relay 使用的帳號。",
+          "signIn": "登入 Orca",
+          "signInAgain": "重新登入",
+          "signOut": "登出",
+          "signedOut": "登入以透過雲端功能擴充 Orca，包括 Artifact 與 Orca Relay。",
+          "skillsDescription": "透過不公開連結分享單一技能或整組技能，並安裝到你使用的任何機器上。",
+          "skillsTitle": "技能分享",
+          "title": "Orca 帳號",
+          "unavailable": "此版本無法使用 Orca 登入。"
+        },
         "orchestration": {
           "search": {
             "08c65b12a2": "範例",
@@ -9597,6 +11209,28 @@ export default {
             "eee028ae14": "派送",
             "f278fd04db": "codex",
             "f5d39af41e": "子 Agent"
+          }
+        },
+        "pluginError": {
+          "consentChanged": "外掛在你審查期間已變更。請關閉此對話方塊，並審查更新後的權限。",
+          "incompatible": "此外掛需要不同版本的 Orca。",
+          "installGit": "Orca 無法擷取指定的 Git 修訂版本。請檢查網址、#ref、存取權限與系統 Git 設定。",
+          "installLimit": "此外掛超出 Orca 的安裝大小或檔案數量上限。",
+          "installManifestInvalid": "orca-plugin.json 無效。請要求外掛作者修正資訊清單。",
+          "installManifestMissing": "找不到可讀取的 orca-plugin.json。請選擇外掛的根資料夾。",
+          "installUnsafePath": "此外掛包含不安全的檔案路徑或符號連結，因此未安裝。",
+          "invalidArtifact": "宣告的 worker 或面板檔案遺失或不安全。請修正外掛檔案後重新整理。",
+          "invalidManifest": "orca-plugin.json 無效。請修正後重新整理外掛。",
+          "invalidManifestMissing": "外掛根目錄缺少 orca-plugin.json。請新增後重新整理外掛。"
+        },
+        "plugins": {
+          "search": {
+            "description": "安裝與管理實驗性 Orca 外掛。",
+            "development": "開發中外掛",
+            "install": "安裝外掛",
+            "logs": "外掛記錄檔",
+            "permissions": "外掛權限",
+            "title": "外掛"
           }
         },
         "privacy": {
@@ -9761,6 +11395,8 @@ export default {
             "ed885e589f": "要從主要 checkout 實體化到新建立 Worktree 中的路徑。",
             "eec3995dc6": "Git AI Author",
             "eec39b3de6": "commit 訊息",
+            "externalWorktrees": "外部 Worktree",
+            "externalWorktreesDescription": "覆寫此專案是否顯示在 Orca 外部建立的 Worktree。",
             "f1c53f2820": "Worktree",
             "f1e1bfa89f": "來源",
             "f3e6dee5fe": "Worktree 路徑",
@@ -9771,13 +11407,19 @@ export default {
             "fbfd2386e8": "存檔指令碼",
             "fcb8fa8144": "共用",
             "fff8834983": "提示詞",
+            "ghAccount": "gh 帳號",
+            "githubAccount": "GitHub 帳號",
+            "githubAccountDescription": "為此專案的 GitHub API 呼叫綁定一個 keyring 中的 gh 登入。",
+            "githubAccountKeyword": "github 帳號",
             "host": "host",
             "keepForkUpToDate": "保持 Fork 最新",
             "keepForkUpToDateDescription": "從 upstream 安全地快轉此 Fork。",
+            "login": "登入",
             "projectRuntime": "專案執行環境",
             "projectRuntimeDescription": "選擇此專案要在 Windows 還是 WSL 上執行。",
             "remote": "remote",
             "ssh": "SSH",
+            "token": "權杖",
             "vm": "vm"
           }
         },
@@ -9806,14 +11448,61 @@ export default {
           "agentLaunchDefaults": "預設 Agent、命令覆蓋、CLI 引數和啟動環境是用戶端偏好。SSH 和遠端伺服器啟動仍會在執行環境驗證主機可用性。",
           "clientDefault": "用戶端預設",
           "clientDefaultProjectScopes": "用戶端預設 + 專案範圍",
+          "hostCollectionProjectScopes": "主機集合 + 專案範圍",
           "hostOverride": "主機覆蓋",
           "projectOnThisHost": "此主機上的專案",
           "providerAccounts": "認證和帳號檢查歸屬於本機用戶端或擁有該供應商整合的所選遠端伺服器。",
           "providerHost": "供應商主機",
           "repositorySourceControlAi": "這些覆蓋項套用於此專案設定，並繼承用戶端的原始碼控制 AI 預設值，直至自訂。",
           "sourceControlAiDefaults": "方案、提示和託管審查預設值由此用戶端共用；模型選擇和發現則限定在 Agent 執行的主機內。",
+          "terminalQuickCommandHostCollections": "命令會儲存在所選的 Orca 主機上，再套用到全域或特定專案設定範圍。來自此裝置的命令在遠端工作區中也能使用。",
           "terminalQuickCommands": "命令儲存在此用戶端，然後限定為全域或某專案設定，以便從所選終端機上下文執行。",
           "workspaceDirectory": "在主機需要自己的 Worktree 目錄之前，繼承用戶端預設值。"
+        },
+        "shareSkills": {
+          "activeLinks": "有效的分享連結",
+          "activeLinksDescription": "只有持有連結的人才能開啟。取消分享連結即可封鎖日後的檢視與安裝。",
+          "allowAgentPublishing": "允許 Agent 與 Orca CLI 發布技能連結",
+          "allowAgentPublishingDescription": "允許命令發布明確指定名稱的已安裝技能。技能資料夾可能包含指令碼、設定或機密資訊，因此預設為關閉。",
+          "allowAgentPublishingWebDescription": "僅限桌面版。請在主機裝置上開啟「設定 → 分享技能」以變更此設定。",
+          "confirmUnshare": "確認取消分享",
+          "copyDescription": "任何持有連結的人都不需登入，即可檢視並安裝全部或所選的技能。",
+          "copyLink": "複製連結",
+          "copyTitle": "複製不公開連結",
+          "description": "透過不公開連結分享你的技能。任何持有連結的人都能安裝。",
+          "howToDescription": "透過一個連結發布單一技能或技能包，例如 30 個技能的集合。",
+          "howToTitle": "如何分享技能",
+          "linkCopied": "已複製分享連結",
+          "linkDescription": "分享的技能包不會在 Orca 中被搜尋或列出。持有連結即可存取，請只傳送給你信任的人。",
+          "linkRevoked": "已撤銷連結",
+          "linkTitle": "不公開的技能連結",
+          "linksReconnect": "請重新登入以管理分享連結。",
+          "linksUnavailable": "目前無法使用分享連結。",
+          "manageDescription": "撤銷後將封鎖日後的存取。已安裝在其他機器上的技能會保留。",
+          "manageInSkills": "在技能中管理",
+          "manageTitle": "管理或撤銷連結",
+          "noActiveLinks": "沒有有效的連結。從技能頁面發布技能包即可建立。",
+          "openSkills": "開啟技能",
+          "openSkillsDescription": "發布技能包、從連結安裝，或管理已安裝與已分享的技能。",
+          "refreshLinks": "重新整理",
+          "reviewDescription": "上傳不可變更的技能包前，請審查其中包含的檔案、指令碼與可執行檔。",
+          "reviewTitle": "審查並發布",
+          "revokeFailed": "Orca 無法撤銷此連結。",
+          "searchDescription": "透過不公開連結分享你的技能。任何持有連結的人都能安裝。",
+          "selectDescription": "開啟技能，選擇「分享技能」，然後選取要打包在同一個連結中的技能。",
+          "selectTitle": "選取一或多個技能",
+          "showButton": "顯示技能按鈕",
+          "showButtonDescription": "在側邊欄顯示技能捷徑。",
+          "signIn": "登入 Orca",
+          "signInAgain": "重新登入",
+          "signInDescription": "使用你的 Orca 帳號發布技能包並管理其連結。接收者不需要帳號。",
+          "signInTitle": "登入以分享技能",
+          "signInWebDescription": "發布與連結管理功能僅在 Orca 桌面應用程式中提供。",
+          "title": "分享技能",
+          "unshare": "取消分享"
+        },
+        "shortcutDefinitionCatalog": {
+          "missionControlConflict": "已被「指揮中心」（Mission Control）占用。請在此重新對應，或在「系統設定」中變更。"
         },
         "shortcuts": {
           "search": {
@@ -9827,7 +11516,8 @@ export default {
             "ca6a0c2df7": "捷徑",
             "ebd7d81e1d": "選擇當快速鍵重疊時 Orca 或焦點終端機是否獲勝。",
             "f052906167": "終端機中的快速鍵",
-            "f1adebbe8c": "Shell"
+            "f1adebbe8c": "Shell",
+            "groupShortcut": "{{value0}} 快速鍵"
           }
         },
         "source": {
@@ -9902,7 +11592,9 @@ export default {
                 "e1f5e6424c": "{{value0}} 個工作區已連線",
                 "e2ff968276": "連線 Jira",
                 "eae4a9f16b": "新增 Linear 存取以瀏覽和連結 Issue。",
-                "fe9231215b": "在顯示設定操作前正在檢查 Linear 存取權限。"
+                "fe9231215b": "在顯示設定操作前正在檢查 Linear 存取權限。",
+                "statusConnected": "已連線",
+                "statusNotConnected": "未連線"
               }
             }
           }
@@ -9919,8 +11611,13 @@ export default {
             "5b8e4aace5": "任務提供者",
             "604d8e4089": "Atlassian",
             "765f0c544d": "選擇要在任務頁面與側邊欄捷徑中顯示的任務提供者。",
+            "apiKey": "API 金鑰",
             "c10ac2125e": "GitHub",
-            "cf0e3e0c2f": "提供者"
+            "cf0e3e0c2f": "提供者",
+            "connect": "連線",
+            "providersDescription": "連線任務提供者、安裝 Linear Agent 技能，並選擇要在任務中顯示的內容。",
+            "setup": "設定",
+            "skill": "技能"
           }
         },
         "terminal": {
@@ -10216,7 +11913,13 @@ export default {
                   "f3f47dc7de": "此執行環境暫不支援 Azure DevOps 狀態。",
                   "fbfd237f5e": "ORCA_AZURE_DEVOPS_ACCESS_TOKEN",
                   "fc71a0e7aa": "和",
-                  "fcbe0469fd": "公開存放庫會從其 git remote 偵測。設定"
+                  "fcbe0469fd": "公開存放庫會從其 git remote 偵測。設定",
+                  "statusAuthFailed": "認證失敗",
+                  "statusConfigured": "已設定",
+                  "statusConnected": "已連線",
+                  "statusNotConfigured": "未設定",
+                  "statusOptionalSetup": "選填設定",
+                  "statusUnavailable": "無法使用"
                 }
               }
             }
@@ -10255,7 +11958,13 @@ export default {
               "dcc7846641": "設定用於雲語音轉文字模型的 OpenAI API 金鑰。",
               "e360027a65": "麥克風",
               "ebfd0b32e5": "OpenAI 轉錄",
-              "f6e0dfa61c": "雲"
+              "f6e0dfa61c": "雲",
+              "micAirpods": "airpods",
+              "micDefault": "系統預設",
+              "micDevice": "裝置",
+              "micInput": "輸入",
+              "microphoneDescription": "選擇語音聽寫要使用的輸入裝置。",
+              "microphoneTitle": "麥克風"
             }
           }
         }
@@ -10314,11 +12023,15 @@ export default {
         "AddRemoteHostDialog": {
           "advanced": "進階",
           "cancel": "取消",
+          "fillFromSshConfig": "從 ~/.ssh/config 填入…",
           "identityFile": "身份檔案",
+          "identityFileFromConfigHint": "刻意留白：Orca 會使用 ~/.ssh/config 為 {{value0}} 解析出的所有金鑰。輸入路徑則只使用該金鑰。",
           "identityFilePlaceholder": "~/.ssh/id_ed25519（選填）",
           "importSshConfig": "匯入 ~/.ssh/config",
           "importing": "匯入中…",
           "label": "標籤",
+          "linkDestination": "連結目的地",
+          "loopbackBlocked": "請啟用 SSH 通道覆寫，或使用另一台主機的 Tailscale 或 LAN 位址建立新連結。",
           "pairingCode": "配對碼",
           "pairingCodePlaceholder": "orca://pair?code=...",
           "pairingCommand": "orca serve --pairing-address <host>",
@@ -10334,6 +12047,31 @@ export default {
           "serverSaveFailed": "新增遠端伺服器失敗。",
           "serverSaved": "已新增遠端伺服器。",
           "serverTitle": "新增遠端伺服器",
+          "sshAlreadyExists": "該 SSH 主機已在 Orca 中。",
+          "sshConfigPickerAddAll": "將全部 {{value0}} 個新增到 Orca",
+          "sshConfigPickerAddAllEmpty": "全部新增到 Orca",
+          "sshConfigPickerAddingAll": "正在新增主機…",
+          "sshConfigPickerBack": "返回",
+          "sshConfigPickerBulkHint": "批次同步仍位於「設定 → SSH」",
+          "sshConfigPickerDescription": "選擇一個主機以填入表單，或將所有新主機加入 Orca 的主機清單。",
+          "sshConfigPickerEmpty": "~/.ssh/config 中沒有主機",
+          "sshConfigPickerEmptyHint": "請在該檔案中新增 Host 項目，或返回手動輸入詳細資訊。",
+          "sshConfigPickerFilled": "已從 {{value0}} 填入。請檢查後儲存。",
+          "sshConfigPickerFilter": "篩選主機…",
+          "sshConfigPickerHostsLabel": "SSH 設定主機",
+          "sshConfigPickerInOrca": "已在 Orca 中",
+          "sshConfigPickerLoadFailed": "無法讀取 ~/.ssh/config。",
+          "sshConfigPickerLoading": "正在讀取 ~/.ssh/config…",
+          "sshConfigPickerMoreResults": "僅顯示前 {{value0}} 筆符合項目。請縮小篩選範圍以找到更多。",
+          "sshConfigPickerNoMatch": "沒有符合的主機",
+          "sshConfigPickerNoMatchHint": "請嘗試其他篩選條件，或返回手動輸入。",
+          "sshConfigPickerNoNewHosts": "沒有可新增的新主機",
+          "sshConfigPickerPreviouslyRemoved": "已從 Orca 移除",
+          "sshConfigPickerResolveFailed": "無法解析該 SSH 設定主機。",
+          "sshConfigPickerResolving": "正在讀取…",
+          "sshConfigPickerRestartRequired": "請重新啟動 Orca 以完成套用 SSH 設定選擇器更新。",
+          "sshConfigPickerRetry": "再試一次",
+          "sshConfigPickerTitle": "從 ~/.ssh/config 選擇",
           "sshDescription": "新增一臺可透過 SSH 登入並持久儲存的機器。",
           "sshHost": "主機或別名",
           "sshHostPlaceholder": "deploy@server:22",
@@ -10348,6 +12086,8 @@ export default {
           "sshSaveFailed": "新增 SSH 主機失敗。",
           "sshSaved": "已新增 SSH 主機。",
           "sshTitle": "新增 SSH 主機",
+          "sshTunnel": "我正在使用 SSH 通道",
+          "sshTunnelHelp": "否則，此連結會指回這台裝置，無法識別另一台電腦。",
           "username": "使用者名稱",
           "usernamePlaceholder": "deploy"
         },
@@ -10471,7 +12211,8 @@ export default {
           "cloneOnHostDescription": "輸入 Git URL 並選擇要在 {{value0}} 上 clone 到的位置。",
           "cloneParentFolder": "上層資料夾",
           "df8b0e6c22": "已在 SSH 主機上新增專案",
-          "fe8e629fe3": "瀏覽到某個目錄，然後按一下「選擇」來選定它。"
+          "fe8e629fe3": "瀏覽到某個目錄，然後按一下「選擇」來選定它。",
+          "remoteCloneParentPlaceholder": "/home/user/projects"
         },
         "AutoRenameFailedDialog": {
           "3afcad0497": "（來自第一則 Agent 訊息）。",
@@ -10544,6 +12285,10 @@ export default {
           "reconnectAndDelete": "重新連線並刪除",
           "reconnectFailed": "重新連線失敗",
           "title": "要刪除「{{name}}」嗎？"
+        },
+        "HiddenWorktreeRecoveryList": {
+          "64e6f53f05": "顯示單一項目而不啟用其來源。",
+          "showWorktree": "顯示位於 {{value1}} 的 {{value0}}"
         },
         "HostRemoveDialog": {
           "1a2b3c4d5e": "已移除 {{value0}}",
@@ -10635,12 +12380,22 @@ export default {
           "wslCopy": "安裝此項，用於從已連結的 Linear Issue 進行 WSL Agent 交接。",
           "wslLabel": "WSL 預設"
         },
+        "MarkdownImageLightbox": {
+          "close": "關閉",
+          "expand": "展開影像",
+          "image": "影像"
+        },
         "NewExternalWorktreesInboxLine": {
           "1c9e7a4b28": "保持隱藏",
+          "2a6f31d8c7": "個隱藏的 Worktree",
           "4d7a1c9e53": "這些 Worktree 是在 Orca 外部建立的。",
+          "4e2b7a9c05": "檢查 {{value1}} 中 {{value0}} 個隱藏的 Worktree",
+          "5b90e4a2f6": "個隱藏的 Worktree",
           "5e1b8d3f62": "永久隱藏外部 Worktree",
+          "6c07f3a91e": "{{value1}} 上的 {{value0}}",
           "6f2d8c1e95": "全部匯入",
           "7c4e9b2a81": "外部建立的新 Worktree",
+          "7f18c5b0d3": "檢查 {{value1}} 中 {{value0}} 個隱藏的 Worktree",
           "8b3f2e1d74": "匯入",
           "9f2d4c8b17": "永久隱藏 {{value0}} 的外部 Worktree",
           "c3e8a1f4b2": "不再顯示",
@@ -10655,6 +12410,12 @@ export default {
           "9a766f33ac": "已在 SSH 主機上檢查此路徑。",
           "c49fb13492": "無法在此主機上新增資料夾",
           "e52454b7f6": "以資料夾開啟"
+        },
+        "NoticeHostGlyph": {
+          "hostDisconnected": "{{hostName}} 已中斷連線",
+          "localHostProject": "此主機上的專案",
+          "runtimeHostProject": "{{hostName}} 上的專案",
+          "sshHostProject": "SSH 主機 {{hostName}} 上的專案"
         },
         "OrcaYamlTrustDialog": {
           "02b0ede5ad": "{{value0}} 的 {{value1}} 已變更 — 執行新版本嗎？",
@@ -10674,6 +12435,18 @@ export default {
         "PendingWorktreeRow": {
           "188f6922a0": "取消",
           "af21e953d1": "取消建立 Worktree"
+        },
+        "PreservedBranchBatchReviewDialog": {
+          "285e1e4882": "取消",
+          "38c947f7c5": "全選",
+          "676db406fd": "無法取得 HEAD",
+          "9602129d38": "已選取 {{value0}} / {{value1}}",
+          "a0f9863597": "強制刪除 {{count}} 個分支",
+          "a0f9863597_one": "強制刪除 {{count}} 個分支",
+          "a0f9863597_other": "強制刪除 {{count}} 個分支",
+          "c4bf8e7eaf": "審查保留的分支",
+          "ee39e872d5": "可能尚未合併",
+          "f21976c9a8": "選取要強制刪除的本機分支。未選取的分支會保留在其存放庫中。"
         },
         "ProjectGroupDeleteDialog": {
           "0e0e6764af": "包含的專案",
@@ -10715,7 +12488,8 @@ export default {
           "b79b39d865": "移除專案",
           "d36883e046": "取消",
           "removeDescriptionLocal": "此操作只會將 {{name}} 從 Orca 移除。它仍在你的磁碟上。",
-          "removeDescriptionSsh": "此操作只會將 {{name}} 從 Orca 移除。它的檔案仍保留在 {{host}} 上 — 重新加入該 SSH 主機即可復原。"
+          "removeDescriptionSsh": "此操作只會將 {{name}} 從 Orca 移除。它的檔案仍保留在 {{host}} 上 — 重新加入該 SSH 主機即可復原。",
+          "removeDescriptionVmRecipe": "這會將 {{name}} 從 Orca 移除。其 VM 配方決定是否永久刪除該環境及其檔案。"
         },
         "ScrollToCurrentWorkspaceToolbarButton": {
           "23989bb663": "顯示使用中的工作區"
@@ -10767,11 +12541,19 @@ export default {
           "9b33530b3d": "其他聯絡我們的方式",
           "a2fd890d9e": "請在提交前輸入意見回饋。",
           "a828fa4aee": "分享哪些運作良好、哪些出了問題，或 Orca 接下來該做什麼。",
+          "attachWhileSending": "請等待目前的意見回饋傳送完成，再附加更多影像。",
           "c9e5ea0791": "GitHub：",
           "d20439c560": "正在檢查 GitHub 身分…",
           "d245c4ef6c": "GitHub Issue",
           "d46ddd66fc": "我們可以改進什麼？",
-          "f2e42e1307": "傳送"
+          "f2e42e1307": "傳送",
+          "imageReadFailed": "無法讀取附加的影像。請再試著附加一次。",
+          "imagesNotDelivered": "意見回饋已傳送，但無法確認影像是否已送達。"
+        },
+        "SidebarFeedbackImageAttachments": {
+          "attachImages": "附加",
+          "removeImage": "移除 {{fileName}}",
+          "screenshotsHint": "最多可附加 {count} 張截圖"
         },
         "SidebarFilter": {
           "139877b384": "全選",
@@ -10789,7 +12571,9 @@ export default {
           "e3b3898218": "新增專案",
           "e5cb32a898": "隱藏預設分支",
           "ee240a39eb": "編輯篩選條件",
-          "f506a1262a": "篩選工作區"
+          "f506a1262a": "篩選工作區",
+          "keepDefaultBranch": "預設分支除外",
+          "keepDefaultBranchAria": "隱藏休眠工作區時仍顯示預設分支"
         },
         "SidebarHeader": {
           "25a95899c9": "新增專案",
@@ -10797,7 +12581,11 @@ export default {
           "5c9c7c16aa": "新增專案以建立工作區",
           "92154beb7e": "新增工作區",
           "a30e34eb5c": "關閉工作區看板",
-          "ca6f729da2": "新增工作區（{{value0}}）"
+          "addProject": "新增專案",
+          "ca6f729da2": "新增工作區（{{value0}}）",
+          "projects": "專案",
+          "spaces": "空間",
+          "views": "側邊欄檢視"
         },
         "SidebarHostScopeStrip": {
           "backToAll": "所有主機",
@@ -10810,12 +12598,14 @@ export default {
           "1b5c41caee": "Orca 行動版",
           "80611a8b10": "搜尋",
           "9c95e1ce91": "Agent",
+          "artifacts": "Artifact",
           "c39ab10000": "開啟 Linear 任務",
           "c86d83b5c3": "新增",
           "d599269755": "從側邊欄隱藏",
           "e7ad3c540d": "開啟 Jira 任務",
           "f323383e9a": "自動化",
-          "fee535205b": "任務"
+          "fee535205b": "任務",
+          "skills": "技能"
         },
         "SidebarRepositoryFilterSection": {
           "2656053db4": "SSH",
@@ -10823,9 +12613,11 @@ export default {
           "5a273fbfce": "新增專案…",
           "7679f0c268": "專案",
           "83a820fa71": "篩選專案…",
+          "allProjects": "所有專案",
           "bbbc6e8e3b": "沒有符合的未選取專案",
           "d3a9c4cea1": "清除",
-          "f10ca29601": "移除 {{value0}} 篩選條件"
+          "f10ca29601": "移除 {{value0}} 篩選條件",
+          "selectedProjectsCount": "{{value0}} 個專案"
         },
         "SidebarSettingsHelpMenu": {
           "2991a0106c": "說明",
@@ -10858,7 +12650,11 @@ export default {
           "c3fa13dc2e": "隱藏預設分支",
           "cliCreated": "隱藏 CLI 建立的",
           "detachedHead": "隱藏已分離的 HEAD",
-          "ed1611b65b": "隱藏休眠項"
+          "ed1611b65b": "隱藏休眠項",
+          "keepDefaultBranch": "預設分支除外",
+          "keepDefaultBranchAria": "隱藏休眠工作區時仍顯示預設分支",
+          "otherClients": "隱藏其他用戶端的工作區",
+          "otherClientsAria": "隱藏在共用遠端伺服器上由其他 Orca 用戶端建立的工作區"
         },
         "SidebarWorkspaceOptionsMenu": {
           "09faabd875": "專案排序",
@@ -10910,11 +12706,14 @@ export default {
           "e029a2d775": "狀態",
           "folderPathIdentity": "分支 / 資料夾路徑",
           "hosts": "主機",
+          "jiraIssue": "Jira Issue",
+          "jiraIssues": "Jira Issue",
           "newCardDisplay": {
             "title": "卡片顯示"
           },
           "projectRuntimeHost": "專案伺服器",
-          "projectSshHost": "專案 SSH"
+          "projectSshHost": "專案 SSH",
+          "showSection": "顯示"
         },
         "SshDisconnectedDialog": {
           "11552bf786": "SSH 已中斷連線",
@@ -10967,6 +12766,14 @@ export default {
           "8fae2d0862": "已釘選",
           "c30151c5ee": "拖放到此處即可釘選，不變更狀態。"
         },
+        "WorkspaceKanbanSearchField": {
+          "3b7ea51793": "清除搜尋",
+          "4d96c209d6": "{{value1}} 個工作區中有 {{value0}} 個符合",
+          "7f1c2e94a5": "搜尋文字過長，看板未套用篩選",
+          "9a4d0f6b21": "過長",
+          "bdb753c78d": "沒有符合的工作區",
+          "c0cd6bdf6c": "搜尋工作區"
+        },
         "WorkspaceKanbanSettingsMenu": {
           "054cb50df7": "移除 {{value0}}",
           "26cbc92150": "工作區看板設定",
@@ -10979,6 +12786,7 @@ export default {
           "b45b350eb0": "將 {{value0}} 左移"
         },
         "WorkspaceKanbanStatusLane": {
+          "2df01a03ff": "沒有符合項目",
           "3611d1ae7f": "調整工作區看板欄寬",
           "8ad104642b": "空"
         },
@@ -11054,10 +12862,13 @@ export default {
           "eace1d2cf6": "中性",
           "fe075cb851": "工作區備註",
           "issueLinkLabel": "Issue 連結",
+          "jiraIssue": "Jira {{value0}}",
+          "linkedJira": "已連結 Jira {{value0}}",
           "moreIssueActions": "更多 Issue 操作",
           "openAutomation": "開啟自動化",
           "openAutomationRun": "開啟執行",
-          "reviewLinkLabel": "{{value0}} 連結"
+          "reviewLinkLabel": "{{value0}} 連結",
+          "viewOnJira": "在 Jira 上檢視"
         },
         "WorktreeCardMetadataStatusBadges": {
           "2931b42b09": "狀態：草稿 {{value0}}",
@@ -11084,6 +12895,19 @@ export default {
           "copyLink": "複製連結",
           "reviewHeader": "{{value0}} #{{value1}}"
         },
+        "WorktreeCardSshHostControl": {
+          "authFailedName": "重新連線 SSH 主機 {{value0}}：認證失敗",
+          "authFailedTooltip": "{{value0}} · 認證失敗",
+          "connectFailed": "SSH 連線失敗",
+          "connectName": "連線到 SSH 主機 {{value0}}",
+          "connectedName": "SSH 主機 {{value0}} 上的專案",
+          "connectedTooltip": "SSH 主機上的專案",
+          "connectingName": "正在連線到 SSH 主機 {{value0}}",
+          "failedTooltip": "{{value0}} · 連線失敗",
+          "removedName": "SSH 主機 {{value0}} 已移除",
+          "removedTooltip": "SSH 主機已移除，無法重新連線",
+          "retryName": "重試與 {{value0}} 的 SSH 連線"
+        },
         "WorktreeCardStatusSlot": {
           "branchIdentity": "分支"
         },
@@ -11107,6 +12931,7 @@ export default {
           "c39c37676a": "建立一個群組並將此專案移入其中。",
           "changeParentWorkspace": "變更上層 Worktree…",
           "d35dfeae58": "從群組中移除",
+          "deleteWithDescendants": "連同子系一起刪除…",
           "deleteWorktree": "刪除 Worktree",
           "e091caab15": "找不到該專案",
           "f4475537d8": "刪除",
@@ -11114,7 +12939,29 @@ export default {
           "f5ac91531d": "從 Orca 移除專案",
           "primaryDeleteDisabled": "主要 Worktree 無法刪除。請改為移除專案。",
           "setParentWorkspace": "設定上層 Worktree…",
+          "sleepWithDescendants": "連同子系一起睡眠（{{value0}}）",
+          "sleepWithDescendantsDescription": "關閉此工作區及所有巢狀子系中使用中的面板，以釋放記憶體和 CPU。",
           "workspaceSection": "工作區"
+        },
+        "WorktreeDeveloperMenu": {
+          "developer": "開發人員",
+          "parkTerminal": "停放終端機"
+        },
+        "WorktreeIssueLinkField": {
+          "0a7a2c6efd": "不是 GitHub Issue 編號或 Issue 網址。",
+          "161b2d053a": "開啟已連結的 Issue",
+          "25852bfc59": "Linear",
+          "269198eeda": "無法開啟該 Issue。請檢查編號與你的 GitHub 連線。",
+          "2c245ac134": "儲存後將取消連結 {{link}}，一個工作區只能追蹤一個 Issue。",
+          "5b440069e6": "GitHub",
+          "662ae142f8": "Issue 編號，或 GitHub、Linear 網址",
+          "72486800ff": "儲存後將取消連結 {{first}} 和 {{second}}，一個工作區只能追蹤一個 Issue。",
+          "929c98d05a": "Issue 提供者",
+          "964d9bc00a": "不是 Linear Issue 金鑰或 linear.app Issue 網址。",
+          "ad78f9bee2": "Issue",
+          "d4785f9954": "Issue 連結在建立資料夾工作區時設定，目前還無法在此變更。",
+          "d8c8a30d1f": "無法開啟該 Issue。請檢查識別碼與你的 Linear 連線。",
+          "f047887705": "貼上 GitHub 或 Linear 網址，或輸入編號。留白即可移除連結。"
         },
         "WorktreeList": {
           "045a8aed48": "子項",
@@ -11156,9 +13003,14 @@ export default {
           "failedUnnestWorkspace": "無法將工作區取消巢狀",
           "groupDeleteFailed": "刪除群組失敗",
           "groupDeleteFailedDesc": "刪除群組時發生錯誤。沒有任何專案被移除。",
+          "groupRenameFailed": "無法重新命名群組",
+          "groupRenameFailedDesc": "Orca 無法向群組的主機確認新名稱。請在重新連線後再次檢查該群組。",
           "hostAuthNeeded": "需要驗證",
           "hostDisconnected": "已中斷連線",
           "sidebarRowMissing": "目標已不存在"
+        },
+        "WorktreeListScrollToTopButton": {
+          "jumpToTop": "跳至頂端"
         },
         "WorktreeMetaDialog": {
           "029ea5ec57": "開啟 GitHub Issue",
@@ -11178,6 +13030,7 @@ export default {
           "7f0be5e9a6": "支援 **markdown** — 粗體、清單、`code`、連結。按 Enter 或",
           "7f21e0464f": "自訂顯示名稱…",
           "9c1d1e9b71": "留言",
+          "a0d191b7a7": "編輯此工作區的 Issue 連結、Pull Request 連結與備註。",
           "ad5e4e514f": "顯示名稱",
           "b48c271d39": "以儲存，Shift+Enter 換行。"
         },
@@ -11211,7 +13064,8 @@ export default {
           "current": "目前",
           "empty": "沒有符合條件的可用 Worktree。",
           "failedSetParent": "無法設定父 Worktree",
-          "searchPlaceholder": "搜尋 Worktree…"
+          "searchPlaceholder": "搜尋 Worktree…",
+          "setParentFor": "設定上層項目："
         },
         "WorktreeTitleInlineRename": {
           "2f42ae024f": "未讀：",
@@ -11220,12 +13074,62 @@ export default {
         },
         "WorktreeVisibilityDialog": {
           "25ddf19920": "{{value0}} 可匯入",
+          "2f80cd4b97": "正在顯示…",
           "3e045d4cb8": "顯示於側邊欄",
           "5d02a5647f": "已從側邊欄隱藏",
           "759371df43": "隱藏",
+          "7d21c5e848": "隱藏的 Worktree（{{value0}}）",
           "8372e4bbd9": "目前顯示 {{value0}}",
           "83a5ba8dd1": "非 Orca Worktree",
-          "f1f71b9f02": "匯入"
+          "a3f19c07d2": "正在檢查…",
+          "allShown": "已顯示所有偵測到的 Worktree",
+          "appearWhenDetected": "Orca 偵測到新的 Worktree 時會顯示在這裡。",
+          "b8d24e61f5": "無法列出此存放庫的 Worktree。",
+          "c5e70a93b1": "再試一次",
+          "d40d436fc2": "無法更新 Worktree 可見性。請再試一次。",
+          "disableSource": "停用來源即可個別管理其 Worktree。",
+          "e64b81d3a9": "顯示",
+          "f1f71b9f02": "匯入",
+          "globalSettingsSources": "這些來源有全域設定，你可以在此覆寫：",
+          "noMatches": "沒有符合的 Worktree",
+          "noneFound": "找不到非 Orca 的 Worktree",
+          "openGlobalSettings": "在全域設定中管理",
+          "search": "搜尋隱藏的 Worktree",
+          "searchPlaceholder": "搜尋 {{value0}} 個 Worktree…",
+          "tryDifferentSearch": "請嘗試其他名稱或路徑。",
+          "unsupportedHost": "此主機不支援依來源設定 Worktree 可見性。請更新主機上的 Orca 以變更此設定。"
+        },
+        "WorktreeVisibilityHelpPopover": {
+          "1c68c9cf77": "為來源啟用所有目前與未來的 Worktree，或在下方個別顯示 Worktree。",
+          "8db4e19a26": "此設定絕不會隱藏透過 Orca 建立的 Worktree。",
+          "c41f2d7e90": "哪些 Worktree 預設會隱藏？",
+          "ec1e6a10fb": "其他 Worktree 一開始會隱藏，以免側邊欄意外變得雜亂。"
+        },
+        "WorktreeVisibilitySourceList": {
+          "add": "新增",
+          "addLocation": "新增位置",
+          "claude": "Claude Code",
+          "custom": "自訂位置",
+          "duplicatePath": "此位置已在清單中。",
+          "found": "找到 {{value0}} 個",
+          "gsd": "GSD",
+          "hide": "隱藏",
+          "invalidPath": "請輸入此主機上的絕對路徑。",
+          "limit": "請先移除一個自訂位置，再新增其他位置。",
+          "other": "其他位置",
+          "otherPath": "不在列出的來源中",
+          "overridingGlobal": "覆寫全域設定：{{value0}}",
+          "projectOnly": "僅在此專案中新增。",
+          "remove": "移除 {{value0}}",
+          "removeLocation": "移除自訂位置",
+          "rootHelp": "Orca 會辨識此資料夾下的 Worktree。",
+          "show": "顯示",
+          "sources": "來源",
+          "sourcesDescription": "顯示的來源會在側邊欄中包含目前與未來的 Worktree。",
+          "useGlobal": "使用全域設定",
+          "useGlobalFor": "為 {{value0}} 使用全域設定",
+          "visibility": "{{value0}} 的可見性",
+          "worktreeRoot": "Worktree 根目錄"
         },
         "add": {
           "repo": {
@@ -11257,7 +13161,8 @@ export default {
               "7243145cd6": "未選取可刪除的工作區",
               "7488ed8711": "檢視",
               "ae57cbf6e4": "無法刪除工作區",
-              "b81b4e40ca": "如果工作區清單看起來過時，請重新整理 Space 並再試一次。"
+              "b81b4e40ca": "如果工作區清單看起來過時，請重新整理 Space 並再試一次。",
+              "workspaceListChanged": "工作區清單已變更"
             },
             "toast": {
               "0899ebdb28": "Git 已忘記此工作區，但其目錄仍在磁碟上。請使用「強制刪除」移除孤立的目錄。",
@@ -11265,7 +13170,9 @@ export default {
               "905fc8efac": "Git 已移除此工作區。請使用「強制刪除」將其從 Orca 中清除。",
               "ead7b8ee15": "它有變更的檔案。請使用「強制刪除」仍將其刪除。",
               "locked": "此 Worktree 已被 Git 鎖定。請在其存放庫中執行 git worktree unlock <worktree-path>，然後重試刪除。",
-              "lockedReason": "此 Worktree 已被 Git 鎖定。Git 回報：{{value0}}。請在其存放庫中執行 git worktree unlock <worktree-path>，然後重試刪除。"
+              "lockedReason": "此 Worktree 已被 Git 鎖定。Git 回報：{{value0}}。請在其存放庫中執行 git worktree unlock <worktree-path>，然後重試刪除。",
+              "unstoppedPty": "Orca 無法確認此工作區中的所有終端機都已結束，因此在刪除任何檔案前就已停止。如仍要移除，請使用「強制刪除」。",
+              "unstoppedPtyLive": "此工作區仍有執行中的終端機，因此 Orca 在刪除任何檔案前就已停止。「強制刪除」會終止這些終端機，並捨棄其中所有未提交的工作。"
             }
           }
         },
@@ -11295,6 +13202,33 @@ export default {
           "a11c2f6d89": "無法保持外部 Worktree 隱藏。請重試。",
           "b7e4d1a062": "無法匯入外部 Worktree。請重試。",
           "c94f0b3a15": "無法永久隱藏外部 Worktree。請重試。"
+        },
+        "preserved": {
+          "branch": {
+            "batch": {
+              "toast": {
+                "0e0379f24a": "已保留 {{count}} 個分支",
+                "0e0379f24a_one": "已保留 {{count}} 個分支",
+                "0e0379f24a_other": "已保留 {{count}} 個分支",
+                "1e1a5f6763": "已刪除本機分支：{{value0}}",
+                "43d9395605": "已刪除 {{value0}}，{{value1}} 未刪除",
+                "4cf75caab7": "{{value0}}、{{value1}}",
+                "6310412304": "審查 {{count}} 個分支",
+                "6310412304_one": "審查 {{count}} 個分支",
+                "6310412304_other": "審查 {{count}} 個分支",
+                "a3cdd9d9e6": "Git 保留了 {{count}} 個本機分支，因為其中可能含有未合併的提交。保留的分支不會保留工作區資料夾，但其提交仍會留在存放庫中。Orca 可能會繼續在背景釋放工作區的磁碟空間。",
+                "a3cdd9d9e6_one": "Git 保留了 {{count}} 個本機分支，因為其中可能含有未合併的提交。保留的分支不會保留工作區資料夾，但其提交仍會留在存放庫中。Orca 可能會繼續在背景釋放工作區的磁碟空間。",
+                "a3cdd9d9e6_other": "Git 保留了 {{count}} 個本機分支，因為其中可能含有未合併的提交。保留的分支不會保留工作區資料夾，但其提交仍會留在存放庫中。Orca 可能會繼續在背景釋放工作區的磁碟空間。",
+                "cea24c2b7d": "已移除 {{count}} 個工作區",
+                "cea24c2b7d_one": "已移除 {{count}} 個工作區",
+                "cea24c2b7d_other": "已移除 {{count}} 個工作區",
+                "d42f1f14e0": "重試 {{count}} 個分支",
+                "d42f1f14e0_one": "重試 {{count}} 個分支",
+                "d42f1f14e0_other": "重試 {{count}} 個分支",
+                "e61d78054f": "正在刪除本機分支：{{value0}}"
+              }
+            }
+          }
         },
         "remote": {
           "file": {
@@ -11423,9 +13357,110 @@ export default {
               "7c2f009786": "進行中"
             }
           }
+        },
+        "worktreeIssueDisplacement": {
+          "3f61c0a8d2": "Linear {{value}}",
+          "9c4b7e1f60": "GitHub #{{value}}"
         }
       },
       "skills": {
+        "SkillBundleInstallFlow": {
+          "01c5a13e01": "關閉",
+          "01c5a13e02": "取消安裝",
+          "01c5a13e03": "正在安裝…",
+          "01c5a13e04": "重試 {{value0}} 個技能",
+          "01c5a13e05": "安裝 {{value0}} 個技能"
+        },
+        "SkillBundleInstallOutcome": {
+          "01c5a12e01": "已安裝",
+          "01c5a12e02": "已更新",
+          "01c5a12e03": "未變更",
+          "01c5a12e04": "保留本機版本",
+          "01c5a12e05": "失敗",
+          "01c5a12e06": "已取消",
+          "01c5a12e07": "技能包安裝需要處理。",
+          "01c5a12e08": "技能已安裝並驗證。",
+          "01c5a12e09": "已檢查 {{value0}} 個所選技能。",
+          "01c5a12e10": "需要重試"
+        },
+        "SkillBundleInstallReview": {
+          "01c5a11e01": "不可變更的版本",
+          "01c5a11e02": "{{value0}} 個技能",
+          "01c5a11e03": "{{value0}} 個檔案",
+          "01c5a11e04": "{{value0}} 個指令碼",
+          "01c5a11e05": "{{value0}} 個可執行檔",
+          "01c5a11e06": "SHA-256",
+          "01c5a11e09": "版本資訊：",
+          "01c5a11e0a": "技能內含指示，也可能含有指令碼。請將其視為來自作者的程式碼。",
+          "01c5a11e0b": "要安裝的技能",
+          "01c5a11e0c": "你可以選擇此技能包中的任意技能。",
+          "01c5a11e0d": "全選",
+          "01c5a11e0e": "沒有描述",
+          "01c5a11e0f": "{{value0}} 個檔案 · {{value1}} 個指令碼",
+          "01c5a11e10": "{{value0}} 個可執行檔",
+          "01c5a11e11": "本機副本需要你決定",
+          "01c5a11e12": "Orca 預設會保留這些本機副本。請只選取要捨棄並取代的副本。",
+          "01c5a11e13": "取代 {{value0}}（{{value1}}）",
+          "01c5a11e14": "{{value0}} 個新增",
+          "01c5a11e15": "{{value0}} 個未變更",
+          "01c5a11e16": "{{value0}} 個更新",
+          "01c5a11e17": "{{value0}} 個衝突"
+        },
+        "SkillCard": {
+          "01c5a16e01": "選取 {{value0}}",
+          "d25a1b8ae6": "分享技能"
+        },
+        "SkillCloudManagementActions": {
+          "0ac5c175fd": "確認取消分享",
+          "2552c12fea": "存取權",
+          "2b8c569ea7": "目前組織",
+          "3d346ddce8": "現有接收者",
+          "505cd6105c": "雲端分享控制項",
+          "640bc6b92e": "確認刪除套件",
+          "6b6adf68c1": "刪除所選的雲端版本",
+          "7a80285dad": "取消分享",
+          "8cac3b9362": "有效連結",
+          "9e6bd31487": "沒有有效的分享連結。",
+          "activeLinkBearerDescription": "任何持有有效連結的人都能檢視並安裝這些技能。撤銷會封鎖日後的存取，但不影響已安裝的副本。",
+          "bbec37d8f8": "確認刪除版本",
+          "c7f2b69122": "取消分享會封鎖日後的安裝。已安裝在機器上的副本會保留。",
+          "cc8e4ef6ba": "儲存存取權",
+          "copyLink": "複製連結",
+          "eb603f7888": "（不在目前清單中）將會保留。",
+          "ed753624c0": "刪除雲端套件",
+          "linkCopied": "已複製分享連結"
+        },
+        "SkillDelete": {
+          "blockedLine": "{{count}} × {{reason}}",
+          "confirmHost": "位於 {{host}}。",
+          "confirmPermanent": "此動作無法復原。",
+          "dismissResults": "關閉",
+          "failed": "無法刪除技能",
+          "hostUnavailable": "無法連線到所選的機器。請重新整理後再試一次。",
+          "hostUnresolved": "仍在尋找擁有這些技能的機器。",
+          "hostUpdateRequired": "請更新所選機器上的 Orca 以刪除技能。",
+          "nothingOne": "無法從這裡刪除該技能。",
+          "nothingOther": "所選的 {{count}} 個技能都無法從這裡刪除。",
+          "placementJoin": "和",
+          "placementSummaryParts": "將從 {{roots}} 中移除 {{parts}}。",
+          "reasonBundled": "隨 Orca 內建，刪除後會被還原",
+          "reasonMissing": "此技能已不在磁碟上",
+          "reasonPlugin": "由外掛安裝，請改為移除該外掛",
+          "reasonStale": "載入清單後此技能已變更，請重新整理後再試一次",
+          "reasonUnowned": "此技能位於 Orca 的技能資料夾之外，請到其儲存位置刪除",
+          "resultLine": "{{count}} × {{label}}",
+          "retainedSource": "技能本身仍保留在 {{path}}。",
+          "statusBusy": "忙碌中：另一項技能作業正在進行",
+          "statusDeleted": "已刪除",
+          "statusFailed": "失敗：未做任何變更",
+          "statusPartial": "部分移除：部分檔案仍以隱藏名稱留在磁碟上",
+          "statusSkipped": "已略過"
+        },
+        "SkillDetailDialog": {
+          "agents": "Agent",
+          "copy": "複製",
+          "updated": "更新時間"
+        },
         "SkillFreshnessNudge": {
           "description": "更新 {{value0}}，讓 Agent 遵循此版本 Orca 的最新指示。",
           "titleMany": "{{value0}} 個已安裝的 Orca 技能已過期",
@@ -11441,6 +13476,7 @@ export default {
           "chipExternalLink": "外部連結",
           "chipInRepo": "位於存放庫",
           "chipInaccessible": "無法存取",
+          "chipNewer": "較新",
           "chipPluginCache": "外掛快取",
           "chipReadOnly": "唯讀",
           "chipUnrecognized": "無法識別",
@@ -11449,8 +13485,10 @@ export default {
           "skippedReasonExternalLink": "此副本是指向 Orca 技能資料夾外部的捷徑，因此 Orca 未將它納入更新。",
           "skippedReasonInRepo": "這是專案技能，而非全域技能；Orca 只會更新你的全域技能，因此未將它納入更新。",
           "skippedReasonInaccessible": "Orca 無法讀取此副本，因此未將此技能納入更新。",
+          "skippedReasonNewer": "這份副本的版本比此 Orca 版本內附的還新，因此 Orca 未予變更，以免將其降版。更新 Orca 即可讓兩者一致。",
           "skippedReasonPluginCache": "此技能由外掛管理，因此 Orca 未將它納入更新；請改為更新該外掛。",
           "skippedReasonReadOnly": "此副本位於唯讀位置，因此 Orca 未將它納入更新。請變更其權限，讓 Orca 得以更新。",
+          "skippedReasonStaleRecord": "技能更新程式沒有這份副本的可用記錄，因此會將此技能回報為已是最新並且不做任何變更。請重新安裝以修正記錄：{{value0}}",
           "skippedReasonUnrecognized": "此處的副本與官方版本不符，可能已被修改，或是同名的另一個技能。Orca 未將它納入更新，以免覆寫它。若希望 Orca 更新此技能，請將它移除。",
           "statusCantUpdate": "無法更新",
           "statusUpdateAvailable": "有可用更新",
@@ -11460,11 +13498,14 @@ export default {
           "tipExternalLink": "指向 Orca 技能資料夾之外的捷徑。",
           "tipInRepo": "這份副本位於某個專案內，而非你的全域技能。",
           "tipInaccessible": "Orca 無法讀取這份副本（權限或檔案錯誤）。",
+          "tipNewer": "這份副本的版本比此 Orca 版本內附的還新。",
           "tipPluginCache": "這份副本由外掛管理。",
           "tipReadOnly": "這份副本位於唯讀位置。",
           "tipUnrecognized": "這份副本不符合任何官方版本，可能已被修改，或是另一個同名的技能。"
         },
         "SkillFreshnessStatusPill": {
+          "checkFailed": "檢查失敗",
+          "checking": "正在檢查…",
           "details": "詳細資訊",
           "installed": "已安裝",
           "needsAttention": "需要注意",
@@ -11474,18 +13515,242 @@ export default {
         "SkillFreshnessUpdateDialog": {
           "attention": "部分已安裝的 Orca 技能未納入此次更新。",
           "attentionDescription": "開啟「更新詳細資訊」檢視每一項被略過的原因。",
+          "blockedMany": "{{value0}} 個技能無法自動更新。",
+          "blockedOne": "1 個技能無法自動更新。",
           "checkNow": "重新檢查",
           "checking": "正在檢查已安裝的 Orca 技能…",
           "close": "關閉",
+          "copied": "已複製",
+          "copyCommand": "複製命令",
           "details": "更新詳細資訊",
+          "done": "完成",
+          "errorTitle": "更新未完成",
           "none": "找不到已安裝的 Orca 技能。",
+          "progressAria": "正在更新技能",
+          "retry": "重試",
+          "runningDescription": "你可以關閉此視窗，更新會在背景繼續執行。",
+          "runningMany": "正在更新 {{value0}} 個技能…",
+          "runningOne": "正在更新 1 個技能…",
+          "scanCandidateLimit": "Orca 找到的同名技能資料夾超出可安全檢查的數量。",
+          "scanDepthLimit": "Orca 在檢查此資料夾前已達外掛掃描深度上限。",
+          "scanEntryLimit": "Orca 在檢查此快取的其餘部分前已達外掛掃描項目上限。",
+          "scanIncomplete": "Orca 無法完成檢查由外掛管理的技能。",
+          "scanIoError": "Orca 無法讀取此外掛路徑。",
+          "scanIoErrorWithCode": "Orca 無法讀取此外掛路徑（{{value0}}）。",
+          "scanIssueLimit": "Orca 略過的外掛資料夾過多，無法逐一列出。",
+          "scanManifestLimit": "此外掛資訊清單超過安全上限，因此 Orca 已略過。",
+          "scanOutsideRoot": "此外掛路徑指向外掛快取之外，因此 Orca 已略過。",
+          "showLog": "顯示記錄",
+          "stop": "停止",
+          "stopping": "正在停止…",
+          "stoppingHeadline": "正在停止更新…",
           "success": "所有已安裝的 Orca 技能皆為最新。",
           "terminalAria": "Orca 技能更新終端機",
           "terminalDescription": "檢查預先填好的命令，然後按 Enter 執行。",
           "terminalTitle": "更新 Orca 技能",
           "title": "更新技能",
+          "updateActionMany": "更新 {{value0}} 個技能",
+          "updateActionOne": "更新 1 個技能",
           "updateMany": "可安全更新 {{value0}} 個技能",
-          "updateOne": "可安全更新 1 個技能"
+          "updateOne": "可安全更新 1 個技能",
+          "updatedMany": "已更新 {{value0}} 個技能",
+          "updatedOne": "已更新 1 個技能",
+          "updatedPartial": "已更新 {{value0}}／{{value1}} 個技能",
+          "updating": "正在更新…"
+        },
+        "SkillInstallDialog": {
+          "01c5a14e01": "安裝共用技能",
+          "05588076a9": "取消安裝",
+          "241e72f9d6": "正在安裝…",
+          "39acb9e8f4": "安裝技能",
+          "4a00d133c5": "Orca 會先驗證存取權與套件身分，再變更所選的機器。",
+          "59c3b76cdd": "重試安裝",
+          "d198ec91e5": "關閉",
+          "fcbec627cc": "安裝共用技能",
+          "opening": "正在開啟此連結…"
+        },
+        "SkillInstallManagementDialog": {
+          "070654c6d1": "除非你明確捨棄本機變更，否則 Orca 會保留它們。",
+          "0900db719a": "— 已中斷連線",
+          "176fef9516": "· SSH",
+          "1c9e7f420a": "已安裝的技能包技能",
+          "2ae587d39c": "重試未完成的安裝",
+          "34c2ef9e71": "安裝 {{count}} 個技能",
+          "3677ae58e7": "Orca 從連結安裝的技能。你可以重新安裝、還原到先前的版本，或將其移除。",
+          "44d118a8f7": "由 Orca 安裝",
+          "470d8d2476": "確認移除",
+          "561e49ccd1": "安裝所選版本",
+          "64c71cf7b9": "Orca 尚未在這台機器上安裝任何技能。",
+          "6cb1fbe039": "這台電腦",
+          "74b70892ea": "本機檔案已修改",
+          "8095927ff3": "關閉",
+          "86ed219b55": "選擇版本",
+          "9c04bd0120": "已安裝的版本",
+          "a0cab67c2f": "移除 {{count}} 個技能",
+          "c1d03ee50d": "取消安裝",
+          "dab29e4b54": "已安裝 {{installed}} 個 · 已更新 {{updated}} 個 · 保留本機 {{keptLocal}} 個",
+          "e1884c812e": "捨棄變更並安裝此版本",
+          "e91af0079f": "移除",
+          "f7c5075e77": "捨棄變更並移除",
+          "f970d8088d": "確認移除 {{count}} 個技能",
+          "installAnotherMachine": "安裝到其他機器"
+        },
+        "SkillInstallReviewContent": {
+          "157de228b4": "檢視技能",
+          "1b6ad2ca5c": "已檢查。",
+          "27672470d9": "開啟連結不會安裝任何內容。請先審查這個不可變更的版本。",
+          "2a31912f14": "Orca 發現",
+          "37d990b94c": "已變更的",
+          "3d8421ca2f": "可執行檔",
+          "3fc62a61eb": "位置",
+          "651b7d8a57": "本機副本需要你決定如何處理",
+          "66270286ac": "· 你可以放心重試。",
+          "66cff7a804": "https://app.orca.dev/skills/share/…",
+          "69236de8d6": "正在檢查…",
+          "87137bcb8d": "指令碼",
+          "89e2601162": "捨棄並取代",
+          "8f9833d509": "不可變更的版本",
+          "93eb0fe8c7": "Orca 技能連結",
+          "98ed90e523": "技能包含指示，也可能包含指令碼。請將它視為來自作者的程式碼。",
+          "a5675fb371": "內容，並保持原樣未動。你可以保留它，或明確捨棄並以此版本取代。",
+          "f72ee4022a": "SHA-256",
+          "fab8fce842": "檔案",
+          "releaseNotes": "發行說明：",
+          "targetHeader": "安裝目標"
+        },
+        "SkillInstallTargetFields": {
+          "0785d0a503": "— 需要更新",
+          "0c10a406fb": "WSL ·",
+          "0e5b43a9e3": "工作區",
+          "5845cfe543": "選擇 Worktree 或資料夾",
+          "63cc9e31fe": "目的地",
+          "71eefd7660": "— 已中斷連線",
+          "7a366323e7": "資料夾",
+          "8562dd1e6e": "這台電腦",
+          "85d85880df": "· SSH",
+          "8e6a972229": "這台機器上沒有已知的工作區。",
+          "a4dfd33095": "單一工作區",
+          "b8a0b706ad": "機器",
+          "c779621aa0": "全域技能",
+          "cb47652227": "執行環境",
+          "d628c416a2": "Git Worktree",
+          "e5b0d15e64": "主機作業系統"
+        },
+        "SkillInstallWorkspaceCombobox": {
+          "empty": "找不到工作區。",
+          "search": "搜尋工作區…"
+        },
+        "SkillManagedInstallList": {
+          "86c76cb262": "{{count}} 個技能包"
+        },
+        "SkillRow": {
+          "copyPath": "複製路徑",
+          "deleteSkill": "刪除…",
+          "detailContents": "內容",
+          "detailPath": "路徑",
+          "detailSource": "來源",
+          "notDeletable": "無法刪除",
+          "notShareable": "無法分享",
+          "pathCopied": "已複製路徑",
+          "skillActions": "{{value0}} 的動作",
+          "updatedUnknown": "無日期",
+          "viewDetails": "檢視詳細資訊"
+        },
+        "SkillSelectionBar": {
+          "clear": "清除",
+          "selectAll": "選取全部 {{count}} 個符合條件的項目"
+        },
+        "SkillShareDialog": {
+          "0f07fa2a79": "發布技能",
+          "30985d4fc0": "取消",
+          "3a51d0f34f": "取消上傳",
+          "3af85f6add": "完成",
+          "7aa4ba0dba": "發布新版本",
+          "copied": "已複製分享連結",
+          "description": "審查確切的檔案、選擇可存取的對象，然後發布不可變更的版本。",
+          "descriptionV2": "審查確切的檔案，然後發布受不公開連結保護的不可變更版本。",
+          "e9d652ae3d": "正在取消…",
+          "newVersionDescription": "審查確切的檔案，然後將不可變更的版本發布到現有的 Cloud 套件。",
+          "peopleRequired": "請至少選取一位團隊成員。",
+          "prepareFailed": "無法準備此技能以供分享。",
+          "preparing": "正在準備預覽…",
+          "publishBundle": "發布技能包",
+          "publishCancelled": "已取消上傳。準備好的副本仍可用於重試。",
+          "publishFailed": "無法發布此技能。準備好的副本仍可用於重試。",
+          "ready": "技能連結已就緒",
+          "readyDescription": "收件者必須先透過 Orca 驗證身分，才能檢視或安裝。",
+          "readyDescriptionV2": "任何擁有此不公開連結的人都能檢視並安裝這些技能。",
+          "reconnect": "分享前請重新連線你的 Orca 帳號。",
+          "title": "分享技能",
+          "unconfigured": "分享前請先連線 Orca Cloud 帳號。"
+        },
+        "SkillShareReviewContent": {
+          "0142581727": "正在上傳…",
+          "01c5a17e01": "{{value0}} 個技能",
+          "01c5a17e02": "審查包含的技能",
+          "01c5a17e03": "{{value0}} 個檔案 · {{value1}}",
+          "0a49d901ab": "組織",
+          "0cd4b3e396": "所有目前屬於",
+          "266527d295": "以 {{value0}}{{value1}} 的身分發布。",
+          "2dca0b720b": "發布新的技能版本",
+          "3121f44358": "檔案",
+          "4895d3e0ee": "沒有可選的團隊成員。",
+          "6817a7f6f8": "技能存取權",
+          "6d6233a3a4": "複製連結",
+          "77f636eac3": "可執行檔",
+          "78d863235c": "存取權",
+          "8188f5d765": "的成員都能存取此連結。",
+          "8edd32622f": "指令碼",
+          "ad940367a5": "正在驗證並發布…",
+          "b3b1d4b911": "SHA-256",
+          "bf02d6ed9e": "此版本有哪些變更？",
+          "bundleReady": "技能包連結已就緒",
+          "c15d90c10b": "需要已連線的 Orca Cloud 帳號。",
+          "e3caf6baeb": "撤銷此連結會阻擋日後的存取，但不會移除已安裝在收件者機器上的副本。",
+          "f0c0411549": "發行說明",
+          "f25429e266": "所選人員",
+          "fe204e06f0": "該組織",
+          "publishBundleVersion": "發布新的技能包版本",
+          "publishingLink": "正在發布連結…",
+          "shareBundle": "分享技能包",
+          "unlistedLinkDetails": "此連結無法被搜尋，也不會公開列出。撤銷後即可阻擋日後的存取；已安裝的副本會保留。",
+          "unlistedLinkTitle": "不公開連結",
+          "unlistedPublishingAs": "以 {{value0}} 的身分發布。任何擁有此連結的人都能檢視並安裝這些技能。",
+          "verifyingPackage": "正在驗證套件…"
+        },
+        "SkillShareSelectionControls": {
+          "01c5a15e01": "取消分享",
+          "01c5a15e02": "分享技能",
+          "01c5a15e03": "已選取 {{value0}} 個",
+          "01c5a15e04": "選取所有結果",
+          "01c5a15e05": "分享 {{value0}} 個技能",
+          "01c5a15e06": "請在擁有此技能的機器上開啟它以進行分享。",
+          "01c5a15e07": "請先安裝此技能再分享。",
+          "01c5a15e08": "只能分享家目錄與工作區技能。",
+          "01c5a15e09": "已從其他來源選取同名的技能。"
+        },
+        "SkillSharedLinkRow": {
+          "confirmDelete": "確認刪除",
+          "contentsUnavailable": "無法載入此連結包含的內容。",
+          "deleteFailed": "Orca 無法從雲端刪除此項目。",
+          "deletePackage": "從雲端刪除",
+          "deleted": "已從雲端刪除",
+          "loading": "正在載入內容…",
+          "moreActions": "{{name}} 的更多動作"
+        },
+        "SkillSharedLinksView": {
+          "loading": "正在載入共用連結…",
+          "noMatches": "沒有符合此搜尋的連結。"
+        },
+        "SkillUpdateResultRows": {
+          "stillOutdated": "執行更新後仍未更新至最新版本。"
+        },
+        "SkillUpdateRow": {
+          "manyLocations": "{{value0}} 個位置",
+          "oneLocation": "1 個位置"
+        },
+        "SkillsList": {
+          "listLabel": "技能"
         },
         "SkillsPage": {
           "08a321a984": "調整搜尋或篩選條件。",
@@ -11506,14 +13771,197 @@ export default {
           "a68dee6a32": "搜尋技能",
           "aa59462502": "存放庫",
           "ab5b777350": "已檢查本機家目錄、存放庫、內建與外掛技能資料夾。",
+          "aee7b99cc6": "從連結安裝",
+          "allSources": "全部",
           "b088e0785d": "Beta",
+          "c13b82793c": "管理安裝",
           "cb142070b4": "重新整理",
           "cd7893fbc1": "正在掃描技能",
+          "clearFilters": "清除篩選條件",
+          "closeSkills": "關閉技能",
+          "closeTooltip": "關閉 · Esc",
           "dc4c3328ee": "顯示檔案",
+          "deleteSkills": "刪除技能…",
           "e46e162e2e": "從",
           "ea72d6185b": "無法掃描本機技能",
+          "emptyCopy": "掃描的技能資料夾是空的。請安裝共用技能包，或在新增技能後重新整理。",
           "f43ad6edf3": "技能",
-          "fb6bf60b52": "Claude"
+          "fb6bf60b52": "Claude",
+          "filterProvider": "依 Agent 篩選",
+          "filterSource": "依來源篩選",
+          "moreActions": "更多動作",
+          "remoteShareNotice": "這些技能位於 {{host}}。請在該機器上開啟技能頁面來分享它們。",
+          "retry": "重試",
+          "searchLinks": "搜尋連結",
+          "sharedLinks": "共用連結",
+          "viewSwitch": "顯示"
+        },
+        "SkillsSelectionHeader": {
+          "clear": "清除",
+          "deleteTitle": "選取要刪除的技能",
+          "exit": "結束選取",
+          "exitTooltip": "結束選取 · Esc",
+          "selectAll": "選取全部 {{count}} 個符合條件的項目",
+          "title": "選取要分享的技能"
+        },
+        "SkillsSharedLinksHeader": {
+          "back": "返回技能",
+          "backTooltip": "返回技能 · Esc",
+          "unlisted": "不公開：只有擁有連結的人才能開啟。"
+        },
+        "count": {
+          "deleteFolderOne": "{{count}} 個資料夾",
+          "deleteFolderOther": "{{count}} 個資料夾",
+          "deleteLinkOne": "{{count}} 個連結",
+          "deleteLinkOther": "{{count}} 個連結",
+          "deleteOne": "刪除 {{count}} 個技能",
+          "deleteOther": "刪除 {{count}} 個技能",
+          "deletedOne": "已刪除 {{count}} 個技能",
+          "deletedOther": "已刪除 {{count}} 個技能",
+          "fileOne": "{{count}} 個檔案",
+          "fileOther": "{{count}} 個檔案",
+          "installOne": "安裝 {{count}} 個技能",
+          "installOther": "安裝 {{count}} 個技能",
+          "linkOne": "{{count}} 個連結",
+          "linkOther": "{{count}} 個連結",
+          "resultOne": "{{count}} 個結果",
+          "resultOther": "{{count}} 個結果",
+          "retryOne": "重試 {{count}} 個技能",
+          "retryOther": "重試 {{count}} 個技能",
+          "selected": "已選取 {{count}} 個",
+          "shareOne": "分享 {{count}} 個技能",
+          "shareOther": "分享 {{count}} 個技能",
+          "skillOne": "{{count}} 個技能",
+          "skillOther": "{{count}} 個技能",
+          "sourceOne": "{{count}} 個來源",
+          "sourceOther": "{{count}} 個來源"
+        },
+        "description": {
+          "showLess": "顯示較少",
+          "showMore": "顯示更多"
+        },
+        "filter": {
+          "allAgents": "所有 Agent",
+          "sharedAgent": "共用（.agents）"
+        },
+        "host": {
+          "local": "這台機器",
+          "remote": "已連線的執行環境"
+        },
+        "install": {
+          "additionalAgentsHeader": "其他 Agent 目錄",
+          "agentAccessWarning": "技能包含你的 Agent 可能會遵循的指示。請確認你信任此分享連結的來源後再繼續。",
+          "agentAlways": "一律",
+          "agentNotInstalled": "未安裝",
+          "agentsCanonical": "一律會為 {{value0}} 安裝，這些 Agent 會讀取 {{value1}}。",
+          "agentsCanonicalNote": "{{value0}} 會讀取 {{value1}}，每次安裝都會寫入該處。",
+          "agentsCountBadge": "已選取 {{count}} 個",
+          "agentsCountLabel": "{{count}} {{label}}",
+          "agentsLabel": "Agent",
+          "agentsNone": "未選取任何 Agent",
+          "agentsNoneChosen": "沒有其他 Agent",
+          "agentsSelected": "安裝對象：{{value0}}",
+          "agentsSummary": "另外：{{value0}}",
+          "bundleDestinationSummary": "{{value0}} 個新的 · {{value1}} 個已安裝 · {{value2}} 個需要決定",
+          "canonicalExplanation": "這些 Agent 原生讀取 {{root}}，也就是 Orca 預設的安裝位置：",
+          "canonicalHeader": "標準 Agent（一律包含）",
+          "chooseSkills": "選擇要從此連結安裝的項目。",
+          "deselectAll": "取消全選",
+          "fileBinary": "二進位檔",
+          "fileRunnable": "可執行",
+          "linkHint": "開啟連結絕不會安裝任何內容，你會先進行審查。",
+          "reviewInstructions": "關於此技能",
+          "reviewRunnableFiles": "包含指令碼或二進位檔",
+          "reviewSupportingFiles": "審查支援檔案",
+          "rowInstalled": "已安裝",
+          "rowNeedsDecision": "需要決定",
+          "rowNew": "新增",
+          "rowUpdate": "更新",
+          "runnableWarning": "所選的 {{selectedCount}} 個技能中，有 {{affectedCount}} 個包含指令碼或二進位檔：{{affected}}。",
+          "selectAll": "全選",
+          "singleRunnableWarning": "此技能包含指令碼或二進位檔。",
+          "supportingFileWarning": "所選技能包含 SKILL.md 以外的 {{fileCount}}。",
+          "targetAgentsHeader": "目標 Agent",
+          "trustNote": "技能是來自作者的指示與程式碼。請只安裝你信任的內容。"
+        },
+        "managedInstall": {
+          "cancel": "取消",
+          "confirmRemove": "確認移除",
+          "discardEdits": "捨棄我的編輯並重新安裝",
+          "discardEditsRemove": "捨棄我的編輯並移除",
+          "editedWarning": "除非你選擇捨棄，否則你的編輯會保留下來。",
+          "finishInstall": "完成安裝",
+          "installElsewhere": "安裝到其他位置…",
+          "installedOn": "安裝於 {{date}}",
+          "reinstall": "重新安裝",
+          "remove": "移除",
+          "scopeGlobal": "所有位置",
+          "scopeWorkspace": "此工作區",
+          "sendToMachine": "傳送到其他機器",
+          "skillEdited": "已編輯",
+          "skillMissing": "遺失",
+          "stateEdited": "安裝後已編輯",
+          "stateMissing": "檔案遺失",
+          "titleMore": "{{name}} +{{count}}",
+          "useVersion": "使用此版本",
+          "versionCurrent": "{{date}}（已安裝）",
+          "versionLabel": "版本"
+        },
+        "share": {
+          "accessSummary": "任何擁有此連結的人都能安裝。此連結不會在任何地方列出；撤銷後會阻擋新的安裝，但不影響已安裝的副本。以 {{value0}} 的身分發布。",
+          "accessSummaryPlain": "不公開連結：任何擁有此連結的人都能安裝。",
+          "accessSummaryShort": "不公開連結：任何擁有此連結的人都能安裝。以 {{value0}} 的身分發布。",
+          "description": "發布受不公開連結保護的不可變更版本。",
+          "executableOne": "{{count}} 個可執行檔",
+          "executableOther": "{{count}} 個可執行檔",
+          "fileExecutable": "可執行檔",
+          "fileScript": "指令碼",
+          "manageLinks": "在設定中管理或撤銷此連結",
+          "newVersionDescription": "將不可變更的版本發布到現有的套件。",
+          "newVersionDescriptionPlain": "在現有連結中新增一個版本。",
+          "noExecutableContent": "沒有指令碼或可執行檔",
+          "readyDescription": "複製連結以分享。",
+          "releaseNotesFirst": "描述此次發行",
+          "releaseNotesOptional": "新增發行說明（選填）",
+          "releaseNotesVersion": "發行說明",
+          "reviewFiles": "審查可執行的檔案",
+          "reviewSkills": "審查包含的技能",
+          "scriptOne": "{{count}} 個指令碼",
+          "scriptOther": "{{count}} 個指令碼"
+        },
+        "skill-install-progress-state": {
+          "currentSkill": "正在安裝第 {{value0}}／{{value1}} 個：{{value2}}…"
+        },
+        "skillWarningPreview": {
+          "binaryFilesDescription": "包含不透明的資產與可執行的二進位檔。",
+          "bundleDescription": "涵蓋所有警告等級的預覽技能包。",
+          "instructionsOnlyDescription": "指示完全包含在 SKILL.md 中。",
+          "runnableFilesDescription": "包含 Agent 可能以你的權限執行的指令碼。",
+          "supportingFilesDescription": "包含主要指示以外可讀取的參考檔案。"
+        },
+        "sourceKind": {
+          "bundled": "內建",
+          "home": "家目錄",
+          "plugin": "外掛",
+          "workspace": "工作區"
+        },
+        "sourceStatus": {
+          "missing": "找不到資料夾",
+          "remoteRepo": "遠端存放庫：未掃描",
+          "unavailable": "未掃描"
+        },
+        "sources": {
+          "heading": "技能資料夾"
+        }
+      },
+      "source": {
+        "control": {
+          "SourceControlActionVariableChips": {
+            "1b77798d5f": "變數",
+            "4bf6d88039": "（空白）",
+            "6b921a0ac2": "範例",
+            "7377483644": "此工作區"
+          }
         }
       },
       "sparse": {
@@ -11745,11 +14193,15 @@ export default {
           "c79f073d4c": "使用量分析",
           "eb6a066185": "claude",
           "eee19cfade": "概覽",
-          "grokUsageTab": "Grok"
+          "grokUsageTab": "Grok",
+          "trackingSince": "自 {{value0}} 起追蹤"
         },
         "UsageBreakdownSection": {
+          "02a046792e": "工作階段 •",
           "247c93ca92": "• 推估定價",
-          "7765a4c3e1": "不適用"
+          "32176e1d44": "輪次",
+          "7765a4c3e1": "不適用",
+          "79a69522a5": "事件"
         },
         "UsageOverviewPane": {
           "0ea0cae435": "啟用 Claude",
@@ -11849,13 +14301,24 @@ export default {
               "d9a4b3e2f1c5": "事件",
               "e65084cb4b": "推理",
               "f28ff1f852": "近期 Claude、Codex 與 OpenCode 的綜合 Token 活動。",
-              "f6df0d7d6d": "更多"
+              "f6df0d7d6d": "更多",
+              "statusEnabled": "已啟用",
+              "statusOff": "關閉",
+              "statusScanning": "掃描中"
             }
           }
         }
       },
       "status": {
         "bar": {
+          "CaffeinateStatusSegment": {
+            "active": "作用中",
+            "ariaLabel": "{{title}}，{{status}}",
+            "autoDescription": "Agent 工作時保持喚醒",
+            "inactive": "未啟用",
+            "offDescription": "允許系統正常進入睡眠",
+            "onDescription": "讓這台電腦持續保持喚醒"
+          },
           "PetStatusSegment": {
             "3668339495": "移除 {{value0}}",
             "0608ad02a2": "選擇寵物",
@@ -11950,6 +14413,22 @@ export default {
             "f8e0d794b4": "守護程式沒有回應",
             "fa6d36758d": "終止工作階段 {{value0}}"
           },
+          "SkillUpdateStatusSegment": {
+            "errorAria": "技能更新失敗。按一下以開啟詳細資訊。",
+            "errorLabel": "更新失敗",
+            "errorTooltip": "技能更新失敗，按一下以查看詳細資訊",
+            "runningAria": "正在更新技能。按一下以開啟詳細資訊。",
+            "runningLabel": "正在更新技能",
+            "runningMany": "正在更新 {{value0}} 個技能…",
+            "runningOne": "正在更新 {{value0}}…",
+            "stoppingAria": "正在停止技能更新。按一下以開啟詳細資訊。",
+            "stoppingLabel": "正在停止更新",
+            "stoppingTooltip": "正在停止技能更新…",
+            "successAria": "技能已更新。按一下以開啟詳細資訊。",
+            "successLabel": "技能已更新",
+            "successMany": "已更新 {{value0}} 個技能",
+            "successOne": "已更新 {{value0}}"
+          },
           "SshStatusSegment": {
             "2c29e2de68": "連線失敗",
             "3ad70e0365": "管理遠端主機…",
@@ -11961,6 +14440,9 @@ export default {
             "95e4ff5b4b": "Push 中",
             "bc5a3fd41a": "部分",
             "bf07aee59e": "中斷連線失敗",
+            "connectedHostCount_one": "{{count}} 部主機",
+            "connectedHostCount_other": "{{count}} 部主機",
+            "connecting": "正在連線…",
             "d09ec41831": "遠端主機",
             "fbb3f9f05e": "衝突",
             "fd9a3c600e": "錯誤",
@@ -11973,7 +14455,10 @@ export default {
             "runtime_online": "已連線",
             "runtime_reconnect_attempt": "第 {{value0}} 次嘗試",
             "runtime_reconnecting": "重新連線中",
-            "runtime_unavailable": "已中斷連線"
+            "runtime_unavailable": "已中斷連線",
+            "runtime_workspace_window_closed": "工作區視窗已關閉",
+            "workspaceConflict": "工作區衝突",
+            "workspaceSyncError": "工作區同步錯誤"
           },
           "SshTargetStatusRow": {
             "sshHost": "SSH 主機"
@@ -12024,6 +14509,8 @@ export default {
             "c8857b40f7": "重新整理使用資料",
             "c98ea88392": "沒有其他帳號",
             "cd9d7b40ff": "重新啟動 {{value0}} 個工作階段",
+            "codexSignInError": "Codex 登入失敗，請再試一次。",
+            "codexSignInSuccess": "已登入 Codex",
             "d1e1a7a6bf": "資源監視器",
             "d2375976eb": "開啟 Gemini 使用量詳細資訊",
             "d450654fa2": "Claude 帳號",
@@ -12034,6 +14521,7 @@ export default {
             "f19a63e7cd": "登入以檢視使用量",
             "fda8146810": "開啟 Kimi 使用量詳細資訊",
             "ff0fbe9311": "使用中",
+            "floatingTerminalNewActivity": "{{label}}，有新活動",
             "grokUsageAria": "開啟 Grok 使用詳細資訊",
             "grokUsageMenu": "Grok 使用量",
             "remoteServerLabel": "遠端伺服器"
@@ -12188,6 +14676,30 @@ export default {
               }
             }
           },
+          "resource": {
+            "manager": {
+              "terminal": {
+                "copy": {
+                  "ariaLabel": "資源管理員，{{sessions}}",
+                  "ariaLabelWithSpaceScan": "資源管理員，{{sessions}}，{{spaceScan}}",
+                  "memoryUnavailable": "無法取得記憶體資訊",
+                  "noTerminalSessions": "尚無終端機工作階段。",
+                  "sessionsGroupedByWorkspace": "終端機工作階段依工作區分組。",
+                  "spaceScanReady": "空間掃描已就緒",
+                  "terminalSessionCount_one": "{{count}} 個終端機工作階段",
+                  "terminalSessionCount_other": "{{count}} 個終端機工作階段",
+                  "tooltipSummary": "資源管理員 - {{memory}} - {{sessions}}"
+                }
+              }
+            },
+            "memory": {
+              "metric": {
+                "privateBytesDescription": "私用位元組總計：這些行程已認可的記憶體，無論常駐於實體記憶體或已分頁移出都會計入。這是主機計入認可上限的數值，因此即使上方的工作集因分頁而縮小，它仍會持續上升。",
+                "rssDescription": "常駐集大小（RSS）總計。共用或別名分頁可能會出現在多個行程中。",
+                "workingSetDescription": "工作集（WS）總計：目前常駐於 RAM 中的分頁。共用分頁可能會出現在多個行程中，且 Windows 已分頁移出的記憶體不會計入。"
+              }
+            }
+          },
           "tooltip": {
             "0d8d7cfe15": "正在等待 Claude 工作階段",
             "1292d4f2ee": "無法使用",
@@ -12327,23 +14839,45 @@ export default {
           },
           "TabBarCreateEntry": {
             "25dc1cd653": "開啟檔案",
+            "2c38630a01": "工作區已不存在",
             "39676a184c": "開啟任何檔案、URL、Agent…",
+            "4f0d9a71c2": "分頁已不存在",
+            "7726ce9970": "行動裝置模擬器分頁已不存在",
             "7cdf8ee0c8": "開啟 URL",
+            "8f0a1c4d92": "切換至分頁",
             "b27864279e": "啟動 Agent",
-            "d62d63b807": "建立檔案"
+            "chooseAction": "選擇動作。",
+            "d62d63b807": "建立檔案",
+            "d7d496a451": "瀏覽器頁面已不存在",
+            "omniboxPlaceholderWithHistory": "搜尋已開啟的分頁、歷史記錄、檔案、URL、Agent…",
+            "openPage": "開啟頁面",
+            "searchProvider": "搜尋 {{value0}}"
+          },
+          "TabBarQuickCommandAddActions": {
+            "45a2f36d51": "命令",
+            "b856c833ae": "{{value0}} 上的命令"
+          },
+          "TabBarQuickCommandHostLoadStatus": {
+            "7c129b08ff": "正在載入主機…",
+            "82e294f3ca": "主機無法使用"
           },
           "TabBarQuickCommandsButton": {
             "15529ede69": "編輯 {{value0}}",
+            "192a4616a5": "快速命令動作",
             "196593b6a9": "移除 {{value0}}",
             "1d411fb6a5": "為此存放庫儲存快速命令",
             "20bbd75896": "無命令",
             "3220e2da27": "此快速命令將從你儲存的清單中移除。",
             "37e1bb90ce": "執行：{{value0}}",
+            "53b17a4b1b": "無法複製",
+            "69a1441a21": "沒有可複製的內容",
             "77ac113df0": "開始 {{value0}}：{{value1}}",
             "7b1c9d6ae1": "執行",
             "85482c57bc": "執行快速命令",
+            "8d525e5f15": "已複製",
             "8f1e971966": "新增快速命令",
             "a2c7a33831": "命令",
+            "a9a564b7e7": "複製 {{value0}}",
             "b4e7f9a2c1": "沒有符合的命令",
             "b775303755": "執行快速命令：{{value0}}",
             "b82e237a4b": "更多快速命令",
@@ -12524,6 +15058,7 @@ export default {
             "06c2b0f043": "均衡窗格大小",
             "0a82b0608c": "新增快速命令…",
             "0a917b591a": "貼上",
+            "15dd899676": "新增至 {{value0}}…",
             "20e565d865": "向右分割終端機",
             "2cf85a6a55": "複製窗格 ID",
             "39809d152f": "設定標題…",
@@ -12540,19 +15075,52 @@ export default {
             "copyTerminalId": "複製終端機 ID",
             "df766809e0": "摺疊窗格",
             "ec85df5914": "快速命令",
-            "f3eeb1de13": "複製"
+            "f3eeb1de13": "複製",
+            "selectAll": "全選"
           },
           "TerminalErrorToast": {
             "5c8ce20be6": "如果問題持續發生，請",
             "a7e2fd2699": "回報問題",
             "cc6d997c65": "從這裡重新啟動終端機守護程式，以清除失效的守護程式狀態。",
-            "e4aa243f8c": "重新啟動守護程式"
+            "e16012e31e": "擁有此工作階段的終端機守護程式已結束，因此無法復原該工作階段及其捲動記錄。請開啟新的終端機以繼續。",
+            "e4aa243f8c": "重新啟動守護程式",
+            "remoteTerminalClosed": "遠端終端機已關閉。",
+            "sessionUnavailable": "Orca 無法重新附加到主機上此窗格的終端機工作階段。請開啟新的終端機以繼續。"
+          },
+          "TerminalLinkActionPopover": {
+            "copied": "已複製",
+            "copiedLink": "已複製連結",
+            "copyLink": "複製連結",
+            "copyLinkFailed": "無法複製連結",
+            "openFile": "開啟檔案",
+            "openFolder": "開啟資料夾",
+            "openInFinder": "在 Finder 中開啟",
+            "openLink": "開啟連結",
+            "openTaskTerminal": "開啟任務終端機",
+            "openWithDefaultApp": "使用預設應用程式開啟",
+            "orcaBrowser": "Orca 瀏覽器",
+            "switchTerminal": "切換終端機",
+            "switchWorkspace": "切換工作區",
+            "systemBrowser": "系統瀏覽器",
+            "terminalLinkSettings": "終端機連結設定"
           },
           "TerminalPane": {
             "7dbbfcbecc": "窗格標題",
             "ac112e9036": "移除標題",
             "cc5a2dc706": "編輯窗格標題：{{value0}}",
             "f984ab2a30": "移除窗格標題：{{value0}}"
+          },
+          "TerminalProcessExitOverlay": {
+            "capacityDetail": "Git Bash 已達 128 個主控台的上限。請關閉未使用的 Git Bash 終端機，然後重新啟動此終端機。",
+            "capacityTitle": "已達 Git Bash 主控台上限",
+            "close": "關閉",
+            "failedDetail": "Shell 行程已結束，結束代碼為 {{code}}。其輸出已保留。",
+            "failedTitle": "終端機已結束",
+            "restart": "重新啟動"
+          },
+          "TerminalQuickCommandsSubmenu": {
+            "3ccc7981bb": "主機無法使用",
+            "54f29b7c0d": "正在載入主機…"
           },
           "TerminalRemoteRuntimeReconnectBanner": {
             "disconnectedBody": "自動重試已停止。請重新連線以繼續此終端機工作階段。",
@@ -12598,6 +15166,12 @@ export default {
                     "description": "Zellij、tmux、Neovim 等終端機程式現在可以複製到你的剪貼簿。可在「終端機」設定中關閉。",
                     "title": "TUI 終端機剪貼簿寫入已預設為啟用"
                   }
+                }
+              },
+              "failed": {
+                "toast": {
+                  "62a0af2cb4": "無法確認終端機剪貼簿複製是否成功",
+                  "fdd3e7e977": "終端機應用程式要求複製，但 Orca 無法確認內容已送達系統剪貼簿。"
                 }
               }
             }
@@ -12648,6 +15222,13 @@ export default {
                 "context": {
                   "menu": {
                     "a29b9faa01": "已複製窗格 ID",
+                    "pane": {
+                      "id": {
+                        "copy": {
+                          "failed": "無法複製窗格 ID"
+                        }
+                      }
+                    },
                     "terminal": {
                       "id": {
                         "copied": "已複製終端機 ID",
@@ -12665,11 +15246,14 @@ export default {
         "quick": {
           "commands": {
             "TerminalQuickCommandActionToggle": {
+              "agent_short": "Agent",
               "b0d58e37ed": "Agent 提示詞",
-              "b5ea4d64f6": "終端機命令"
+              "b5ea4d64f6": "終端機命令",
+              "terminal_short": "終端機"
             },
             "TerminalQuickCommandAppendEnterSwitch": {
               "5fa607d807": "附加 Enter",
+              "767e4be3e3": "附加 Enter — 立即執行",
               "c936c2d6d2": "立即送出，而不只是插入文字。",
               "e4e5fed3b3": "切換附加 Enter"
             },
@@ -12683,12 +15267,16 @@ export default {
               "79af0c0841": "npm run dev",
               "925b8e0f6e": "進階",
               "97e96cc027": "/goal",
+              "agent_footer_hint": "可以使用多行提示詞，但請保持重點明確。",
+              "agent_toolbar_hint": "支援 /goal、技能、路徑",
               "ca414324ee": "命令文字",
+              "command_label": "命令",
               "dc921c17ee": "提示詞",
               "e604bd40d6": "支援技能、檔案路徑和內建命令，例如",
               "ec8f081919": "動作",
               "ed04233b3e": "儲存終端機命令或 Agent 提示詞以便快速取用。",
-              "f9b184fc16": "編輯快速命令"
+              "f9b184fc16": "編輯快速命令",
+              "resize_hint": "拖曳角落以調整大小"
             },
             "TerminalQuickCommandDialogFooter": {
               "28370f16b9": "取消",
@@ -12709,6 +15297,11 @@ export default {
               "f0631e4999": "存放庫"
             }
           }
+        }
+      },
+      "terminalPane": {
+        "useManualTerminalWorktreeParking": {
+          "cannotPark": "無法安全地停放這些終端機。"
         }
       },
       "ui": {
@@ -12778,6 +15371,7 @@ export default {
             "5bf2e88480": "已掃描 {{value0}}/{{value1}} 個 {{value2}}",
             "662b8ec3f8": "工作區清理掃描失敗",
             "73690b0031": "取消選取 {{value0}} 中的所有專案",
+            "74f6c16279": "返回",
             "7ae2ad30f4": "重新整理",
             "7b7bde5181": "目前已檢查的工作區：{{value0}}",
             "7eee951968": "正在檢查工作區安全性",
@@ -12818,6 +15412,7 @@ export default {
             "e97e4580c7": "有變更",
             "ee81adfcef": "檢視",
             "efb3843e75": "篩選並排序工作區",
+            "f637f63882": "資源管理員計為 {{value0}}，此清單找到 {{value1}}。該計數僅依據 Orca 的活動記錄，而此掃描還會檢查每個工作區的 Git 歷程記錄，並略過已中斷連線的遠端。",
             "f68d538c63": "此清理集合中沒有工作區。",
             "fc49f79434": "混合",
             "gitFilter": "Git",
@@ -12873,6 +15468,16 @@ export default {
             "unpushedCommits": "未推送的 commit",
             "unpushedCommitsCount": "未推送的 commit：{{value0}}",
             "volatileLocalContextBlocker": "易變的本機上下文"
+          },
+          "workspace": {
+            "cleanup": {
+              "candidate": {
+                "row": {
+                  "b5d2b33e47": "正在刪除…",
+                  "e1135728e3": "已排入刪除佇列"
+                }
+              }
+            }
           }
         },
         "space": {
@@ -12932,6 +15537,9 @@ export default {
         "nativeDropTooManyPathsDescription": "每次最多拖放 {{value0}} 個檔案。",
         "ownerChanged": "無法確認哪一台主機擁有此工作區。請等它重新連線後再試一次。"
       },
+      "useInstalledAgentSkills": {
+        "unreadableSkillSource": "有一個技能資料夾沒有回應，因此此狀態可能不完整。"
+      },
       "useIpcEvents": {
         "0e3cf53060": "找不到瀏覽器分頁 {{value0}}",
         "11992d0337": "如果這是你的手機或其他 Orca 用戶端，請從「設定」>「行動裝置」重新配對。",
@@ -12951,10 +15559,23 @@ export default {
         "f45fa2b03c": "當遠端執行環境作用中時，無法使用瀏覽器設定檔",
         "f6300deb8b": "新增瀏覽器分頁",
         "f8aaf2bde3": "工作區已上傳",
-        "unresolvedTerminalWorktreeOwner": "無法解析 Worktree 的擁有者，因此無法建立終端機"
+        "unresolvedTerminalWorktreeOwner": "無法解析 Worktree 的擁有者，因此無法建立終端機",
+        "workspaceChangedOnAnotherDevice": "工作區已在其他裝置上變更"
       },
       "useLargeTextControlPaste": {
         "pasteTooLarge": "貼上的內容過大。"
+      },
+      "useMacTccAttributionSeveredNotice": {
+        "description": "執行中的 Orca 終端機由先前安裝的 Orca 所啟動的守護程式代管。macOS 可能不會將 Orca 的輔助使用、自動化或受保護檔案權限套用到這些終端機。請從「管理工作階段」重新啟動守護程式以恢復存取權限。這會關閉所有執行中的 Orca 終端機。",
+        "dismiss": "關閉",
+        "openManageSessions": "開啟管理工作階段",
+        "title": "macOS 權限可能無法套用到 Orca 終端機"
+      },
+      "useMacosTccPromptNotice": {
+        "description": "當在 Orca 中執行的 Agent 或終端機工具嘗試存取受保護的檔案時，macOS 可能會顯示權限訊息。在設定中授予「完整磁碟取用權限」可減少這類提示。",
+        "dismiss": "不再顯示",
+        "openSettings": "開啟設定",
+        "title": "看到「Orca 想要存取…」的提示嗎？"
       },
       "useSettingsNavigationMetadata": {
         "0059bd17f3": "讓 Agent 能控制你電腦上的任何應用程式。",
@@ -13000,6 +15621,10 @@ export default {
         "95a1886d94": "從手機控制終端機與 Agent。",
         "a9fb10afca": "終端機",
         "ab4b21b58e": "分支命名、基礎參考、署名與 Git AI Author。",
+        "artifactsDescription": "與團隊分享 HTML 和 Markdown 檔案，並管理其公開連結。",
+        "artifactsTitle": "Artifacts",
+        "automationsDescription": "排程 Agent 工作，並選擇是否在側邊欄顯示「自動化」。",
+        "automationsTitle": "自動化",
         "b11a5a48a2": "主題、縮放、應用程式與終端機外觀、側邊欄與狀態列。",
         "b1c2f8b0ac": "Claude、Codex、Gemini、OpenCode Go、MiniMax 與 Grok 的選用帳號切換與使用量設定。",
         "b351014180": "Orca 統計，加上 Claude、Codex、OpenCode 的 Token 分析與 Grok 訂閱使用量。",
@@ -13026,9 +15651,15 @@ export default {
         "e815fd01bd": "首頁、連結路由與工作階段 cookie。",
         "ea0b1bc7b8": "設定指南",
         "f70ac54d38": "AI 供應商帳號",
+        "floatingWorkspaceWebDescription": "全域終端機與 Markdown 分頁。",
         "linearDescription": "讓 Agent 具備讀取與更新你已連結的 Linear Issue 的能力。",
         "linearTitle": "Linear",
-        "projectHostsSummary": "{{value0}} 個主機"
+        "pluginsDescription": "安裝與管理實驗性 Orca 外掛。",
+        "pluginsTitle": "外掛",
+        "projectHostsSummary": "{{value0}} 個主機",
+        "shareSkillsDescription": "透過不公開的連結分享你的技能。任何擁有連結的人都能安裝它們。",
+        "shareSkillsTitle": "分享技能",
+        "tasksDescription": "連線提供者、安裝 Linear 技能，並選擇要在「任務」中顯示的內容。"
       }
     },
     "i18n": {
@@ -13048,6 +15679,7 @@ export default {
     "lib": {
       "agent": {
         "catalog": {
+          "060d152fb5": "Trae",
           "0708ed89f1": "Claude",
           "09973b4d84": "OMP",
           "0baad2d5d2": "Grok",
@@ -13077,6 +15709,7 @@ export default {
           "c73c573939": "Amp",
           "ca73055bd0": "Mistral Vibe",
           "cbaf0c2e0b": "Cline",
+          "d443a47995": "Prime Agent",
           "da41abbdd4": "Ante",
           "e0247254f2": "Kiro",
           "e7a4ca5103": "OpenCode",
@@ -13092,6 +15725,7 @@ export default {
               "79371593b0": "Orca CLI 尚未出現在 PATH 上",
               "8d6eedf97e": "無法在 PATH 中註冊 Orca CLI。",
               "e99d7dc36f": "Orca CLI 註冊需要注意",
+              "refreshCliRegistration": "重新整理 CLI 註冊狀態，然後再試一次。",
               "windowsPathUnknown": "Orca 無法檢查你的 Windows 使用者 PATH"
             }
           }
@@ -13104,6 +15738,33 @@ export default {
           }
         }
       },
+      "browser": {
+        "cookie": {
+          "import": {
+            "toast": {
+              "googleCookiesSkipped": "未匯入 Google cookie。請使用此設定檔在 Orca 中開啟瀏覽器前往 {{value0}}，然後登入 Google。",
+              "partitionSkipped": "有 {{value0}} 個 cookie 因無法讀取其網站分割區而未匯入。請在 Orca 中重新登入這些網站。",
+              "restartFallbackUnavailableNone": "{{value0}} 個 cookie 皆無法載入，且無法使用重新啟動備援。此設定檔先前的 cookie 已被取代。請再次嘗試匯入。",
+              "restartFallbackUnavailablePartial": "已匯入 {{value1}} 個 cookie 中的 {{value0}} 個。其餘無法載入，且無法使用重新啟動備援。請再次嘗試匯入。",
+              "undecryptableAppBound": "此瀏覽器有 {{value0}} 個 cookie 使用應用程式繫結加密，Orca 無法解密。你可以使用「從檔案…」從檔案匯入 cookie。",
+              "undecryptableAppBoundMixed": "此瀏覽器有 {{value0}} 個 cookie 使用應用程式繫結加密，Orca 無法解密；另有 {{value1}} 個因其他原因無法解密。你可以使用「從檔案…」從檔案匯入 cookie。",
+              "undecryptableKeyring": "由於系統金鑰圈無法使用，有 {{value0}} 個 cookie 無法解密。請解鎖你的登入金鑰圈（或安裝 gnome-keyring 等 Secret Service 提供者），然後再次匯入。",
+              "undecryptableKeyringMixed": "由於系統金鑰圈無法使用，有 {{value0}} 個 cookie 無法解密；另有 {{value1}} 個因其他原因無法解密。請解鎖你的登入金鑰圈（或安裝 gnome-keyring 等 Secret Service 提供者），然後再次匯入。",
+              "undecryptableUnknown": "有 {{value0}} 個 cookie 無法解密，已略過。請完全關閉來源瀏覽器，然後再次嘗試匯入。",
+              "undecryptableUnrecognizedReason": "有 {{value0}} 個 cookie 無法解密，已略過，原因無法由此版本的 Orca 辨識。請更新 Orca 以查看詳細資訊，然後再次嘗試匯入。",
+              "unrecognizedWarning": "cookie 匯入已完成，但出現此版本 Orca 無法辨識的警告。請更新 Orca 以查看詳細資訊，並在依賴這些 cookie 前先檢查此設定檔。"
+            }
+          }
+        }
+      },
+      "codex": {
+        "session": {
+          "restart": {
+            "4bd4a3a9c7": "系統預設",
+            "9f0b1c2d3e": "Codex 帳號"
+          }
+        }
+      },
       "ensure": {
         "simulator": {
           "tab": {
@@ -13112,7 +15773,25 @@ export default {
         }
       },
       "ephemeralVmWorkspaceTarget": {
-        "projectRootRegistrationFailed": "無法在執行環境上註冊由環境範本建立的專案根目錄。"
+        "projectRootRegistrationFailed": "無法在執行環境上註冊由環境範本建立的專案根目錄。",
+        "provisionedRootRequiresSsh": "預先佈建根目錄的配方目前需要直接 SSH 連線。"
+      },
+      "ephemeralVmWorktreeCreation": {
+        "sparseCheckoutUnsupported": "預先佈建根目錄的配方不支援 sparse checkout。"
+      },
+      "feedback": {
+        "image": {
+          "attachments": {
+            "additionalErrors": "另有 {{count}} 張影像無法附加。",
+            "dimensionsTooLarge": "{{fileName}} 的尺寸過大，無法安全預覽。",
+            "empty": "{{fileName}} 是空的。",
+            "fallbackName": "影像附件",
+            "invalidImage": "{{fileName}} 不是有效的支援影像。",
+            "tooLarge": "{{fileName}} 大於 {{maxSize}}。",
+            "tooMany": "最多可附加 {{maxCount}} 張影像。",
+            "unsupportedType": "{{fileName}} 不是支援的影像類型。"
+          }
+        }
       },
       "fix": {
         "checks": {
@@ -13159,13 +15838,15 @@ export default {
           "ambiguousConnection": "Orca 無法判斷哪個 SSH 連線擁有此資料夾範圍。",
           "missing": "Orca 找不到 {{path}}。請移除並重新匯入此資料夾工作區。",
           "notDirectory": "{{path}} 存在，但它不是資料夾。",
-          "unavailable": "Orca 目前無法驗證此資料夾。請檢查執行環境或 SSH 連線後再試一次。"
+          "unavailable": "Orca 目前無法驗證此資料夾。請檢查執行環境或 SSH 連線後再試一次。",
+          "unrecognized": "Orca 無法使用 {{path}}，且此版本無法辨識原因。請更新 Orca 以查看詳細資訊。"
         },
         "title": {
           "ambiguousConnection": "無法判斷連線",
           "missing": "找不到資料夾",
           "notDirectory": "路徑不是資料夾",
-          "unavailable": "無法檢查資料夾"
+          "unavailable": "無法檢查資料夾",
+          "unrecognized": "資料夾無法使用"
         }
       },
       "launch": {
@@ -13206,6 +15887,13 @@ export default {
         }
       },
       "linear": {
+        "issue": {
+          "workspace": {
+            "open": {
+              "4f2c1d8a3b": "無法開啟附加到此 Issue 的工作區。"
+            }
+          }
+        },
         "usage": {
           "examples": {
             "attachPr": "附上 PR 連結",
@@ -13260,9 +15948,17 @@ export default {
             "9e37a5b1b3": "並行執行獨立的工作",
             "ab0e9803b7": "移交給另一個 Worktree",
             "bddc4c09b8": "執行分階段的工作流程",
-            "f91fe27f2a": "將大型變更分割成較小的 PR"
+            "childParallelSummary": "將互不重疊的調查或實作任務分配給多個子 Agent。",
+            "childSequenceSummary": "當每個階段都依賴上一個階段時，依序使用子 Agent。",
+            "f91fe27f2a": "將大型變更分割成較小的 PR",
+            "handoffSummary": "將所有權移交給另一個 Agent，並提供足以繼續工作的上下文。",
+            "prSplitSummary": "為每個子 Agent 提供各自的 Worktree，讓平行實作維持可審查。",
+            "worktreeHandoffSummary": "將工作移交給已在其他分支上執行的 Agent。"
           }
         }
+      },
+      "pluginCommandKeybindings": {
+        "group": "外掛"
       },
       "pr": {
         "bot": {
@@ -13290,6 +15986,18 @@ export default {
         "distroRequired": "安裝此技能前，請先為此專案選擇一個 WSL 發行版。",
         "wslDefault": "WSL 預設",
         "wslUnavailable": "專案執行環境需要 WSL，才能安裝此技能。"
+      },
+      "remotePairingCopy": {
+        "custom": "自訂主機名稱",
+        "invalidDestination": "此存取連結包含無效的目的地。",
+        "invalidInput": "請輸入 Orca 存取連結或純配對碼。",
+        "lan": "私人 LAN 位址",
+        "loopback": "Loopback",
+        "mobileOnly": "此連結僅授予行動裝置存取權限。請為其他 Orca 用戶端產生連結。",
+        "nonConnectableDestination": "此存取連結包含無法連線的目的地。",
+        "public": "公用位址",
+        "tailscale": "Tailscale 位址",
+        "unsupportedDestination": "此存取連結包含不支援的目的地。"
       },
       "resume": {
         "sleeping": {
@@ -13343,6 +16051,14 @@ export default {
         }
       },
       "workspace": {
+        "browser": {
+          "tab": {
+            "open": {
+              "searchFailed": "無法使用 {{value0}} 搜尋。",
+              "urlFailed": "無法開啟 URL。"
+            }
+          }
+        },
         "create": {
           "error": {
             "format": {
@@ -13353,6 +16069,9 @@ export default {
         }
       },
       "worktree": {
+        "activation": {
+          "cannotOpenFolderWorkspace": "無法開啟資料夾工作區"
+        },
         "palette": {
           "search": {
             "0b01ff98d2": "連接埠",
@@ -13363,7 +16082,29 @@ export default {
         }
       }
     },
+    "main": {
+      "window": {
+        "editableContextMenu": {
+          "deleteColumn": "刪除欄",
+          "deleteRow": "刪除列",
+          "deleteTable": "刪除表格",
+          "insertColumnLeft": "在左側插入欄",
+          "insertColumnRight": "在右側插入欄",
+          "insertRowAbove": "在上方插入列",
+          "insertRowBelow": "在下方插入列",
+          "table": "表格"
+        }
+      }
+    },
     "runtime": {
+      "githubCheckDetailsTimeout": {
+        "timedOut": "載入檢查詳細資訊逾時。"
+      },
+      "gitlabJobTraceClient": {
+        "emptyTrace": "此 GitLab 作業沒有可用的記錄。",
+        "loadFailed": "無法載入 GitLab 作業記錄。",
+        "timedOut": "載入 GitLab 作業記錄逾時。"
+      },
       "remoteServerUpdateErrors": {
         "downloadIncomplete": "伺服器更新未下載完成。",
         "legacyServer": "請先手動更新此伺服器一次，之後才能使用遠端更新。",
@@ -13379,6 +16120,14 @@ export default {
         "remoteHostDisconnected": "此工作區未連線到遠端 Orca 主機。"
       }
     },
+    "ssh": {
+      "sshConnectVerb": {
+        "connect": "連線",
+        "connecting": "正在連線…",
+        "reconnect": "重新連線",
+        "retry": "重試"
+      }
+    },
     "store": {
       "slices": {
         "browser": {
@@ -13389,7 +16138,9 @@ export default {
         "editor": {
           "51f15c37d3": "無法開啟目錄：{{value0}}",
           "checkRunDetailsLoadFailed": "載入檢查詳細資訊失敗。",
+          "checkRunDetailsRepoUnavailable": "此檢查無法取得存放庫詳細資訊。",
           "checkRunDetailsUnavailable": "此檢查沒有可用的詳細資訊。",
+          "conflictPlaceholderGuidance": "請在 Git 中解決衝突，或還原其中一方後再重新開啟。",
           "dcb521ed29": "此檔案處於衝突狀態，但沒有可編輯的 Worktree 檔案。",
           "f2e00db373": "找不到檔案：{{value0}}"
         },
@@ -13438,7 +16189,16 @@ export default {
           "b7e14472ae": "新增資料夾失敗",
           "c6e022ddfc": "新增專案失敗",
           "e649269645": "使用「新增專案」在所選主機上輸入路徑。",
-          "presenceProfileOverflow": "{{names}} 及其他 {{count}} 個"
+          "presenceProfileOverflow": "{{names}} 及其他 {{count}} 個",
+          "removeProjectFailed": "無法移除專案"
+        },
+        "runtime": {
+          "status": {
+            "runtimeHostDisconnectedDescription": "請確認 Orca 正在此伺服器上執行，且你的網路連線正常，然後再試一次。",
+            "runtimeHostUnreachable": "無法連線到 Orca 伺服器",
+            "runtimeHostUnreachableNamed": "無法連線到 {{hostName}}",
+            "tryAgain": "再試一次"
+          }
         },
         "settings": {
           "e12dab333b": "切換伺服器失敗",
@@ -13462,6 +16222,15 @@ export default {
             }
           }
         },
+        "terminal": {
+          "quick": {
+            "command": {
+              "hosts": {
+                "5b7d781d67": "無法儲存快速命令"
+              }
+            }
+          }
+        },
         "ui": {
           "53883b7bc3": "無法傳送至 {{value0}}",
           "66e3bd7ce6": "已傳送至 {{value0}}"
@@ -13469,7 +16238,12 @@ export default {
         "workspace": {
           "cleanup": {
             "9d6e531da6": "工作區已不存在。",
-            "changedSinceConfirmation": "工作區在確認後已變更。請重新整理，並在移除前重新檢視。"
+            "changedSinceConfirmation": "工作區在確認後已變更。請重新整理，並在移除前重新檢視。",
+            "forceNeedsApproval": "強制刪除此工作區前，請先審查並確認。",
+            "gitStatusUnavailable": "Orca 無法檢查此工作區的 git 狀態。請再試一次，或從其主機專屬的側邊欄或專案清單中刪除它。",
+            "gitStatusUnavailableOlderPeer": "Orca 無法將此 git 狀態失敗對應到主機。請更新較舊的已連線對等端，或從其主機專屬的側邊欄或專案清單中刪除此工作區。",
+            "hostCollision": "錯誤：此工作區以相同路徑存在於多個主機上",
+            "hostUnresolved": "Orca 無法判斷此工作區屬於哪個主機。請重新整理專案，然後再次審查。"
           }
         },
         "worktrees": {
@@ -13489,10 +16263,32 @@ export default {
           "81f13f48d2": "刪除 Worktree「{{value1}}」後，Git 無法安全刪除分支「{{value0}}」，因此 Orca 保留了它以避免遺失本機 commits。",
           "889487d8bb": "關閉",
           "903b51c2ed": "已從 {{value0}} 建立工作區，但 Orca 無法快轉本機 {{value1}}，因為 {{value2}}",
+          "a17f4d2e93": "無法更新此工作區。",
+          "c6cf133786": "此工作區已無法使用。",
+          "createdWithoutParentNesting": "已建立，但未巢狀於「{{value0}}」之下",
+          "createdWithoutParentNestingDetail": "上層工作區已無法使用。你可以從工作區選單中設定。",
+          "createdWithoutParentNestingUnnamed": "已建立，但未巢狀於所選的上層工作區之下",
           "d1d78a7baa": "Git 無法安全刪除分支「{{value0}}」{{value1}}，因此 Orca 保留了它以避免遺失本機 commits。",
           "e50495aae6": "強制刪除分支",
           "f4503ca505": "開啟「設定」>「Git」後再試一次。",
           "fa9299a66f": "你的新 Worktree 是最新的，但本機 {{value0}} 落後 {{value1}} {{value2}}。AI diff 可能會遺漏近期的 commits。",
+          "localBaseRefRefreshFailedDescriptionNamed": "工作區「{{value0}}」已從 {{value1}} 建立，但 Orca 無法快轉本機的 {{value2}}。{{value3}}",
+          "localBaseRefRefreshFailedDetailDirty": "簽出本機 {{value0}} 的 Worktree 有未提交的變更。請提交、stash 或捨棄這些變更，然後手動更新本機 {{value0}}。",
+          "localBaseRefRefreshFailedDetailDirtyNamed": "位於 {{value0}} 的 Worktree（本機 {{value1}} 簽出處）有未提交的變更。請提交、stash 或捨棄這些變更，然後手動更新本機 {{value1}}。",
+          "localBaseRefRefreshFailedDetailError": "更新本機 {{value0}} 時 Git 傳回錯誤。請檢查存放庫是否有鎖定的 ref 或異常的 Worktree 狀態，然後手動更新本機 {{value0}}。",
+          "localBaseRefRefreshFailedDetailNotFastForward": "本機 {{value0}} 不存在，或無法從遠端基準乾淨地快轉。手動更新前，請先檢查是否有僅存在於本機的提交。",
+          "localBaseRefRefreshFailedForWorktree": "未針對「{{value1}}」重新整理本機 {{value0}}",
+          "metadata": {
+            "worktree": {
+              "meta": {
+                "persist": {
+                  "4367540861": "請更新遠端執行環境以連結 Linear Issue",
+                  "877e3638d8": "請更新遠端執行環境以變更此工作區連結的 Issue"
+                }
+              }
+            }
+          },
+          "preservedBranchCleanupHostAmbiguous": "「{{value0}}」有多個保留分支清理正在等待處理；請指定主機。",
           "runtimeScopeForbiddenDescription": "行動裝置範圍的配對無法使用工作區。請使用設定 → 執行環境 → 分享此 Orca 伺服器中的瀏覽器存取連結重新連線。",
           "runtimeScopeForbiddenTitle": "此連線具有受限（行動裝置）存取權限"
         }
@@ -13538,7 +16334,12 @@ export default {
         }
       },
       "webPreloadApi": {
-        "aiVaultUnavailableForHost": "此執行主機不支援 Agent 工作階段歷史記錄。"
+        "aiVaultUnavailableForHost": "此執行主機不支援 Agent 工作階段歷史記錄。",
+        "loopbackPairingBlocked": "此存取連結指回這台裝置。",
+        "remotePairingInvalidDetails": "此存取連結包含無效的連線詳細資訊。",
+        "remotePairingSaveFailed": "Orca 已驗證主機，但無法儲存。請檢查瀏覽器儲存空間，然後再試一次。",
+        "remotePairingUnreachable": "無法連線到位於 {{endpoint}} 的 Orca。",
+        "runtimeEnvironmentManuallyDisconnected": "執行環境已手動中斷連線。"
       }
     }
   },
@@ -13548,6 +16349,10 @@ export default {
     "scheduleWeekdays": "平日 {{time}}"
   },
   "browser": {
+    "guestRecovery": {
+      "failed": "瀏覽器頁面意外停止。請重試以還原。",
+      "title": "瀏覽器頁面已停止"
+    },
     "loadFailure": {
       "addressCopied": "已複製目前的頁面網址。",
       "cantLoadPage": "無法載入此頁面",
@@ -13597,6 +16402,14 @@ export default {
       "startsIn": "啟動目錄：",
       "untitledSession": "目前工作階段"
     },
+    "cmd-j": {
+      "paletteSessionAge": {
+        "days": "{{value0}} 天",
+        "hours": "{{value0}} 小時",
+        "minutes": "{{value0}} 分",
+        "underOneMinute": "<1 分"
+      }
+    },
     "native-chat": {
       "approval": {
         "allow": "允許",
@@ -13631,6 +16444,7 @@ export default {
           "minimal": "最小",
           "off": "關",
           "on": "開",
+          "ultra": "Ultra",
           "xhigh": "極高"
         },
         "options": "選項",
@@ -13658,6 +16472,8 @@ export default {
         "thinking": "推理",
         "toggleOption": "切換 {{value0}}",
         "uploadingAttachments": "正在上傳 {{value0}} 個檔案到遠端…",
+        "valueIsDefault": "預設",
+        "valueNotReported": "未回報",
         "valueUnknown": "目前值不明 — 請選擇開或關",
         "worktreeNotReady": "Worktree 未就緒 — 請稍後重試。"
       },
@@ -13708,8 +16524,52 @@ export default {
         "showTerminal": "顯示終端機"
       },
       "tool": {
+        "countN": "{{value0}} 次工具呼叫",
+        "countOne": "1 次工具呼叫",
         "result": "結果",
         "running": "正在執行…"
+      }
+    },
+    "onboarding": {
+      "flow": {
+        "actions": {
+          "addFirstProject": "新增你的第一個專案",
+          "continue": "繼續",
+          "openingAddProject": "正在開啟新增專案…"
+        },
+        "stepTooltip": {
+          "agent": "預設 Agent",
+          "integrations": "整合",
+          "notifications": "通知",
+          "theme": "外觀",
+          "windowsTerminal": "Windows 終端機"
+        }
+      },
+      "integrations": {
+        "capabilities": {
+          "browseIssues": "不必離開 Orca，即可在「任務」頁面瀏覽 GitHub Issue 與 PR",
+          "managePullRequests": "不必離開 Orca，即可閱讀、留言及合併 PR",
+          "reviewStatus": "在所有 Worktree 中查看 Issue 狀態、審查狀態與 CI 檢查",
+          "startWorkspaceFromIssue": "從 GitHub Issue 或 PR 開始工作區，並預先填入標題與上下文"
+        }
+      },
+      "skipConfirmation": {
+        "keepGoing": "不，繼續",
+        "skip": "略過"
+      },
+      "theme": {
+        "hints": {
+          "dark": "護眼舒適",
+          "light": "明亮清晰",
+          "system": "跟隨作業系統"
+        }
+      }
+    },
+    "status": {
+      "bar": {
+        "workspaceSpace": {
+          "otherTopLevelItems": "其他頂層項目（{{value0}}）"
+        }
       }
     },
     "tab": {
@@ -13729,21 +16589,259 @@ export default {
         }
       }
     },
+    "terminalPane": {
+      "TerminalContextMenu": {
+        "copySessionId": "複製工作階段 ID",
+        "copySessionIdError": "無法複製工作階段 ID",
+        "copySessionIdSuccess": "已複製工作階段 ID"
+      }
+    },
     "workspace": {
       "cleanup": {
+        "browse": {
+          "agent": {
+            "idle": "閒置",
+            "permission": "等待你回應",
+            "working": "工作中"
+          },
+          "appliedFilters": "已套用的篩選條件",
+          "archived": "已封存",
+          "blockerMode": "阻礙因素比對",
+          "blockerModeAny": "包含任一",
+          "blockerModeNone": "皆不包含",
+          "blockers": "阻礙因素",
+          "branchQuery": "分支包含",
+          "checkingGit": "正在檢查 git 狀態：剩餘 {{value0}} 個",
+          "checkingGitRow": "正在檢查 git 狀態",
+          "chip": {
+            "branchQuery": "分支：{{value0}}",
+            "completelyEmpty": "無資料遺失風險",
+            "exclude": "已排除",
+            "excludesStatusless": "有狀態",
+            "excludesUnsized": "僅限已測量",
+            "has": "包含",
+            "idleDays": "閒置 {{value0}} 天以上",
+            "kind": {
+              "agent": "Agent",
+              "archived": "已封存",
+              "blocker": "阻礙因素",
+              "comment": "留言",
+              "context": "上下文",
+              "dismissed": "已忽略",
+              "git": "Git",
+              "host": "主機",
+              "locked": "已鎖定",
+              "pinned": "已釘選",
+              "prunable": "可清除",
+              "repo": "存放庫",
+              "retainedAgents": "已完成的 Agent",
+              "review": "審查",
+              "reviewProvider": "提供者",
+              "reviewState": "審查狀態",
+              "status": "狀態",
+              "ticket": "工單",
+              "ticketSource": "工單來源",
+              "tier": "安全性",
+              "unread": "未讀"
+            },
+            "list": "{{value0}}：{{value1}}",
+            "maxSize": "最多 {{value0}} MB",
+            "minAhead": "領先 {{value0}}+",
+            "minBehind": "落後 {{value0}}+",
+            "minSize": "至少 {{value0}} MB",
+            "neverVisited": "從未造訪",
+            "none": "無",
+            "only": "僅限",
+            "pathPrefix": "路徑：{{value0}}",
+            "presence": "{{value0}}：{{value1}}",
+            "selectableOnly": "僅限可刪除項目",
+            "triState": "{{value0}}：{{value1}}"
+          },
+          "clearFilters": "清除篩選條件",
+          "comment": "有留言",
+          "completelyEmpty": "無資料遺失風險",
+          "contextPresence": "開啟的分頁、終端機、留言",
+          "days": "天",
+          "deleteAnyway": "仍要刪除",
+          "dismissed": "已忽略",
+          "facet": {
+            "activity": "活動",
+            "agent": "Agent",
+            "context": "本機上下文",
+            "git": "Git",
+            "location": "位置",
+            "review": "審查",
+            "safety": "安全性",
+            "size": "磁碟大小",
+            "status": "工作區狀態",
+            "ticket": "工單"
+          },
+          "filters": "篩選條件",
+          "forceDeleteProjectionMany": "目前有 {{count}} 個工作區顯示風險，可能需要強制刪除",
+          "forceDeleteProjectionOne": "目前有 {{count}} 個工作區顯示風險，可能需要強制刪除",
+          "git": {
+            "clean": "乾淨",
+            "dirty": "未提交的變更",
+            "unknown": "未檢查",
+            "unpushed": "未推送的 commit"
+          },
+          "gitStatusCheckFailed": "Git 狀態檢查失敗",
+          "gitStatusUnverified": "無法驗證 Git 狀態",
+          "host": "主機",
+          "idleMinDays": "閒置至少",
+          "idleSignal": {
+            "created": "建立時間早於",
+            "lastActivity": "無活動",
+            "lastVisited": "未開啟"
+          },
+          "idleSignalField": "閒置訊號",
+          "includeUnsized": "包含未測量的工作區",
+          "locked": "已鎖定",
+          "matchStatusless": "包含沒有狀態的工作區",
+          "maxSize": "最多",
+          "measureSizes": "掃描",
+          "measureSizesDescription": "掃描磁碟使用量，以依大小比較、排序及篩選工作區。",
+          "measureSizesFailed": "無法掃描工作區大小",
+          "measureSizesTitle": "掃描工作區大小",
+          "measuringSizes": "正在掃描大小",
+          "measuringSizesProgress": "正在掃描 {{value0}}/{{value1}}",
+          "minAhead": "領先 commit ≥",
+          "minBehind": "落後 commit ≥",
+          "minSize": "至少",
+          "neverVisited": "從未開啟",
+          "noMatches": "沒有符合這些篩選條件的工作區。",
+          "noMatchesDescription": "所有工作區都在同一份清單中，請放寬某個篩選面向或清除篩選條件。",
+          "noSizes": "尚未測量任何工作區大小。",
+          "noSizesDescription": "測量磁碟使用量後會顯示大小。",
+          "noWorkspaces": "找不到工作區。",
+          "notMeasured": "未測量",
+          "openWorkspace": "開啟工作區",
+          "openWorkspaceNamed": "開啟 {{value0}}",
+          "pathPrefix": "路徑開頭為",
+          "pinned": "已釘選",
+          "presence": {
+            "any": "任一",
+            "none": "皆無",
+            "some": "有"
+          },
+          "prunable": "可清除",
+          "refreshing": "正在重新整理…",
+          "refreshingProgress": "正在重新整理 {{value0}}/{{value1}}",
+          "removeFilter": "移除篩選條件 {{value0}}",
+          "repo": "存放庫",
+          "retainedDoneAgents": "已完成的 Agent 對話記錄",
+          "review": {
+            "closed": "已關閉",
+            "draft": "草稿",
+            "merged": "已合併",
+            "open": "開啟",
+            "otherProvider": "其他",
+            "unknown": "不明"
+          },
+          "reviewPresence": "PR / MR",
+          "reviewProvider": "提供者",
+          "searchLabel": "搜尋工作區",
+          "searchPlaceholder": "搜尋名稱、存放庫、分支、路徑、主機",
+          "selectAll": "選取所有符合的工作區",
+          "selectAllCount": "選取全部 {{value0}} 個已通過安全檢查的工作區",
+          "selectAllCountOne": "選取 1 個已通過安全檢查的工作區",
+          "selectableOnly": "僅限目前可刪除的工作區",
+          "selectedCount": "已選取 {{value0}} 個",
+          "selectionVanished": "{{value0}} 個已選取的工作區已不存在。",
+          "selectionVanishedOne": "1 個已選取的工作區已不存在。",
+          "selectionWithheld": "{{value0}} 個已選取的工作區被目前的篩選條件隱藏，已取消選取。",
+          "selectionWithheldOne": "1 個已選取的工作區被目前的篩選條件隱藏，已取消選取。",
+          "showingCount": "顯示 {{value1}} 個中的 {{value0}} 個",
+          "sizeOnDisk": "磁碟大小：{{value0}}",
+          "sort": {
+            "agent": "Agent",
+            "ahead": "領先",
+            "behind": "落後",
+            "blockerCount": "阻礙因素",
+            "branch": "分支",
+            "created": "建立時間",
+            "git": "Git",
+            "host": "主機",
+            "lastActivity": "最後活動",
+            "lastVisited": "最後開啟",
+            "localContext": "開啟的上下文",
+            "name": "工作區",
+            "path": "路徑",
+            "repo": "存放庫",
+            "review": "審查",
+            "size": "大小",
+            "ticket": "工單",
+            "tier": "安全性",
+            "workspaceStatus": "狀態"
+          },
+          "sortBy": "排序方式",
+          "sortByField": "依 {{value0}} 排序",
+          "ticket": {
+            "issue": "Issue",
+            "linear": "Linear",
+            "workItem": "工作項目"
+          },
+          "ticketPresence": "已連結的工單",
+          "tier": {
+            "protected": "受保護",
+            "ready": "就緒",
+            "review": "待審查"
+          },
+          "tierField": "清理層級",
+          "triState": {
+            "any": "任一",
+            "exclude": "排除",
+            "only": "僅限"
+          },
+          "unread": "未讀",
+          "updatedAgo": "更新於 {{value0}}",
+          "workspaceStatus": "工作區狀態：{{value0}}"
+        },
+        "host": {
+          "candidateName": "{{value1}} 上的 {{value0}}",
+          "label": "主機：{{value0}}",
+          "unknown": "未知主機"
+        },
         "presentation": {
           "githubPullRequestNumber": "PR #{{value0}}",
           "gitlabMergeRequestNumber": "MR #{{value0}}"
         },
         "presentationFixtures": {
           "reviewAlphaCleanup": "審查 Alpha 清理"
+        },
+        "relativeTime": {
+          "daysAgo": "{{value0}} 天前",
+          "hoursAgo": "{{value0}} 小時前",
+          "justNow": "剛剛",
+          "minutesAgo": "{{value0}} 分鐘前",
+          "never": "從未"
+        },
+        "scan": {
+          "fallbackRepository": "某個存放庫",
+          "gitListFailed": "Git 無法列出 Worktree",
+          "moreErrors": "，另有 {{value0}} 個",
+          "multipleErrors": "無法檢查 {{value0}} 個存放庫（{{value1}}{{value2}}）。部分工作區可能遺漏。請重新整理以再試一次。",
+          "noWorkspaces": "找不到工作區。",
+          "progress": "正在掃描工作區（{{value0}}/{{value1}}）",
+          "readyMany": "找到 {{value0}} 個工作區。",
+          "readyManyMany": "找到 {{value0}} 個工作區，其中有 {{value1}} 個清理建議。",
+          "readyManyOne": "找到 {{value0}} 個工作區，其中有 1 個清理建議。",
+          "readyOne": "找到 1 個工作區。",
+          "readyOneMany": "找到 1 個工作區，其中有 {{value0}} 個清理建議。",
+          "readyOneOne": "找到 1 個工作區，其中有 1 個清理建議。",
+          "singleError": "無法檢查 {{value0}}：{{value1}}。部分工作區可能遺漏。請重新整理以再試一次。"
         }
       }
     }
   },
   "dashboard": {
     "sidebar": {
-      "label": "Agent 儀表板"
+      "closeActivity": "關閉活動檢視",
+      "dashboardLabel": "Agent 儀表板",
+      "label": "Agent 儀表板",
+      "openActivity": "檢視活動",
+      "projects": "專案",
+      "workspaces": "工作區"
     }
   },
   "dashboardPopout": {
@@ -13789,6 +16887,12 @@ export default {
       "reviewChip": "審查：{{state}}",
       "reviewStatus": "PR／MR 狀態",
       "workspaceStatus": "工作區狀態"
+    },
+    "host": {
+      "remote": "遠端 Orca 主機",
+      "remoteNamed": "遠端 Orca 主機 · {{host}}",
+      "ssh": "SSH 主機",
+      "sshNamed": "SSH 主機 · {{host}}"
     },
     "map": {
       "agentCount": "{{count}} 個 Agent",
@@ -13840,6 +16944,23 @@ export default {
       "label": "檢視模式",
       "map": "Agent 地圖"
     }
+  },
+  "featureTips": {
+    "voice": {
+      "agentPromptTitle": "Agent 提示詞",
+      "demoPrompt": "檢查這份 diff 的邊界情況，並為發現的問題補上測試。",
+      "focusPaneInstruction": "將焦點移到終端機、編輯器或 Agent 提示詞，然後按下",
+      "listening": "正在聆聽…",
+      "settingsInstruction": "隨時可在以下位置變更模型、聽寫模式或快速鍵：",
+      "settingsLink": "設定 → 語音",
+      "startDictation": "開始聽寫",
+      "startInstruction": "即可開始語音聽寫。再按一次",
+      "stopInstruction": "即可停止。",
+      "unassignedInstruction": "在焦點窗格中開始語音聽寫前，請先指派聽寫快速鍵。"
+    }
+  },
+  "githubChecks": {
+    "retrying": "正在重試…"
   },
   "keybinding": {
     "app": {
@@ -13994,6 +17115,7 @@ export default {
   "menu": {
     "appearance": "外觀",
     "checkForUpdates": "檢查更新…",
+    "copy": "複製",
     "edit": "編輯",
     "exit": "結束",
     "exploreOrca": "探索 Orca",
@@ -14006,6 +17128,7 @@ export default {
     "reload": "重新載入",
     "reportCrash": "回報當機…",
     "resetSize": "重設大小",
+    "selectAll": "全選",
     "settings": "設定",
     "showAutomationsButton": "顯示自動化按鈕",
     "showMobileButton": "顯示 Orca 行動版按鈕",
@@ -14059,6 +17182,14 @@ export default {
     "undo": "復原",
     "unhide": "全部顯示",
     "zoom": "縮放"
+  },
+  "notifications": {
+    "agentStatus": {
+      "finished": "已完成",
+      "needsInput": "需要輸入",
+      "stopped": "已停止",
+      "working": "工作中"
+    }
   },
   "onboarding": {
     "agentsHereRunInAnyFolder": "這裡的 Agent 可以在你選擇的任何資料夾中執行。指向服務上層的目錄，就能一次橫跨所有 repo 工作。",
@@ -14136,6 +17267,9 @@ export default {
     "todo": "待處理",
     "xhigh": "極高"
   },
+  "quickOpen": {
+    "moreMatchesAvailable": "可能還有更多相符項目。請調整搜尋以縮小結果範圍。"
+  },
   "runtimeRpc": {
     "startupFailure": {
       "continueButton": "不使用 CLI，繼續",
@@ -14177,6 +17311,7 @@ export default {
         "chinese": "中文（简体）",
         "description": "選擇 Orca 介面使用的語言。",
         "english": "English",
+        "french": "Français",
         "japanese": "日本語",
         "korean": "한국어",
         "spanish": "Español",
@@ -14225,12 +17360,52 @@ export default {
     "quit": "結束"
   },
   "worktreeJumpPalette": {
+    "filter": {
+      "activeCount": "{{value0}} 個啟用中",
+      "ariaActive": "篩選：{{value0}} 個啟用中。",
+      "back": "返回",
+      "chipOverflow": "+{{value0}}",
+      "clearAll": "全部清除",
+      "clearHosts": "清除主機",
+      "clearProjects": "清除專案",
+      "emptySubtitle": "清除上方的篩選條件，或將其擴大到更多主機與專案。",
+      "emptyTitle": "沒有符合目前篩選條件的結果",
+      "hosts": "主機",
+      "label": "篩選",
+      "moreOptions": "還有 {{value0}} 個，繼續輸入以縮小範圍",
+      "noHosts": "沒有相符的主機",
+      "noOptions": "沒有相符的主機或專案",
+      "noProjects": "沒有相符的專案",
+      "projects": "專案",
+      "removeChip": "移除篩選條件 {{value0}}",
+      "search": "依主機或專案篩選…",
+      "searchHosts": "篩選主機…",
+      "searchProjects": "篩選專案…",
+      "selectAllMatching": "選取所有相符項目（{{value0}}）",
+      "selectedCollapsed": "已選取 {{value0}} 個 — 可透過標籤或「清除」移除",
+      "tabKey": "Tab",
+      "trigger": "篩選結果"
+    },
+    "linearIssue": {
+      "createHint": "從 Linear Issue 建立 Worktree",
+      "createLabel": "從 Linear Issue {{value0}} 建立 Worktree：{{value1}}",
+      "loadingHint": "正在載入 Linear Issue…",
+      "loadingLabel": "正在載入 Linear Issue {{value0}}",
+      "pendingLabel": "從 Linear Issue {{value0}} 建立 Worktree"
+    },
     "matchLabel": {
+      "automation": "自動化",
       "comment": "留言",
       "issue": "Issue",
       "mr": "MR",
       "port": "連接埠",
-      "pr": "PR"
+      "pr": "PR",
+      "task": "任務"
+    },
+    "renderCapOverflow": "還有 {{value0}} 個",
+    "taskUrl": {
+      "createHint": "從 {{value0}} 建立 Worktree",
+      "loadingHint": "正在載入 {{value0}}…"
     }
   }
 };

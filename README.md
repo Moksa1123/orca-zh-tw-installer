@@ -13,7 +13,7 @@
 [![license](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](LICENSE)
 [![stars](https://img.shields.io/github/stars/Moksa1123/orca-zh-tw-installer?style=flat-square)](https://star-history.com/#Moksa1123/orca-zh-tw-installer&Date)
 
-[快速開始](#快速開始) | [功能特色](#功能特色) | [支援版本](#支援版本) | [支援系統](#支援的作業系統)
+[安裝](#安裝orca-14206-以上) | [支援版本](#支援版本) | [功能特色](#功能特色)
 
 </div>
 
@@ -21,7 +21,42 @@
 
 ## 關於專案
 
-官方 Orca 內建的語言系統具有白名單限制，若強制選擇繁體中文會被退回預設語言（System）或簡體中文。本專案透過跨平臺自動化腳本，解除官方白名單限制，並注入超過 11,000 句針對台灣軟體工程師習慣精修的在地化翻譯。
+為 Orca 提供超過 13,000 句針對台灣軟體工程師習慣精修的繁體中文翻譯，
+對照 VS Code 官方 zh-TW 語系包與術語鎖定表，確保一詞一譯。
+
+**Orca 1.4.206 起以官方外掛形式提供**：在 Orca 裡貼一行網址就能安裝，
+不修改任何程式檔案，Orca 自動更新也不會把它洗掉。
+
+---
+
+## 安裝（Orca 1.4.206 以上）
+
+1. Orca → **Settings → Plugins → Install**
+2. 選 **Git URL**，貼上：
+
+   ```
+   https://github.com/Moksa1123/orca-zh-tw-installer#plugin-v3.0.0
+   ```
+
+3. 檢視權限後啟用。這個外掛只含語言包，沒有可執行的程式碼。
+4. **Settings → Appearance → Language** → 選 `zh-TW — moksa.zh-tw`
+
+不需要 Node.js，也不必先關閉 Orca。
+
+> 網址結尾的 `#plugin-v3.0.0` 是版本標記，Orca 會固定安裝那一版。
+> 之後要更新，在 Plugins 頁面移除後改貼新版網址即可（最新版號見本頁「支援版本」）。
+
+### 從舊版（npx 安裝器）換過來
+
+以前用 `npx orca-zh-tw-installer` 修補過 `app.asar` 的話，先還原官方版本再裝外掛，
+避免兩者互相干擾：
+
+```bash
+# 先完全關閉 Orca（系統匣圖示右鍵 → Quit），然後：
+npx orca-zh-tw-installer@latest --restore
+```
+
+Orca 自動更新過的話，官方版本其實已經蓋掉舊補丁了，這步可以略過。
 
 ---
 
@@ -29,24 +64,15 @@
 
 | 項目 | 版本 |
 |---|---|
-| **語系包** | v2.13.16 |
-| **已測試相容的 Orca 版本** | 1.4.161、1.4.162、1.4.163、1.4.166、1.4.168、1.4.171、1.4.175、1.4.176、1.4.180 |
+| **語系包** | v3.0.0 |
+| **外掛安裝，已驗證** | Orca 1.4.206 |
+| **npx 安裝器（舊方式），已測試** | Orca 1.4.161 ～ 1.4.180 |
 
-Orca 更新頻繁，且每次更新都可能改動內部程式碼結構（變數命名、chunk 檔案切分方式等），
-導致本包的修補錨點失效；也可能新增功能、帶來全新的英文字串，字典若沒跟著更新，
-那部分就會維持英文。**版本號不代表保證相容未來所有 Orca 更新**——只代表列出的
-版本經過實際安裝、`--dry-run`，以及對照 Orca 官方 es/ja/ko 語系檔案比對過
-新增／異動的翻譯鍵，確認核心字典沒有缺漏。
+驗證方式：以 Orca 內建的 es／ja／ko／fr 語系為基準比對翻譯鍵，確認沒有缺漏；
+語言包並以 Orca 自己的外掛驗證程式檢查過格式與限制。
 
-安裝前建議先確認相容性，尤其是 Orca 剛更新完的情況：
-
-```bash
-npx orca-zh-tw-installer --dry-run
-```
-
-若輸出全部是 ✅（零 ⚠️、零 ❌），代表跟你目前的 Orca 版本相容，可以放心正式安裝。
-若看到 ❌ 或大量 ⚠️，代表 Orca 更新後改了程式碼結構，需要等本包更新或
-[回報 Issue](https://github.com/Moksa1123/orca-zh-tw-installer/issues)。
+Orca 更新頻繁，新功能會帶來新的英文字串，字典沒跟上的部分會暫時顯示英文，
+介面其餘部分不受影響。發現英文沒翻到，歡迎[回報 Issue](https://github.com/Moksa1123/orca-zh-tw-installer/issues)。
 
 ---
 
@@ -54,114 +80,46 @@ npx orca-zh-tw-installer --dry-run
 
 | 功能 | 說明 |
 |------|------|
-| **一鍵跨平臺安裝** | 透過 `npx` 自動偵測作業系統並完成替換 |
-| **自動破解白名單** | 突破官方限制，將 `zh-TW` 寫入前端與核心白名單 |
-| **解除繁中強制降級** | 官方新版會把 `zh-TW`／`zh-HK`／`zh-Hant` 明確打回英文，本包一併解除 |
-| **原生選單也中文化** | 除了介面，系統匣、原生選單、系統對話框（main process）同樣套用繁中 |
-| **專業工程術語** | 對照 VS Code 官方 zh-TW 語系包精修，303 條術語鎖定表確保一詞一譯（如 存放庫、終端機、Worktree）|
-| **高曝光介面已逐句校對** | 側邊欄、原始碼控制、編輯器、狀態列、分頁等 3,502 句完成兩輪複查，修正約 2,500 處誤譯與不一致 |
-| **安裝後自動驗證** | 重新封裝前檢查全部注入點，任一失敗即中止且不改動 `app.asar`，不會「安裝成功卻沒效果」|
-| **無痛備份機制** | 首次安裝自動備份 `app.asar.bak`；重複執行會偵測既有補丁，不會用已修補版覆蓋乾淨備份 |
-| **自動追蹤更新** | npm 發布機制確保未來套用更新時始終取得最新版本 |
+| **官方外掛安裝** | 透過 Orca 外掛系統載入，不修改 `app.asar`，自動更新後依然有效 |
+| **專業工程術語** | 對照 VS Code 官方 zh-TW 語系包精修，術語鎖定表確保一詞一譯（如 存放庫、終端機、Worktree）|
+| **高曝光介面已逐句校對** | 側邊欄、原始碼控制、編輯器、狀態列、分頁等完成兩輪複查 |
+| **系統匣與原生對話框** | 語言包同時套用在 main process，系統匣與對話框一併中文化 |
+
+### 外掛做不到的部分
+
+少數字串沒有走 Orca 的翻譯系統，而是直接寫死在程式碼裡，例如原生選單列的部分項目、
+快速鍵名稱、斜線命令說明與新手引導。語言包碰不到這些，所以會維持英文。
+
+外掛權限審核相關的文案，Orca 刻意禁止語言包改寫（防止惡意外掛把警告改成安撫的話），
+這部分也會維持英文。
 
 ---
 
-## 快速開始
+## 舊版 Orca（1.4.180 以下）：npx 安裝器
 
-### 方法一：雙擊執行（不需要會用命令列）
+Orca 1.4.206 以前沒有外掛語言包，仍可用原本的安裝器直接修補 `app.asar`。
+在 1.4.206 以上執行它，只會顯示上面的外掛安裝步驟，不會動任何檔案。
 
-從本專案下載這兩個檔案其中之一，直接雙擊：
-
-| 系統 | 檔案 |
-|---|---|
-| Windows | [`安裝繁體中文.bat`](安裝繁體中文.bat) |
-| macOS | [`安裝繁體中文.command`](安裝繁體中文.command) |
-
-它會自己檢查 Node.js 有沒有裝、Orca 有沒有關掉，然後完成安裝。
-沒裝 Node.js 的話會直接給你下載連結，不會丟一句看不懂的錯誤訊息。
-
-> macOS 首次執行若被擋下，在該檔案按右鍵 → 開啟 → 開啟。
-
-還原成官方版本：雙擊 [`還原官方版本.bat`](還原官方版本.bat)（Windows）。
-
-### 方法二：命令列
-
-請確認系統已安裝 Node.js。開啟終端機並輸入以下指令：
+需要 Node.js。**請先完全關閉 Orca**（系統匣圖示右鍵 → Quit），然後：
 
 ```bash
 npx orca-zh-tw-installer
 ```
 
-> 注意：套件名稱是 `orca-zh-tw-installer`。指令名稱雖然是 `orca-zh-tw`，
-> 但 `npx orca-zh-tw` 會被當成套件名去 registry 查詢而得到 404。
+不會用命令列的話，可以下載後雙擊 [`安裝繁體中文.bat`](安裝繁體中文.bat)（Windows）
+或 [`安裝繁體中文.command`](安裝繁體中文.command)（macOS），它會先檢查 Node.js 與 Orca 狀態。
 
-**請先完全關閉 Orca**（系統匣圖示右鍵 → Quit，不是只關閉視窗）。
-安裝腳本會偵測 Orca 是否仍在執行並直接中止——因為在執行中替換
-`app.asar` 之後，那個 Orca 實例的 renderer 還握著舊的檔名，
-去載入時會拋出 `Unexpected token` 並讓側邊欄等面板顯示錯誤。
-那是一次性的、重啟即消失，但很容易被誤認為語系包壞了。
-
-腳本將自動執行以下流程：
-1. 自動定位作業系統對應的 Orca 安裝路徑並解包。
-2. 備份官方 `app.asar`（已含補丁時會保留原本的乾淨備份）。
-3. 破解主程式（Main）語言限制與 locale 解析。
-4. 破解渲染器（Renderer）語言限制、下拉選單與 locale 解析。
-5. 注入 11,000 句繁體中文字典（ESM 給 Renderer、CJS 給 Main）。
-6. 驗證全部注入點後重新封裝。
-
-### 其他指令
-
-全部都用同一個入口，不需要 clone 這個專案：
+裝好後重新啟動 Orca，到 `Settings -> Appearance -> Language` 選 `中文（繁體）`。
 
 ```bash
 npx orca-zh-tw-installer --dry-run   # 只檢查相容性，不改動 Orca（執行中也能安全跑）
 npx orca-zh-tw-installer --verify    # 檢查已安裝的 app.asar 是否含全部補丁與字典
-npx orca-zh-tw-installer --restore   # 一鍵還原成官方原版
-npx orca-zh-tw-installer --verbose   # 列出每一個注入點（預設只印總數）
-npx orca-zh-tw-installer --force     # 即使 Orca 執行中也強制套用（不建議）
+npx orca-zh-tw-installer --restore   # 一鍵還原成官方原版（先關閉 Orca）
 npx orca-zh-tw-installer --help      # 顯示說明
 ```
 
-`--dry-run` 適合在 Orca 更新後先跑，確認語系包是否仍與新版相容。
-
-### 出問題時：一鍵還原
-
-```bash
-# 先完全關閉 Orca，然後：
-npx orca-zh-tw-installer --restore
-```
-
-動手前會檢查三件事，任一不過就中止且不動你的檔案：
-
-| 檢查 | 為什麼 |
-|---|---|
-| 備份存在 | 沒有備份就無從還原 |
-| Orca 已完全關閉 | 執行中替換 `app.asar` 會讓那個實例噴 `Unexpected token`，看起來像還原失敗 |
-| **備份本身是乾淨的** | 備份若已含補丁（某次安裝中斷所致），還原了仍是中文，只會更困惑 |
-
-還原後**備份檔保留不刪**，之後想再套用繁中直接執行 `npx orca-zh-tw-installer`。
-
-若因故無法使用該指令，也可以手動複製：
-
-```powershell
-# Windows
-Copy-Item "$env:LOCALAPPDATA\Programs\orca\resources\app.asar.bak" `
-          "$env:LOCALAPPDATA\Programs\orca\resources\app.asar" -Force
-```
-
-```bash
-# macOS
-cp /Applications/Orca.app/Contents/Resources/app.asar{.bak,}
-```
-
----
-
-## 啟用教學
-
-1. 安裝完成後，請**徹底關閉 Orca**（於系統工具列右鍵選擇 Quit）。
-2. 重新啟動 Orca 應用程式。
-3. 進入 `Settings -> Appearance -> Language`。
-4. 選擇 `中文（繁體）` 即可套用。
+`--restore` 動手前會確認備份存在、Orca 已關閉、備份本身是乾淨的，任一不過就中止。
+無法使用該指令時，也可手動把 `resources/app.asar.bak` 複製回 `app.asar`。
 
 ---
 
@@ -197,6 +155,7 @@ npm start
 - `zh-TW-nested.js`：由來源檔產生的 ESM 字典，供 Renderer 載入。**請勿手動編輯。**
 - `zh-TW-nested.cjs.js`：由來源檔產生的 CJS 字典，供 Main process 載入。**請勿手動編輯。**
 - `scripts/build-nested.js`：由 JSON 產生上述兩個字典檔。
+- `scripts/build-plugin.js`：由 JSON 產生 Orca 外掛（`orca-plugin/`），並檢查 Orca 對語言包的各項限制。
 - `scripts/sweep-terms.js`：依術語鎖定表統一用詞，預設 dry-run。
 - `scripts/sweep-spacing.js`：中英之間補半形空格，預設 dry-run。
 - `scripts/verify-install.js`：驗證已安裝的 `app.asar` 是否含全部補丁與字典。
@@ -229,8 +188,10 @@ npm run audit:identifiers
 # 1. 編輯 orca_zh_TW_translation.json
 # 2. 重新產生字典檔（兩種格式）
 npm run build
-# 3. 套用
-npm start
+# 3. 產生外掛（orca-plugin/），可用 Local folder 安裝測試
+npm run build:plugin
+# 4. 發布外掛分支（只做本機 commit 與 tag，確認後再 push）
+npm run release:plugin
 ```
 
 ---

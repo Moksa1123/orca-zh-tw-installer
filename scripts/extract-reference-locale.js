@@ -29,8 +29,7 @@ if (!file) { console.error(`❌ 找不到 ${LANG} 語系 chunk`); process.exit(1
 
 const src = get(file);
 
-// chunk 形如： const app = {...}; const settings = {...}; … exports.app = app; …
-// 取出每個頂層 const 的物件字面值，攤平成點分鍵。
+// 取出語系物件，攤平成點分鍵。
 const out = {};
 const flatten = (obj, prefix) => {
   for (const [k, v] of Object.entries(obj)) {
@@ -39,28 +38,19 @@ const flatten = (obj, prefix) => {
   }
 };
 
-// chunk 裡有兩種寫法：
-//   const X = {...};                              直接的物件字面值
-//   const X = /* @__PURE__ */ JSON.parse('...');  JSON 字串（最大的 auto 用這種）
-// 後者需要先求值那個字串字面值。用 vm 在無全域的沙箱裡只跑這一個純運算式，
-// 不引入任何可存取檔案系統或網路的東西。
+// Orca 1.4.2xx 起 main process 改成壓縮輸出，語系 chunk 變成
+//   const e={...},t={...};…;exports.default=m,exports.menu=r,…
+// 不再是一行一個 `const 名稱 = {...}`，舊的正則解析會抓到 0 條。
+// 它本身是合法的 CommonJS 資料模組，所以直接在 vm 沙箱裡執行，
+// 只給它一個空的 exports——沒有 require、沒有 process，碰不到檔案系統或網路。
 const vm = require('vm');
-const evalExpr = expr => vm.runInNewContext(expr, Object.create(null), { timeout: 5000 });
-
-let count = 0;
-// 字串可能用單引號或反引號包住（es 用 '，ja/ko 用 `），兩種都要吃。
-for (const m of src.matchAll(/^const ([A-Za-z_$][\w$]*) = (?:\/\* @__PURE__ \*\/ )?(JSON\.parse\((?:'(?:[^'\\]|\\.)*'|`(?:[^`\\]|\\.)*`)\)|\{[\s\S]*?\});$/gm)) {
-  const [, name, expr] = m;
-  let obj;
-  try {
-    obj = expr.startsWith('JSON.parse')
-      ? evalExpr(`(function(){const JSON=this.J;return ${expr}})`).call({ J: JSON })
-      : JSON.parse(expr);
-  } catch { continue; }
-  if (!obj || typeof obj !== 'object') continue;
-  flatten(obj, name + '.');
-  count++;
-}
+const sandbox = { exports: {} };
+sandbox.module = { exports: sandbox.exports };
+vm.runInNewContext(src, sandbox, { timeout: 10000 });
+const mod = sandbox.module.exports.default ? sandbox.module.exports : sandbox.exports;
+const root = mod.default && typeof mod.default === 'object' ? mod.default : mod;
+flatten(root, '');
+const count = Object.keys(root).length;
 
 console.error(`來源：${file}`);
 console.error(`解析 ${count} 個頂層物件，共 ${Object.keys(out).length} 條`);
