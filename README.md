@@ -31,20 +31,29 @@
 
 ## 安裝（Orca 1.4.206 以上）
 
-1. Orca → **Settings → Plugins → Install**
-2. 選 **Git URL**，貼上：
+不需要 Node.js，也不必先關閉 Orca。這個外掛只含語言包，沒有可執行的程式碼。
 
-   ```
-   https://github.com/Moksa1123/orca-zh-tw-installer#plugin-v3.0.1
-   ```
+### 方法一：加入市集來源（建議，之後可一鍵更新）
 
-3. 檢視權限後啟用。這個外掛只含語言包，沒有可執行的程式碼。
+1. Orca → **Settings → Plugins** → **Manage sources** → **Add source**
+2. 填入：
+   - Git URL：`https://github.com/Moksa1123/orca-zh-tw-installer`
+   - Ref：`plugin`
+3. 回到市集，找到「moksa.zh-tw」→ Install，檢視權限後啟用
 4. **Settings → Appearance → Language** → 選 `zh-TW — moksa.zh-tw`
 
-不需要 Node.js，也不必先關閉 Orca。
+之後有新版，Plugins 頁面會直接出現更新提示。
 
-> 網址結尾的 `#plugin-v3.0.1` 是版本標記，Orca 會固定安裝那一版。
-> 之後要更新，在 Plugins 頁面移除後改貼新版網址即可（最新版號見本頁「支援版本」）。
+### 方法二：直接用 Git URL 安裝
+
+Settings → Plugins → Install → **Git URL**，貼上：
+
+```
+https://github.com/Moksa1123/orca-zh-tw-installer#plugin-v3.0.2
+```
+
+網址結尾是版本標記，Orca 會固定安裝那一版。這種方式**無法一鍵更新**，
+要換新版得移除後改貼新網址（最新版號見「支援版本」）。
 
 ### 從舊版（npx 安裝器）換過來
 
@@ -64,7 +73,7 @@ Orca 自動更新過的話，官方版本其實已經蓋掉舊補丁了，這步
 
 | 項目 | 版本 |
 |---|---|
-| **語系包** | v3.0.1 |
+| **語系包** | v3.0.2 |
 | **外掛安裝，已驗證** | Orca 1.4.206 |
 | **npx 安裝器（舊方式），已測試** | Orca 1.4.161 ～ 1.4.180 |
 

@@ -56,6 +56,20 @@ files.push(['README.md', Buffer.from([
   '```',
   '',
 ].join('\n'))]);
+// 自架市集索引。Orca 的「更新」只對從市集安裝的外掛有效（Git URL 安裝的只能移除重裝），
+// 所以同一條分支根目錄也放一份 orca-marketplace.json。使用者加入一次來源
+// （本 repo、ref 填 plugin），之後每次發版改的就是這裡的 ref，他們會看到更新提示。
+// 外掛本身固定指向這一版的 tag，確保可重現。
+files.push(['orca-marketplace.json', Buffer.from(JSON.stringify({
+  name: 'Orca 繁體中文（台灣）',
+  owner: 'Moksa1123',
+  plugins: [{
+    id: 'moksa.zh-tw',
+    source: { kind: 'git', url: 'https://github.com/Moksa1123/orca-zh-tw-installer.git', ref: TAG },
+    description: '繁體中文（台灣）介面語言包，對照 VS Code 官方 zh-TW 用語精修，逾 13,000 句。',
+    categories: ['languages'],
+  }],
+}, null, 2) + '\n')]);
 if (fs.existsSync(path.join(ROOT, 'LICENSE'))) files.push(['LICENSE', fs.readFileSync(path.join(ROOT, 'LICENSE'))]);
 
 const tmpIndex = path.join(os.tmpdir(), `orca-plugin-index-${process.pid}`);
