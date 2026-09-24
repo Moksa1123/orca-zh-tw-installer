@@ -6,5 +6,5 @@
 安裝：Orca → Settings → Plugins → Install → Git URL，貼上
 
 ```
-https://github.com/Moksa1123/orca-zh-tw-installer#plugin-v3.0.1
+https://github.com/Moksa1123/orca-zh-tw-installer#plugin-v3.0.2
 ```

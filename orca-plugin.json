@@ -3,7 +3,7 @@
   "id": "zh-tw",
   "publisher": "moksa",
   "name": "繁體中文（台灣）語言包",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Orca 台灣正體中文介面翻譯，對照 VS Code 官方 zh-TW 用語精修。",
   "author": {
     "name": "Moksa",

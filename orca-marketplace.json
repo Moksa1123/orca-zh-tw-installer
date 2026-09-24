@@ -1,0 +1,18 @@
+{
+  "name": "Orca 繁體中文（台灣）",
+  "owner": "Moksa1123",
+  "plugins": [
+    {
+      "id": "moksa.zh-tw",
+      "source": {
+        "kind": "git",
+        "url": "https://github.com/Moksa1123/orca-zh-tw-installer.git",
+        "ref": "plugin-v3.0.2"
+      },
+      "description": "繁體中文（台灣）介面語言包，對照 VS Code 官方 zh-TW 用語精修，逾 13,000 句。",
+      "categories": [
+        "languages"
+      ]
+    }
+  ]
+}
