@@ -3,3 +3,4 @@ node_modules
 *.bak
 .ref-*.json
 orca-plugin/
+TRANSLATION-PLAN.md

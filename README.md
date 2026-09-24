@@ -116,8 +116,8 @@ Orca 1.4.206 以前沒有外掛語言包，仍可用原本的安裝器直接修�
 npx orca-zh-tw-installer
 ```
 
-不會用命令列的話，可以下載後雙擊 [`安裝繁體中文.bat`](安裝繁體中文.bat)（Windows）
-或 [`安裝繁體中文.command`](安裝繁體中文.command)（macOS），它會先檢查 Node.js 與 Orca 狀態。
+不會用命令列的話，可以下載後雙擊 [`安裝繁體中文.bat`](legacy/安裝繁體中文.bat)（Windows）
+或 [`安裝繁體中文.command`](legacy/安裝繁體中文.command)（macOS），它會先檢查 Node.js 與 Orca 狀態。
 
 裝好後重新啟動 Orca，到 `Settings -> Appearance -> Language` 選 `中文（繁體）`。
 

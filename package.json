@@ -44,5 +44,12 @@
   },
   "engines": {
     "node": ">=20.0.0"
-  }
+  },
+  "files": [
+    "index.js",
+    "zh-TW-nested.js",
+    "zh-TW-nested.cjs.js",
+    "orca_zh_TW_translation.json",
+    "scripts/verify-install.js"
+  ]
 }
