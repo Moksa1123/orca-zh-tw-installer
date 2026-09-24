@@ -70,17 +70,42 @@ const TRANSLATABLE_CHROME = new Set([
   'auto.components.settings.plugins.search.development',
 ]);
 
+// 翻譯後會讓 Orca 設定頁崩潰的鍵，一律不放進語言包（維持英文）。
+//
+// Orca 設定頁用「翻譯後的標題」去清單裡找項目，找不到就 throw：
+//   function Z(e){ let t = dn().find(t => t.title === e); if(!t) throw Error(...) }
+//   ... Z(h(`…cloudVmTitle`, `Cloud VM`))
+// 清單 dn() 經過 localized-catalog 快取，而那個快取只看 i18n.language 有沒有變。
+// 外掛語言包是先切到 plugin… 語言代碼、翻譯內容稍後才非同步載入；快取若在
+// 這段空窗期算好，標題就以英文存進去，翻譯載入後語言代碼沒變、快取不會更新。
+// 之後查找端翻出「雲端 VM」、快取裡是「Cloud VM」，對不上 → 設定頁整頁崩潰
+// （Missing experimental-pane search entry: "雲端 VM"）。
+//
+// 這是 Orca 的競態，我們改不了它的程式碼。讓這幾個鍵兩端都固定是英文，就怎麼算都對得上。
+// 來源：useSettingsNavigationMetadata chunk 裡 an()／Z() 兩個查找函式的全部呼叫點。
+const LOOKUP_BY_TITLE = new Set([
+  'auto.components.settings.advanced.search.11eea3da72',
+  'auto.components.settings.experimental.search.87d99e634b',
+  'auto.components.settings.experimental.search.nativeChat.title',
+  'auto.components.settings.experimental.search.agentDashboard.title',
+  'auto.components.settings.experimental.search.9e4ddf776d',
+  'auto.components.settings.experimental.search.agentHibernation.title',
+  'auto.components.settings.experimental.search.newWorktreeCardStyle.title',
+  'auto.components.settings.ephemeralVms.search.cloudVmTitle',
+]);
+
 const isProtected = k =>
   k.startsWith(PROTECTED_ROOT) &&
   !TRANSLATABLE_CHROME.has(k) &&
   /^plugin/i.test(k.slice(PROTECTED_ROOT.length));
 
 const flat = JSON.parse(fs.readFileSync(SRC, 'utf8'));
-const dropped = { protected: [], tooLong: [], unsafeKey: [] };
+const dropped = { protected: [], lookupByTitle: [], tooLong: [], unsafeKey: [] };
 const nested = {};
 
 for (const [key, value] of Object.entries(flat)) {
   if (isProtected(key)) { dropped.protected.push(key); continue; }
+  if (LOOKUP_BY_TITLE.has(key)) { dropped.lookupByTitle.push(key); continue; }
   // 被誤收進字典的 CSS 樣式碼會超過單句上限；它們本來就不需要翻譯，
   // 排除後 Orca 會用內建原文，畫面不受影響。
   if (value.length > MAX_STRING) { dropped.tooLong.push(key); continue; }
@@ -142,7 +167,7 @@ fs.writeFileSync(path.join(OUT, 'orca-plugin.json'), JSON.stringify(manifest, nu
 fs.writeFileSync(path.join(OUT, 'locales', 'zh-TW.json'), catalog);
 
 console.log(`✅ orca-plugin/ 已產生（v${pkg.version}）`);
-console.log(`   翻譯 ${Object.keys(flat).length - dropped.protected.length - dropped.tooLong.length - dropped.unsafeKey.length} 句`
+console.log(`   翻譯 ${Object.keys(flat).length - Object.values(dropped).reduce((n, l) => n + l.length, 0)} 句`
   + `・項目 ${entries}/${MAX_ENTRIES}・深度 ${depth}/${MAX_DEPTH}・${(bytes / 1024).toFixed(0)} KB`);
 for (const [why, list] of Object.entries(dropped)) {
   if (list.length) console.log(`   排除 ${why}：${list.length} 句`);

@@ -156,6 +156,7 @@ npm start
 - `zh-TW-nested.cjs.js`：由來源檔產生的 CJS 字典，供 Main process 載入。**請勿手動編輯。**
 - `scripts/build-nested.js`：由 JSON 產生上述兩個字典檔。
 - `scripts/build-plugin.js`：由 JSON 產生 Orca 外掛（`orca-plugin/`），並檢查 Orca 對語言包的各項限制。
+- `scripts/audit-lookup-keys.js`：找出 Orca「用翻譯後的標題查找、找不到就崩潰」的鍵，確認都已排除在語言包外（`npm run build:plugin` 會先跑它）。
 - `scripts/sweep-terms.js`：依術語鎖定表統一用詞，預設 dry-run。
 - `scripts/sweep-spacing.js`：中英之間補半形空格，預設 dry-run。
 - `scripts/verify-install.js`：驗證已安裝的 `app.asar` 是否含全部補丁與字典。

@@ -26,6 +26,7 @@ const git = (args, opts = {}) =>
 
 try { git(['rev-parse', '-q', '--verify', `refs/tags/${TAG}`]); console.error(`❌ tag ${TAG} 已存在，請先調整 package.json 版號`); process.exit(1); } catch {}
 
+execFileSync(process.execPath, [path.join(__dirname, 'audit-lookup-keys.js')], { cwd: ROOT, stdio: 'inherit' });
 execFileSync(process.execPath, [path.join(__dirname, 'build-plugin.js')], { cwd: ROOT, stdio: 'inherit' });
 
 // 用 git 底層指令直接組 commit：暫時的 index 只放外掛檔案，不建 worktree、

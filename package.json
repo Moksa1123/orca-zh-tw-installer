@@ -22,8 +22,9 @@
     "audit:consistency": "npm run ref:all && node scripts/audit-consistency.js",
     "audit:classify": "npm run ref:all && node scripts/audit-consistency-classify.js",
     "unify:phrasing": "node scripts/unify-phrasing.js",
-    "build:plugin": "node scripts/build-plugin.js",
-    "release:plugin": "node scripts/release-plugin.js"
+    "build:plugin": "node scripts/audit-lookup-keys.js && node scripts/build-plugin.js",
+    "release:plugin": "node scripts/release-plugin.js",
+    "audit:lookup": "node scripts/audit-lookup-keys.js"
   },
   "keywords": [
     "orca",
