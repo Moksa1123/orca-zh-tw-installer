@@ -43,7 +43,8 @@
 3. 按 **Add source** → **Done**，市集清單會出現「moksa.zh-tw」→ Install，檢視權限後啟用
 4. **Settings → Appearance → Language** → 選 `zh-TW — moksa.zh-tw`
 
-之後有新版，Plugins 頁面會直接出現更新提示。
+之後要更新：先在 Plugins 頁面市集區塊按 **重新整理**（Orca 檢查更新時只看快取的索引，
+不會自己重新抓），再按這個外掛的 **Check for update**。
 
 ### 方法二：直接用 Git URL 安裝
 
