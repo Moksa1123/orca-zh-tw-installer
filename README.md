@@ -51,7 +51,7 @@
 Settings → Plugins → Install → **Git URL**，貼上：
 
 ```
-https://github.com/Moksa1123/orca-zh-tw-installer#plugin-v3.0.4
+https://github.com/Moksa1123/orca-zh-tw-installer#plugin-v3.0.5
 ```
 
 網址結尾是版本標記，Orca 會固定安裝那一版。這種方式**無法一鍵更新**，
@@ -75,7 +75,7 @@ Orca 自動更新過的話，官方版本其實已經蓋掉舊補丁了，這步
 
 | 項目 | 版本 |
 |---|---|
-| **語系包** | v3.0.4 |
+| **語系包** | v3.0.5 |
 | **外掛安裝，已驗證** | Orca 1.4.206、1.4.220、1.4.237 |
 | **npx 安裝器（舊方式），已測試** | Orca 1.4.161 ～ 1.4.180 |
 
