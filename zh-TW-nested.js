@@ -8339,13 +8339,13 @@ export default {
             "toggleLabel": "切換 Agent 儀表板"
           },
           "agentHibernation": {
-            "copy": "在設定的閒置時間後停止閒置的背景 Agent 終端機，並在你再次開啟時繼續支援的工作階段。Agent 睡眠會保留由 Orca 啟動的 Agent 的啟動選項。手動啟動的 Agent 可能會以你目前的 Orca 預設值繼續。此功能在我們調整安全模型期間仍為實驗性。",
+            "copy": "在設定的閒置時間後停止閒置的背景 Agent 終端機，並在你再次開啟時繼續支援的工作階段。Agent 休眠會保留由 Orca 啟動的 Agent 的啟動選項。手動啟動的 Agent 可能會以你目前的 Orca 預設值繼續。此功能在我們調整安全模型期間仍為實驗性。",
             "description": "在設定的閒置時間後停止閒置的背景 Agent 終端機，並在你再次開啟時繼續支援的工作階段。",
-            "idleMinutesDescription": "已完成的背景 Agent 在 Orca 可將其睡眠前必須等待的閒置分鐘數。",
-            "idleMinutesLabel": "睡眠等待時間",
+            "idleMinutesDescription": "已完成的背景 Agent 在 Orca 可將其休眠前必須等待的閒置分鐘數。",
+            "idleMinutesLabel": "休眠等待時間",
             "idleMinutesSuffix": "分鐘",
-            "title": "Agent 睡眠",
-            "toggleLabel": "切換 Agent 睡眠"
+            "title": "Agent 休眠",
+            "toggleLabel": "切換 Agent 休眠"
           },
           "ca2219fe5e": "在右下角顯示固定的小型動畫寵物。可從狀態列的寵物選單選擇角色（Claudino、OpenCode、Gremlin），或上傳你自己的 PNG、APNG、GIF、WebP、JPG 或 SVG。你可以隨時從同一選單隱藏它，而不需停用此設定。",
           "dd6f0a1d45": "寵物",
@@ -11943,11 +11943,11 @@ export default {
             "agentHibernation": {
               "agent": "Agent",
               "agents": "Agent",
-              "description": "在設定的閒置時間過後停止閒置的背景 Agent 終端機，並在再次開啟時繼續支援的工作階段。Agent 睡眠會保留由 Orca 啟動的 Agent 的啟動選項；手動啟動的 Agent 可能會以目前的 Orca 預設值繼續。",
+              "description": "在設定的閒置時間過後停止閒置的背景 Agent 終端機，並在再次開啟時繼續支援的工作階段。Agent 休眠會保留由 Orca 啟動的 Agent 的啟動選項；手動啟動的 Agent 可能會以目前的 Orca 預設值繼續。",
               "minutes": "分鐘",
-              "sleep": "睡眠",
+              "sleep": "休眠",
               "terminal": "終端機",
-              "title": "Agent 睡眠"
+              "title": "Agent 休眠"
             },
             "b54cea709b": "夥伴",
             "bff1ff7768": "符號連結",
@@ -14481,7 +14481,7 @@ export default {
           "139877b384": "全選",
           "489d1c8c9f": "搜尋專案…",
           "5f7085a077": "專案",
-          "638a2d221d": "隱藏睡眠中的工作區",
+          "638a2d221d": "隱藏休眠工作區",
           "75405270ed": "編輯篩選條件（已啟用 {{value0}} 個）",
           "779b7ba05d": "清除",
           "81ded53722": "SSH",
@@ -14495,7 +14495,7 @@ export default {
           "ee240a39eb": "編輯篩選條件",
           "f506a1262a": "篩選工作區",
           "keepDefaultBranch": "預設分支除外",
-          "keepDefaultBranchAria": "隱藏睡眠中的工作區時仍顯示預設分支"
+          "keepDefaultBranchAria": "隱藏休眠工作區時仍顯示預設分支"
         },
         "SidebarHeader": {
           "25a95899c9": "新增專案",
@@ -14572,9 +14572,9 @@ export default {
           "c3fa13dc2e": "隱藏預設分支",
           "cliCreated": "隱藏 CLI 建立的工作區",
           "detachedHead": "隱藏已分離的 HEAD",
-          "ed1611b65b": "隱藏睡眠中的工作區",
+          "ed1611b65b": "隱藏休眠工作區",
           "keepDefaultBranch": "預設分支除外",
-          "keepDefaultBranchAria": "隱藏睡眠中的工作區時仍顯示預設分支",
+          "keepDefaultBranchAria": "隱藏休眠工作區時仍顯示預設分支",
           "otherClients": "隱藏其他用戶端的工作區",
           "otherClientsAria": "隱藏在共用遠端伺服器上由其他 Orca 用戶端建立的工作區"
         },
@@ -14640,10 +14640,10 @@ export default {
           "workspaceOptions": "工作區選項"
         },
         "SleepTwinWorkspaceDialog": {
-          "alsoSleeps": "也會讓 {{hosts}} 上的副本睡眠",
+          "alsoSleeps": "{{hosts}} 上的副本也會一起休眠",
           "cancel": "取消",
-          "confirm": "睡眠",
-          "title": "讓工作區睡眠"
+          "confirm": "休眠",
+          "title": "讓工作區休眠"
         },
         "SshDisconnectedDialog": {
           "11552bf786": "SSH 已中斷連線",
@@ -14843,7 +14843,7 @@ export default {
         },
         "WorktreeCardStatusSlot": {
           "branchIdentity": "分支",
-          "sleeping": "睡眠中"
+          "sleeping": "休眠中"
         },
         "WorktreeContextMenu": {
           "0918b35e4f": "關閉此工作區中所有作用中的面板以釋放記憶體和 CPU。",
@@ -14874,7 +14874,7 @@ export default {
           "f5ac91531d": "從 Orca 移除專案",
           "primaryDeleteDisabled": "主要 Worktree 無法刪除。請改為移除專案。",
           "setParentWorkspace": "設定上層 Worktree…",
-          "sleepWithDescendants": "連同子系一起睡眠（{{value0}}）",
+          "sleepWithDescendants": "連同子系一起休眠（{{value0}}）",
           "sleepWithDescendantsDescription": "關閉此工作區及所有巢狀子系中使用中的面板，以釋放記憶體和 CPU。",
           "workspaceSection": "工作區"
         },
@@ -15237,8 +15237,8 @@ export default {
         "sleep": {
           "worktree": {
             "flow": {
-              "8bc3fc0671": "無法讓工作區進入睡眠",
-              "c460fecc4a": "無法讓部分工作區進入睡眠",
+              "8bc3fc0671": "無法讓工作區休眠",
+              "c460fecc4a": "無法讓部分工作區休眠",
               "chat": {
                 "partial": "主機無法確認聊天已停止。其他面板可能已關閉；請檢查連線後再試一次。"
               },
@@ -17311,7 +17311,7 @@ export default {
             "1d1a7a9c1f": "取消",
             "6b9a6975f8": "終端機仍有執行中的程式。如果關閉終端機，該程式將被終止。",
             "78b79d854d": "關閉終端機？",
-            "automatic_resume_warning": "此終端機不會自動繼續。請取消並讓工作區進入睡眠，以便稍後繼續。",
+            "automatic_resume_warning": "此終端機不會自動繼續。請取消並讓工作區休眠，以便稍後繼續。",
             "dont_ask_again": "對執行中的終端機不再詢問",
             "ebd2fa844d": "關閉",
             "stop_agent_confirm": "停止 Agent",
@@ -17469,7 +17469,7 @@ export default {
             "pressureDetail": "主機負載過重。你的工作階段已儲存。",
             "resume": "繼續",
             "resumeAutomaticRestores": "繼續自動還原",
-            "title": "睡眠中 — 按一下以繼續"
+            "title": "休眠中 — 按一下以繼續"
           },
           "TerminalSshReconnectOverlay": {
             "authFailed": "{{value0}} 的驗證失敗。請重新連線以繼續此終端機工作階段。",
@@ -20749,7 +20749,7 @@ export default {
         "toggle": "顯示搜尋"
       },
       "sleepingWorkspaces": {
-        "toggle": "切換睡眠中的工作區"
+        "toggle": "切換休眠工作區"
       },
       "sourceControl": {
         "toggle": "顯示原始碼控制"
