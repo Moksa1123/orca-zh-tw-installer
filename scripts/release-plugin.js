@@ -27,7 +27,18 @@ const git = (args, opts = {}) =>
 try { git(['rev-parse', '-q', '--verify', `refs/tags/${TAG}`]); console.error(`❌ tag ${TAG} 已存在，請先調整 package.json 版號`); process.exit(1); } catch {}
 
 execFileSync(process.execPath, [path.join(__dirname, 'audit-lookup-keys.js')], { cwd: ROOT, stdio: 'inherit' });
-execFileSync(process.execPath, [path.join(__dirname, 'build-plugin.js')], { cwd: ROOT, stdio: 'inherit' });
+// 先掃描目前安裝的 Orca：有缺漏就中止（不該發布漏翻的版本），
+// 同時取得已不存在的鍵清單，讓外掛不必塞進用不到的字串。
+const auditDir = fs.mkdtempSync(path.join(os.tmpdir(), 'orca-zh-tw-audit-'));
+try {
+  execFileSync(process.execPath, [path.join(__dirname, 'audit-missing.js'), auditDir], { cwd: ROOT, stdio: 'inherit' });
+} catch {
+  console.error('\n❌ 目前的 Orca 還有字串沒翻譯，先補齊再發布（或確認 Orca 是要支援的版本）。');
+  process.exit(1);
+}
+execFileSync(process.execPath, [path.join(__dirname, 'build-plugin.js'), path.join(auditDir, 'obsolete.json')], { cwd: ROOT, stdio: 'inherit' });
+// 再用目前 Orca 自己的驗證程式檢查一次，沒過就不發布
+execFileSync(process.execPath, [path.join(__dirname, 'validate-plugin.js')], { cwd: ROOT, stdio: 'inherit' });
 
 // 用 git 底層指令直接組 commit：暫時的 index 只放外掛檔案，不建 worktree、
 // 不動任何工作目錄。
@@ -66,7 +77,7 @@ files.push(['orca-marketplace.json', Buffer.from(JSON.stringify({
   plugins: [{
     id: 'moksa.zh-tw',
     source: { kind: 'git', url: 'https://github.com/Moksa1123/orca-zh-tw-installer.git', ref: TAG },
-    description: '繁體中文（台灣）介面語言包，對照 VS Code 官方 zh-TW 用語精修，逾 15,000 句。',
+    description: '繁體中文（台灣）介面語言包，對照 VS Code 官方 zh-TW 用語精修，逾 17,000 句。',
     categories: ['languages'],
   }],
 }, null, 2) + '\n')]);

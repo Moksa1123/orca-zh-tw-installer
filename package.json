@@ -24,7 +24,9 @@
     "unify:phrasing": "node scripts/unify-phrasing.js",
     "build:plugin": "node scripts/audit-lookup-keys.js && node scripts/build-plugin.js",
     "release:plugin": "node scripts/release-plugin.js",
-    "audit:lookup": "node scripts/audit-lookup-keys.js"
+    "audit:lookup": "node scripts/audit-lookup-keys.js",
+    "audit:missing": "node scripts/audit-missing.js",
+    "validate:plugin": "node scripts/validate-plugin.js"
   },
   "keywords": [
     "orca",
@@ -51,5 +53,8 @@
     "zh-TW-nested.cjs.js",
     "orca_zh_TW_translation.json",
     "scripts/verify-install.js"
-  ]
+  ],
+  "devDependencies": {
+    "zod": "^4.6.7"
+  }
 }

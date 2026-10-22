@@ -100,12 +100,20 @@ const isProtected = k =>
   /^plugin/i.test(k.slice(PROTECTED_ROOT.length));
 
 const flat = JSON.parse(fs.readFileSync(SRC, 'utf8'));
-const dropped = { protected: [], lookupByTitle: [], tooLong: [], unsafeKey: [] };
+const dropped = { protected: [], lookupByTitle: [], obsolete: [], tooLong: [], unsafeKey: [] };
+
+// 目前 Orca 已不存在的鍵（audit-missing.js 產生的 obsolete.json）。
+// 外掛有 20,000 項上限，留著這些只是佔空間、Orca 不會讀到。字典本身保留它們，
+// 因為舊版 Orca 用的 npx 安裝器還需要。沒給這個檔就不排除（例如沒裝 Orca 的機器）。
+const OBSOLETE_FILE = process.argv[2];
+const OBSOLETE = OBSOLETE_FILE && fs.existsSync(OBSOLETE_FILE)
+  ? new Set(JSON.parse(fs.readFileSync(OBSOLETE_FILE, 'utf8'))) : new Set();
 const nested = {};
 
 for (const [key, value] of Object.entries(flat)) {
   if (isProtected(key)) { dropped.protected.push(key); continue; }
   if (LOOKUP_BY_TITLE.has(key)) { dropped.lookupByTitle.push(key); continue; }
+  if (OBSOLETE.has(key)) { dropped.obsolete.push(key); continue; }
   // 被誤收進字典的 CSS 樣式碼會超過單句上限；它們本來就不需要翻譯，
   // 排除後 Orca 會用內建原文，畫面不受影響。
   if (value.length > MAX_STRING) { dropped.tooLong.push(key); continue; }

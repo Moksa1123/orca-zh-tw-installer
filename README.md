@@ -21,7 +21,7 @@
 
 ## 關於專案
 
-為 Orca 提供超過 15,000 句針對台灣軟體工程師習慣精修的繁體中文翻譯，
+為 Orca 提供超過 17,000 句針對台灣軟體工程師習慣精修的繁體中文翻譯，
 對照 VS Code 官方 zh-TW 語系包與術語鎖定表，確保一詞一譯。
 
 **Orca 1.4.206 起以官方外掛形式提供**：在 Orca 裡貼一行網址就能安裝，
@@ -51,7 +51,7 @@
 Settings → Plugins → Install → **Git URL**，貼上：
 
 ```
-https://github.com/Moksa1123/orca-zh-tw-installer#plugin-v3.0.3
+https://github.com/Moksa1123/orca-zh-tw-installer#plugin-v3.0.4
 ```
 
 網址結尾是版本標記，Orca 會固定安裝那一版。這種方式**無法一鍵更新**，
@@ -75,8 +75,8 @@ Orca 自動更新過的話，官方版本其實已經蓋掉舊補丁了，這步
 
 | 項目 | 版本 |
 |---|---|
-| **語系包** | v3.0.3 |
-| **外掛安裝，已驗證** | Orca 1.4.206、1.4.220 |
+| **語系包** | v3.0.4 |
+| **外掛安裝，已驗證** | Orca 1.4.206、1.4.220、1.4.237 |
 | **npx 安裝器（舊方式），已測試** | Orca 1.4.161 ～ 1.4.180 |
 
 驗證方式：以 Orca 內建的 es／ja／ko／fr 語系為基準比對翻譯鍵，確認沒有缺漏；
@@ -167,6 +167,8 @@ npm start
 - `zh-TW-nested.cjs.js`：由來源檔產生的 CJS 字典，供 Main process 載入。**請勿手動編輯。**
 - `scripts/build-nested.js`：由 JSON 產生上述兩個字典檔。
 - `scripts/build-plugin.js`：由 JSON 產生 Orca 外掛（`orca-plugin/`），並檢查 Orca 對語言包的各項限制。
+- `scripts/audit-missing.js`：掃描目前安裝的 Orca（官方語系鍵＋程式碼裡所有翻譯呼叫），列出還沒翻的字串與已不存在的鍵。Orca 更新後先跑 `npm run audit:missing`。
+- `scripts/validate-plugin.js`：用目前安裝的 Orca 自己的驗證程式檢查外掛（`npm run validate:plugin`）。
 - `scripts/audit-lookup-keys.js`：找出 Orca「用翻譯後的標題查找、找不到就崩潰」的鍵，確認都已排除在語言包外（`npm run build:plugin` 會先跑它）。
 - `scripts/sweep-terms.js`：依術語鎖定表統一用詞，預設 dry-run。
 - `scripts/sweep-spacing.js`：中英之間補半形空格，預設 dry-run。
