@@ -86,7 +86,7 @@ files.push(['orca-marketplace.json', Buffer.from(JSON.stringify({
   plugins: [{
     id: 'moksa.zh-tw',
     source: { kind: 'git', url: 'https://github.com/Moksa1123/orca-zh-tw-installer.git', ref: TAG },
-    description: '繁體中文（台灣）介面語言包，對照 VS Code 官方 zh-TW 用語精修，逾 17,000 句。',
+    description: '繁體中文（台灣）介面語言包，對照 VS Code 官方 zh-TW 用語精修，逾 18,000 句。',
     categories: ['languages'],
   }],
 }, null, 2) + '\n')]);
