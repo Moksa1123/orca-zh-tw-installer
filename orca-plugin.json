@@ -1,9 +1,10 @@
 {
-  "manifestVersion": 1,
+  "manifestVersion": 2,
+  "execution": "data",
   "id": "zh-tw",
   "publisher": "moksa",
   "name": "繁體中文（台灣）語言包",
-  "version": "3.0.6",
+  "version": "3.1.0",
   "description": "Orca 台灣正體中文介面翻譯，對照 VS Code 官方 zh-TW 用語精修。",
   "author": {
     "name": "Moksa",
@@ -11,14 +12,14 @@
   },
   "repository": "https://github.com/Moksa1123/orca-zh-tw-installer",
   "engines": {
-    "orca": ">=1.4.206"
+    "orca": ">=1.4.245"
   },
-  "pluginApi": 1,
   "contributes": {
     "languagePacks": [
       {
         "locale": "zh-TW",
-        "path": "locales/zh-TW.json"
+        "path": "locales/zh-TW.json",
+        "displayName": "繁體中文（台灣）"
       }
     ]
   }
