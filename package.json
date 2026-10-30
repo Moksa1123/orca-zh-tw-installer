@@ -26,7 +26,8 @@
     "release:plugin": "node scripts/release-plugin.js",
     "audit:lookup": "node scripts/audit-lookup-keys.js",
     "audit:missing": "node scripts/audit-missing.js",
-    "validate:plugin": "node scripts/validate-plugin.js"
+    "validate:plugin": "node scripts/validate-plugin.js",
+    "coverage": "node scripts/coverage.js"
   },
   "keywords": [
     "orca",

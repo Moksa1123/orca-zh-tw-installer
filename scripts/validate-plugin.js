@@ -30,10 +30,24 @@ for (const f of asar.listPackage(P).map(x => x.split(path.sep).join('/').replace
 }
 fs.symlinkSync(path.join(ROOT, 'node_modules'), path.join(tmp, 'node_modules'), 'junction');
 
-const plugins = path.join(tmp, 'out', 'shared', 'plugins');
-const manifest = require(path.join(plugins, 'plugin-manifest.js'));
-const pack = require(path.join(plugins, 'plugin-language-pack-artifact.js'));
-const market = require(path.join(plugins, 'plugin-marketplace.js'));
+// 檔案位置會隨 Orca 版本搬動（1.4.245 起分進 manifest/、artifacts/、catalog/ 子目錄），
+// 所以用檔名找，不寫死路徑。
+const findShared = name => {
+  const walk = dir => {
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+      const p = path.join(dir, e.name);
+      if (e.isDirectory()) { const r = walk(p); if (r) return r; }
+      else if (e.name === name) return p;
+    }
+    return null;
+  };
+  const hit = walk(path.join(tmp, 'out', 'shared', 'plugins'));
+  if (!hit) throw new Error(`Orca 裡找不到 ${name}，外掛系統可能又改版了`);
+  return hit;
+};
+const manifest = require(findShared('plugin-manifest.js'));
+const pack = require(findShared('plugin-language-pack-artifact.js'));
+const market = require(findShared('plugin-marketplace.js'));
 const version = JSON.parse(asar.extractFile(P, 'package.json')).version;
 
 let failed = false;

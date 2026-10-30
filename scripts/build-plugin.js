@@ -25,7 +25,8 @@ const SRC = path.join(ROOT, 'orca_zh_TW_translation.json');
 const OUT = path.join(ROOT, 'orca-plugin');
 const pkg = require(path.join(ROOT, 'package.json'));
 
-const MAX_ENTRIES = 20_000;
+// Orca 1.4.245 起上限從 20,000 提高到 50,000（PLUGIN_LANGUAGE_CATALOG_MAX_ENTRIES）
+const MAX_ENTRIES = 50_000;
 const MAX_DEPTH = 16;
 const MAX_STRING = 8192;
 const MAX_BYTES = 5 * 1024 * 1024;
@@ -92,6 +93,8 @@ const LOOKUP_BY_TITLE = new Set([
   'auto.components.settings.experimental.search.agentHibernation.title',
   'auto.components.settings.experimental.search.newWorktreeCardStyle.title',
   'auto.components.settings.ephemeralVms.search.cloudVmTitle',
+  // 1.4.245 新增
+  'auto.components.settings.experimental.search.browserExtensions.title',
 ]);
 
 const isProtected = k =>
@@ -108,10 +111,15 @@ const dropped = { protected: [], lookupByTitle: [], obsolete: [], tooLong: [], u
 const OBSOLETE_FILE = process.argv[2];
 const OBSOLETE = OBSOLETE_FILE && fs.existsSync(OBSOLETE_FILE)
   ? new Set(JSON.parse(fs.readFileSync(OBSOLETE_FILE, 'utf8'))) : new Set();
+// 同一目錄的 protected.json：目前 Orca 判定為受保護的鍵（用 Orca 自己的函式算出來的）。
+// 下面寫死的 isProtected 只是沒有 Orca 時的退路。
+const PROTECTED_FILE = OBSOLETE_FILE && path.join(path.dirname(OBSOLETE_FILE), 'protected.json');
+const PROTECTED_BY_ORCA = PROTECTED_FILE && fs.existsSync(PROTECTED_FILE)
+  ? new Set(JSON.parse(fs.readFileSync(PROTECTED_FILE, 'utf8'))) : new Set();
 const nested = {};
 
 for (const [key, value] of Object.entries(flat)) {
-  if (isProtected(key)) { dropped.protected.push(key); continue; }
+  if (isProtected(key) || PROTECTED_BY_ORCA.has(key)) { dropped.protected.push(key); continue; }
   if (LOOKUP_BY_TITLE.has(key)) { dropped.lookupByTitle.push(key); continue; }
   if (OBSOLETE.has(key)) { dropped.obsolete.push(key); continue; }
   // 被誤收進字典的 CSS 樣式碼會超過單句上限；它們本來就不需要翻譯，
@@ -155,7 +163,10 @@ if (problems.length) {
 }
 
 const manifest = {
-  manifestVersion: 1,
+  // 第 2 版 manifest（Orca 1.4.245 起）：純資料外掛宣告 execution: data，
+  // 不再宣告 pluginApi；語言包可帶 displayName，選單才不會顯示成「zh-TW — moksa.zh-tw」。
+  manifestVersion: 2,
+  execution: 'data',
   id: 'zh-tw',
   publisher: 'moksa',
   name: '繁體中文（台灣）語言包',
@@ -163,10 +174,9 @@ const manifest = {
   description: 'Orca 台灣正體中文介面翻譯，對照 VS Code 官方 zh-TW 用語精修。',
   author: { name: 'Moksa', url: 'https://github.com/Moksa1123' },
   repository: 'https://github.com/Moksa1123/orca-zh-tw-installer',
-  engines: { orca: '>=1.4.206' },
-  pluginApi: 1,
+  engines: { orca: '>=1.4.245' },
   contributes: {
-    languagePacks: [{ locale: 'zh-TW', path: 'locales/zh-TW.json' }],
+    languagePacks: [{ locale: 'zh-TW', path: 'locales/zh-TW.json', displayName: '繁體中文（台灣）' }],
   },
 };
 

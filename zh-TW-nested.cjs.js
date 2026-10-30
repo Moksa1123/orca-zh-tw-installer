@@ -5734,6 +5734,9 @@ const zhTW = {
           "searchLabel": "搜尋外掛",
           "searchPlaceholder": "搜尋外掛、類別或發行者",
           "title": "外掛"
+        },
+        "PluginListRow": {
+          "official": "官方"
         }
       },
       "pr-check-counts": {
@@ -18568,15 +18571,51 @@ const zhTW = {
       }
     },
     "main": {
+      "ipc": {
+        "diagnostics": {
+          "uploadConfirm": {
+            "cancel": "取消",
+            "detail": "診斷 ID：{{id}}\n診斷記錄：{{records}} 筆\n大小：{{sizeKb}} KB",
+            "message": "這會上傳你已檢閱過、經過遮蔽處理的應用程式診斷檔案。",
+            "send": "傳送",
+            "title": "要將此檔案傳送給支援團隊嗎？"
+          }
+        }
+      },
       "window": {
         "editableContextMenu": {
+          "addLink": "加入連結",
+          "addToDictionary": "加入字典",
+          "bodyText": "內文",
+          "bold": "粗體",
+          "bulletList": "項目符號清單",
+          "checklist": "檢查清單",
+          "codeBlock": "程式碼區塊",
           "deleteColumn": "刪除欄",
           "deleteRow": "刪除列",
           "deleteTable": "刪除表格",
+          "divider": "分隔線",
+          "format": "格式",
+          "heading1": "標題 1",
+          "heading2": "標題 2",
+          "heading3": "標題 3",
+          "heading4": "標題 4",
+          "heading5": "標題 5",
+          "image": "圖片",
+          "inlineCode": "行內程式碼",
+          "insert": "插入",
           "insertColumnLeft": "在左側插入欄",
           "insertColumnRight": "在右側插入欄",
           "insertRowAbove": "在上方插入列",
           "insertRowBelow": "在下方插入列",
+          "italic": "斜體",
+          "link": "連結",
+          "numberedList": "編號清單",
+          "paragraph": "段落",
+          "paste": "貼上",
+          "pasteAsPlainText": "貼上為純文字",
+          "quote": "引用",
+          "strike": "刪除線",
           "table": "表格"
         }
       }
@@ -20594,6 +20633,29 @@ const zhTW = {
     "refreshingDetails": "正在重新整理檢查詳細資訊…",
     "retrying": "正在重試…"
   },
+  "gpuFallback": {
+    "recoveredLaunch": {
+      "detail": "由於圖形處理多次當機，已啟用安全圖形模式。你可以保留此模式以維持穩定，或重新啟動並再次嘗試硬體加速。",
+      "keepSafeButton": "保留安全圖形模式",
+      "message": "Orca 已在安全圖形模式下恢復運作。",
+      "title": "安全圖形模式已啟用",
+      "tryHardwareButton": "嘗試硬體加速"
+    },
+    "restartPrompt": {
+      "detail": "安全圖形模式會停用此 Orca 版本的硬體加速與 WebGL。終端機與 3D 內容的渲染速度可能會變慢。選擇「繼續執行」則不會變更圖形設定。",
+      "keepRunningButton": "繼續執行",
+      "message": "Orca 的圖形行程已多次當機。",
+      "restartButton": "以安全圖形模式重新啟動",
+      "title": "要以安全圖形模式重新啟動 Orca 嗎？"
+    }
+  },
+  "installDirAcl": {
+    "cause": "Orca 安裝資料夾的 Windows 權限設定，導致 Orca 自身的沙箱行程無法讀取其隨附的檔案。",
+    "repairFailed": "Orca 無法修復權限，這通常表示該資料夾需要系統管理員權限。",
+    "repaired": "Orca 已修復權限。請重新載入以套用。",
+    "repairing": "Orca 正在修復權限。",
+    "runCommands": "請在系統管理員命令提示字元中執行以下命令，然後重新啟動 Orca："
+  },
   "jira": {
     "board": {
       "board": "看板",
@@ -20838,6 +20900,20 @@ const zhTW = {
     "tabs": "分頁",
     "terminalPanes": "終端機窗格"
   },
+  "localBuild": {
+    "cancelButton": "取消",
+    "chooseButton": "選擇建置版本",
+    "chooseTitle": "選擇本機 Orca 建置版本",
+    "confirmTitle": "要使用本機 Orca 建置版本嗎？",
+    "liveTerminals_one": "{{count}} 個執行中的終端機會在重新啟動後重新連接。",
+    "liveTerminals_other": "{{count}} 個執行中的終端機會在重新啟動後重新連接。",
+    "manifestFilter": "Orca 更新資訊清單",
+    "noLiveTerminals": "沒有需要重新連接的執行中終端機。",
+    "sameVersionError": "此建置版本與目前執行的應用程式版本相同。請再次執行 pn build:mac，以建立具有唯一版本號的建置版本。",
+    "schemaCompatibility": "工作區卡片與設定相容於狀態結構描述 {{schemaVersion}}。",
+    "signatureRequirement": "此建置版本必須具有與 Orca 相同的有效程式碼簽章，否則安裝會中止。",
+    "useButton": "使用本機建置版本"
+  },
   "mediaPreview": {
     "openDefault": "使用預設應用程式開啟",
     "openFailed": "無法使用預設應用程式開啟此檔案。",
@@ -20856,6 +20932,8 @@ const zhTW = {
     "help": "說明",
     "openWorktreePalette": "開啟 Worktree 面板",
     "paste": "貼上",
+    "quitAndStopAllSessions": "完全結束…",
+    "quitAndStopAllSessionsTooltip": "同時停止所有終端機工作階段，包括執行中的 Agent。一般的「結束」會讓它們繼續執行，以便 Orca 下次啟動時重新連接。",
     "quitApp": "結束 ${t}",
     "reload": "重新載入",
     "reportCrash": "回報當機…",
@@ -20867,12 +20945,43 @@ const zhTW = {
     "showStatusBar": "顯示狀態列",
     "showTasksButton": "顯示任務按鈕",
     "showTitlebarAppName": "顯示標題列應用程式名稱",
+    "toggleDevTools": "切換開發人員工具",
     "toggleLeftSidebar": "切換左側邊欄",
     "toggleRightSidebar": "切換右側邊欄",
     "view": "檢視",
     "window": "視窗",
     "zoomIn": "放大",
     "zoomOut": "縮小"
+  },
+  "native": {
+    "about": {
+      "gpu": {
+        "disabled": "已停用",
+        "enabled": "已啟用",
+        "safeMode": "已停用（安全圖形模式）",
+        "software": "軟體渲染",
+        "summary": "GPU 加速：{{status}}",
+        "unavailable": "無法使用",
+        "unknown": "不明（{{status}}）",
+        "unknownStatus": "無法取得狀態"
+      }
+    },
+    "dialog": {
+      "allFiles": "所有檔案",
+      "audio": "音訊",
+      "cookieFiles": "Cookie 檔案",
+      "dashboardTitle": "Orca Agent 儀表板",
+      "images": "圖片",
+      "importCookies": "匯入 Cookie",
+      "importPetBundle": "選擇 .codex-pet 套件",
+      "importWarpFolder": "匯入 Warp 主題資料夾",
+      "importWarpTheme": "匯入 Warp 主題",
+      "petImage": "寵物圖片",
+      "pickPet": "選擇寵物",
+      "repoIconImages": "存放庫圖示圖片",
+      "spaceTitle": "Orca Space Beta",
+      "warpThemeYaml": "Warp 主題 YAML"
+    }
   },
   "nativeMenu": {
     "about": "關於",
@@ -20922,7 +21031,32 @@ const zhTW = {
       "needsInput": "需要輸入",
       "stopped": "已停止",
       "working": "工作中"
-    }
+    },
+    "agentTool": {
+      "input": "工具輸入：{{input}}",
+      "using": "正在使用 {{tool}}",
+      "usingWithInput": "正在使用 {{tool}}：{{input}}"
+    },
+    "bell": {
+      "attentionRequested": "需要你處理",
+      "title": "{{worktree}} 中的提示音"
+    },
+    "permissionProbe": {
+      "body": "當 Agent 完成或終端機需要處理時，Orca 會提醒你。"
+    },
+    "startupRegistration": {
+      "body": "允許通知，讓 Orca 能在 Agent 完成或終端機需要處理時提醒你。",
+      "title": "Orca 已準備好通知你"
+    },
+    "taskComplete": {
+      "body": "程式設計 Agent 已完成工作。",
+      "title": "{{worktree}} 中的任務已完成"
+    },
+    "test": {
+      "body": "這是來自 Orca 的測試通知。",
+      "title": "Orca 通知已開啟"
+    },
+    "workspaceFallback": "工作區"
   },
   "onboarding": {
     "agentsHereRunInAnyFolder": "這裡的 Agent 可以在你選擇的任何資料夾中執行。指向服務上層的目錄，就能一次橫跨所有 repo 工作。",
@@ -21003,6 +21137,94 @@ const zhTW = {
   "osDocumentOpen": {
     "failed": "無法開啟檔案。"
   },
+  "profileState": {
+    "copyChoice": {
+      "archiveNote": "Orca 會在切換前封存兩份副本，然後重新啟動。",
+      "cause": "這通常發生在以較舊版本的 Orca 開啟此設定檔之後。",
+      "jsonOption": "JSON：包含在較舊版本中所做的變更。此版本在那之後儲存的變更將會捨棄。",
+      "lastSaved": "上次儲存於 {{time}}。",
+      "message": "此設定檔有兩份不一致的已儲存副本。",
+      "quitButton": "結束",
+      "sqliteOption": "SQLite：此版本 Orca 所儲存的內容。在較舊版本中所做的變更將會捨棄。",
+      "title": "選擇設定檔狀態",
+      "useJsonButton": "使用 JSON",
+      "useSqliteButton": "使用 SQLite（建議）"
+    },
+    "recoveryNotApplied": {
+      "message": "Orca 無法套用所選的設定檔狀態。",
+      "quitButton": "結束",
+      "reopenDetail": "重新開啟 Orca 以再次選擇。",
+      "title": "Orca 無法完成此設定檔的復原"
+    },
+    "repairChoice": {
+      "damagedCopyKept": "Orca 會在其資料資料夾中保留損毀檔案的副本，然後重新啟動。",
+      "message": "此設定檔的部分已儲存狀態已損毀。",
+      "newerProjectsRemoved": "在該備份之後新增的專案及其工作區詳細資料將從 Orca 中移除。磁碟上的檔案不會受到影響。",
+      "projectsForgotten": "Orca 會忘記你的專案及其工作區詳細資料。磁碟上的檔案不會受到影響。",
+      "quitButton": "結束",
+      "repairButton": "修復並重新啟動",
+      "restUnchanged": "其他所有內容都會維持現狀。",
+      "sectionRestored": "{{section}}：已從 {{time}} 儲存的備份還原。",
+      "sectionStartsEmpty": "{{section}}：沒有可讀取的備份，因此會從空白開始。",
+      "title": "修復設定檔"
+    },
+    "section": {
+      "automationHistory": "自動化記錄",
+      "automations": "自動化",
+      "folderWorkspaces": "資料夾工作區",
+      "onboarding": "入門引導進度",
+      "openTabs": "已開啟的分頁與終端機",
+      "other": "其他已儲存的應用程式狀態",
+      "projectGroups": "專案群組",
+      "projects": "專案",
+      "reviewComments": "審查留言",
+      "settings": "設定",
+      "sshHosts": "SSH 主機",
+      "windowLayout": "視窗版面",
+      "workspaceDetails": "工作區詳細資料"
+    },
+    "startupFailure": {
+      "authorityAmbiguous": "Orca 無法安全地選擇設定檔狀態的權威來源：{{detail}}",
+      "authorityBothPreserved": "較舊的建置版本可能已變更 JSON 檔案。兩份副本皆已保留，且都不會被自動選用。",
+      "authorityCopyFirst": "請先停止 Orca 並複製設定檔目錄，再選擇要保留哪一份狀態。",
+      "authorityInspect": "執行 `{{command}}` 以檢查保留的復原點。",
+      "authorityKeepJson": "若要保留目前的 JSON（包括較舊建置版本所做的編輯），請執行 `{{command}}`。這會封存兩份副本，且不會合併其內容。",
+      "authorityRestore": "請在選定要還原的狀態後，再使用 `{{backupCommand}}` 或 `{{revisionCommand}}`。",
+      "chooseRecoveryArtifact": "請停止 Orca，然後執行 `{{command}}` 並選擇一個確定正常的復原檔案。",
+      "legacyJsonPath": "舊版 JSON 路徑：{{path}}",
+      "newerSchema": "此設定檔是由較新版本的 Orca 所儲存。請使用該版本或更新的版本開啟。你的設定檔並未變更。",
+      "noneFound": "（找不到）",
+      "publicationKeepFiles": "請保留原始目錄及所有復原檔案。",
+      "publicationMoveData": "請先關閉 Orca 與 orcad，再檢查資料夾權限，或將完整的 Orca 資料目錄移至可寫入且支援硬連結的本機檔案系統，例如 APFS、NTFS 或 ext4。",
+      "publicationNeedsHardLinks": "此位置必須支援硬連結，且 Orca 需要建立硬連結的權限。",
+      "publicationUnavailable": "Orca 無法在 {{directory}} 中安全地發布設定檔狀態。",
+      "repairCommand": "請停止 Orca，然後執行 `{{command}}`，從備份中僅取代損毀的部分並保留其他所有內容。Orca 會保留損毀檔案的副本。",
+      "restoreCommands": "使用 `{{backupCommand}}` 還原 SQLite，或使用 `{{revisionCommand}}` 還原 JSON 匯出。",
+      "restoreWholeBackup": "若要改為還原整份備份，請執行 `{{exportsCommand}}`，然後執行 `{{rollbackCommand}}`。",
+      "retainedBackups": "保留的 SQLite 備份：",
+      "retainedExports": "保留的 JSON 匯出：",
+      "revisionConflict": "Orca 啟動期間，目前使用中的設定檔已變更。請關閉使用此設定檔的其他 Orca 行程，然後重新啟動 Orca。",
+      "sectionsDamaged": "此設定檔的部分已儲存狀態已損毀：{{sections}}。其他所有內容皆完好無缺。",
+      "sqlitePath": "SQLite 路徑：{{path}}",
+      "sqliteUnreadable": "由於 SQLite 狀態無法讀取，Orca 無法安全地開啟目前使用中的設定檔。",
+      "writerUnavailable": "Orca 無法啟動設定檔儲存功能。請重新啟動 Orca；如果問題持續發生，請修復或重新安裝此建置版本。"
+    },
+    "startupRecovery": {
+      "copyCommandButton": "複製復原命令",
+      "copyCommandDetail": "複製復原命令，並在 Orca 關閉後執行。",
+      "message": "Orca 無法安全地開啟此設定檔。",
+      "quitButton": "結束",
+      "quitDetail": "結束 Orca，並在重試前解決設定檔狀態的權威來源問題。",
+      "title": "無法開啟 Orca 設定檔狀態"
+    },
+    "writeFailure": {
+      "indeterminateDetail": "Orca 無法確認你最近的變更是否已儲存。在你重新啟動 Orca 之前，新的變更都不會儲存。",
+      "message": "Orca 已停止儲存此設定檔。",
+      "okButton": "確定",
+      "safeDetail": "在此之前儲存的變更都很安全。在你重新啟動 Orca 之前，新的變更都不會儲存。",
+      "title": "已停止儲存"
+    }
+  },
   "projectBoard": {
     "noColumnField": "此看板檢視沒有可用來分組的單選或迭代欄位，因此 Orca 改以清單列出項目。",
     "noField": "無 {{field}}"
@@ -21026,6 +21248,16 @@ const zhTW = {
   "quickOpen": {
     "moreMatchesAvailable": "可能還有更多相符項目。請調整搜尋以縮小結果範圍。",
     "recentValidationFailed": "無法檢查最近的檔案：{{error}}"
+  },
+  "quitAndStopAllSessions": {
+    "cancel": "取消",
+    "confirm": "停止工作階段並結束",
+    "detail": "Orca 會關閉每個終端機分頁並停止其工作階段（包括在終端機中執行的 Agent），然後結束。一般的「結束」會讓它們繼續執行，以便 Orca 下次啟動時重新連接。遠端主機上的終端機工作階段可能會在該處繼續執行。未儲存的終端機工作將會遺失，且已關閉的分頁在下次啟動時不會恢復。此動作無法復原。",
+    "message": "要停止所有終端機工作階段並結束 Orca 嗎？",
+    "ok": "確定",
+    "title": "完全結束",
+    "unavailableDetail": "沒有停止任何項目。請在終端機開啟後再試一次。如果終端機顯示它是在較新版本的 Orca 中開啟的，請先重新開啟它。如果終端機已經開啟，請結束並重新開啟 Orca，然後再試一次。",
+    "unavailableMessage": "Orca 目前無法停止所有終端機工作階段。"
   },
   "rendererRecovery": {
     "copyCommands": "複製命令",
@@ -21467,6 +21699,10 @@ const zhTW = {
     "saveFailed": "無法儲存預設集。請再試一次。",
     "search": "搜尋預設集…"
   },
+  "startupFailure": {
+    "finishFailed": "Orca 無法完成啟動：{{detail}}",
+    "title": "Orca 無法啟動"
+  },
   "tab": {
     "newAgentTab": "新增 {{agent}} 分頁"
   },
@@ -21630,7 +21866,9 @@ const zhTW = {
       "waitingAriaLabel": "更新正在等候其他 Orca 執行個體。按一下以展開。",
       "waitingLabel": "更新等候中",
       "windowLabel": "其他 Orca 視窗"
-    }
+    },
+    "wslMoveInstallHeld": "有專案正在移至其 WSL 主機。請在移動完成後再安裝更新。",
+    "wslMoveUndoInstallHeld": "有專案正從其 WSL 主機移回。請在完成後再安裝更新。"
   },
   "workspace": {
     "attachments": {
@@ -21730,7 +21968,8 @@ const zhTW = {
       "retry": "重新檢查",
       "review": "連同巢狀 Worktree 一起刪除…",
       "title": "要刪除工作區與巢狀 Worktree 嗎？"
-    }
+    },
+    "setupTerminalTitle": "初始設定"
   },
   "worktreeJumpPalette": {
     "filter": {
@@ -21811,21 +22050,27 @@ exports.featureTips = zhTW.featureTips;
 exports.fileExplorer = zhTW.fileExplorer;
 exports.fileSearch = zhTW.fileSearch;
 exports.githubChecks = zhTW.githubChecks;
+exports.gpuFallback = zhTW.gpuFallback;
+exports.installDirAcl = zhTW.installDirAcl;
 exports.jira = zhTW.jira;
 exports.keybinding = zhTW.keybinding;
 exports.keybindingGroup = zhTW.keybindingGroup;
+exports.localBuild = zhTW.localBuild;
 exports.mediaPreview = zhTW.mediaPreview;
 exports.menu = zhTW.menu;
+exports.native = zhTW.native;
 exports.nativeMenu = zhTW.nativeMenu;
 exports.notifications = zhTW.notifications;
 exports.onboarding = zhTW.onboarding;
 exports.optionLabel = zhTW.optionLabel;
 exports.osDocumentOpen = zhTW.osDocumentOpen;
+exports.profileState = zhTW.profileState;
 exports.projectBoard = zhTW.projectBoard;
 exports.projectBoardCard = zhTW.projectBoardCard;
 exports.projectField = zhTW.projectField;
 exports.projectViews = zhTW.projectViews;
 exports.quickOpen = zhTW.quickOpen;
+exports.quitAndStopAllSessions = zhTW.quitAndStopAllSessions;
 exports.rendererRecovery = zhTW.rendererRecovery;
 exports.runtimeRpc = zhTW.runtimeRpc;
 exports.scVariable = zhTW.scVariable;
@@ -21835,6 +22080,7 @@ exports.settings = zhTW.settings;
 exports.sidebar = zhTW.sidebar;
 exports.sourceControl = zhTW.sourceControl;
 exports.sparsePreset = zhTW.sparsePreset;
+exports.startupFailure = zhTW.startupFailure;
 exports.tab = zhTW.tab;
 exports.tabHoverCard = zhTW.tabHoverCard;
 exports.terminal = zhTW.terminal;

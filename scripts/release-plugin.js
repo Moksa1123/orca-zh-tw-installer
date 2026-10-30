@@ -33,12 +33,21 @@ const auditDir = fs.mkdtempSync(path.join(os.tmpdir(), 'orca-zh-tw-audit-'));
 try {
   execFileSync(process.execPath, [path.join(__dirname, 'audit-missing.js'), auditDir], { cwd: ROOT, stdio: 'inherit' });
 } catch {
-  console.error('\n❌ 目前的 Orca 還有字串沒翻譯，先補齊再發布（或確認 Orca 是要支援的版本）。');
-  process.exit(1);
+  // ALLOW_MISSING=1：明知還沒翻完也要發，例如 Orca 改版讓舊版語言包選不到時的救火版。
+  // 涵蓋率關卡（coverage.js）仍然照跑，不會放行選不到的語言包。
+  if (process.env.ALLOW_MISSING === '1') {
+    console.warn('\n⚠️ 還有字串沒翻譯，但 ALLOW_MISSING=1，照樣發布。');
+  } else {
+    console.error('\n❌ 目前的 Orca 還有字串沒翻譯，先補齊再發布（或確認 Orca 是要支援的版本）。');
+    console.error('   確定要先發（例如救火版），加上 ALLOW_MISSING=1。');
+    process.exit(1);
+  }
 }
 execFileSync(process.execPath, [path.join(__dirname, 'build-plugin.js'), path.join(auditDir, 'obsolete.json')], { cwd: ROOT, stdio: 'inherit' });
 // 再用目前 Orca 自己的驗證程式檢查一次，沒過就不發布
 execFileSync(process.execPath, [path.join(__dirname, 'validate-plugin.js')], { cwd: ROOT, stdio: 'inherit' });
+// 涵蓋率低於 80% 的語言包在 Orca 1.4.245 起選不到，發布前擋下
+execFileSync(process.execPath, [path.join(__dirname, 'coverage.js')], { cwd: ROOT, stdio: 'inherit' });
 
 // 用 git 底層指令直接組 commit：暫時的 index 只放外掛檔案，不建 worktree、
 // 不動任何工作目錄。

@@ -13,7 +13,7 @@
 [![license](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](LICENSE)
 [![stars](https://img.shields.io/github/stars/Moksa1123/orca-zh-tw-installer?style=flat-square)](https://star-history.com/#Moksa1123/orca-zh-tw-installer&Date)
 
-[安裝](#安裝orca-14206-以上) | [支援版本](#支援版本) | [功能特色](#功能特色)
+[安裝](#安裝orca-14245-以上) | [支援版本](#支援版本) | [功能特色](#功能特色)
 
 </div>
 
@@ -29,7 +29,7 @@
 
 ---
 
-## 安裝（Orca 1.4.206 以上）
+## 安裝（Orca 1.4.245 以上）
 
 不需要 Node.js，也不必先關閉 Orca。這個外掛只含語言包，沒有可執行的程式碼。
 
@@ -41,7 +41,7 @@
    - **Git URL**：`https://github.com/Moksa1123/orca-zh-tw-installer`
    - **Git ref**：`plugin`
 3. 按 **Add source** → **Done**，市集清單會出現「moksa.zh-tw」→ Install，檢視權限後啟用
-4. **Settings → Appearance → Language** → 選 `zh-TW — moksa.zh-tw`
+4. **Settings → Appearance → Language** → 選「**繁體中文（台灣）**」
 
 之後要更新：先在 Plugins 頁面市集區塊按 **重新整理**（Orca 檢查更新時只看快取的索引，
 不會自己重新抓），再按這個外掛的 **Check for update**。
@@ -51,7 +51,7 @@
 Settings → Plugins → Install → **Git URL**，貼上：
 
 ```
-https://github.com/Moksa1123/orca-zh-tw-installer#plugin-v3.0.6
+https://github.com/Moksa1123/orca-zh-tw-installer#plugin-v3.1.0
 ```
 
 網址結尾是版本標記，Orca 會固定安裝那一版。這種方式**無法一鍵更新**，
@@ -69,14 +69,27 @@ npx orca-zh-tw-installer@latest --restore
 
 Orca 自動更新過的話，官方版本其實已經蓋掉舊補丁了，這步可以略過。
 
+### 和 Orca 內建的「繁體中文」有什麼不同？
+
+Orca 1.4.245 起內建繁體中文，是由官方簡體中文用 OpenCC 自動轉換而來。
+本語言包是逐句人工校對的台灣版，差別主要在：
+
+| | Orca 內建 | 本語言包 |
+|---|---|---|
+| 稱呼 | 您 | 你 |
+| Agent／Worktree | 代理程式／工作樹 | 保留英文（開發者慣用） |
+| 用語一致性 | 沿用簡體原稿，例如「休眠」「睡眠」混用 | 術語鎖定表統一 |
+
+兩者可以並存，在語言選單裡擇一使用。
+
 ---
 
 ## 支援版本
 
 | 項目 | 版本 |
 |---|---|
-| **語系包** | v3.0.6 |
-| **外掛安裝，已驗證** | Orca 1.4.206、1.4.220、1.4.237 |
+| **語系包** | v3.1.0 |
+| **外掛安裝，已驗證** | Orca 1.4.245（3.1.0 起最低需求；更舊的 Orca 請用 3.0.6） |
 | **npx 安裝器（舊方式），已測試** | Orca 1.4.161 ～ 1.4.180 |
 
 驗證方式：以 Orca 內建的 es／ja／ko／fr 語系為基準比對翻譯鍵，確認沒有缺漏；
