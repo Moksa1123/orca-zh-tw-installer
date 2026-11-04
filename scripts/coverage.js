@@ -39,11 +39,33 @@ const paths = (obj, prefix = '', out = new Set()) => {
   }
   return out;
 };
-const english = paths(enRoot);
-const pack = paths(JSON.parse(fs.readFileSync(PACK, 'utf8')));
-let hit = 0;
-for (const p of pack) if (english.has(p)) hit++;
-const pct = Math.floor(hit / english.size * 100);
+const packRoot = JSON.parse(fs.readFileSync(PACK, 'utf8'));
+
+// 優先用 Orca 自己的涵蓋率函式：1.4.247 起英文基準會先排除受保護的鍵
+// （translatableCatalogPaths），自己重算容易跟不上。舊版沒有這個模組時才退回下面的算法。
+let orcaCoverage = null;
+const covFile = files.find(f => /^out\/shared\/plugins\/(?:.*\/)?plugin-language-pack-coverage\.js$/.test(f));
+if (covFile) {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'orca-coverage-'));
+  for (const f of files.filter(f => /^out\/shared\/.*\.(js|json)$/.test(f))) {
+    const dst = path.join(tmp, f);
+    fs.mkdirSync(path.dirname(dst), { recursive: true });
+    fs.writeFileSync(dst, read(f));
+  }
+  orcaCoverage = require(path.join(tmp, covFile));
+  fs.rmSync(tmp, { recursive: true, force: true });
+}
+
+let english, hit, pct;
+if (orcaCoverage) {
+  english = orcaCoverage.translatableCatalogPaths(enRoot);
+  pct = orcaCoverage.pluginLanguagePackCoverage(packRoot, english);
+  hit = [...orcaCoverage.translatableCatalogPaths(packRoot)].filter(p => english.has(p)).length;
+} else {
+  english = paths(enRoot);
+  hit = [...paths(packRoot)].filter(p => english.has(p)).length;
+  pct = Math.floor(hit / english.size * 100);
+}
 console.log(`Orca ${version}：英文基準 ${english.size} 句，語言包命中 ${hit} 句 → 涵蓋率 ${pct}%`
   + `（${pct >= 80 ? '✅ 可選為介面語言' : '❌ 低於 80%，語言選單選不到'}）`);
 process.exitCode = pct >= 80 ? 0 : 1;
