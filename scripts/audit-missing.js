@@ -43,15 +43,20 @@ const flatten = (obj, out = {}, p = '') => {
   }
   return out;
 };
+// 1.4.257 起 main chunk 開頭會 require("./rolldown-runtime-*.js")，沙箱要能載入同層 chunk
+const loadChunk = file => {
+  const sb = { exports: {} }; sb.module = { exports: sb.exports };
+  sb.require = rel => loadChunk(path.posix.join(path.posix.dirname(file), rel));
+  vm.runInNewContext(read(file), sb, { timeout: 10000 });
+  return sb.module.exports;
+};
 const refs = {};
 for (const lang of LANGS) {
   const flat = {};
   const esc = lang.replace(/-/g, '\\-');
   const mainFile = files.find(x => new RegExp(`^out/main/chunks/${esc}-[\\w-]+\\.js$`).test(x));
   if (mainFile) {
-    const sb = { exports: {} }; sb.module = { exports: sb.exports };
-    vm.runInNewContext(read(mainFile), sb, { timeout: 10000 });
-    const m = sb.module.exports;
+    const m = loadChunk(mainFile);
     flatten(m.default && typeof m.default === 'object' ? m.default : m, flat);
   }
   const rendererFile = files.find(x => new RegExp(`^out/renderer/assets/${esc}-[\\w-]+\\.json$`).test(x));

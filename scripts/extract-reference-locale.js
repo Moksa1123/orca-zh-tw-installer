@@ -43,11 +43,15 @@ const flatten = (obj, prefix) => {
 // 不再是一行一個 `const 名稱 = {...}`，舊的正則解析會抓到 0 條。
 // 它本身是合法的 CommonJS 資料模組，所以直接在 vm 沙箱裡執行，
 // 只給它一個空的 exports——沒有 require、沒有 process，碰不到檔案系統或網路。
+// 1.4.257 起 chunk 開頭會 require("./rolldown-runtime-*.js")，所以 require 只放行同層 chunk。
 const vm = require('vm');
-const sandbox = { exports: {} };
-sandbox.module = { exports: sandbox.exports };
-vm.runInNewContext(src, sandbox, { timeout: 10000 });
-const mod = sandbox.module.exports.default ? sandbox.module.exports : sandbox.exports;
+const loadChunk = (f, code) => {
+  const sb = { exports: {} }; sb.module = { exports: sb.exports };
+  sb.require = rel => { const p = path.posix.join(path.posix.dirname(f), rel); return loadChunk(p, get(p)); };
+  vm.runInNewContext(code, sb, { timeout: 10000 });
+  return sb.module.exports;
+};
+const mod = loadChunk(file, src);
 const root = mod.default && typeof mod.default === 'object' ? mod.default : mod;
 flatten(root, '');
 const count = Object.keys(root).length;

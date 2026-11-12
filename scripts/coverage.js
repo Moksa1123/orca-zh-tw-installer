@@ -27,9 +27,15 @@ const version = JSON.parse(read('package.json')).version;
 
 const enFile = files.find(f => /^out\/main\/chunks\/en-[\w-]+\.js$/.test(f));
 if (!enFile) { console.error('❌ 找不到 Orca 英文基準 out/main/chunks/en-*.js'); process.exit(2); }
-const sb = { exports: {} }; sb.module = { exports: sb.exports };
-vm.runInNewContext(read(enFile), sb, { timeout: 10000 });
-const enRoot = sb.module.exports.default || sb.module.exports;
+// 1.4.257 起 chunk 開頭會 require("./rolldown-runtime-*.js")，沙箱要能載入同層 chunk
+const loadChunk = file => {
+  const sb = { exports: {} }; sb.module = { exports: sb.exports };
+  sb.require = rel => loadChunk(path.posix.join(path.posix.dirname(file), rel));
+  vm.runInNewContext(read(file), sb, { timeout: 10000 });
+  return sb.module.exports;
+};
+const enExports = loadChunk(enFile);
+const enRoot = enExports.default || enExports;
 
 const paths = (obj, prefix = '', out = new Set()) => {
   for (const [k, v] of Object.entries(obj)) {
