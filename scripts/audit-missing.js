@@ -43,15 +43,20 @@ const flatten = (obj, out = {}, p = '') => {
   }
   return out;
 };
+// 1.4.257 起 main chunk 開頭會 require("./rolldown-runtime-*.js")，沙箱要能載入同層 chunk
+const loadChunk = file => {
+  const sb = { exports: {} }; sb.module = { exports: sb.exports };
+  sb.require = rel => loadChunk(path.posix.join(path.posix.dirname(file), rel));
+  vm.runInNewContext(read(file), sb, { timeout: 10000 });
+  return sb.module.exports;
+};
 const refs = {};
 for (const lang of LANGS) {
   const flat = {};
   const esc = lang.replace(/-/g, '\\-');
   const mainFile = files.find(x => new RegExp(`^out/main/chunks/${esc}-[\\w-]+\\.js$`).test(x));
   if (mainFile) {
-    const sb = { exports: {} }; sb.module = { exports: sb.exports };
-    vm.runInNewContext(read(mainFile), sb, { timeout: 10000 });
-    const m = sb.module.exports;
+    const m = loadChunk(mainFile);
     flatten(m.default && typeof m.default === 'object' ? m.default : m, flat);
   }
   const rendererFile = files.find(x => new RegExp(`^out/renderer/assets/${esc}-[\\w-]+\\.json$`).test(x));
@@ -94,7 +99,9 @@ let protectedKeys = [];
   const chrome = files.find(f => /^out\/shared\/plugins\/(?:.*\/)?plugin-translatable-chrome\.js$/.test(f));
   if (art && chrome) {
     const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'orca-protected-'));
-    for (const f of [art, chrome]) {
+    // 1.4.247 起 artifact 會 require 同層以外的模組與 JSON（../languages/plugin-protected-copy），
+    // 只複製這兩個檔案會載入失敗，所以整個 out/shared 一起複製
+    for (const f of files.filter(f => /^out\/shared\/.*\.(js|json)$/.test(f))) {
       const dst = path.join(tmp, f);
       fs.mkdirSync(path.dirname(dst), { recursive: true });
       fs.writeFileSync(dst, read(f));

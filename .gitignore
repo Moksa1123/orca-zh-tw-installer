@@ -4,3 +4,4 @@ node_modules
 .ref-*.json
 orca-plugin/
 TRANSLATION-PLAN.md
+.upstream-diff.json

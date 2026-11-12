@@ -1,0 +1,53 @@
+# 本專案術語表：scripts/sweep-terms.js 依 tier A 規則把 forbidden 換成 zh_tw。
+# 用法： LOCK_CSV=terms/lock.csv npm run lint:terms        （dry-run）
+#        LOCK_CSV=terms/lock.csv node scripts/sweep-terms.js --write
+# forbidden 多個用 | 分隔；re: 開頭為自訂正則。欄位內不可含逗號。
+# 只收「字典裡已有明確主流譯法」的詞；有正當他義的詞（文件、項目、對象、程序、審查／檢視）不收。
+tier,en,zh_tw,forbidden
+A,account,帳號,帳戶|賬號|賬戶
+A,script,指令碼,腳本
+A,render,渲染,算繪
+A,keychain,鑰匙圈,金鑰圈
+A,user,使用者,re:用戶(?!端)
+A,default,預設,默認|缺省
+A,message,訊息,信息
+A,settings,設定,設置
+A,network,網路,網絡
+A,server,伺服器,服務器
+A,software,軟體,軟件
+A,video,影片,視頻
+A,link,連結,鏈接
+A,menu,選單,菜單
+A,log in,登入,登錄
+A,screen,螢幕,屏幕
+A,clipboard,剪貼簿,剪貼板
+A,paste,貼上,粘貼
+A,refresh,重新整理,刷新
+A,cache,快取,緩存
+A,memory,記憶體,內存
+A,thread,執行緒,線程
+A,process,處理程序,進程
+A,run,執行,運行
+A,support,支援,支持
+A,real-time,即時,實時
+A,character,字元,re:字符(?!合)
+A,function,函式,函數
+A,variable,變數,變量
+A,debug,偵錯,調試
+A,port,連接埠,端口|連線埠
+A,you,你,您
+A,folder,資料夾,文件夾
+A,search,搜尋,搜索
+A,repository,存放庫,倉庫|儲存庫
+A,optimize,最佳化,優化
+A,icon,圖示,圖標
+A,token,權杖,令牌
+A,permission,權限,許可權
+A,import,匯入,導入
+A,export,匯出,導出
+A,interface,介面,界面
+A,quality,品質,質量
+A,module,模組,模塊
+A,plugin,外掛,插件
+A,extension,擴充功能,擴展
+A,this (machine),這台,這臺
